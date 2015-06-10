@@ -18,6 +18,7 @@ public class Timer extends JPanel{// we need to extend JPanel in order to call p
         time = "0:0.0";
         images = new Images();
         actions = new Actions();
+        scrambler = new Scrambler();
         randomScramble = scrambler.GenerateRandomScramble();
     }
     public void spacePressed(){
