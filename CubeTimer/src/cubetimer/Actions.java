@@ -1,5 +1,4 @@
 package cubetimer;
-//baahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 import javax.swing.*;
 
 import java.awt.*;
