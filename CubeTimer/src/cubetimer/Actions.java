@@ -17,7 +17,7 @@ public class Actions {
 		timeMinutes = 0;
 	}
 
-	public String StartStopTimer() {
+	public String startStopTimer() {
 		if (running == 0) {
 			running = 1;
 			start = System.currentTimeMillis();
@@ -37,7 +37,7 @@ public class Actions {
 		return Minutes + ":" + Seconds;
 	}
 
-	public String GetTime() {
+	public String getTime() {
 		end = System.currentTimeMillis();
 		timeSeconds = (end - start) / 1000.0;
 		while (timeSeconds >= 60) {
