@@ -3,11 +3,11 @@ package cubetimer;
 import java.util.Random;
 
 public class Scrambler {
-	String randomScramble;
-	String randomMove;
-	String lastFaceMoved;
-	boolean faceMoving;
-	Random random;
+	private String randomScramble;
+	private String randomMove;
+	private String lastFaceMoved;
+	private boolean faceMoving;
+	private Random random;
 
 	public Scrambler() {
 		random = new Random();
