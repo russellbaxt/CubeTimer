@@ -3,11 +3,11 @@ package cubetimer;
 import java.util.Random;
 
 public class Scrambler {
-	String randomScramble;
-	String randomMove;
-	String lastFaceMoved;
-	boolean faceMoving;
-	Random random;
+	private String randomScramble;
+	private String randomMove;
+	private String lastFaceMoved;
+	private boolean faceMoving;
+	private Random random;
 
 	public Scrambler() {
 		random = new Random();
@@ -18,59 +18,59 @@ public class Scrambler {
 		for (int i = 0; i < 20; i++) {
 			randomNumber = random.nextInt(6);
 			if (randomNumber == 0) {
-				if (lastFaceMoved == "R") {
+				if (lastFaceMoved == "RL") {
 					i = i - 1;
 					faceMoving = false;
 				} else {
 					randomMove = "R";
-					lastFaceMoved = "R";
+					lastFaceMoved = "RL";
 					faceMoving = true;
 					
 				}
 
 			} else if (randomNumber == 1) {
-				if (lastFaceMoved == "L") {
+				if (lastFaceMoved == "RL") {
 					i = i - 1;
 					faceMoving = false;
 				} else {
 					randomMove = "L";
-					lastFaceMoved = "L";
+					lastFaceMoved = "RL";
 					faceMoving = true;
 				}
 			} else if (randomNumber == 2) {
-				if (lastFaceMoved == "U") {
+				if (lastFaceMoved == "UD") {
 					i = i - 1;
 					faceMoving = false;
 				} else {
 					randomMove = "U";
-					lastFaceMoved = "U";
+					lastFaceMoved = "UD";
 					faceMoving = true;
 				}
 			} else if (randomNumber == 3) {
-				if (lastFaceMoved == "D") {
+				if (lastFaceMoved == "UD") {
 					i = i - 1;
 					faceMoving = false;
 				} else {
 					randomMove = "D";
-					lastFaceMoved = "D";
+					lastFaceMoved = "UD";
 					faceMoving = true;
 				}
 			} else if (randomNumber == 4) {
-				if (lastFaceMoved == "F") {
+				if (lastFaceMoved == "FB") {
 					i = i - 1;
 					faceMoving = false;
 				} else {
 					randomMove = "F";
-					lastFaceMoved = "F";
+					lastFaceMoved = "FB";
 					faceMoving = true;
 				}
 			} else if (randomNumber == 5) {
-				if (lastFaceMoved == "B") {
+				if (lastFaceMoved == "FB") {
 					i = i - 1;
 					faceMoving = false;
 				} else {
 					randomMove = "B";
-					lastFaceMoved = "B";
+					lastFaceMoved = "FB";
 					faceMoving = true;
 				}
 			}
