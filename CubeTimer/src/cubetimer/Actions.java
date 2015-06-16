@@ -16,25 +16,20 @@ public class Actions {
 		timeSeconds = 0;
 		timeMinutes = 0;
 	}
-
-	public String startStopTimer() {
-		if (running == false) {
-			running = true;
-			start = System.currentTimeMillis();
-			timeMinutes = 0;
-			timeSeconds = 0;
-		} else {
-			running = false;
-			end = System.currentTimeMillis();
-			timeSeconds = (end - start) / 1000.0;
-		}
-		while (timeSeconds >= 60) {
+	public String startTimer(){
+		start = System.currentTimeMillis();
+		return "0:0.0";
+	}
+	public String stopTimer(){
+		end = System.currentTimeMillis();
+		timeSeconds = (end - start) / 1000.0;
+		while (timeSeconds >= 60){
 			timeMinutes++;
 			timeSeconds = timeSeconds - 60;
 		}
-		String Minutes = Integer.toString(timeMinutes);
-		String Seconds = Double.toString(timeSeconds);
-		return Minutes + ":" + Seconds;
+		String minutes = Integer.toString(timeMinutes);
+		String seconds = Double.toString(timeSeconds);
+		return minutes + ":" + seconds;
 	}
 
 	public String getTime() {
