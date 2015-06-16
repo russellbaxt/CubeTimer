@@ -12,7 +12,6 @@ public class Actions {
 	public boolean running;
 
 	public Actions() {
-		running = false;
 		timeSeconds = 0;
 		timeMinutes = 0;
 	}
@@ -20,17 +19,17 @@ public class Actions {
 		start = System.currentTimeMillis();
 		return "0:0.0";
 	}
-	public String stopTimer(){
-		end = System.currentTimeMillis();
-		timeSeconds = (end - start) / 1000.0;
-		while (timeSeconds >= 60){
-			timeMinutes++;
-			timeSeconds = timeSeconds - 60;
-		}
-		String minutes = Integer.toString(timeMinutes);
-		String seconds = Double.toString(timeSeconds);
-		return minutes + ":" + seconds;
-	}
+//	public String stopTimer(){
+//		end = System.currentTimeMillis();
+//		timeSeconds = (end - start) / 1000.0;
+//		while (timeSeconds >= 60){
+//			timeMinutes++;
+//			timeSeconds = timeSeconds - 60;
+//		}
+//		String minutes = Integer.toString(timeMinutes);
+//		String seconds = Double.toString(timeSeconds);
+//		return minutes + ":" + seconds;
+//	}
 
 	public String getTime() {
 		end = System.currentTimeMillis();

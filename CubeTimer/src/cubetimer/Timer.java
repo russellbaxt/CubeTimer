@@ -38,8 +38,6 @@ public class Timer extends JPanel{
     }
     public void updateCountdownTime(){
     	countdownEnd = (double) System.currentTimeMillis()/1000.0;
-//    	System.out.println(countdownEnd + "  the end");
-//    	System.out.println(countdownStart + "  the start");
     	if (countdownEnd - countdownStart < 15){
     		int timeInspected = (int) (countdownEnd - countdownStart);
     		String timeLeftOfInspection = Integer.toString(15 - timeInspected);
@@ -51,58 +49,6 @@ public class Timer extends JPanel{
     		time = actions.startTimer();
     		countdownRunning = false;
     	}
-		
-    	
-//    	if (countdownEnd - countdownStart < 1){
-//			time = "15";
-//		}
-//		else if (countdownEnd - countdownStart < 2){
-//			time = "14";
-//		}
-//		else if (countdownEnd - countdownStart < 3){
-//			time = "13";
-//		}
-//		else if (countdownEnd - countdownStart < 4){
-//			time = "12";
-//		}
-//		else if (countdownEnd - countdownStart < 5){
-//			time = "11";
-//		}
-//		else if (countdownEnd - countdownStart < 6){
-//			time = "10";
-//		}
-//		else if (countdownEnd - countdownStart < 7){
-//			time = "9";
-//		}
-//		else if (countdownEnd - countdownStart < 8){
-//			time = "8";
-//		}
-//		else if (countdownEnd - countdownStart < 9){
-//			time = "7";
-//		}
-//		else if (countdownEnd - countdownStart < 10){
-//			time = "6";
-//		}
-//		else if (countdownEnd - countdownStart < 11){
-//			time = "5";
-//		}
-//		else if (countdownEnd - countdownStart < 12){
-//			time = "4";
-//		}
-//		else if (countdownEnd - countdownStart < 13){
-//			time = "3";
-//		}
-//		else if (countdownEnd - countdownStart < 14){
-//			time = "2";
-//		}
-//		else if (countdownEnd - countdownStart < 15){
-//			time = "1";
-//		}
-//		else{
-//			running = true;
-//			time = actions.startTimer();
-//			countdownRunning = false;
-//		}
 		repaint();
     }
     public void keepTime(){
@@ -125,7 +71,7 @@ public class Timer extends JPanel{
         	}
         	else{
         		running = false;
-        		time = actions.stopTimer();
+        		time = actions.getTime();
         	}
         }
         if (countdownRunning){
