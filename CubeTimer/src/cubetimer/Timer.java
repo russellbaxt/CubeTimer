@@ -20,6 +20,7 @@ public class Timer extends JPanel{
     private boolean running;
     private boolean ignoreNextRelease;
     private boolean spaceReleased;
+    private boolean greenText;
      
     public Timer(){
     	running = false;
@@ -62,17 +63,19 @@ public class Timer extends JPanel{
         }
         if (spacePressed){
         	spacePressed = false;
-        	System.out.println("SpacePressed");
         	if(running){
             	randomScramble = scrambler.GenerateRandomScramble();
         		running = false;
         		time = actions.getTime();
         		ignoreNextRelease = true;
         	}
+        	else{
+        		greenText = true;
+        	}
         }
         if(spaceReleased){
         	spaceReleased = false;
-        	System.out.println("SpaceReleaced");
+        	greenText = false;
         	if(ignoreNextRelease){
         		ignoreNextRelease = false;
         	}
@@ -99,8 +102,8 @@ public class Timer extends JPanel{
   //      System.out.println("called paint component");
         super.paintComponents(g);
         images.drawBackGround(Color.WHITE, g);
-        images.typeString(time, 300, 400, 60, g);
-        images.typeString(randomScramble,0,200,30,g);
+        images.typeString(time, 300, 400, 60, greenText, g);
+        images.typeString(randomScramble,0,200,30, false, g);
     }
  
 }
