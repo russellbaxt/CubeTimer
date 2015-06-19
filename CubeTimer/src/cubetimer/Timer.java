@@ -18,6 +18,8 @@ public class Timer extends JPanel{
     private double countdownEnd;
     private boolean spacePressed;
     private boolean running;
+    private boolean ignoreNextRelease;
+    private boolean spaceReleased;
      
     public Timer(){
     	running = false;
@@ -30,6 +32,9 @@ public class Timer extends JPanel{
     }
     public void spacePressed(){
     	spacePressed = true;
+    }
+    public void spaceReleased(){
+    	spaceReleased = true;
     }
     public void startCountDown(){
     	countdownRunning = true;
@@ -58,20 +63,31 @@ public class Timer extends JPanel{
         if (spacePressed){
         	spacePressed = false;
         	System.out.println("SpacePressed");
-        	randomScramble = scrambler.GenerateRandomScramble();
-        	if(!running){
-        		if (countdownRunning){
-        			countdownRunning = false;
-        			running = true;
-        			time = actions.startTimer();
-        		}
-        		else{
-        			startCountDown();
-        		}
-        	}
-        	else{
+        	if(running){
+            	randomScramble = scrambler.GenerateRandomScramble();
         		running = false;
         		time = actions.getTime();
+        		ignoreNextRelease = true;
+        	}
+        }
+        if(spaceReleased){
+        	spaceReleased = false;
+        	System.out.println("SpaceReleaced");
+        	if(ignoreNextRelease){
+        		ignoreNextRelease = false;
+        	}
+        	else{
+        		if(!running){
+                	randomScramble = scrambler.GenerateRandomScramble();
+        			if (countdownRunning){
+        				countdownRunning = false;
+        				running = true;
+        				time = actions.startTimer();
+        			}
+        			else{
+        				startCountDown();
+        			}
+        		}
         	}
         }
         if (countdownRunning){
