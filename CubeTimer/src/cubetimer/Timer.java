@@ -81,7 +81,7 @@ public class Timer extends JPanel{
         	}
         	else{
         		if(!running){
-                	randomScramble = scrambler.GenerateRandomScramble();
+                	randomScramble = "";
         			if (countdownRunning){
         				countdownRunning = false;
         				running = true;
