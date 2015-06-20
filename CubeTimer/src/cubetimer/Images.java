@@ -1,16 +1,21 @@
 
 package cubetimer;
 import javax.swing.*;
- 
+
 import java.awt.*;
 public class Images {
     public Images (){
     }
  
-    public void typeString(String string, int x, int y,int fontSize,Graphics g){
+    public void typeString(String string, int x, int y,int fontSize, boolean green, Graphics g){
         Font font = new Font("Arial", Font.PLAIN,fontSize);
         g.setFont(font);
-        g.setColor(Color.BLACK);
+        if(green){
+        	g.setColor(Color.GREEN);
+        }
+        else{
+        	g.setColor(Color.BLACK);
+        }
         g.drawString(string,x,y);
  
  

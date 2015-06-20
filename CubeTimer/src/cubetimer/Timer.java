@@ -18,6 +18,9 @@ public class Timer extends JPanel{
     private double countdownEnd;
     private boolean spacePressed;
     private boolean running;
+    private boolean ignoreNextRelease;
+    private boolean spaceReleased;
+    private boolean greenText;
      
     public Timer(){
     	running = false;
@@ -30,6 +33,9 @@ public class Timer extends JPanel{
     }
     public void spacePressed(){
     	spacePressed = true;
+    }
+    public void spaceReleased(){
+    	spaceReleased = true;
     }
     public void startCountDown(){
     	countdownRunning = true;
@@ -45,9 +51,10 @@ public class Timer extends JPanel{
     		
     	}
     	else{
-    		running = true;
-    		time = actions.startTimer();
+    		running = false;
+    		time = "DNF";
     		countdownRunning = false;
+    		randomScramble = scrambler.GenerateRandomScramble();
     	}
 		repaint();
     }
@@ -57,21 +64,36 @@ public class Timer extends JPanel{
         }
         if (spacePressed){
         	spacePressed = false;
-        	System.out.println("SpacePressed");
-        	randomScramble = scrambler.GenerateRandomScramble();
-        	if(!running){
-        		if (countdownRunning){
-        			countdownRunning = false;
-        			running = true;
-        			time = actions.startTimer();
-        		}
-        		else{
-        			startCountDown();
-        		}
-        	}
-        	else{
+        	if(running){
+            	randomScramble = scrambler.GenerateRandomScramble();
         		running = false;
         		time = actions.getTime();
+        		ignoreNextRelease = true;
+        	}
+        	else{
+        		if(!ignoreNextRelease){
+            		greenText = true;
+        		}
+        	}
+        }
+        if(spaceReleased){
+        	spaceReleased = false;
+        	greenText = false;
+        	if(ignoreNextRelease){
+        		ignoreNextRelease = false;
+        	}
+        	else{
+        		if(!running){
+                	randomScramble = "";
+        			if (countdownRunning){
+        				countdownRunning = false;
+        				running = true;
+        				time = actions.startTimer();
+        			}
+        			else{
+        				startCountDown();
+        			}
+        		}
         	}
         }
         if (countdownRunning){
@@ -83,8 +105,8 @@ public class Timer extends JPanel{
   //      System.out.println("called paint component");
         super.paintComponents(g);
         images.drawBackGround(Color.WHITE, g);
-        images.typeString(time, 300, 400, 60, g);
-        images.typeString(randomScramble,0,200,30,g);
+        images.typeString(time, 300, 400, 60, greenText, g);
+        images.typeString(randomScramble,0,200,30, false, g);
     }
  
 }

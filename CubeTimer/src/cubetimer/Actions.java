@@ -22,13 +22,14 @@ public class Actions {
 
 	public String getTime() {
 		end = System.currentTimeMillis();
-		timeSeconds = (end - start) / 1000.0;
+		timeSeconds =    (end - start) / 1000.0;
+		timeMinutes = 0;
 		while (timeSeconds >= 60) {
 			timeMinutes++;
 			timeSeconds = timeSeconds - 60;
 		}
+		String Seconds = String.format("%.3f", timeSeconds);
 		String Minutes = Integer.toString(timeMinutes);
-		String Seconds = Double.toString(timeSeconds);
 		return Minutes + ":" + Seconds;
 	}
 }
