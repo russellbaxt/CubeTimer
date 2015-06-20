@@ -108,8 +108,8 @@ public class Timer extends JPanel{
     public void paintComponent (Graphics g){
         super.paintComponents(g);
         images.drawBackGround(Color.WHITE, screenWidth, screenHeight, g);
-        images.typeString(time, screenWidth/2 - 100, screenHeight/2, 60, greenText, g);
-        images.typeString(randomScramble,0, screenHeight/4,30, false, g);
+        images.typeString(time, screenWidth/2 - 100, screenHeight/2, screenWidth/14, greenText, g);
+        images.typeString(randomScramble, 0, screenHeight/4, screenWidth/28, false, g);
     }
  
 }
