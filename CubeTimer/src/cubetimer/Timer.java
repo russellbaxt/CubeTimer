@@ -30,7 +30,7 @@ public class Timer extends JPanel{
         images = new Images();
         actions = new Actions();
         scrambler = new Scrambler();
-        randomScramble = scrambler.GenerateRandomScramble();
+        randomScramble = scrambler.random3x3Scramble(20);
         countdownRunning = false;
     }
     public void spacePressed(){
@@ -56,7 +56,7 @@ public class Timer extends JPanel{
     		running = false;
     		time = "DNF";
     		countdownRunning = false;
-    		randomScramble = scrambler.GenerateRandomScramble();
+    		randomScramble = "";
     	}
 		repaint();
     }
@@ -69,7 +69,7 @@ public class Timer extends JPanel{
         if (spacePressed){
         	spacePressed = false;
         	if(running){
-            	randomScramble = scrambler.GenerateRandomScramble();
+            	randomScramble = scrambler.random3x3Scramble(20);
         		running = false;
         		time = actions.getTime();
         		ignoreNextRelease = true;
