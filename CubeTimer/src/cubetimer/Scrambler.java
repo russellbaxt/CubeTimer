@@ -24,7 +24,7 @@ public class Scrambler {
 	public String intTo2x2Turn(int face,int symbol){
 		String faces = "RUF";
 		String symbols = " '2";
-		return "" + faces.charAt(face) + faces.charAt(symbol);
+		return "" + faces.charAt(face) + symbols.charAt(symbol);
 	}
 	public String random3x3Scramble(int scrambleLength){
 		for (int i = 0; i<scrambleLength; i++){
@@ -66,5 +66,13 @@ public class Scrambler {
 			}
 		}
 		return randomScramble;
+	}
+	public String randomCorrectScramble(ScrambleType scrambleType, int scrambleSize){
+		if(scrambleType == ScrambleType.twoLayeredCube){
+			return random2x2Scramble(scrambleSize);
+		}
+		else{
+			return random3x3Scramble(scrambleSize);
+		}
 	}
 }
