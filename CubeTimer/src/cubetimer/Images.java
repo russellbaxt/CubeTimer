@@ -20,11 +20,11 @@ public class Images {
  
  
     }
-    public void typeScrambleType(ScrambleType scrambleType, int fontSize, Graphics g){
+    public void typeScrambleType(ScrambleType scrambleType, int x, int y, int fontSize, Graphics g){
     	Font font = new Font("Arial", Font.PLAIN,fontSize);
     	g.setFont(font);
     	g.setColor(Color.BLACK);
-    	g.drawString(scrambleType.toString(), 10, 20);
+    	g.drawString(scrambleType.toString(), x, y);
     }
     public void drawBackGround(Color color, int screenWidth, int screenHeight, Graphics g){
         g.setColor(color);

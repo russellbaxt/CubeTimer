@@ -10,6 +10,8 @@ public class KeyBindings extends JComponent{
     private SpaceReleasedAction spaceReleasedAction;
     private TwoKeyAction twoAction;
     private ThreeKeyAction threeAction;
+    private RightArrowKeyAction rightAction;
+    private LeftArrowKeyAction leftAction;
      
     public KeyBindings (Timer timerIn){
         timer = timerIn;
@@ -17,6 +19,9 @@ public class KeyBindings extends JComponent{
         spaceReleasedAction = new SpaceReleasedAction(timer);
         twoAction = new TwoKeyAction(timer);
         threeAction = new ThreeKeyAction(timer);
+        leftAction = new LeftArrowKeyAction(timer);
+        rightAction = new RightArrowKeyAction(timer);
+        
         this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "SpacePressed");
         this.getActionMap().put("SpacePressed", spaceAction);
         this.getInputMap().put(KeyStroke.getKeyStroke("released SPACE"), "SpaceReleased");
@@ -25,6 +30,10 @@ public class KeyBindings extends JComponent{
         this.getActionMap().put("TwoPressed", twoAction);
         this.getInputMap().put(KeyStroke.getKeyStroke("3"), "ThreePressed");
         this.getActionMap().put("ThreePressed", threeAction);
+        this.getInputMap().put(KeyStroke.getKeyStroke("LEFT"), "LeftPressed");
+        this.getActionMap().put("LeftPressed", leftAction);
+        this.getInputMap().put(KeyStroke.getKeyStroke("RIGHT"), "RightPressed");
+        this.getActionMap().put("RightPressed", rightAction);
     }
  
 }
