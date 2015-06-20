@@ -20,9 +20,9 @@ public class Actions {
 		return "0:0.0";
 	}
 
-	public String getTime() {
+	public String getTime(int penalty) {
 		end = System.currentTimeMillis();
-		timeSeconds =    (end - start) / 1000.0;
+		timeSeconds =    (end - start) / 1000.0 + penalty;
 		timeMinutes = 0;
 		while (timeSeconds >= 60) {
 			timeMinutes++;

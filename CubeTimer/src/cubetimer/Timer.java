@@ -26,6 +26,8 @@ public class Timer extends JPanel{
     private boolean threePressed;
     private boolean twoPressed;
     private ScrambleType scrambleType;
+    private int inspectionExtendedBy;
+    private int timePenalty;
      
     public Timer(){
     	running = false;
@@ -36,6 +38,7 @@ public class Timer extends JPanel{
         scrambleType = ScrambleType.threeLayeredCube;
         randomScramble = scrambler.randomCorrectScramble(scrambleType,20);
         countdownRunning = false;
+        inspectionExtendedBy = 0;
     }
     public void spacePressed(){
     	spacePressed = true;
@@ -63,10 +66,22 @@ public class Timer extends JPanel{
     		
     	}
     	else{
-    		running = false;
-    		time = "DNF";
-    		countdownRunning = false;
-    		randomScramble = "";
+    		if(countdownEnd - countdownStart > 15 + inspectionExtendedBy){
+    			if(inspectionExtendedBy > 0){
+    				time = "DNF";
+    				running = false;
+    				countdownRunning = false;
+    				randomScramble = scrambler.randomCorrectScramble(scrambleType, 20);
+    				timePenalty = 0;
+    				inspectionExtendedBy = 0;
+    						
+    			}
+    			else{
+    				timePenalty = timePenalty + 2;
+    				time = "+2";
+    				inspectionExtendedBy = 2;
+    			}
+    		}
     	}
 		repaint();
     }
@@ -74,15 +89,17 @@ public class Timer extends JPanel{
     	screenWidth = width;
     	screenHeight = height;
         if (running){
-            time = actions.getTime();
+            time = actions.getTime(0);
         }
         if (spacePressed){
         	spacePressed = false;
         	if(running){
             	randomScramble = scrambler.randomCorrectScramble(scrambleType,20);
         		running = false;
-        		time = actions.getTime();
+        		time = actions.getTime(timePenalty);
         		ignoreNextRelease = true;
+        		timePenalty = 0;
+        		inspectionExtendedBy = 0;
         	}
         	else{
         		if(!ignoreNextRelease){
