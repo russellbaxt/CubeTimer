@@ -28,7 +28,7 @@ public class Actions {
 			timeMinutes++;
 			timeSeconds = timeSeconds - 60;
 		}
-		String Seconds = String.format("%.2f", timeSeconds);
+		String Seconds = String.format("%.3f", timeSeconds);
 		String Minutes = Integer.toString(timeMinutes);
 		return Minutes + ":" + Seconds;
 	}

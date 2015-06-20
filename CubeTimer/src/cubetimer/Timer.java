@@ -71,7 +71,9 @@ public class Timer extends JPanel{
         		ignoreNextRelease = true;
         	}
         	else{
-        		greenText = true;
+        		if(!ignoreNextRelease){
+            		greenText = true;
+        		}
         	}
         }
         if(spaceReleased){
