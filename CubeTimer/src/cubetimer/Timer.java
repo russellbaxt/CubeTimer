@@ -51,9 +51,10 @@ public class Timer extends JPanel{
     		
     	}
     	else{
-    		running = true;
-    		time = actions.startTimer();
+    		running = false;
+    		time = "DNF";
     		countdownRunning = false;
+    		randomScramble = scrambler.GenerateRandomScramble();
     	}
 		repaint();
     }
