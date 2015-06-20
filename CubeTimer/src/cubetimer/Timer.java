@@ -147,6 +147,7 @@ public class Timer extends JPanel{
         images.drawBackGround(Color.WHITE, screenWidth, screenHeight, g);
         images.typeString(time, screenWidth/2 - 100, screenHeight/2, screenWidth/14, greenText, g);
         images.typeString(randomScramble, 0, screenHeight/4, screenWidth/28, false, g);
+        images.typeScrambleType(scrambleType, screenWidth/56, g);
     }
  
 }
