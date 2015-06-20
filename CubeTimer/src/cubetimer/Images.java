@@ -20,8 +20,8 @@ public class Images {
  
  
     }
-    public void drawBackGround(Color color, Graphics g){
+    public void drawBackGround(Color color, int screenWidth, int screenHeight, Graphics g){
         g.setColor(color);
-        g.fillRect(0, 0, 800, 830);
+        g.fillRect(0, 0, screenWidth, screenHeight);
     }
 }

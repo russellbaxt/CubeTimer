@@ -1,5 +1,7 @@
 package cubetimer;
  
+import java.awt.Frame;
+
 import javax.swing.JFrame;
  
 public class Main {
@@ -9,13 +11,15 @@ public class Main {
     public static Display f = new Display (t);
     public static void main (String args[]){
         f.setSize(width,height);
-        f.setResizable(false);
+        f.setResizable(true);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setTitle("Rubik's Cube Timer");
         f.setLocationRelativeTo(null);
         while (true){
-        	t.keepTime();  
+        	width = f.getWidth();
+        	height = f.getHeight();
+        	t.keepTime(width, height); 
         }
     }
 }

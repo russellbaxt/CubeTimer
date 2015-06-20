@@ -21,6 +21,8 @@ public class Timer extends JPanel{
     private boolean ignoreNextRelease;
     private boolean spaceReleased;
     private boolean greenText;
+    private int screenWidth;
+    private int screenHeight;
      
     public Timer(){
     	running = false;
@@ -58,7 +60,9 @@ public class Timer extends JPanel{
     	}
 		repaint();
     }
-    public void keepTime(){
+    public void keepTime(int width, int height){
+    	screenWidth = width;
+    	screenHeight = height;
         if (running){
             time = actions.getTime();
         }
@@ -102,11 +106,10 @@ public class Timer extends JPanel{
         repaint();
     }
     public void paintComponent (Graphics g){
-  //      System.out.println("called paint component");
         super.paintComponents(g);
-        images.drawBackGround(Color.WHITE, g);
-        images.typeString(time, 300, 400, 60, greenText, g);
-        images.typeString(randomScramble,0,200,30, false, g);
+        images.drawBackGround(Color.WHITE, screenWidth, screenHeight, g);
+        images.typeString(time, screenWidth/2 - 100, screenHeight/2, 60, greenText, g);
+        images.typeString(randomScramble,0, screenHeight/4,30, false, g);
     }
  
 }
