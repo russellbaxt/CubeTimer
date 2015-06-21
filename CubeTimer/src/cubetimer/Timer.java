@@ -198,7 +198,13 @@ public class Timer extends JPanel{
         if (countdownRunning){
         	updateCountdownTime();
         }
-        scrambleSize = randomScramble.length()/2.0;
+        if(!randomScramble.contains("\n")){
+            String[] randomScrambleAfterSplit = randomScramble.split("\n");
+            scrambleSize = randomScrambleAfterSplit[0].length()/2;
+        }
+        else{
+        	scrambleSize = randomScramble.length()/2;
+        }
         if (scrambleSize < 4){
         	scrambleSize = 4;
         }

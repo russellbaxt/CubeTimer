@@ -1,5 +1,6 @@
 package cubetimer;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Scrambler {
@@ -103,6 +104,42 @@ public class Scrambler {
 		}
 		return randomScramble;
 	}
+	public String curvyCopterScramble(){
+		return "No Curvy Copter Scramble Avaliable";
+	}
+	public String randomMagaMinxScramble(int scrambleLength){
+		int j = 1;
+		boolean rNext;
+		int randomNumber;
+		rNext = random.nextBoolean();
+		String symbols = "+-";
+		String otherSymbols = "' ";
+		for(int i = 0; i < scrambleLength; i++){
+			if(j  >= 10){
+				j = 1;
+				randomMove = "U" + otherSymbols.charAt(random.nextInt(2)) + "\n";
+			}
+			else{
+				if(rNext){
+					randomNumber = random.nextInt(2);
+					randomMove = "R" + symbols.charAt(randomNumber) + symbols.charAt(randomNumber);
+					rNext = false;
+				}
+				else{
+					rNext = true;
+					randomNumber = random.nextInt(2);
+					randomMove = "D" + symbols.charAt(randomNumber) + symbols.charAt(randomNumber);
+				}
+			}
+			if(i<1){
+				randomScramble = randomMove;
+			}
+			else{
+				randomScramble = randomScramble + randomMove;
+			}
+		}
+		return randomScramble;
+	}
 	public String randomCorrectScramble(ScrambleType scrambleType, int scrambleSize){
 		if(scrambleType == ScrambleType.twoLayeredCube){
 			return random2x2Scramble(scrambleSize);
@@ -112,6 +149,12 @@ public class Scrambler {
 		}
 		else if(scrambleType == ScrambleType.fiveLayeredCube){
 			return random4x4Or5x5Scramble(scrambleSize);
+		}
+		else if(scrambleType == ScrambleType.curvyCopter){
+			return curvyCopterScramble();
+		}
+		else if(scrambleType == ScrambleType.magaMinx){
+			return randomMagaMinxScramble(scrambleSize);
 		}
 		else{
 			return random3x3Scramble(scrambleSize);
