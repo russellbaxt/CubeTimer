@@ -4,5 +4,10 @@ public enum ScrambleType {
 	threeLayeredCube,
 	twoLayeredCube,
 	fourLayeredCube,
-	fiveLayeredCube
+	fiveLayeredCube,
+	magaMinx,
+	curvyCopter,
+	voidChalangeCube,
+	anisatropicGearCube,
+	gearCube
 }
