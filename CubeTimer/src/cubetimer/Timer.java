@@ -3,7 +3,8 @@ package cubetimer;
  
 import java.awt.Color;
 import java.awt.Graphics;
- 
+import java.util.Random;
+
 import javax.swing.JPanel;
  
  
@@ -32,6 +33,10 @@ public class Timer extends JPanel{
     private boolean leftPressed;
     private boolean rightPressed;
     private double scrambleSize;
+    private boolean fourPressed;
+    private boolean fivePressed;
+    private Random random;
+    private boolean rPressed;
      
     public Timer(){
     	scrambleSize = 28.0;
@@ -45,6 +50,7 @@ public class Timer extends JPanel{
         randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
         countdownRunning = false;
         inspectionExtendedBy = 0;
+        random = new Random();
     }
     public void spacePressed(){
     	spacePressed = true;
@@ -58,11 +64,20 @@ public class Timer extends JPanel{
     public void twoPressed(){
     	twoPressed = true;
     }
+    public void fourPressed(){
+    	fourPressed = true;
+    }
+    public void fivePressed(){
+    	fivePressed = true;
+    }
     public void leftPressed(){
     	leftPressed = true;
     }
     public void rightPressed(){
     	rightPressed = true;
+    }
+    public void rPressed(){
+    	rPressed = true;
     }
     public void startCountDown(){
     	countdownRunning = true;
@@ -96,6 +111,11 @@ public class Timer extends JPanel{
     		}
     	}
 		repaint();
+    }
+    public void randomTwistyPuzzle(){
+    	int randomNumber = random.nextInt(ScrambleType.values().length);
+    	scrambleType = ScrambleType.values()[randomNumber];
+    	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
     }
     public void keepTime(int width, int height){
     	screenWidth = width;
@@ -149,22 +169,38 @@ public class Timer extends JPanel{
         	scrambleType = ScrambleType.twoLayeredCube;
         	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
         }
+        if(fourPressed){
+        	fourPressed = false;
+        	scrambleType = ScrambleType.fourLayeredCube;
+        	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        }
+        if(fivePressed){
+        	fivePressed = false;
+        	scrambleType = ScrambleType.fiveLayeredCube;
+        	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        }
         if(leftPressed){
         	leftPressed = false;
         	if(scrambleLenght > 1){
             	scrambleLenght--;
-            	scrambleSize = scrambleSize - 1.3;
         	}
         	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
         }
         if(rightPressed){
         	rightPressed = false;
         	scrambleLenght++;
-        	scrambleSize = scrambleSize + 1.3;
         	randomScramble = scrambler.randomCorrectScramble(scrambleType,scrambleLenght);
+        }
+        if(rPressed){
+        	rPressed = false;
+        	randomTwistyPuzzle();
         }
         if (countdownRunning){
         	updateCountdownTime();
+        }
+        scrambleSize = randomScramble.length()/2.0;
+        if (scrambleSize < 4){
+        	scrambleSize = 4;
         }
         repaint();
     }

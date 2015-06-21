@@ -10,8 +10,11 @@ public class KeyBindings extends JComponent{
     private SpaceReleasedAction spaceReleasedAction;
     private TwoKeyAction twoAction;
     private ThreeKeyAction threeAction;
+    private FourKeyAction fourAction;
+    private FiveKeyAction fiveAction;
     private RightArrowKeyAction rightAction;
     private LeftArrowKeyAction leftAction;
+    private RKeyPressedAction rAction;
      
     public KeyBindings (Timer timerIn){
         timer = timerIn;
@@ -19,8 +22,11 @@ public class KeyBindings extends JComponent{
         spaceReleasedAction = new SpaceReleasedAction(timer);
         twoAction = new TwoKeyAction(timer);
         threeAction = new ThreeKeyAction(timer);
+        fourAction = new FourKeyAction(timer);
+        fiveAction = new FiveKeyAction(timer);
         leftAction = new LeftArrowKeyAction(timer);
         rightAction = new RightArrowKeyAction(timer);
+        rAction = new RKeyPressedAction(timer);
         
         this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "SpacePressed");
         this.getActionMap().put("SpacePressed", spaceAction);
@@ -34,6 +40,12 @@ public class KeyBindings extends JComponent{
         this.getActionMap().put("LeftPressed", leftAction);
         this.getInputMap().put(KeyStroke.getKeyStroke("RIGHT"), "RightPressed");
         this.getActionMap().put("RightPressed", rightAction);
+        this.getInputMap().put(KeyStroke.getKeyStroke("4"), "FourPressed");
+        this.getActionMap().put("FourPressed", fourAction);
+        this.getInputMap().put(KeyStroke.getKeyStroke("5"), "FivePressed");
+        this.getActionMap().put("FivePressed", fiveAction);
+        this.getInputMap().put(KeyStroke.getKeyStroke("R"), "RPressed");
+        this.getActionMap().put("RPressed", rAction);
     }
  
 }
