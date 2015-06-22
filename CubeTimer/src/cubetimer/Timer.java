@@ -169,21 +169,25 @@ public class Timer extends JPanel{
         	threePressed = false;
         	scrambleType = ScrambleType.threeLayeredCube;
         	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        	scrambleLenght = 20;
         }
         if(twoPressed){
         	twoPressed = false;
         	scrambleType = ScrambleType.twoLayeredCube;
         	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        	scrambleLenght = 20;
         }
         if(fourPressed){
         	fourPressed = false;
         	scrambleType = ScrambleType.fourLayeredCube;
         	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        	scrambleLenght = 20;
         }
         if(fivePressed){
         	fivePressed = false;
         	scrambleType = ScrambleType.fiveLayeredCube;
         	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        	scrambleLenght = 20;
         }
         if(leftPressed){
         	leftPressed = false;
