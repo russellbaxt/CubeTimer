@@ -42,6 +42,11 @@ public class Scrambler {
 			return outerFaces.charAt(face) + "" + symbols.charAt(symbol);
 		}
 	}
+	public String intToGearCubeTurn(int face, int symbol){
+		String faces = "RUF";
+		String symbols = " '";
+		return faces.charAt(face) + "2" + symbols.charAt(symbol);
+	}
 	public String random3x3Scramble(int scrambleLength){
 		for (int i = 0; i<scrambleLength; i++){
 			int randomNumber = random.nextInt(6);
@@ -107,7 +112,7 @@ public class Scrambler {
 	public String curvyCopterScramble(){
 		return "No Curvy Copter Scramble Avaliable";
 	}
-	public String randomMagaMinxScramble(int scrambleLength){
+	public String randomMegaMinxScramble(int scrambleLength){
 		int j = 1;
 		boolean rNext;
 		int randomNumber;
@@ -141,6 +146,18 @@ public class Scrambler {
 		}
 		return randomScramble;
 	}
+	String randomGearCubeScramble(int scrambleSize){
+		for(int i = 0; i < scrambleSize; i++){
+			randomMove = intToGearCubeTurn(random.nextInt(3), random.nextInt(2));
+			if(i == 0){
+				randomScramble = randomMove;
+			}
+			else{
+				randomScramble = randomScramble + " " + randomMove;
+			}
+		}
+		return randomScramble;
+	}
 	public String randomCorrectScramble(TwistyPuzzleType twistyPuzzleType, int scrambleSize){
 		if(twistyPuzzleType == TwistyPuzzleType.twoLayeredCube){
 			return random2x2Scramble(scrambleSize);
@@ -155,10 +172,16 @@ public class Scrambler {
 			return curvyCopterScramble();
 		}
 		else if(twistyPuzzleType == TwistyPuzzleType.magaMinx){
-			return randomMagaMinxScramble(scrambleSize);
+			return randomMegaMinxScramble(scrambleSize);
+		}
+		else if(twistyPuzzleType == TwistyPuzzleType.gearCube){
+			return randomGearCubeScramble(scrambleSize);
+		}
+		else if(twistyPuzzleType == TwistyPuzzleType.threeLayeredCube){
+			return random3x3Scramble(scrambleSize);
 		}
 		else{
-			return random3x3Scramble(scrambleSize);
+			return "we can't scramble that twisty puzzle for you yet";
 		}
 	}
 }

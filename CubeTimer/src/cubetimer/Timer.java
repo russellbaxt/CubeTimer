@@ -40,6 +40,7 @@ public class Timer extends JPanel{
     private String[] randomScrambleAfterSplit;
     private boolean useStringListForRandomScramble;
     private boolean mPressed;
+    private boolean gPressed;
      
     public Timer(){
     	scrambleSize = 28.0;
@@ -84,6 +85,9 @@ public class Timer extends JPanel{
     }
     public void mPressed(){
     	mPressed = true;
+    }
+    public void gPressed(){
+    	gPressed = true;
     }
     public void startCountDown(){
     	countdownRunning = true;
@@ -209,6 +213,12 @@ public class Timer extends JPanel{
         	mPressed = false;
         	twistyPuzzleType = TwistyPuzzleType.magaMinx;
         	scrambleLenght = 40;
+        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+        }
+        if(gPressed){
+        	gPressed = false;
+        	twistyPuzzleType = TwistyPuzzleType.gearCube;
+        	scrambleLenght = 20;
         	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         }
         if (countdownRunning){
