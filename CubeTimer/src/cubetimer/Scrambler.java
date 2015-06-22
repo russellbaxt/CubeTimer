@@ -117,9 +117,10 @@ public class Scrambler {
 		for(int i = 0; i < scrambleLength; i++){
 			if(j  >= 10){
 				j = 1;
-				randomMove = "U" + otherSymbols.charAt(random.nextInt(2)) + "\n";
+				randomMove = "U" + otherSymbols.charAt(random.nextInt(2)) + "*";
 			}
 			else{
+				j++;
 				if(rNext){
 					randomNumber = random.nextInt(2);
 					randomMove = "R" + symbols.charAt(randomNumber) + symbols.charAt(randomNumber);
@@ -135,7 +136,7 @@ public class Scrambler {
 				randomScramble = randomMove;
 			}
 			else{
-				randomScramble = randomScramble + randomMove;
+				randomScramble = randomScramble + " " + randomMove;
 			}
 		}
 		return randomScramble;
