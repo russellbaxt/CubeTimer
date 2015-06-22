@@ -37,6 +37,8 @@ public class Timer extends JPanel{
     private boolean fivePressed;
     private Random random;
     private boolean rPressed;
+    private String[] randomScrambleAfterSplit;
+    private boolean useStringListForRandomScramble;
      
     public Timer(){
     	scrambleSize = 28.0;
@@ -198,13 +200,18 @@ public class Timer extends JPanel{
         if (countdownRunning){
         	updateCountdownTime();
         }
-        if(!randomScramble.contains("*")){
-            String[] randomScrambleAfterSplit = randomScramble.split("*");
-            scrambleSize = randomScrambleAfterSplit[0].length()/2;
+        if(randomScramble.contains("/n")){
+            randomScrambleAfterSplit = randomScramble.split("/n");
+            scrambleSize = randomScrambleAfterSplit[0].length()/2 + 1;
+            useStringListForRandomScramble = true;
         }
         else{
         	scrambleSize = randomScramble.length()/2;
+        	useStringListForRandomScramble = false;
         }
+//        randomScrambleAfterSplit = randomScramble.split("*");
+//        scrambleSize = randomScrambleAfterSplit[0].length()/2;
+//        
         if (scrambleSize < 4){
         	scrambleSize = 4;
         }
@@ -214,7 +221,12 @@ public class Timer extends JPanel{
         super.paintComponents(g);
         images.drawBackGround(Color.WHITE, screenWidth, screenHeight, g);
         images.typeString(time, screenWidth/2 - 100, screenHeight/2, screenWidth/14, greenText, g);
-        images.typeString(randomScramble, 0, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
+        if(useStringListForRandomScramble){
+        	images.typeStringList(randomScrambleAfterSplit, 0, screenHeight/4, (int) (screenWidth/scrambleSize), g);
+        }
+        else{
+        	images.typeString(randomScramble, 0, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
+        }
         images.typeScrambleType(scrambleType, (int) (screenWidth/1.2 - 20), screenWidth/40, screenWidth/56, g);
         images.typeString(Integer.toString(scrambleLenght), (int) (screenWidth/1.2 - 20), screenWidth/20, screenWidth/56, false, g);
     }
