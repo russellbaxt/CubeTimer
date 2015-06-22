@@ -90,7 +90,7 @@ public class Scrambler {
 	}
 	public String random4x4Or5x5Scramble(int scrambleLenght){
 		for(int i = 0; i < scrambleLenght; i++){
-			int randomNumber = random.nextInt(3);
+			int randomNumber = random.nextInt(6);
 			if(faceMovedInInt == randomNumber){
 				i--;
 			}
