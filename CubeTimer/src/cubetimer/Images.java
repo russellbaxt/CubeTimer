@@ -10,6 +10,7 @@ public class Images {
     public void typeStringList(String[] string, int x, int y, int fontSize, Graphics g){
         Font font = new Font("Arial", Font.PLAIN,fontSize);
         g.setFont(font);
+        g.setColor(Color.BLACK);
         for(int i = 0; i < string.length; i++){
         	g.drawString(string[i], x, y - (string.length/2 - i) * fontSize);
         }
