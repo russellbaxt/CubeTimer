@@ -33,7 +33,7 @@ public class Scrambler {
 		String innerFaces = "ulfrbd";
 		String symbols = " '2";
 		if(faceDepth == 1){
-			return outerFaces.charAt(face) + "w" + symbols.charAt(symbol);
+			return "(" + outerFaces.charAt(face) + innerFaces.charAt(face) + ")" + symbols.charAt(symbol);
 		}
 		else if(faceDepth == 2){
 			return innerFaces.charAt(face) + "" + symbols.charAt(symbol);
