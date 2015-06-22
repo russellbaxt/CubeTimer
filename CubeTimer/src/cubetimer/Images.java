@@ -11,7 +11,7 @@ public class Images {
         Font font = new Font("Arial", Font.PLAIN,fontSize);
         g.setFont(font);
         for(int i = 0; i < string.length; i++){
-        	g.drawString(string[i], x, y - (string.length/2 + i) * fontSize);
+        	g.drawString(string[i], x, y - (string.length/2 - i) * fontSize);
         }
 //        g.drawString(string,x,y);
  
