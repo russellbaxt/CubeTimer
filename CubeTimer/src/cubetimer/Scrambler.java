@@ -147,13 +147,22 @@ public class Scrambler {
 		return randomScramble;
 	}
 	String randomGearCubeScramble(int scrambleSize){
+		int faceTurn;
+		int lastFaceTurn = 4;
 		for(int i = 0; i < scrambleSize; i++){
-			randomMove = intToGearCubeTurn(random.nextInt(3), random.nextInt(2));
-			if(i == 0){
-				randomScramble = randomMove;
+			faceTurn = random.nextInt(3);
+			if(faceTurn == lastFaceTurn){
+				i--;
 			}
 			else{
-				randomScramble = randomScramble + " " + randomMove;
+				lastFaceTurn = faceTurn;
+				randomMove = intToGearCubeTurn(faceTurn, random.nextInt(2));
+				if(i == 0){
+					randomScramble = randomMove;
+				}
+				else{
+					randomScramble = randomScramble + " " + randomMove;
+				}
 			}
 		}
 		return randomScramble;
