@@ -141,20 +141,20 @@ public class Scrambler {
 		}
 		return randomScramble;
 	}
-	public String randomCorrectScramble(ScrambleType scrambleType, int scrambleSize){
-		if(scrambleType == ScrambleType.twoLayeredCube){
+	public String randomCorrectScramble(TwistyPuzzleType twistyPuzzleType, int scrambleSize){
+		if(twistyPuzzleType == TwistyPuzzleType.twoLayeredCube){
 			return random2x2Scramble(scrambleSize);
 		}
-		else if(scrambleType == ScrambleType.fourLayeredCube){
+		else if(twistyPuzzleType == TwistyPuzzleType.fourLayeredCube){
 			return random4x4Or5x5Scramble(scrambleSize);
 		}
-		else if(scrambleType == ScrambleType.fiveLayeredCube){
+		else if(twistyPuzzleType == TwistyPuzzleType.fiveLayeredCube){
 			return random4x4Or5x5Scramble(scrambleSize);
 		}
-		else if(scrambleType == ScrambleType.curvyCopter){
+		else if(twistyPuzzleType == TwistyPuzzleType.curvyCopter){
 			return curvyCopterScramble();
 		}
-		else if(scrambleType == ScrambleType.magaMinx){
+		else if(twistyPuzzleType == TwistyPuzzleType.magaMinx){
 			return randomMagaMinxScramble(scrambleSize);
 		}
 		else{

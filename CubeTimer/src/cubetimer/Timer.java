@@ -26,7 +26,7 @@ public class Timer extends JPanel{
     private int screenHeight;
     private boolean threePressed;
     private boolean twoPressed;
-    private ScrambleType scrambleType;
+    private TwistyPuzzleType twistyPuzzleType;
     private int inspectionExtendedBy;
     private int timePenalty;
     private int scrambleLenght;
@@ -49,8 +49,8 @@ public class Timer extends JPanel{
         images = new Images();
         actions = new Actions();
         scrambler = new Scrambler();
-        scrambleType = ScrambleType.threeLayeredCube;
-        randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        twistyPuzzleType = TwistyPuzzleType.threeLayeredCube;
+        randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         countdownRunning = false;
         inspectionExtendedBy = 0;
         random = new Random();
@@ -104,7 +104,7 @@ public class Timer extends JPanel{
     				time = "DNF";
     				running = false;
     				countdownRunning = false;
-    				randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+    				randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
     				timePenalty = 0;
     				inspectionExtendedBy = 0;
     						
@@ -119,9 +119,9 @@ public class Timer extends JPanel{
 		repaint();
     }
     public void randomTwistyPuzzle(){
-    	int randomNumber = random.nextInt(ScrambleType.values().length);
-    	scrambleType = ScrambleType.values()[randomNumber];
-    	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+    	int randomNumber = random.nextInt(TwistyPuzzleType.values().length);
+    	twistyPuzzleType = TwistyPuzzleType.values()[randomNumber];
+    	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
     }
     public void keepTime(int width, int height){
     	screenWidth = width;
@@ -132,7 +132,7 @@ public class Timer extends JPanel{
         if (spacePressed){
         	spacePressed = false;
         	if(running){
-            	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         		running = false;
         		time = actions.getTime(timePenalty);
         		ignoreNextRelease = true;
@@ -167,26 +167,26 @@ public class Timer extends JPanel{
         }
         if(threePressed){
         	threePressed = false;
-        	scrambleType = ScrambleType.threeLayeredCube;
-        	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        	twistyPuzzleType = TwistyPuzzleType.threeLayeredCube;
+        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         	scrambleLenght = 20;
         }
         if(twoPressed){
         	twoPressed = false;
-        	scrambleType = ScrambleType.twoLayeredCube;
-        	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        	twistyPuzzleType = TwistyPuzzleType.twoLayeredCube;
+        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         	scrambleLenght = 20;
         }
         if(fourPressed){
         	fourPressed = false;
-        	scrambleType = ScrambleType.fourLayeredCube;
-        	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        	twistyPuzzleType = TwistyPuzzleType.fourLayeredCube;
+        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         	scrambleLenght = 20;
         }
         if(fivePressed){
         	fivePressed = false;
-        	scrambleType = ScrambleType.fiveLayeredCube;
-        	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        	twistyPuzzleType = TwistyPuzzleType.fiveLayeredCube;
+        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         	scrambleLenght = 20;
         }
         if(leftPressed){
@@ -194,12 +194,12 @@ public class Timer extends JPanel{
         	if(scrambleLenght > 1){
             	scrambleLenght--;
         	}
-        	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         }
         if(rightPressed){
         	rightPressed = false;
         	scrambleLenght++;
-        	randomScramble = scrambler.randomCorrectScramble(scrambleType,scrambleLenght);
+        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType,scrambleLenght);
         }
         if(rPressed){
         	rPressed = false;
@@ -207,9 +207,9 @@ public class Timer extends JPanel{
         }
         if(mPressed){
         	mPressed = false;
-        	scrambleType = ScrambleType.magaMinx;
+        	twistyPuzzleType = TwistyPuzzleType.magaMinx;
         	scrambleLenght = 40;
-        	randomScramble = scrambler.randomCorrectScramble(scrambleType, scrambleLenght);
+        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         }
         if (countdownRunning){
         	updateCountdownTime();
@@ -238,7 +238,7 @@ public class Timer extends JPanel{
         else{
         	images.typeString(randomScramble, 0, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
         }
-        images.typeScrambleType(scrambleType, (int) (screenWidth/1.2 - 20), screenWidth/40, screenWidth/56, g);
+        images.typeScrambleType(twistyPuzzleType, (int) (screenWidth/1.2 - 20), screenWidth/40, screenWidth/56, g);
         images.typeString(Integer.toString(scrambleLenght), (int) (screenWidth/1.2 - 20), screenWidth/20, screenWidth/56, false, g);
     }
  

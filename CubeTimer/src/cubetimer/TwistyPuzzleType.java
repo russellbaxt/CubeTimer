@@ -1,6 +1,6 @@
 package cubetimer;
 
-public enum ScrambleType {
+public enum TwistyPuzzleType {
 	threeLayeredCube,
 	twoLayeredCube,
 	fourLayeredCube,
