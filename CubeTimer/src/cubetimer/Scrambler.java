@@ -6,12 +6,13 @@ import java.util.Random;
 public class Scrambler {
 	private String randomScramble;
 	private String randomMove;
-	private String lastFaceMoved;
+	private int lastFaceMovedInInt;
 	private boolean faceMoving;
 	private Random random;
 	private int faceMovedInInt;
 	private int moveDirectionInInt;
 	private int faceDepthInInt;
+	private int faceMoved2TimesAgoInInt;
 
 	public Scrambler() {
 		random = new Random();
@@ -49,12 +50,13 @@ public class Scrambler {
 	}
 	public String random3x3Scramble(int scrambleLength){
 		for (int i = 0; i<scrambleLength; i++){
-			int randomNumber = random.nextInt(6);
-			if(faceMovedInInt == randomNumber){
+			faceMovedInInt = random.nextInt(6);
+			if(lastFaceMovedInInt == faceMovedInInt || faceMoved2TimesAgoInInt == faceMovedInInt){
 				i--;
 			}
 			else{
-				faceMovedInInt = randomNumber;
+				faceMoved2TimesAgoInInt = lastFaceMovedInInt;
+				lastFaceMovedInInt = faceMovedInInt;
 				moveDirectionInInt = random.nextInt(3);
 				randomMove = intTo3x3Turn(faceMovedInInt, moveDirectionInInt);
 				if (i == 0){
@@ -70,12 +72,12 @@ public class Scrambler {
 	}
 	public String random2x2Scramble(int scrambleLength){
 		for(int i = 0; i < scrambleLength; i++){
-			int randomNumber = random.nextInt(3);
-			if(faceMovedInInt == randomNumber){
+			faceMovedInInt = random.nextInt(3);
+			if(lastFaceMovedInInt  == faceMovedInInt){
 				i--;
 			}
 			else{
-				faceMovedInInt = randomNumber;
+				lastFaceMovedInInt = faceMovedInInt;
 				moveDirectionInInt = random.nextInt(3);
 				randomMove = intTo2x2Turn(faceMovedInInt, moveDirectionInInt);
 				if(i == 0){
@@ -90,12 +92,13 @@ public class Scrambler {
 	}
 	public String random4x4Or5x5Scramble(int scrambleLenght){
 		for(int i = 0; i < scrambleLenght; i++){
-			int randomNumber = random.nextInt(6);
-			if(faceMovedInInt == randomNumber){
+			faceMovedInInt = random.nextInt(6);
+			if(lastFaceMovedInInt == faceMovedInInt){
 				i--;
 			}
 			else{
-				faceMovedInInt = randomNumber;
+				faceMoved2TimesAgoInInt = lastFaceMovedInInt;
+				lastFaceMovedInInt = faceMovedInInt;
 				faceDepthInInt = random.nextInt(3);
 				moveDirectionInInt = random.nextInt(3);
 				randomMove = intTo4x4Or5x5Turn(faceMovedInInt,faceDepthInInt,moveDirectionInInt);
