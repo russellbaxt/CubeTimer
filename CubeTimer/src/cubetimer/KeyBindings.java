@@ -18,6 +18,8 @@ public class KeyBindings extends JComponent{
     private MKeyPressedAction mAction;
     private GKeyPressedAction gAction;
     private AKeyPressedAction aAction;
+    private VKeyPressedAction vAction;
+    private OKeyPressedAction oAction;
      
     public KeyBindings (Timer timerIn){
         timer = timerIn;
@@ -33,6 +35,8 @@ public class KeyBindings extends JComponent{
         mAction = new MKeyPressedAction(timer);
         gAction = new GKeyPressedAction(timer);
         aAction = new AKeyPressedAction(timer);
+        vAction = new VKeyPressedAction(timer);
+        oAction = new OKeyPressedAction(timer);
        
         
         this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "SpacePressed");
@@ -59,6 +63,10 @@ public class KeyBindings extends JComponent{
         this.getActionMap().put("GPressed", gAction);
         this.getInputMap().put(KeyStroke.getKeyStroke("A"), "APressed");
         this.getActionMap().put("APressed", aAction);
+        this.getInputMap().put(KeyStroke.getKeyStroke("O"), "OPressed");
+        this.getActionMap().put("OPressed", oAction);
+        this.getInputMap().put(KeyStroke.getKeyStroke("V"), "VPressed");
+        this.getActionMap().put("VPressed", vAction);
         
     }
  

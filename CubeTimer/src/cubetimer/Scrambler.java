@@ -202,13 +202,13 @@ public class Scrambler {
 		return randomScramble;
 	}
 	public String randomCorrectScramble(TwistyPuzzleType twistyPuzzleType, int scrambleSize){
-		if(twistyPuzzleType == TwistyPuzzleType.twoLayeredCube){
+		if(twistyPuzzleType == TwistyPuzzleType.cube2x2x2){
 			return random2x2Scramble(scrambleSize);
 		}
-		else if(twistyPuzzleType == TwistyPuzzleType.fourLayeredCube){
+		else if(twistyPuzzleType == TwistyPuzzleType.cube4x4x4){
 			return random4x4Or5x5Scramble(scrambleSize);
 		}
-		else if(twistyPuzzleType == TwistyPuzzleType.fiveLayeredCube){
+		else if(twistyPuzzleType == TwistyPuzzleType.cube5x5x5){
 			return random4x4Or5x5Scramble(scrambleSize);
 		}
 		else if(twistyPuzzleType == TwistyPuzzleType.curvyCopter){
@@ -220,11 +220,17 @@ public class Scrambler {
 		else if(twistyPuzzleType == TwistyPuzzleType.gearCube){
 			return randomGearCubeScramble(scrambleSize);
 		}
-		else if(twistyPuzzleType == TwistyPuzzleType.threeLayeredCube){
+		else if(twistyPuzzleType == TwistyPuzzleType.cube3x3x3){
 			return random3x3Scramble(scrambleSize);
 		}
 		else if(twistyPuzzleType == TwistyPuzzleType.anisatropicGearCube){
 			return randomAnisatropicGearCubeScramble(scrambleSize);
+		}
+		else if (twistyPuzzleType == TwistyPuzzleType.voidChalangeCube){
+			return random3x3Scramble(scrambleSize);
+		}
+		else if (twistyPuzzleType == TwistyPuzzleType.oneHanded3x3x3){
+			return random3x3Scramble(scrambleSize);
 		}
 		else{
 			return "we can't scramble that twisty puzzle for you yet";

@@ -3,6 +3,7 @@ package cubetimer;
  
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JPanel;
@@ -42,6 +43,8 @@ public class Timer extends JPanel{
     private boolean mPressed;
     private boolean gPressed;
     private boolean aPressed;
+    private boolean vPressed;
+    private boolean oPressed;
      
     public Timer(){
     	scrambleSize = 28.0;
@@ -51,7 +54,7 @@ public class Timer extends JPanel{
         images = new Images();
         actions = new Actions();
         scrambler = new Scrambler();
-        twistyPuzzleType = TwistyPuzzleType.threeLayeredCube;
+        twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
         randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         countdownRunning = false;
         inspectionExtendedBy = 0;
@@ -92,6 +95,12 @@ public class Timer extends JPanel{
     }
     public void aPressed(){
     	aPressed = true;
+    }
+    public void oPressed(){
+    	oPressed = true;
+    }
+    public void vPressed(){
+    	vPressed = true;
     }
     public void startCountDown(){
     	countdownRunning = true;
@@ -181,25 +190,25 @@ public class Timer extends JPanel{
         }
         if(threePressed){
         	threePressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.threeLayeredCube;
+        	twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
         	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         	scrambleLenght = 20;
         }
         if(twoPressed){
         	twoPressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.twoLayeredCube;
+        	twistyPuzzleType = TwistyPuzzleType.cube2x2x2;
         	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         	scrambleLenght = 20;
         }
         if(fourPressed){
         	fourPressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.fourLayeredCube;
+        	twistyPuzzleType = TwistyPuzzleType.cube4x4x4;
         	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         	scrambleLenght = 20;
         }
         if(fivePressed){
         	fivePressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.fiveLayeredCube;
+        	twistyPuzzleType = TwistyPuzzleType.cube5x5x5;
         	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         	scrambleLenght = 20;
         }
@@ -234,6 +243,18 @@ public class Timer extends JPanel{
         if(aPressed){
         	aPressed = false;
         	twistyPuzzleType = TwistyPuzzleType.anisatropicGearCube;
+        	scrambleLenght = 20;
+        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+        }
+        if(oPressed){
+        	oPressed = false;
+        	twistyPuzzleType = TwistyPuzzleType.oneHanded3x3x3;
+        	scrambleLenght = 20;
+        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+        }
+        if(vPressed){
+        	vPressed = false;
+        	twistyPuzzleType = TwistyPuzzleType.voidChalangeCube;
         	scrambleLenght = 20;
         	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         }
