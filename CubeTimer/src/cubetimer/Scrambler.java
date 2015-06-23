@@ -51,11 +51,11 @@ public class Scrambler {
 	public String intToAnisatopricGearCubeTurn(int face, int symbol){
 		String faces = "RF";
 		String symbols = " '";
-		if(face == 3){
+		if(face == 2){
 			return "U" + symbols.charAt(symbol);
 		}
 		else{
-			return "" + faces.charAt(face) + symbols.charAt(symbol);
+			return "" + faces.charAt(face) + "2" + symbols.charAt(symbol);
 		}
 	}
 	public String random3x3Scramble(int scrambleLength){
@@ -190,7 +190,7 @@ public class Scrambler {
 			}
 			else{
 				lastFaceTurn = faceTurn;
-				randomMove = intToGearCubeTurn(faceTurn, random.nextInt(2));
+				randomMove = intToAnisatopricGearCubeTurn(faceTurn, random.nextInt(2));
 			}
 			if(i == 0){
 				randomScramble = randomMove;
