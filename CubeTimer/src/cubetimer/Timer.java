@@ -45,8 +45,11 @@ public class Timer extends JPanel{
     private boolean aPressed;
     private boolean vPressed;
     private boolean oPressed;
+    private boolean deletePressed;
+    private DadaTracker dadaTracker;
      
     public Timer(){
+    	dadaTracker = new DadaTracker();
     	scrambleSize = 28.0;
         scrambleLenght = 20;
     	running = false;
@@ -101,6 +104,9 @@ public class Timer extends JPanel{
     }
     public void vPressed(){
     	vPressed = true;
+    }
+    public void deletePressed(){
+    	deletePressed = true;
     }
     public void startCountDown(){
     	countdownRunning = true;
@@ -161,6 +167,7 @@ public class Timer extends JPanel{
         		ignoreNextRelease = true;
         		timePenalty = 0;
         		inspectionExtendedBy = 0;
+        		dadaTracker.addTime(twistyPuzzleType, actions.getTimePreviouslyGotenAsDouble(timePenalty));
         	}
         	else{
         		if(!ignoreNextRelease){
@@ -258,6 +265,10 @@ public class Timer extends JPanel{
         	scrambleLenght = 20;
         	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
         }
+        if(deletePressed){
+        	deletePressed = false;
+        	dadaTracker.deleteLastSolve();
+        }
         if (countdownRunning){
         	updateCountdownTime();
         }
@@ -285,6 +296,7 @@ public class Timer extends JPanel{
         else{
         	images.typeString(randomScramble, 0, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
         }
+        images.typeString(dadaTracker.getAvarage5Time(), 0, screenWidth/40, screenWidth/56, false, g);
         images.typeScrambleType(twistyPuzzleType, (int) (screenWidth/1.2 - 20), screenWidth/40, screenWidth/56, g);
         images.typeString(Integer.toString(scrambleLenght), (int) (screenWidth/1.2 - 20), screenWidth/20, screenWidth/56, false, g);
     }

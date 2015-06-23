@@ -32,4 +32,7 @@ public class Actions {
 		String Minutes = Integer.toString(timeMinutes);
 		return Minutes + ":" + Seconds;
 	}
+	public double getTimePreviouslyGotenAsDouble(int penalty){
+		return Math.floor((timeSeconds * 1000)/1000);
+	}
 }
