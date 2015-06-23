@@ -15,6 +15,7 @@ public class DadaTracker {
 	ArrayList gearCube;
 	ArrayList oneHanded3x3x3;
 	ArrayList currentArrayList;
+	TwistyPuzzleType twistyPuzzleType;
 	public DadaTracker(){
 		masterArrayList = new <ArrayList>ArrayList();
 		cube2x2x2 = new <Double>ArrayList();
@@ -38,14 +39,21 @@ public class DadaTracker {
 		masterArrayList.add(gearCube);
 		masterArrayList.add(oneHanded3x3x3);
 	}
-	public void addTime(TwistyPuzzleType twistyPuzzleType, double time){
-		((ArrayList) masterArrayList.get(twistyPuzzleType.ordinal())).add(time);
-//		masterArrayList.set(twistyPuzzleType.ordinal(), ((ArrayList) masterArrayList.get(twistyPuzzleType.ordinal())).add(time));
+	public void addTime(TwistyPuzzleType twistyPuzzleTypeIn, double time){
+		twistyPuzzleType = twistyPuzzleTypeIn;
+		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
+		currentArrayList.add(time);
+		masterArrayList.set(twistyPuzzleType.ordinal(), currentArrayList);
 		System.out.println(twistyPuzzleType.toString() + "  " +  masterArrayList.get(twistyPuzzleType.ordinal()));
 	}
 	public String getAvarage5Time(){
 		return "1:11.111";
 	}
 	public void deleteLastSolve(){
+		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
+		if(!currentArrayList.isEmpty()){
+			currentArrayList.remove(currentArrayList.size() - 1);
+			masterArrayList.set(twistyPuzzleType.ordinal(), currentArrayList);
+		}
 	}
 }
