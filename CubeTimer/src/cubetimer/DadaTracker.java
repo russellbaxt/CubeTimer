@@ -41,7 +41,7 @@ public class DadaTracker {
 	public void addTime(TwistyPuzzleType twistyPuzzleType, double time){
 		((ArrayList) masterArrayList.get(twistyPuzzleType.ordinal())).add(time);
 //		masterArrayList.set(twistyPuzzleType.ordinal(), ((ArrayList) masterArrayList.get(twistyPuzzleType.ordinal())).add(time));
-		System.out.println(masterArrayList.get(twistyPuzzleType.ordinal()));
+		System.out.println(twistyPuzzleType.toString() + "  " +  masterArrayList.get(twistyPuzzleType.ordinal()));
 	}
 	public String getAvarage5Time(){
 		return "1:11.111";
