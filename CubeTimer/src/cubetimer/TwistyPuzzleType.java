@@ -10,5 +10,5 @@ public enum TwistyPuzzleType {
 	voidChalangeCube,
 	anisatropicGearCube,
 	gearCube,
-	oneHanded3x3x3;
+	oneHanded3x3x3
 }

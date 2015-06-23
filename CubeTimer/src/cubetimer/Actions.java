@@ -33,6 +33,9 @@ public class Actions {
 		return Minutes + ":" + Seconds;
 	}
 	public double getTimePreviouslyGotenAsDouble(int penalty){
-		return Math.floor((timeSeconds * 1000)/1000);
+		//return Math.floor((timeSeconds * 1000)/1000);
+		//return timeSeconds;
+		int theInt = (int) (timeSeconds * 1000);
+		return theInt/1000.0;
 	}
 }
