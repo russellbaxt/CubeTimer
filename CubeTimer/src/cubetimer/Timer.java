@@ -129,6 +129,12 @@ public class Timer extends JPanel{
     public void randomTwistyPuzzle(){
     	int randomNumber = random.nextInt(TwistyPuzzleType.values().length);
     	twistyPuzzleType = TwistyPuzzleType.values()[randomNumber];
+    	if (twistyPuzzleType == TwistyPuzzleType.magaMinx){
+    		scrambleLenght = 40;
+    	}
+    	else{
+    		scrambleLenght = 20;
+    	}
     	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
     }
     public void keepTime(int width, int height){
