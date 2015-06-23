@@ -48,6 +48,16 @@ public class Scrambler {
 		String symbols = " '";
 		return faces.charAt(face) + "2" + symbols.charAt(symbol);
 	}
+	public String intToAnisatopricGearCubeTurn(int face, int symbol){
+		String faces = "RF";
+		String symbols = " '";
+		if(face == 3){
+			return "U" + symbols.charAt(symbol);
+		}
+		else{
+			return "" + faces.charAt(face) + symbols.charAt(symbol);
+		}
+	}
 	public String random3x3Scramble(int scrambleLength){
 		for (int i = 0; i<scrambleLength; i++){
 			faceMovedInInt = random.nextInt(6);
@@ -170,6 +180,27 @@ public class Scrambler {
 		}
 		return randomScramble;
 	}
+	String randomAnisatropicGearCubeScramble(int scrambleSize){
+		int faceTurn;
+		int lastFaceTurn = 4;
+		for(int i = 0; i < scrambleSize; i++){
+			faceTurn = random.nextInt(3);
+			if(faceTurn == lastFaceTurn){
+				i--;
+			}
+			else{
+				lastFaceTurn = faceTurn;
+				randomMove = intToGearCubeTurn(faceTurn, random.nextInt(2));
+			}
+			if(i == 0){
+				randomScramble = randomMove;
+			}
+			else{
+				randomScramble = randomScramble + " " + randomMove;
+			}
+		}
+		return randomScramble;
+	}
 	public String randomCorrectScramble(TwistyPuzzleType twistyPuzzleType, int scrambleSize){
 		if(twistyPuzzleType == TwistyPuzzleType.twoLayeredCube){
 			return random2x2Scramble(scrambleSize);
@@ -191,6 +222,9 @@ public class Scrambler {
 		}
 		else if(twistyPuzzleType == TwistyPuzzleType.threeLayeredCube){
 			return random3x3Scramble(scrambleSize);
+		}
+		else if(twistyPuzzleType == TwistyPuzzleType.anisatropicGearCube){
+			return randomAnisatropicGearCubeScramble(scrambleSize);
 		}
 		else{
 			return "we can't scramble that twisty puzzle for you yet";
