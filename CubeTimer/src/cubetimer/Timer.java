@@ -274,7 +274,7 @@ public class Timer extends JPanel{
         }
         if(randomScramble.contains("/n")){
             randomScrambleAfterSplit = randomScramble.split("/n");
-            scrambleSize = randomScrambleAfterSplit[0].length()/2 + 1;
+            scrambleSize = randomScrambleAfterSplit[0].length()/2 + 4;
             useStringListForRandomScramble = true;
         }
         else{
