@@ -51,7 +51,7 @@ public class DadaTracker {
 		}
 //		masterArrayList.set(twistyPuzzleType.ordinal(), currentArrayList);
 	}
-	public String getAvarage5Time(TwistyPuzzleType twistyPuzzleTypeIn){
+	public String getAvarageOf5(TwistyPuzzleType twistyPuzzleTypeIn){
 		twistyPuzzleType = twistyPuzzleTypeIn;
 		double maximum;
 		double minimum;

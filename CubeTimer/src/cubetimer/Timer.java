@@ -167,7 +167,7 @@ public class Timer extends JPanel{
         		ignoreNextRelease = true;
         		timePenalty = 0;
         		inspectionExtendedBy = 0;
-        		dadaTracker.addTime(twistyPuzzleType, actions.getTimePreviouslyGotenAsDouble(timePenalty));
+        		dadaTracker.addTime(twistyPuzzleType, actions.getTimePreviouslyGotenAsDouble());
         	}
         	else{
         		if(!ignoreNextRelease){
@@ -296,8 +296,8 @@ public class Timer extends JPanel{
         else{
         	images.typeString(randomScramble, screenWidth/20, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
         }
-        images.typeStringListGoingDown(dadaTracker.getlast5Solves(twistyPuzzleType), 0, screenWidth/56, screenWidth/56, g);
-        images.typeString(dadaTracker.getAvarage5Time(twistyPuzzleType), 0, (int) (screenHeight - (30 + screenWidth/56)), screenWidth/56, false, g);
+        images.typeStringListGoingDown(dadaTracker.getlast5Solves(twistyPuzzleType), 100, screenWidth/56, screenWidth/56, g);
+        images.typeString(dadaTracker.getAvarageOf5(twistyPuzzleType), 0, (int) (screenHeight - (30 + screenWidth/56)), screenWidth/56, false, g);
         images.typeScrambleType(twistyPuzzleType, (int) (screenWidth/1.2 - 20), screenWidth/40, screenWidth/56, g);
         images.typeString(Integer.toString(scrambleLenght), (int) (screenWidth/1.2 - 20), screenWidth/20, screenWidth/56, false, g);
     }

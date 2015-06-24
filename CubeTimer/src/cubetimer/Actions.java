@@ -24,18 +24,18 @@ public class Actions {
 		end = System.currentTimeMillis();
 		timeSeconds =    (end - start) / 1000.0 + penalty;
 		timeMinutes = 0;
-		while (timeSeconds >= 60) {
+		while (timeSeconds >= 10) {
 			timeMinutes++;
-			timeSeconds = timeSeconds - 60;
+			timeSeconds = timeSeconds - 10;
 		}
-		String Seconds = String.format("%.3f", timeSeconds);
-		String Minutes = Integer.toString(timeMinutes);
-		return Minutes + ":" + Seconds;
+		String seconds = String.format("%.3f", timeSeconds);
+		String minutes = Integer.toString(timeMinutes);
+		return minutes + ":" + seconds;
 	}
-	public double getTimePreviouslyGotenAsDouble(int penalty){
+	public double getTimePreviouslyGotenAsDouble(){
 		//return Math.floor((timeSeconds * 1000)/1000);
 		//return timeSeconds;
-		int theInt = (int) (timeSeconds * 1000);
+		int theInt = (int) ((timeSeconds + timeMinutes * 60.0) * 1000.0);
 		return theInt/1000.0;
 	}
 }
