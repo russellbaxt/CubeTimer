@@ -24,9 +24,9 @@ public class Actions {
 		end = System.currentTimeMillis();
 		timeSeconds =    (end - start) / 1000.0 + penalty;
 		timeMinutes = 0;
-		while (timeSeconds >= 10) {
+		while (timeSeconds >= 60) {
 			timeMinutes++;
-			timeSeconds = timeSeconds - 10;
+			timeSeconds = timeSeconds - 60;
 		}
 		String seconds = String.format("%.3f", timeSeconds);
 		String minutes = Integer.toString(timeMinutes);
