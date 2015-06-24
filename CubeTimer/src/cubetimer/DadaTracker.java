@@ -1,6 +1,7 @@
 package cubetimer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DadaTracker {
 	ArrayList masterArrayList;
@@ -48,12 +49,12 @@ public class DadaTracker {
 		masterArrayList.set(twistyPuzzleType.ordinal(), currentArrayList);
 		System.out.println(twistyPuzzleType.toString() + "  " +  masterArrayList.get(twistyPuzzleType.ordinal()));
 	}
-	public String getAvarage5Time(){
+	public String getAvarage5Time(TwistyPuzzleType twistyPuzzleTypeIn){
 		double maximum;
 		double minimum;
 		double sumForAvarageOf5 = 0;
 		double avarageOf5;
-		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
+		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleTypeIn.ordinal());
 		currentArrayListClone = (ArrayList) currentArrayList.clone();
 		while(currentArrayListClone.size() > 5){
 			currentArrayListClone.remove(0);
@@ -89,5 +90,14 @@ public class DadaTracker {
 			currentArrayList.remove(currentArrayList.size() - 1);
 			masterArrayList.set(twistyPuzzleType.ordinal(), currentArrayList);
 		}
+	}
+	public ArrayList getlast5Solves(TwistyPuzzleType twistyPuzzleTypeIn){
+//		List<String> last5Solves = new List<String>();
+//		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
+//		currentArrayListClone = (ArrayList) currentArrayList.clone();
+//		for(int i = 0; i < currentArrayListClone.size(); i++){
+//			last5Solves.add(Double.toString((double) currentArrayListClone.get(i)));
+//		}
+		return (ArrayList) masterArrayList.get(twistyPuzzleTypeIn.ordinal());
 	}
 }

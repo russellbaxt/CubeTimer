@@ -3,12 +3,13 @@ package cubetimer;
 import javax.swing.*;
 
 import java.awt.*;
+import java.util.ArrayList;
 public class Images {
     public Images (){
     }
  
-    public void typeStringList(String[] string, int x, int y, int fontSize, Graphics g){
-        Font font = new Font("Arial", Font.PLAIN,fontSize);
+    public void typeStringListCentered(String[] string, int x, int y, int fontSize, Graphics g){
+        Font font = new Font("Arial", Font.PLAIN, fontSize);
         g.setFont(font);
         g.setColor(Color.BLACK);
         for(int i = 0; i < string.length; i++){
@@ -17,6 +18,14 @@ public class Images {
 //        g.drawString(string,x,y);
  
  
+    }
+    public void typeStringListGoingDown(ArrayList string, int x, int y, int fontSize, Graphics g){
+    	Font font = new Font("Arial", Font.PLAIN, fontSize);
+    	g.setFont(font);
+    	g.setColor(Color.BLACK);
+    	for(int i = 0; i < string.size(); i++){
+    		g.drawString(Double.toString((double) string.get(i)), x, y + (i * fontSize));
+    	}
     }
     public void typeString(String string, int x, int y, int fontSize, boolean green, Graphics g){
     	Font font = new Font("Arial", Font.PLAIN, fontSize);
