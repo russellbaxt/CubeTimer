@@ -291,10 +291,10 @@ public class Timer extends JPanel{
         images.drawBackGround(Color.WHITE, screenWidth, screenHeight, g);
         images.typeString(time, screenWidth/2 - 100, screenHeight/2, screenWidth/14, greenText, g);
         if(useStringListForRandomScramble){
-        	images.typeStringListCentered(randomScrambleAfterSplit, 0, screenHeight/4, (int) (screenWidth/scrambleSize), g);
+        	images.typeStringListCentered(randomScrambleAfterSplit, screenWidth/15, screenHeight/4, (int) (screenWidth/scrambleSize), g);
         }
         else{
-        	images.typeString(randomScramble, screenWidth/20, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
+        	images.typeString(randomScramble, screenWidth/15, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
         }
         images.typeStringListOfTimesGoingDown(dadaTracker.getlast20Solves(twistyPuzzleType), 0, screenWidth/56, screenWidth/56, g);
         images.typeString(dadaTracker.getAvarageOf5(twistyPuzzleType), 0, (int) (screenHeight - (30 + screenWidth/56)), screenWidth/56, false, g);

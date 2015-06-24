@@ -56,7 +56,7 @@ public class DadaTracker {
 		double maximum;
 		double minimum;
 		double sumForAvarageOf5 = 0;
-		double avarageOf5;
+		double avarageOf5Seconds;
 		currentArrayListRemote = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
 		currentArrayListClone = (ArrayList) currentArrayListRemote.clone();
 		while(currentArrayListClone.size() > 5){
@@ -80,8 +80,13 @@ public class DadaTracker {
 			for(int i = 0; i < currentArrayListClone.size(); i++){
 				sumForAvarageOf5 = sumForAvarageOf5 + (double) currentArrayListClone.get(i);
 			}
-			avarageOf5 = sumForAvarageOf5/currentArrayListClone.size();
-			return String.format("%.3f", avarageOf5);
+			avarageOf5Seconds = sumForAvarageOf5/currentArrayListClone.size();
+			int timeMinutes = 0;
+			while (avarageOf5Seconds > 60){
+				timeMinutes++;
+				avarageOf5Seconds = avarageOf5Seconds - 60;
+			}
+			return timeMinutes + ":" + String.format("%.3f", avarageOf5Seconds);
 		}
 		else{
 			return "no avarage of 5 yet";
