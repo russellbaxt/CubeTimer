@@ -94,7 +94,7 @@ public class DadaTracker {
 			masterArrayList.set(twistyPuzzleType.ordinal(), currentArrayListRemote);
 		}
 	}
-	public ArrayList getlast5Solves(TwistyPuzzleType twistyPuzzleTypeIn){
+	public ArrayList getlast20Solves(TwistyPuzzleType twistyPuzzleTypeIn){
 //		List<String> last5Solves = new List<String>();
 //		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
 //		currentArrayListClone = (ArrayList) currentArrayList.clone();

@@ -19,12 +19,19 @@ public class Images {
  
  
     }
-    public void typeStringListGoingDown(ArrayList string, int x, int y, int fontSize, Graphics g){
+    public void typeStringListOfTimesGoingDown(ArrayList arrayList, int x, int y, int fontSize, Graphics g){
+    	int timeMinutes;
+    	ArrayList string = (ArrayList) arrayList.clone();
     	Font font = new Font("Arial", Font.PLAIN, fontSize);
     	g.setFont(font);
     	g.setColor(Color.BLACK);
     	for(int i = 0; i < string.size(); i++){
-    		g.drawString(Double.toString((double) string.get(i)), x, y + (i * fontSize));
+    		timeMinutes = 0;
+    		while((Double) string.get(i) > 60){
+    			timeMinutes = timeMinutes + 1;
+    			string.set(i, (Double) string.get(i) - 60.0);
+    		}
+    		g.drawString(Integer.toString(timeMinutes) + ":" + (String.format("%.3f",(double) string.get(i))), x, y + (i * fontSize));
     	}
     }
     public void typeString(String string, int x, int y, int fontSize, boolean green, Graphics g){
