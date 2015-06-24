@@ -15,6 +15,7 @@ public class DadaTracker {
 	ArrayList gearCube;
 	ArrayList oneHanded3x3x3;
 	ArrayList currentArrayList;
+	ArrayList currentArrayListClone;
 	TwistyPuzzleType twistyPuzzleType;
 	public DadaTracker(){
 		masterArrayList = new <ArrayList>ArrayList();
@@ -38,6 +39,7 @@ public class DadaTracker {
 		masterArrayList.add(anisatropicGearCube);
 		masterArrayList.add(gearCube);
 		masterArrayList.add(oneHanded3x3x3);
+		twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
 	}
 	public void addTime(TwistyPuzzleType twistyPuzzleTypeIn, double time){
 		twistyPuzzleType = twistyPuzzleTypeIn;
@@ -47,7 +49,39 @@ public class DadaTracker {
 		System.out.println(twistyPuzzleType.toString() + "  " +  masterArrayList.get(twistyPuzzleType.ordinal()));
 	}
 	public String getAvarage5Time(){
-		return "1:11.111";
+		double maximum;
+		double minimum;
+		double sumForAvarageOf5 = 0;
+		double avarageOf5;
+		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
+		currentArrayListClone = (ArrayList) currentArrayList.clone();
+		while(currentArrayListClone.size() > 5){
+			currentArrayListClone.remove(0);
+		}
+		if(currentArrayListClone.size() == 5){
+			maximum = (double) currentArrayListClone.get(0);
+			for(int i = 1; i<currentArrayListClone.size(); i++){
+				if((double)(currentArrayListClone.get(i)) > maximum){
+					maximum = (double) currentArrayListClone.get(i);
+				}
+			}
+			currentArrayListClone.remove(maximum);
+			minimum = (double) currentArrayListClone.get(0);
+			for(int i = 1; i < currentArrayListClone.size(); i++){
+				if((double)(currentArrayListClone.get(i)) < minimum){
+					minimum = (double) currentArrayListClone.get(i);
+				}
+			}
+			currentArrayListClone.remove(minimum);
+			for(int i = 0; i < currentArrayListClone.size(); i++){
+				sumForAvarageOf5 = sumForAvarageOf5 + (double) currentArrayListClone.get(i);
+			}
+			avarageOf5 = sumForAvarageOf5/currentArrayListClone.size();
+			return String.format("%.3f", avarageOf5);
+		}
+		else{
+			return "no avarage of 5 yet";
+		}
 	}
 	public void deleteLastSolve(){
 		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
