@@ -294,7 +294,7 @@ public class Timer extends JPanel{
         	images.typeStringListCentered(randomScrambleAfterSplit, 0, screenHeight/4, (int) (screenWidth/scrambleSize), g);
         }
         else{
-        	images.typeString(randomScramble, 0, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
+        	images.typeString(randomScramble, screenWidth/20, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
         }
         images.typeStringListGoingDown(dadaTracker.getlast5Solves(twistyPuzzleType), 0, screenWidth/56, screenWidth/56, g);
         images.typeString(dadaTracker.getAvarage5Time(twistyPuzzleType), 0, (int) (screenHeight - (30 + screenWidth/56)), screenWidth/56, false, g);

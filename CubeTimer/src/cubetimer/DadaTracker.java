@@ -15,7 +15,7 @@ public class DadaTracker {
 	ArrayList anisatropicGearCube;
 	ArrayList gearCube;
 	ArrayList oneHanded3x3x3;
-	ArrayList currentArrayList;
+	ArrayList currentArrayListRemote;
 	ArrayList currentArrayListClone;
 	TwistyPuzzleType twistyPuzzleType;
 	public DadaTracker(){
@@ -44,18 +44,21 @@ public class DadaTracker {
 	}
 	public void addTime(TwistyPuzzleType twistyPuzzleTypeIn, double time){
 		twistyPuzzleType = twistyPuzzleTypeIn;
-		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
-		currentArrayList.add(time);
-		masterArrayList.set(twistyPuzzleType.ordinal(), currentArrayList);
-		System.out.println(twistyPuzzleType.toString() + "  " +  masterArrayList.get(twistyPuzzleType.ordinal()));
+		currentArrayListRemote = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
+		currentArrayListRemote.add(time);
+		if(currentArrayListRemote.size() > 20){
+			currentArrayListRemote.remove(0);
+		}
+//		masterArrayList.set(twistyPuzzleType.ordinal(), currentArrayList);
 	}
 	public String getAvarage5Time(TwistyPuzzleType twistyPuzzleTypeIn){
+		twistyPuzzleType = twistyPuzzleTypeIn;
 		double maximum;
 		double minimum;
 		double sumForAvarageOf5 = 0;
 		double avarageOf5;
-		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleTypeIn.ordinal());
-		currentArrayListClone = (ArrayList) currentArrayList.clone();
+		currentArrayListRemote = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
+		currentArrayListClone = (ArrayList) currentArrayListRemote.clone();
 		while(currentArrayListClone.size() > 5){
 			currentArrayListClone.remove(0);
 		}
@@ -85,10 +88,10 @@ public class DadaTracker {
 		}
 	}
 	public void deleteLastSolve(){
-		currentArrayList = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
-		if(!currentArrayList.isEmpty()){
-			currentArrayList.remove(currentArrayList.size() - 1);
-			masterArrayList.set(twistyPuzzleType.ordinal(), currentArrayList);
+		currentArrayListRemote = (ArrayList) masterArrayList.get(twistyPuzzleType.ordinal());
+		if(!currentArrayListRemote.isEmpty()){
+			currentArrayListRemote.remove(currentArrayListRemote.size() - 1);
+			masterArrayList.set(twistyPuzzleType.ordinal(), currentArrayListRemote);
 		}
 	}
 	public ArrayList getlast5Solves(TwistyPuzzleType twistyPuzzleTypeIn){
