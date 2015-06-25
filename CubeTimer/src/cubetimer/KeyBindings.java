@@ -22,6 +22,7 @@ public class KeyBindings extends JComponent{
     private OKeyPressedAction oAction;
     private DeletePressedAction deleteAction;
     private PlusKeyPressedAction plusAction;
+    private DashKeyPressedAction dashAction;
      
     public KeyBindings (Timer timerIn){
         timer = timerIn;
@@ -41,6 +42,7 @@ public class KeyBindings extends JComponent{
         oAction = new OKeyPressedAction(timer);
         deleteAction = new DeletePressedAction(timer);
         plusAction = new PlusKeyPressedAction(timer);
+        dashAction = new DashKeyPressedAction(timer);
        
         
         this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "SpacePressed");
@@ -75,6 +77,8 @@ public class KeyBindings extends JComponent{
         this.getActionMap().put("BackspacePressed", deleteAction);
         this.getInputMap().put(KeyStroke.getKeyStroke("EQUALS"), "PlusPressed");
         this.getActionMap().put("PlusPressed", plusAction);
+        this.getInputMap().put(KeyStroke.getKeyStroke("MINUS"), "DashPressed");
+        this.getActionMap().put("DashPressed", dashAction);
         
     }
  

@@ -51,6 +51,7 @@ public class Timer extends JPanel{
     private boolean consoleRequiresAtention;
     private boolean addNotChangeUser;
     private boolean paintComponentDone;
+    private boolean dashPressed;
      
     public Timer(){
     	dadaTracker = new DadaTracker();
@@ -114,6 +115,9 @@ public class Timer extends JPanel{
     }
     public void plusPressed(){
     	plusPressed = true;
+    }
+    public void dashPressed(){
+    	dashPressed = true;
     }
     public void startCountDown(){
     	countdownRunning = true;
@@ -180,9 +184,14 @@ public class Timer extends JPanel{
     	    deletePressed = false;
     	    plusPressed = false;
     	    if(paintComponentDone){
-    	    	paintComponentDone = true;
-    	    	dadaTracker.addUser();
-    	    	consoleRequiresAtention = false;
+    	    	if(addNotChangeUser){
+    	    		dadaTracker.addUser();
+    	    	}
+    	    	else{
+    	    		dadaTracker.changeToUser();
+    	    	}
+	    		consoleRequiresAtention = false;
+    	    	
     	    }
     	}
     	else{
@@ -303,6 +312,13 @@ public class Timer extends JPanel{
             if(plusPressed){
             	plusPressed = false;
             	consoleRequiresAtention = true;
+            	addNotChangeUser = true;
+            	repaint();
+            }
+            if(dashPressed){
+            	dashPressed = false;
+            	consoleRequiresAtention = true;
+            	addNotChangeUser = false;
             	repaint();
             }
             if (countdownRunning){
@@ -328,7 +344,8 @@ public class Timer extends JPanel{
         if(consoleRequiresAtention){
         	super.paintComponents(g);
         	images.drawBackGround(Color.GRAY, screenWidth, screenHeight, g);
-        	images.typeString("The Console Requires Your Atention", 0, screenHeight/2, screenWidth/14, false, g);
+        	images.typeString("The Console Requires", 0, screenHeight/2 - screenWidth/28, screenWidth/14, false, g);
+        	images.typeString("Your Attention", 0, screenHeight/2 + screenWidth/28, screenHeight/14, false, g);
         		paintComponentDone = true;
         }
         else{
@@ -343,8 +360,10 @@ public class Timer extends JPanel{
 	        }
 	        images.typeStringListOfTimesGoingDown(dadaTracker.getlast20Solves(twistyPuzzleType), 0, screenWidth/56, screenWidth/56, g);
 	        images.typeString(dadaTracker.getAvarageOf5(twistyPuzzleType), 0, (int) (screenHeight - (30 + screenWidth/56)), screenWidth/56, false, g);
-	        images.typeScrambleType(twistyPuzzleType, (int) (screenWidth/1.2 - 20), screenWidth/40, screenWidth/56, g);
-	        images.typeString(Integer.toString(scrambleLenght), (int) (screenWidth/1.2 - 20), screenWidth/20, screenWidth/56, false, g);
+	        
+	        images.typeString(dadaTracker.getCurrentUserName(), (int) (screenWidth/1.2 - 20.0), screenWidth/40, screenWidth/56, false, g);
+	        images.typeScrambleType(twistyPuzzleType, (int) (screenWidth/1.2 - 20), screenWidth/20, screenWidth/56, g);
+	        images.typeString(Integer.toString(scrambleLenght), (int) (screenWidth/1.2 - 20), screenWidth/15, screenWidth/56, false, g);
         }
     }
  
