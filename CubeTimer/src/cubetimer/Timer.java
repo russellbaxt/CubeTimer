@@ -47,6 +47,10 @@ public class Timer extends JPanel{
     private boolean oPressed;
     private boolean deletePressed;
     private DadaTracker dadaTracker;
+    private boolean plusPressed;
+    private boolean consoleRequiresAtention;
+    private boolean addNotChangeUser;
+    private boolean paintComponentDone;
      
     public Timer(){
     	dadaTracker = new DadaTracker();
@@ -108,6 +112,9 @@ public class Timer extends JPanel{
     public void deletePressed(){
     	deletePressed = true;
     }
+    public void plusPressed(){
+    	plusPressed = true;
+    }
     public void startCountDown(){
     	countdownRunning = true;
     	countdownStart =  (double) (System.currentTimeMillis()/1000.0);
@@ -155,151 +162,190 @@ public class Timer extends JPanel{
     public void keepTime(int width, int height){
     	screenWidth = width;
     	screenHeight = height;
-        if (running){
-            time = actions.getTime(0);
-        }
-        if (spacePressed){
-        	spacePressed = false;
-        	if(running){
+    	if(consoleRequiresAtention){
+    	    spacePressed = false;
+    	    spaceReleased = false;
+    	    threePressed = false;
+    	    twoPressed = false;
+    	    leftPressed = false;
+    	    rightPressed = false;
+    	    fourPressed = false;
+    	    fivePressed = false;
+    	    rPressed = false;
+    	    mPressed = false;
+    	    gPressed = false;
+    	    aPressed = false;
+    	    vPressed = false;
+    	    oPressed = false;
+    	    deletePressed = false;
+    	    plusPressed = false;
+    	    if(paintComponentDone){
+    	    	paintComponentDone = true;
+    	    	dadaTracker.addUser();
+    	    	consoleRequiresAtention = false;
+    	    }
+    	}
+    	else{
+            if (running){
+                time = actions.getTime(0);
+            }
+            if (spacePressed){
+            	spacePressed = false;
+            	if(running){
+                	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+            		running = false;
+            		time = actions.getTime(timePenalty);
+            		ignoreNextRelease = true;
+            		timePenalty = 0;
+            		inspectionExtendedBy = 0;
+            		dadaTracker.addTime(twistyPuzzleType, actions.getTimePreviouslyGotenAsDouble());
+            	}
+            	else{
+            		if(!ignoreNextRelease){
+                		greenText = true;
+            		}
+            	}
+            }
+            if(spaceReleased){
+            	spaceReleased = false;
+            	greenText = false;
+            	if(ignoreNextRelease){
+            		ignoreNextRelease = false;
+            	}
+            	else{
+            		if(!running){
+                    	randomScramble = "";
+            			if (countdownRunning){
+            				countdownRunning = false;
+            				running = true;
+            				time = actions.startTimer();
+            			}
+            			else{
+            				startCountDown();
+            			}
+            		}
+            	}
+            }
+            if(threePressed){
+            	threePressed = false;
+            	twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
             	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        		running = false;
-        		time = actions.getTime(timePenalty);
-        		ignoreNextRelease = true;
-        		timePenalty = 0;
-        		inspectionExtendedBy = 0;
-        		dadaTracker.addTime(twistyPuzzleType, actions.getTimePreviouslyGotenAsDouble());
-        	}
-        	else{
-        		if(!ignoreNextRelease){
-            		greenText = true;
-        		}
-        	}
-        }
-        if(spaceReleased){
-        	spaceReleased = false;
-        	greenText = false;
-        	if(ignoreNextRelease){
-        		ignoreNextRelease = false;
-        	}
-        	else{
-        		if(!running){
-                	randomScramble = "";
-        			if (countdownRunning){
-        				countdownRunning = false;
-        				running = true;
-        				time = actions.startTimer();
-        			}
-        			else{
-        				startCountDown();
-        			}
-        		}
-        	}
-        }
-        if(threePressed){
-        	threePressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        	scrambleLenght = 20;
-        }
-        if(twoPressed){
-        	twoPressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.cube2x2x2;
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        	scrambleLenght = 20;
-        }
-        if(fourPressed){
-        	fourPressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.cube4x4x4;
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        	scrambleLenght = 20;
-        }
-        if(fivePressed){
-        	fivePressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.cube5x5x5;
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        	scrambleLenght = 20;
-        }
-        if(leftPressed){
-        	leftPressed = false;
-        	if(scrambleLenght > 1){
-            	scrambleLenght--;
-        	}
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        }
-        if(rightPressed){
-        	rightPressed = false;
-        	scrambleLenght++;
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType,scrambleLenght);
-        }
-        if(rPressed){
-        	rPressed = false;
-        	randomTwistyPuzzle();
-        }
-        if(mPressed){
-        	mPressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.magaMinx;
-        	scrambleLenght = 40;
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        }
-        if(gPressed){
-        	gPressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.gearCube;
-        	scrambleLenght = 20;
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        }
-        if(aPressed){
-        	aPressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.anisatropicGearCube;
-        	scrambleLenght = 20;
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        }
-        if(oPressed){
-        	oPressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.oneHanded3x3x3;
-        	scrambleLenght = 20;
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        }
-        if(vPressed){
-        	vPressed = false;
-        	twistyPuzzleType = TwistyPuzzleType.voidChalangeCube;
-        	scrambleLenght = 20;
-        	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
-        }
-        if(deletePressed){
-        	deletePressed = false;
-        	dadaTracker.deleteLastSolve();
-        }
-        if (countdownRunning){
-        	updateCountdownTime();
-        }
-        if(randomScramble.contains("/n")){
-            randomScrambleAfterSplit = randomScramble.split("/n");
-            scrambleSize = randomScrambleAfterSplit[0].length()/2 + 4;
-            useStringListForRandomScramble = true;
-        }
-        else{
-        	scrambleSize = randomScramble.length()/2;
-        	useStringListForRandomScramble = false;
-        } 
-        if (scrambleSize < 4){
-        	scrambleSize = 4;
-        }
-        repaint();
+            	scrambleLenght = 20;
+            }
+            if(twoPressed){
+            	twoPressed = false;
+            	twistyPuzzleType = TwistyPuzzleType.cube2x2x2;
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+            	scrambleLenght = 20;
+            }
+            if(fourPressed){
+            	fourPressed = false;
+            	twistyPuzzleType = TwistyPuzzleType.cube4x4x4;
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+            	scrambleLenght = 20;
+            }
+            if(fivePressed){
+            	fivePressed = false;
+            	twistyPuzzleType = TwistyPuzzleType.cube5x5x5;
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+            	scrambleLenght = 20;
+            }
+            if(leftPressed){
+            	leftPressed = false;
+            	if(scrambleLenght > 1){
+                	scrambleLenght--;
+            	}
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+            }
+            if(rightPressed){
+            	rightPressed = false;
+            	scrambleLenght++;
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType,scrambleLenght);
+            }
+            if(rPressed){
+            	rPressed = false;
+            	randomTwistyPuzzle();
+            }
+            if(mPressed){
+            	mPressed = false;
+            	twistyPuzzleType = TwistyPuzzleType.magaMinx;
+            	scrambleLenght = 40;
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+            }
+            if(gPressed){
+            	gPressed = false;
+            	twistyPuzzleType = TwistyPuzzleType.gearCube;
+            	scrambleLenght = 20;
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+            }
+            if(aPressed){
+            	aPressed = false;
+            	twistyPuzzleType = TwistyPuzzleType.anisatropicGearCube;
+            	scrambleLenght = 20;
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+            }
+            if(oPressed){
+            	oPressed = false;
+            	twistyPuzzleType = TwistyPuzzleType.oneHanded3x3x3;
+            	scrambleLenght = 20;
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+            }
+            if(vPressed){
+            	vPressed = false;
+            	twistyPuzzleType = TwistyPuzzleType.voidChalangeCube;
+            	scrambleLenght = 20;
+            	randomScramble = scrambler.randomCorrectScramble(twistyPuzzleType, scrambleLenght);
+            }
+            if(deletePressed){
+            	deletePressed = false;
+            	dadaTracker.deleteLastSolve();
+            }
+            if(plusPressed){
+            	plusPressed = false;
+            	consoleRequiresAtention = true;
+            	repaint();
+            }
+            if (countdownRunning){
+            	updateCountdownTime();
+            }
+            if(randomScramble.contains("/n")){
+                randomScrambleAfterSplit = randomScramble.split("/n");
+                scrambleSize = randomScrambleAfterSplit[0].length()/2 + 4;
+                useStringListForRandomScramble = true;
+            }
+            else{
+            	scrambleSize = randomScramble.length()/2;
+            	useStringListForRandomScramble = false;
+            } 
+            if (scrambleSize < 4){
+            	scrambleSize = 4;
+            }
+            repaint();
+
+    	}
     }
     public void paintComponent (Graphics g){
-        super.paintComponents(g);
-        images.drawBackGround(Color.WHITE, screenWidth, screenHeight, g);
-        images.typeString(time, screenWidth/2 - 100, screenHeight/2, screenWidth/14, greenText, g);
-        if(useStringListForRandomScramble){
-        	images.typeStringListCentered(randomScrambleAfterSplit, screenWidth/15, screenHeight/4, (int) (screenWidth/scrambleSize), g);
+        if(consoleRequiresAtention){
+        	super.paintComponents(g);
+        	images.drawBackGround(Color.GRAY, screenWidth, screenHeight, g);
+        	images.typeString("The Console Requires Your Atention", 0, screenHeight/2, screenWidth/14, false, g);
+        		paintComponentDone = true;
         }
         else{
-        	images.typeString(randomScramble, screenWidth/15, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
+	    	super.paintComponents(g);
+	        images.drawBackGround(Color.WHITE, screenWidth, screenHeight, g);
+	        images.typeString(time, screenWidth/2 - 100, screenHeight/2, screenWidth/14, greenText, g);
+	        if(useStringListForRandomScramble){
+	        	images.typeStringListCentered(randomScrambleAfterSplit, screenWidth/15, screenHeight/4, (int) (screenWidth/scrambleSize), g);
+	        }
+	        else{
+	        	images.typeString(randomScramble, screenWidth/15, screenHeight/4, (int) (screenWidth/scrambleSize), false, g);
+	        }
+	        images.typeStringListOfTimesGoingDown(dadaTracker.getlast20Solves(twistyPuzzleType), 0, screenWidth/56, screenWidth/56, g);
+	        images.typeString(dadaTracker.getAvarageOf5(twistyPuzzleType), 0, (int) (screenHeight - (30 + screenWidth/56)), screenWidth/56, false, g);
+	        images.typeScrambleType(twistyPuzzleType, (int) (screenWidth/1.2 - 20), screenWidth/40, screenWidth/56, g);
+	        images.typeString(Integer.toString(scrambleLenght), (int) (screenWidth/1.2 - 20), screenWidth/20, screenWidth/56, false, g);
         }
-        images.typeStringListOfTimesGoingDown(dadaTracker.getlast20Solves(twistyPuzzleType), 0, screenWidth/56, screenWidth/56, g);
-        images.typeString(dadaTracker.getAvarageOf5(twistyPuzzleType), 0, (int) (screenHeight - (30 + screenWidth/56)), screenWidth/56, false, g);
-        images.typeScrambleType(twistyPuzzleType, (int) (screenWidth/1.2 - 20), screenWidth/40, screenWidth/56, g);
-        images.typeString(Integer.toString(scrambleLenght), (int) (screenWidth/1.2 - 20), screenWidth/20, screenWidth/56, false, g);
     }
  
 }
