@@ -57,7 +57,6 @@ public class DadaTracker {
 		return allUsers.getUser(currentUserNumber).getAvarageOf5(twistyPuzzleType);
 	}
 	public void deleteLastSolve(){
-		
 		allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).removeLastElementInTimes();
 	}
 	public ArrayList getlast20Solves(TwistyPuzzleType twistyPuzzleTypeIn){
