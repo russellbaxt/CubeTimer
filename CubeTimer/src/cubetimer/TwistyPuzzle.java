@@ -40,6 +40,9 @@ public class TwistyPuzzle{
 		return (ArrayList) times.clone();
 	}
 	public void removeLastElementInTimes(){
-		times.remove(times.size());
+		if(times.size() > 0){
+			times.remove(times.size() - 1);
+		}
+
 	}
 }
