@@ -3,36 +3,49 @@ package cubetimer;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Scrambler {
+public class Scrambler{
+	
 	private String randomScramble;
 	private String randomMove;
+	
 	private int lastFaceMovedInInt;
 	private boolean faceMoving;
-	private Random random;
 	private int faceMovedInInt;
 	private int moveDirectionInInt;
 	private int faceDepthInInt;
 	private int faceMoved2TimesAgoInInt;
+	
+	private Random random;
 
-	public Scrambler() {
+	
+	public Scrambler(){
+	
 		random = new Random();
 	}
-
-	public String intTo3x3Turn(int face, int symbol) {
+	
+	public String intTo3x3Turn(int face, int symbol){
+	
 		String faces = "ULFRBD";
 		String symbols = " '2";
+		
 		return "" + faces.charAt(face) + symbols.charAt(symbol);
 		
 	}
-	public String intTo2x2Turn(int face,int symbol){
+	
+	public String intTo2x2Turn(int face, int symbol){
+	
 		String faces = "RUF";
 		String symbols = " '2";
+		
 		return "" + faces.charAt(face) + symbols.charAt(symbol);
 	}
+	
 	public String intTo4x4Or5x5Turn(int face, int faceDepth, int symbol){
+	
 		String outerFaces = "ULFRBD";
 		String innerFaces = "ulfrbd";
 		String symbols = " '2";
+		
 		if(faceDepth == 1){
 			return "(" + outerFaces.charAt(face) + innerFaces.charAt(face) + ")" + symbols.charAt(symbol);
 		}
@@ -43,14 +56,20 @@ public class Scrambler {
 			return outerFaces.charAt(face) + "" + symbols.charAt(symbol);
 		}
 	}
+	
 	public String intToGearCubeTurn(int face, int symbol){
+	
 		String faces = "RUF";
 		String symbols = " '";
+		
 		return faces.charAt(face) + "2" + symbols.charAt(symbol);
 	}
+	
 	public String intToAnisatopricGearCubeTurn(int face, int symbol){
+	
 		String faces = "RF";
 		String symbols = " '";
+		
 		if(face == 2){
 			return "U" + symbols.charAt(symbol);
 		}
@@ -58,18 +77,23 @@ public class Scrambler {
 			return "" + faces.charAt(face) + "2" + symbols.charAt(symbol);
 		}
 	}
+	
 	public String random3x3Scramble(int scrambleLength){
-		for (int i = 0; i<scrambleLength; i++){
+	
+		for(int i = 0; i < scrambleLength; i ++){
+			
 			faceMovedInInt = random.nextInt(6);
+			
 			if(lastFaceMovedInInt == faceMovedInInt || faceMoved2TimesAgoInInt == faceMovedInInt){
-				i--;
+				i --;
 			}
 			else{
 				faceMoved2TimesAgoInInt = lastFaceMovedInInt;
 				lastFaceMovedInInt = faceMovedInInt;
 				moveDirectionInInt = random.nextInt(3);
 				randomMove = intTo3x3Turn(faceMovedInInt, moveDirectionInInt);
-				if (i == 0){
+				
+				if(i == 0){
 					randomScramble = randomMove;
 				}
 				else{
@@ -80,16 +104,21 @@ public class Scrambler {
 		}
 		return randomScramble;
 	}
+	
 	public String random2x2Scramble(int scrambleLength){
-		for(int i = 0; i < scrambleLength; i++){
+	
+		for(int i = 0; i < scrambleLength; i ++){
+			
 			faceMovedInInt = random.nextInt(3);
-			if(lastFaceMovedInInt  == faceMovedInInt){
-				i--;
+			
+			if(lastFaceMovedInInt == faceMovedInInt){
+				i --;
 			}
 			else{
 				lastFaceMovedInInt = faceMovedInInt;
 				moveDirectionInInt = random.nextInt(3);
 				randomMove = intTo2x2Turn(faceMovedInInt, moveDirectionInInt);
+				
 				if(i == 0){
 					randomScramble = randomMove;
 				}
@@ -100,19 +129,24 @@ public class Scrambler {
 		}
 		return randomScramble;
 	}
+	
 	public String random4x4Or5x5Scramble(int scrambleLenght){
-		for(int i = 0; i < scrambleLenght; i++){
+	
+		for(int i = 0; i < scrambleLenght; i ++){
+			
 			faceMovedInInt = random.nextInt(6);
+			
 			if(lastFaceMovedInInt == faceMovedInInt){
-				i--;
+				i --;
 			}
 			else{
 				faceMoved2TimesAgoInInt = lastFaceMovedInInt;
 				lastFaceMovedInInt = faceMovedInInt;
 				faceDepthInInt = random.nextInt(3);
 				moveDirectionInInt = random.nextInt(3);
-				randomMove = intTo4x4Or5x5Turn(faceMovedInInt,faceDepthInInt,moveDirectionInInt);
-				if(i== 0){
+				randomMove = intTo4x4Or5x5Turn(faceMovedInInt, faceDepthInInt, moveDirectionInInt);
+				
+				if(i == 0){
 					randomScramble = randomMove;
 				}
 				else{
@@ -122,23 +156,29 @@ public class Scrambler {
 		}
 		return randomScramble;
 	}
+	
 	public String curvyCopterScramble(){
+	
 		return "No Curvy Copter Scramble Avaliable";
 	}
+	
 	public String randomMegaMinxScramble(int scrambleLength){
+	
 		int j = 1;
 		boolean rNext;
 		int randomNumber;
 		rNext = random.nextBoolean();
 		String symbols = "+-";
 		String otherSymbols = "' ";
-		for(int i = 0; i < scrambleLength; i++){
-			if(j  >= 10){
+		
+		for(int i = 0; i < scrambleLength; i ++){
+			
+			if(j >= 10){
 				j = 1;
 				randomMove = "U" + otherSymbols.charAt(random.nextInt(2)) + "/n";
 			}
 			else{
-				j++;
+				j ++;
 				if(rNext){
 					randomNumber = random.nextInt(2);
 					randomMove = "R" + symbols.charAt(randomNumber) + symbols.charAt(randomNumber);
@@ -150,7 +190,7 @@ public class Scrambler {
 					randomMove = "D" + symbols.charAt(randomNumber) + symbols.charAt(randomNumber);
 				}
 			}
-			if(i<1){
+			if(i < 1){
 				randomScramble = randomMove;
 			}
 			else{
@@ -159,17 +199,23 @@ public class Scrambler {
 		}
 		return randomScramble;
 	}
+	
 	String randomGearCubeScramble(int scrambleSize){
+	
 		int faceTurn;
 		int lastFaceTurn = 4;
-		for(int i = 0; i < scrambleSize; i++){
+		
+		for(int i = 0; i < scrambleSize; i ++){
+			
 			faceTurn = random.nextInt(3);
+			
 			if(faceTurn == lastFaceTurn){
-				i--;
+				i --;
 			}
 			else{
 				lastFaceTurn = faceTurn;
 				randomMove = intToGearCubeTurn(faceTurn, random.nextInt(2));
+				
 				if(i == 0){
 					randomScramble = randomMove;
 				}
@@ -180,13 +226,18 @@ public class Scrambler {
 		}
 		return randomScramble;
 	}
+	
 	String randomAnisatropicGearCubeScramble(int scrambleSize){
+	
 		int faceTurn;
 		int lastFaceTurn = 4;
-		for(int i = 0; i < scrambleSize; i++){
+		
+		for(int i = 0; i < scrambleSize; i ++){
+			
 			faceTurn = random.nextInt(3);
+			
 			if(faceTurn == lastFaceTurn){
-				i--;
+				i --;
 			}
 			else{
 				lastFaceTurn = faceTurn;
@@ -201,7 +252,9 @@ public class Scrambler {
 		}
 		return randomScramble;
 	}
+	
 	public String randomCorrectScramble(TwistyPuzzleType twistyPuzzleType, int scrambleSize){
+	
 		if(twistyPuzzleType == TwistyPuzzleType.cube2x2x2){
 			return random2x2Scramble(scrambleSize);
 		}
@@ -226,10 +279,10 @@ public class Scrambler {
 		else if(twistyPuzzleType == TwistyPuzzleType.anisatropicGearCube){
 			return randomAnisatropicGearCubeScramble(scrambleSize);
 		}
-		else if (twistyPuzzleType == TwistyPuzzleType.voidChalangeCube){
+		else if(twistyPuzzleType == TwistyPuzzleType.voidChalangeCube){
 			return random3x3Scramble(scrambleSize);
 		}
-		else if (twistyPuzzleType == TwistyPuzzleType.oneHanded3x3x3){
+		else if(twistyPuzzleType == TwistyPuzzleType.oneHanded3x3x3){
 			return random3x3Scramble(scrambleSize);
 		}
 		else{
