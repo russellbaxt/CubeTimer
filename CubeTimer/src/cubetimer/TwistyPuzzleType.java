@@ -1,6 +1,7 @@
 package cubetimer;
 
-public enum TwistyPuzzleType {
+public enum TwistyPuzzleType{
+	
 	cube2x2x2,
 	cube3x3x3,
 	cube4x4x4,

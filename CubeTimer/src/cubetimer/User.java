@@ -2,8 +2,12 @@ package cubetimer;
 
 import java.util.ArrayList;
 
-public class User {
+public class User{
+	
 	private String userName;
+	
+	private ArrayList<Double> copyOfAllTimesOfATwistyPuzzle;
+	
 	private TwistyPuzzle cube2x2x2;
 	private TwistyPuzzle cube3x3x3;
 	private TwistyPuzzle cube4x4x4;
@@ -14,10 +18,11 @@ public class User {
 	private TwistyPuzzle oneHanded3x3x3;
 	private TwistyPuzzle anisatropicGearCube;
 	private TwistyPuzzle gearCube;
-	private ArrayList<Double> copyOfAllTimesOfATwistyPuzzle;
 	
 	public User(){
+	
 		userName = "";
+		
 		cube2x2x2 = new TwistyPuzzle(TwistyPuzzleType.cube2x2x2);
 		cube3x3x3 = new TwistyPuzzle(TwistyPuzzleType.cube3x3x3);
 		cube4x4x4 = new TwistyPuzzle(TwistyPuzzleType.cube4x4x4);
@@ -31,12 +36,17 @@ public class User {
 	}
 	
 	public void setUserName(String userIn){
+	
 		userName = userIn;
 	}
+	
 	public String getUserName(){
+	
 		return userName;
 	}
+	
 	public TwistyPuzzle getTwistyPuzzle(TwistyPuzzleType twistyPuzzleType){
+	
 		if(twistyPuzzleType == cube2x2x2.getTwistyPuzzleType()){
 			return cube2x2x2;
 		}
@@ -73,7 +83,9 @@ public class User {
 		}
 		
 	}
+	
 	public String getAvarageOf5(TwistyPuzzleType twistyPuzzleType){
+	
 		copyOfAllTimesOfATwistyPuzzle = getTwistyPuzzle(twistyPuzzleType).getCloneOfTimes();
 		
 		double minimum;
@@ -88,30 +100,36 @@ public class User {
 		if(copyOfAllTimesOfATwistyPuzzle.size() == 5){
 			
 			maximum = copyOfAllTimesOfATwistyPuzzle.get(0);
-			for(int i = 1; i < copyOfAllTimesOfATwistyPuzzle.size(); i++){
+			
+			for(int i = 1; i < copyOfAllTimesOfATwistyPuzzle.size(); i ++){
 				if(maximum < copyOfAllTimesOfATwistyPuzzle.get(i)){
 					maximum = copyOfAllTimesOfATwistyPuzzle.get(i);
 				}
 			}
+			
 			copyOfAllTimesOfATwistyPuzzle.remove(maximum);
 			
 			minimum = copyOfAllTimesOfATwistyPuzzle.get(0);
-			for(int i = 1; i < copyOfAllTimesOfATwistyPuzzle.size(); i++){
+			
+			for(int i = 1; i < copyOfAllTimesOfATwistyPuzzle.size(); i ++){
+				
 				if(minimum > copyOfAllTimesOfATwistyPuzzle.get(i)){
 					minimum = copyOfAllTimesOfATwistyPuzzle.get(i);
 				}
 			}
 			copyOfAllTimesOfATwistyPuzzle.remove(maximum);
 			
-			for(int i = 0; i < copyOfAllTimesOfATwistyPuzzle.size(); i++){
+			for(int i = 0; i < copyOfAllTimesOfATwistyPuzzle.size(); i ++){
 				sumForAvarageOf5 = sumForAvarageOf5 + copyOfAllTimesOfATwistyPuzzle.get(i);
 			}
 			
-			avarageOf5Seconds = sumForAvarageOf5/copyOfAllTimesOfATwistyPuzzle.size();
+			avarageOf5Seconds = sumForAvarageOf5 / copyOfAllTimesOfATwistyPuzzle.size();
 			
 			int timeMinutes = 0;
-			while (avarageOf5Seconds > 60){
-				timeMinutes++;
+			
+			while(avarageOf5Seconds > 60){
+				
+				timeMinutes ++;
 				avarageOf5Seconds = avarageOf5Seconds - 60;
 			}
 			return timeMinutes + ":" + String.format("%.3f", avarageOf5Seconds);
