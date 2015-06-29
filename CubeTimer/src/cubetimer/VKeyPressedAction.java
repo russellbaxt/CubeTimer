@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class VKeyPressedAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public VKeyPressedAction(Timer t){
+	public VKeyPressedAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.vPressed();
+		keyPresses.vPressed();
 		
 	}
 	

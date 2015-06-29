@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class OKeyPressedAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public OKeyPressedAction(Timer t){
+	public OKeyPressedAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.oPressed();
+		keyPresses.oPressed();
 		
 	}
 }

@@ -5,16 +5,16 @@ import javax.swing.AbstractAction;
 
 public class SpaceKeyAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public SpaceKeyAction(Timer timerIn){
+	public SpaceKeyAction(KeyPresses kp){
 	
-		timer = timerIn;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.spacePressed();
+		keyPresses.spacePressed();
 	}
 	
 }

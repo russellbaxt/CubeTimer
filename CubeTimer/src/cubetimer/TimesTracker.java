@@ -4,20 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DadaTracker{
+public class TimesTracker{
+	private Fields fields; 
 	
 	private AllUsers allUsers;
 	private int currentUserNumber;
 	
-	private TwistyPuzzleType twistyPuzzleType;
 	Scanner userInput;
 	
-	public DadaTracker(){
-	
+	public TimesTracker(Fields f){
 		allUsers = new AllUsers();
 		allUsers.addUser(new User());
 		
-		twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
 		userInput = new Scanner(System.in);
 		System.out.println("What is your first Users Name? Make sure you can remember it.");
 		String userName = userInput.nextLine();
@@ -33,6 +31,7 @@ public class DadaTracker{
 		allUsers.addUser(new User());
 		currentUserNumber = allUsers.getSize() - 1;
 		allUsers.getUser(currentUserNumber).setUserName(userName);
+		fields.setCurrentUserName(userName);
 	}
 	
 	public void changeToUser(){
@@ -45,30 +44,30 @@ public class DadaTracker{
 		}
 		else{
 			currentUserNumber = allUsers.getIndexOfUserWithUserName(userName);
+			fields.setCurrentUserName(userName);
 		}
 	}
 	
-	public void addTime(TwistyPuzzleType twistyPuzzleTypeIn, double time){
+	public void addTime(TwistyPuzzleType twistyPuzzleType, double time){
 	
-		twistyPuzzleType = twistyPuzzleTypeIn;
 		allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).addTime(time);
+		
+		fields.setLast20Solves(allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).getTimes());
 	}
 	
-	public String getAvarageOf5(TwistyPuzzleType twistyPuzzleTypeIn){
+	public void setAvarageOf5InFieldsUsingFields(){
 	
-		twistyPuzzleType = twistyPuzzleTypeIn;
-		return allUsers.getUser(currentUserNumber).getAvarageOf5(twistyPuzzleType);
+		fields.setAvarageOf5(allUsers.getUser(currentUserNumber).getAvarageOf5(fields.getTwistyPuzzleType()));
 	}
 	
 	public void deleteLastSolve(){
 	
-		allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).removeLastElementInTimes();
+		allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.getTwistyPuzzleType()).removeLastElementInTimes();
 	}
 	
-	public ArrayList getlast20Solves(TwistyPuzzleType twistyPuzzleTypeIn){
+	public void setLast20SolvesInFieldsUsingFields(){
 	
-		twistyPuzzleType = twistyPuzzleTypeIn;
-		return allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).getTimes();
+		fields.setLast20Solves(allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.getTwistyPuzzleType()).getTimes());
 	}
 	
 	public String getCurrentUserName(){

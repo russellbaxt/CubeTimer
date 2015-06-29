@@ -5,7 +5,7 @@ import javax.swing.KeyStroke;
 
 public class KeyBindings extends JComponent{
 	
-	private Timer timer;
+	private Fields fields;
 	
 	private SpaceKeyAction spaceAction;
 	private SpaceReleasedAction spaceReleasedAction;
@@ -29,31 +29,30 @@ public class KeyBindings extends JComponent{
 	private PlusKeyPressedAction plusAction;
 	private DashKeyPressedAction dashAction;
 	
-	public KeyBindings(Timer timerIn){
+	public KeyBindings(KeyPresses kp){
 	
-		timer = timerIn;
 		
-		spaceAction = new SpaceKeyAction(timer);
-		spaceReleasedAction = new SpaceReleasedAction(timer);
-		backSpaceAction = new BackSpaceKeyPressedAction(timer);
+		spaceAction = new SpaceKeyAction(kp);
+		spaceReleasedAction = new SpaceReleasedAction(kp);
+		backSpaceAction = new BackSpaceKeyPressedAction(kp);
 		
-		twoAction = new TwoKeyAction(timer);
-		threeAction = new ThreeKeyAction(timer);
-		fourAction = new FourKeyAction(timer);
-		fiveAction = new FiveKeyAction(timer);
-		mAction = new MKeyPressedAction(timer);
-		gAction = new GKeyPressedAction(timer);
-		aAction = new AKeyPressedAction(timer);
-		vAction = new VKeyPressedAction(timer);
-		oAction = new OKeyPressedAction(timer);
+		twoAction = new TwoKeyAction(kp);
+		threeAction = new ThreeKeyAction(kp);
+		fourAction = new FourKeyAction(kp);
+		fiveAction = new FiveKeyAction(kp);
+		mAction = new MKeyPressedAction(kp);
+		gAction = new GKeyPressedAction(kp);
+		aAction = new AKeyPressedAction(kp);
+		vAction = new VKeyPressedAction(kp);
+		oAction = new OKeyPressedAction(kp);
 		
-		rAction = new RKeyPressedAction(timer);
+		rAction = new RKeyPressedAction(kp);
 		
-		leftAction = new LeftArrowKeyAction(timer);
-		rightAction = new RightArrowKeyAction(timer);
+		leftAction = new LeftArrowKeyAction(kp);
+		rightAction = new RightArrowKeyAction(kp);
 		
-		plusAction = new PlusKeyPressedAction(timer);
-		dashAction = new DashKeyPressedAction(timer);
+		plusAction = new PlusKeyPressedAction(kp);
+		dashAction = new DashKeyPressedAction(kp);
 		
 		this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "SpacePressed");
 		this.getActionMap().put("SpacePressed", spaceAction);

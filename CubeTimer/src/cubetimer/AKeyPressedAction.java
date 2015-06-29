@@ -5,17 +5,17 @@ import javax.swing.AbstractAction;
 
 public class AKeyPressedAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public AKeyPressedAction(Timer t){
+	public AKeyPressedAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
 	
-		timer.aPressed();
+		keyPresses.aPressed();
 		
 	}
 	

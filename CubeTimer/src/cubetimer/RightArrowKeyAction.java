@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class RightArrowKeyAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public RightArrowKeyAction(Timer t){
+	public RightArrowKeyAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.rightPressed();
+		keyPresses.rightPressed();
 		
 	}
 }

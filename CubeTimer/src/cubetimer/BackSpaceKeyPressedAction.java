@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class BackSpaceKeyPressedAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public BackSpaceKeyPressedAction(Timer t){
+	public BackSpaceKeyPressedAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.deletePressed();
+		keyPresses.deletePressed();
 		
 	}
 }

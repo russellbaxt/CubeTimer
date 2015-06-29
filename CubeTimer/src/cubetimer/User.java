@@ -85,6 +85,8 @@ public class User{
 	}
 	
 	public String getAvarageOf5(TwistyPuzzleType twistyPuzzleType){
+		
+		//TODO improve this method
 	
 		copyOfAllTimesOfATwistyPuzzle = getTwistyPuzzle(twistyPuzzleType).getCloneOfTimes();
 		

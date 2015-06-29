@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class TwoKeyAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public TwoKeyAction(Timer t){
+	public TwoKeyAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.twoPressed();
+		keyPresses.twoPressed();
 		
 	}
 }

@@ -5,6 +5,8 @@ import java.util.Random;
 
 public class Scrambler{
 	
+	private Fields fields;
+	
 	private String randomScramble;
 	private String randomMove;
 	
@@ -18,8 +20,9 @@ public class Scrambler{
 	private Random random;
 
 	
-	public Scrambler(){
-	
+	public Scrambler(Fields f){
+		
+		fields = f;
 		random = new Random();
 	}
 	
@@ -288,5 +291,8 @@ public class Scrambler{
 		else{
 			return "we can't scramble that twisty puzzle for you yet";
 		}
+	}
+	public void randomCorrectScrambleInFieldsUsingFields(){
+		fields.setRandomScramble(randomCorrectScramble(fields.getTwistyPuzzleType(), fields.getScrambleLength()));
 	}
 }

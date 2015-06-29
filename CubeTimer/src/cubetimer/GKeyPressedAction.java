@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class GKeyPressedAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public GKeyPressedAction(Timer t){
+	public GKeyPressedAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.gPressed();
+		keyPresses.gPressed();
 		
 	}
 	

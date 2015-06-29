@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class LeftArrowKeyAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public LeftArrowKeyAction(Timer t){
+	public LeftArrowKeyAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.leftPressed();
+		keyPresses.leftPressed();
 		
 	}
 	
