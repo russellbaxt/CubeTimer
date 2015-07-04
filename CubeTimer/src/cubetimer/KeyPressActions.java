@@ -129,10 +129,10 @@ public class KeyPressActions{
 	// scrambler.randomCorrectScrambleInFieldsUsingFields();
 	// }
 	//
-	public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler){
-	
+	public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler, TimesTracker timesTracker){
+
 		fields.setTwistyPuzzleType(twistyPuzzleType);
-		scrambler.randomCorrectScrambleInFieldsUsingFields();
+		timesTracker.setLast20SolvesInFieldsUsingFields();
 		
 		if(twistyPuzzleType == TwistyPuzzleType.magaMinx){
 			fields.setScrambleLenght(40);
@@ -144,6 +144,8 @@ public class KeyPressActions{
 		else{
 			fields.setScrambleLenght(20);
 		}
+		
+		scrambler.randomCorrectScrambleInFieldsUsingFields();
 		
 	}
 	

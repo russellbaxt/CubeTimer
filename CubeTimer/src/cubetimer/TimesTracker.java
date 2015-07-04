@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TimesTracker{
-	private Fields fields; 
+	
+	private Fields fields;
 	
 	private AllUsers allUsers;
 	private int currentUserNumber;
@@ -13,6 +14,9 @@ public class TimesTracker{
 	Scanner userInput;
 	
 	public TimesTracker(Fields f){
+	
+		fields = f;
+		
 		allUsers = new AllUsers();
 		allUsers.addUser(new User());
 		
@@ -21,17 +25,22 @@ public class TimesTracker{
 		String userName = userInput.nextLine();
 		allUsers.getUser(0).setUserName(userName);
 		currentUserNumber = 0;
+		fields.setCurrentUserName(userName);
 		
 	}
 	
 	public void addUser(){
 	
+		// TODO make it not tell the user to remember their user name and not
+		// tell the user that they told them to remember their username when
+		// they try to change it
 		System.out.println("What is your new users name? Make sure to remember it.");
 		String userName = userInput.nextLine();
 		allUsers.addUser(new User());
 		currentUserNumber = allUsers.getSize() - 1;
 		allUsers.getUser(currentUserNumber).setUserName(userName);
 		fields.setCurrentUserName(userName);
+		setLast20SolvesInFieldsUsingFields();
 	}
 	
 	public void changeToUser(){
@@ -46,13 +55,17 @@ public class TimesTracker{
 			currentUserNumber = allUsers.getIndexOfUserWithUserName(userName);
 			fields.setCurrentUserName(userName);
 		}
+		
+		setLast20SolvesInFieldsUsingFields();
 	}
 	
 	public void addTime(TwistyPuzzleType twistyPuzzleType, double time){
 	
 		allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).addTime(time);
 		
-		fields.setLast20Solves(allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).getTimes());
+		setLast20SolvesInFieldsUsingFields();
+		setAvarageOf5InFieldsUsingFields();
+		
 	}
 	
 	public void setAvarageOf5InFieldsUsingFields(){
@@ -63,6 +76,9 @@ public class TimesTracker{
 	public void deleteLastSolve(){
 	
 		allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.getTwistyPuzzleType()).removeLastElementInTimes();
+		
+		setLast20SolvesInFieldsUsingFields();
+		setAvarageOf5InFieldsUsingFields();
 	}
 	
 	public void setLast20SolvesInFieldsUsingFields(){

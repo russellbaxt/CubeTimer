@@ -72,6 +72,7 @@ public class Paint extends JPanel{
 		
 	public void paintComponent(Graphics g){
 		
+		
 		if(consoleRequiresAttention){
 			
 			super.paintComponents(g);

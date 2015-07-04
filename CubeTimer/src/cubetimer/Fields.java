@@ -42,7 +42,7 @@ public class Fields{
 		scrambleSize = 28.0;
 		scrambleLenght = 20;
 		last20Solves = new ArrayList<Double>();
-		avarageOf5 = "";
+		avarageOf5 = "No Avarage Of 5 Yet";
 		currentUserName = "";
 		
 		twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
@@ -147,5 +147,12 @@ public class Fields{
 	}
 	public void setRunning(boolean runningIn){
 		running = runningIn;
+	}
+	public void setScreenSize(int screenWidthIn, int screenHeightIn){
+		screenWidth = screenWidthIn;
+		screenHeight = screenHeightIn;
+	}
+	public ArrayList<Double> getLast20Solves(){
+		return last20Solves;
 	}
 }

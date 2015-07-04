@@ -167,14 +167,14 @@ public class KeyPresses{
 			
 			threePressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube3x3x3, scrambler);
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube3x3x3, scrambler, timesTracker);
 		}
 		
 		if(twoPressed){
 			
 			twoPressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube2x2x2, scrambler);
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube2x2x2, scrambler, timesTracker);
 			
 		}
 		
@@ -182,14 +182,14 @@ public class KeyPresses{
 			
 			fourPressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube4x4x4, scrambler);
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube4x4x4, scrambler, timesTracker);
 		}
 		
 		if(fivePressed){
 			
 			fivePressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube5x5x5, scrambler);
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube5x5x5, scrambler, timesTracker);
 		}
 		
 		if(leftPressed){
@@ -217,35 +217,35 @@ public class KeyPresses{
 			
 			mPressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.magaMinx, scrambler);
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.magaMinx, scrambler, timesTracker);
 		}
 		
 		if(gPressed){
 			
 			gPressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.gearCube, scrambler);
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.gearCube, scrambler, timesTracker);
 		}
 		
 		if(aPressed){
 			
 			aPressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.anisatropicGearCube, scrambler);
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.anisatropicGearCube, scrambler, timesTracker);
 		}
 		
 		if(oPressed){
 			
 			oPressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.oneHanded3x3x3, scrambler);
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.oneHanded3x3x3, scrambler, timesTracker);
 		}
 		
 		if(vPressed){
 			
 			vPressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.voidChalangeCube, scrambler);
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.voidChalangeCube, scrambler, timesTracker);
 		}
 		
 		if(backSpacePressed){

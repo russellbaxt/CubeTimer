@@ -75,7 +75,7 @@ public class User{
 			return cube4x4x4;
 		}
 		else if(twistyPuzzleType == oneHanded3x3x3.getTwistyPuzzleType()){
-			return cube4x4x4;
+			return oneHanded3x3x3;
 		}
 		else{
 			System.out.println("error becouse you did not send in a correct twistyPuzzleType");

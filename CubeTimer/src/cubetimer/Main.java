@@ -26,12 +26,15 @@ public class Main{
 		d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		d.setTitle("Rubik's Cube Timer");
 		d.setLocationRelativeTo(null);
+
+		AnotherMethod.callMeOnce(s);
 		
 		while(true){
 			width = d.getWidth();
 			height = d.getHeight();
+			f.setScreenSize(width, height);
 			kp.trigerActionsForKeyPresses();
-			AnotherMethod.callMe(f, kp, tt, t);
+			AnotherMethod.callMeMany(f, kp, tt, t);
 		}
 	}
 }

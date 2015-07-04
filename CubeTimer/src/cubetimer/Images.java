@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public class Images{
 	
+	//TODO make all of these methods static
+	
 	public Images(){
 	
 	}
@@ -68,7 +70,8 @@ public class Images{
 	}
 	
 	public void drawBackGround(Color color, int screenWidth, int screenHeight, Graphics g){
-	
+		
+		g.drawRect(30, 30, 100, 100);
 		g.setColor(color);
 		g.fillRect(0, 0, screenWidth, screenHeight);
 	}

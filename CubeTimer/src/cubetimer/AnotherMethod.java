@@ -3,7 +3,13 @@ package cubetimer;
 
 public class AnotherMethod{
 	
-	public static void callMe(Fields fields, KeyPresses keyPresses, TimesTracker timesTracker, Timer timer){
+	//TODO make it so that when the scramble length is 10 then you always see all of the letters
+	
+	public static void callMeOnce(Scrambler scrambler){
+		scrambler.randomCorrectScrambleInFieldsUsingFields();
+	}
+	
+	public static void callMeMany(Fields fields, KeyPresses keyPresses, TimesTracker timesTracker, Timer timer){
 		if(fields.getConsoleRequiresAttention()){
 			keyPresses.setAllKeyPressesToFalse();
 			
@@ -38,6 +44,11 @@ public class AnotherMethod{
 		if(fields.getScrambleSize() < 4.0){
 			fields.setScrambleSize(4.0);
 		}
+		
+		if(fields.getCountDownRunning()){
+			timer.updateCountdownTime();
+		}
+		
 		fields.repaint();
 			
 	}
