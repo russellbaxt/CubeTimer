@@ -8,7 +8,6 @@ public class Main{
 	
 	// TODO maybe fix the warning in all the classes
 	// TODO read through every class
-	// TODO make if repaint only when something happens
 	
 	public static int width = 800;
 	public static int height = 830;
@@ -31,14 +30,12 @@ public class Main{
 		d.setTitle("Rubik's Cube Timer");
 		d.setLocationRelativeTo(null);
 		
-		AnotherMethod.callMeOnce(s);
-		
 		while(true){
 			width = d.getWidth();
 			height = d.getHeight();
 			f.setScreenSize(width, height);
 			kp.trigerActionsForKeyPresses();
-			AnotherMethod.callMeMany(f, kp, tt, t);
+			AnotherClass.callMeMany(f, kp, tt, t);
 		}
 	}
 }

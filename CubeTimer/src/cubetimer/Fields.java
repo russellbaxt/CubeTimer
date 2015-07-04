@@ -66,21 +66,29 @@ public class Fields{
 	public void setTwistyPuzzleType(TwistyPuzzleType twistyPuzzleTypeIn){
 	
 		twistyPuzzleType = twistyPuzzleTypeIn;
+		
+		repaint();
 	}
 	
 	public void setCurrentUserName(String currentUserNameIn){
 	
 		currentUserName = currentUserNameIn;
+		
+		repaint();
 	}
 	
 	public void setAvarageOf5(String avarageOf5In){
 	
 		avarageOf5 = avarageOf5In;
+		
+		repaint();
 	}
 	
 	public void setLast20Solves(ArrayList<Double> last20SolvesIn){
 	
 		last20Solves = last20SolvesIn;
+		
+		repaint();
 	}
 	
 	public ArrayList<Double> getLast20Solves(){
@@ -95,7 +103,37 @@ public class Fields{
 	
 	public void setRandomScramble(String randomScrambleIn){
 	
-		randomScramble = randomScrambleIn;
+		if(randomScrambleIn.contains("/n")){
+			
+			randomScrambleAfterSplit = randomScrambleIn.split("/n");
+			scrambleSize = randomScrambleAfterSplit[0].length() / 2.0 + 4.0;
+			useStringListForRandomScramble = true;
+		}
+		
+		else{
+			
+			randomScramble = randomScrambleIn;
+			scrambleSize = randomScramble.length() / 2.0 + 4.0;
+			useStringListForRandomScramble = false;
+		}
+		
+		if(scrambleSize < 4.0){
+			scrambleSize = 4.0;
+		}
+		
+		repaint();
+	}
+	
+	public void setScrambleLenght(int scrambleLenghtIn){
+	
+		scrambleLenght = scrambleLenghtIn;
+		
+		repaint();
+	}
+	
+	public int getScrambleLength(){
+	
+		return scrambleLenght;
 	}
 	
 	public String getTime(){
@@ -106,6 +144,8 @@ public class Fields{
 	public void setTime(String timeIn){
 	
 		time = timeIn;
+		
+		repaint();
 	}
 	
 	public boolean getRunning(){
@@ -146,31 +186,6 @@ public class Fields{
 		DNF = DNFIn;
 	}
 	
-	public void setUseStringListForRandomScramble(boolean useStringListForRandomScrambleIn){
-	
-		useStringListForRandomScramble = useStringListForRandomScrambleIn;
-	}
-	
-	public String[] getRandomScrambleAfterSplit(){
-	
-		return randomScrambleAfterSplit;
-	}
-	
-	public void setRandomScrambleAfterSplit(String[] randomScrambleAfterSplitIn){
-	
-		randomScrambleAfterSplit = randomScrambleAfterSplitIn;
-	}
-	
-	public void setScrambleLenght(int scrambleLenghtIn){
-	
-		scrambleLenght = scrambleLenghtIn;
-	}
-	
-	public int getScrambleLength(){
-	
-		return scrambleLenght;
-	}
-	
 	public double getScrambleSize(){
 	
 		return scrambleSize;
@@ -194,6 +209,8 @@ public class Fields{
 	public void setGreenText(boolean greenTextIn){
 	
 		greenText = greenTextIn;
+		
+		repaint();
 	}
 	
 	public boolean getConsoleRequiresAttention(){
@@ -225,6 +242,8 @@ public class Fields{
 	
 		screenWidth = screenWidthIn;
 		screenHeight = screenHeightIn;
+		
+		repaint();
 	}
 	
 }

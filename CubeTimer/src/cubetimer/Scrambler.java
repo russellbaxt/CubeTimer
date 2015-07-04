@@ -24,9 +24,11 @@ public class Scrambler{
 		
 		fields = f;
 		random = new Random();
+		
+		randomCorrectScrambleInFieldsUsingFields();
 	}
 	
-	public String intTo3x3Turn(int face, int symbol){
+	public static String intTo3x3Turn(int face, int symbol){
 	
 		String faces = "ULFRBD";
 		String symbols = " '2";
@@ -35,7 +37,7 @@ public class Scrambler{
 		
 	}
 	
-	public String intTo2x2Turn(int face, int symbol){
+	public static String intTo2x2Turn(int face, int symbol){
 	
 		String faces = "RUF";
 		String symbols = " '2";
@@ -43,7 +45,7 @@ public class Scrambler{
 		return "" + faces.charAt(face) + symbols.charAt(symbol);
 	}
 	
-	public String intTo4x4Or5x5Turn(int face, int faceDepth, int symbol){
+	public static String intTo4x4Or5x5Turn(int face, int faceDepth, int symbol){
 	
 		String outerFaces = "ULFRBD";
 		String innerFaces = "ulfrbd";
@@ -60,7 +62,7 @@ public class Scrambler{
 		}
 	}
 	
-	public String intToGearCubeTurn(int face, int symbol){
+	public static String intToGearCubeTurn(int face, int symbol){
 	
 		String faces = "RUF";
 		String symbols = " '";
@@ -68,7 +70,7 @@ public class Scrambler{
 		return faces.charAt(face) + "2" + symbols.charAt(symbol);
 	}
 	
-	public String intToAnisatopricGearCubeTurn(int face, int symbol){
+	public static String intToAnisatopricGearCubeTurn(int face, int symbol){
 	
 		String faces = "RF";
 		String symbols = " '";
