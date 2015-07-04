@@ -21,11 +21,13 @@ public class TimesTracker{
 		allUsers.addUser(new User());
 		
 		userInput = new Scanner(System.in);
-		System.out.println("What is your first Users Name? Make sure you can remember it.");
+		System.out.println("What is your first Users Name?");
 		String userName = userInput.nextLine();
 		allUsers.getUser(0).setUserName(userName);
 		currentUserNumber = 0;
 		fields.setCurrentUserName(userName);
+		addTime(fields.getTwistyPuzzleType(), 0);
+		deleteLastSolve();
 		
 	}
 	
@@ -58,10 +60,15 @@ public class TimesTracker{
 	
 	public void addTime(TwistyPuzzleType twistyPuzzleType, double time){
 	
-		allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).addTime(time);
-		
-		setLast20SolvesInFieldsUsingFields();
-		setAvarageOf5InFieldsUsingFields();
+		if(fields.getDNF()){
+			allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).addTime(0);
+		}
+		else{
+			allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).addTime(time + fields.getTimePenalty());
+			
+			setLast20SolvesInFieldsUsingFields();
+			setAvarageOf5InFieldsUsingFields();
+		}
 		
 	}
 	

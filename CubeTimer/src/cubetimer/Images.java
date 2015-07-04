@@ -34,13 +34,19 @@ public class Images{
 		
 		for(int i = 0; i < list.size(); i ++){
 			
-			timeMinutes = 0;
-			while(list.get(i) > 60){
-				timeMinutes = timeMinutes + 1;
-				list.set(i, list.get(i) - 60.0);
+			if(list.get(i) > 0){
+				timeMinutes = 0;
+				while(list.get(i) > 60){
+					timeMinutes = timeMinutes + 1;
+					list.set(i, list.get(i) - 60.0);
+				}
+				
+				g.drawString(Integer.toString(timeMinutes) + ":" + (String.format("%.3f", (double) list.get(i))), x, y + (i * fontSize));
 			}
 			
-			g.drawString(Integer.toString(timeMinutes) + ":" + (String.format("%.3f", (double) list.get(i))), x, y + (i * fontSize));
+			else{
+				g.drawString("DNF", x, y + (i * fontSize));
+			}
 		}
 	}
 	
@@ -68,7 +74,7 @@ public class Images{
 	}
 	
 	public static void drawBackGround(Color color, int screenWidth, int screenHeight, Graphics g){
-		
+	
 		g.drawRect(30, 30, 100, 100);
 		g.setColor(color);
 		g.fillRect(0, 0, screenWidth, screenHeight);

@@ -85,7 +85,7 @@ public class User{
 	}
 	
 	public String getAvarageOf5(TwistyPuzzleType twistyPuzzleType){
-		
+	
 		last5SolvesForAvarageOf5 = getTwistyPuzzle(twistyPuzzleType).getLast5Times();
 		
 		double minimum;
@@ -95,40 +95,51 @@ public class User{
 		
 		if(last5SolvesForAvarageOf5.size() > 0){
 			
-		
-		maximum = last5SolvesForAvarageOf5.get(0);
-		
-		for(int i = 1; i < last5SolvesForAvarageOf5.size(); i ++){
-			if(maximum < last5SolvesForAvarageOf5.get(i)){
-				maximum = last5SolvesForAvarageOf5.get(i);
+			if(last5SolvesForAvarageOf5.contains(0.0)){
+				maximum = 0;
 			}
-		}
-		last5SolvesForAvarageOf5.remove(maximum);
-		
-		minimum = last5SolvesForAvarageOf5.get(0);
-		
-		for(int i = 1; i < last5SolvesForAvarageOf5.size(); i ++){
 			
-			if(minimum > last5SolvesForAvarageOf5.get(i)){
-				minimum = last5SolvesForAvarageOf5.get(i);
+			else{
+				
+				maximum = last5SolvesForAvarageOf5.get(0);
+				
+				for(int i = 1; i < last5SolvesForAvarageOf5.size(); i ++){
+					if(maximum < last5SolvesForAvarageOf5.get(i)){
+						maximum = last5SolvesForAvarageOf5.get(i);
+					}
+				}
 			}
-		}
-		last5SolvesForAvarageOf5.remove(minimum);
-		
-		for(int i = 0; i < last5SolvesForAvarageOf5.size(); i ++){
-			sumForAvarageOf5 = sumForAvarageOf5 + last5SolvesForAvarageOf5.get(i);
-		}
-		
-		avarageOf5Seconds = sumForAvarageOf5 / last5SolvesForAvarageOf5.size();
-		
-		int timeMinutes = 0;
-		
-		while(avarageOf5Seconds > 60){
 			
-			timeMinutes ++;
-			avarageOf5Seconds = avarageOf5Seconds - 60;
-		}
-		return timeMinutes + ":" + String.format("%.3f", avarageOf5Seconds);
+			last5SolvesForAvarageOf5.remove(maximum);
+			
+			if(last5SolvesForAvarageOf5.contains(0)){
+				return "DNF";
+			}
+			
+			minimum = last5SolvesForAvarageOf5.get(0);
+			
+			for(int i = 1; i < last5SolvesForAvarageOf5.size(); i ++){
+				
+				if(minimum > last5SolvesForAvarageOf5.get(i)){
+					minimum = last5SolvesForAvarageOf5.get(i);
+				}
+			}
+			last5SolvesForAvarageOf5.remove(minimum);
+			
+			for(int i = 0; i < last5SolvesForAvarageOf5.size(); i ++){
+				sumForAvarageOf5 = sumForAvarageOf5 + last5SolvesForAvarageOf5.get(i);
+			}
+			
+			avarageOf5Seconds = sumForAvarageOf5 / 3;
+			
+			int timeMinutes = 0;
+			
+			while(avarageOf5Seconds > 60){
+				
+				timeMinutes ++;
+				avarageOf5Seconds = avarageOf5Seconds - 60;
+			}
+			return timeMinutes + ":" + String.format("%.3f", avarageOf5Seconds);
 		}
 		else{
 			return "No Avarage Of 5 Yet";

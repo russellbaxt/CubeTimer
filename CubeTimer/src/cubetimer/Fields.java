@@ -29,6 +29,8 @@ public class Fields{
 	private boolean ignoreNextRelese;
 	private boolean running;
 	private boolean countDownRunning;
+	private boolean DNF;
+	private int timePenalty;
 	
 	private boolean consoleRequiresAtention;
 	private boolean addNotChangeUser;
@@ -44,17 +46,17 @@ public class Fields{
 		last20Solves = new ArrayList<Double>();
 		avarageOf5 = "No Avarage Of 5 Yet";
 		currentUserName = "";
+		DNF = false;
+		timePenalty = 0;
 		
 		twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
 	}
 	
 	public void repaint(){
 	
-		paint.repaint(consoleRequiresAtention, greenText, screenWidth, screenHeight, time, useStringListForRandomScramble, randomScrambleAfterSplit,
-				randomScramble, scrambleSize, scrambleLenght, avarageOf5, currentUserName, last20Solves, twistyPuzzleType);
+		paint.repaint(consoleRequiresAtention, greenText, screenWidth, screenHeight, time, useStringListForRandomScramble, randomScrambleAfterSplit, randomScramble, scrambleSize, scrambleLenght, avarageOf5, currentUserName, last20Solves, twistyPuzzleType);
 		
 	}
-	
 	
 	public TwistyPuzzleType getTwistyPuzzleType(){
 	
@@ -124,6 +126,24 @@ public class Fields{
 	public void setCountDownRunning(boolean countDownRunningIn){
 	
 		countDownRunning = countDownRunningIn;
+	}
+	
+	public int getTimePenalty(){
+	
+		return timePenalty;
+	}
+	
+	public void setTimePenlaty(int timePenaltyIn){
+	
+		timePenalty = timePenaltyIn;
+	}
+	
+	public boolean getDNF(){
+		return DNF;
+	}
+	
+	public void setDNF(boolean DNFIn){
+		DNF = DNFIn;
 	}
 	
 	public void setUseStringListForRandomScramble(boolean useStringListForRandomScrambleIn){

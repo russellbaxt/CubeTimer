@@ -6,8 +6,9 @@ import javax.swing.JFrame;
 
 public class Main{
 	
-	//TODO maybe fix the worning in all the classes
-	//TODO  read through every class
+	// TODO maybe fix the warning in all the classes
+	// TODO read through every class
+	// TODO make if repaint only when something happens
 	
 	public static int width = 800;
 	public static int height = 830;
@@ -15,8 +16,8 @@ public class Main{
 	public static Paint p = new Paint();
 	public static Fields f = new Fields(p);
 	public static TimesTracker tt = new TimesTracker(f);
-	public static Timer t = new Timer(f);
 	public static Scrambler s = new Scrambler(f);
+	public static Timer t = new Timer(f, s, tt);
 	public static Actions a = new Actions();
 	public static KeyPresses kp = new KeyPresses(t, s, tt, a, f);
 	public static Display d = new Display(kp, p);
@@ -29,7 +30,7 @@ public class Main{
 		d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		d.setTitle("Rubik's Cube Timer");
 		d.setLocationRelativeTo(null);
-
+		
 		AnotherMethod.callMeOnce(s);
 		
 		while(true){

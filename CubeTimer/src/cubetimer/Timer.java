@@ -3,6 +3,8 @@ package cubetimer;
 public class Timer{
 	
 	private Fields fields;
+	private Scrambler scrambler;
+	private TimesTracker timesTracker;
 	
 	private long start;
 	private long end;
@@ -13,9 +15,11 @@ public class Timer{
 	private boolean plus2Inspection;
 	private int timePenalty;
 	
-	public Timer(Fields f){
+	public Timer(Fields f, Scrambler scramblerIn, TimesTracker timesTrackerIn){
 	
 		fields = f;
+		scrambler = scramblerIn;
+		timesTracker = timesTrackerIn;
 		
 		timeSeconds = 0;
 		timeMinutes = 0;
@@ -76,6 +80,9 @@ public class Timer{
 	
 	public void StartCountDown(){
 	
+		fields.setTimePenlaty(0);
+		fields.setDNF(false);
+		
 		fields.setCountDownRunning(true);
 		countDownStart = (double) System.currentTimeMillis() / 1000.0;
 	}
@@ -90,16 +97,25 @@ public class Timer{
 			
 		}
 		else{
-			plus2Inspection = true;
+			
+			if(! plus2Inspection){
+				fields.setTimePenlaty(fields.getTimePenalty() + 2);
+				plus2Inspection = true;
+			}
 			if(countDownEnd - countDownStart < 17){
 				fields.setTime("+2");
 			}
 			else{
+				
+				fields.setDNF(true);
+				
 				fields.setTime("DNF");
 				fields.setRunning(false);
 				fields.setCountDownRunning(false);
 				timePenalty = 0;
 				plus2Inspection = false;
+				timesTracker.addTime(fields.getTwistyPuzzleType(), 0);
+				scrambler.randomCorrectScrambleInFieldsUsingFields();
 			}
 			
 		}
