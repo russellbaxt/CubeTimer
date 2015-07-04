@@ -8,7 +8,6 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 public class Paint extends JPanel{
-	private Images images;
 	
 	private boolean consoleRequiresAttention;
 	private boolean paintComponentDone;
@@ -32,7 +31,6 @@ public class Paint extends JPanel{
 	private TwistyPuzzleType twistyPuzzleType;
 	
 	public Paint(){
-		images = new Images();
 		time = "0:0.0";
 		paintComponentDone = false;
 		randomScramble = "";
@@ -77,9 +75,9 @@ public class Paint extends JPanel{
 			
 			super.paintComponents(g);
 			
-			images.drawBackGround(Color.GRAY, screenWidth, screenHeight, g);
-			images.typeString("The Console Requires", 0, screenHeight / 2 - screenWidth / 28, screenWidth / 14, false, g);
-			images.typeString("Your Attention", 0, screenHeight / 2 + screenWidth / 28, screenHeight / 14, false, g);
+			Images.drawBackGround(Color.GRAY, screenWidth, screenHeight, g);
+			Images.typeString("The Console Requires", 0, screenHeight / 2 - screenWidth / 28, screenWidth / 14, false, g);
+			Images.typeString("Your Attention", 0, screenHeight / 2 + screenWidth / 28, screenHeight / 14, false, g);
 			
 			paintComponentDone = true;
 		}
@@ -87,21 +85,21 @@ public class Paint extends JPanel{
 			
 			super.paintComponents(g);
 			
-			images.drawBackGround(Color.WHITE, screenWidth, screenHeight, g);
-			images.typeString(time, screenWidth / 2 - 100, screenHeight / 2, screenWidth / 14, greenText, g);
+			Images.drawBackGround(Color.WHITE, screenWidth, screenHeight, g);
+			Images.typeString(time, screenWidth / 2 - 100, screenHeight / 2, screenWidth / 14, greenText, g);
 			
 			if(useStringListForRandomScramble){
-				images.typeStringListCentered(randomScrambleAfterSplit, screenWidth / 15, screenHeight / 4, (int) (screenWidth / scrambleSize), g);
+				Images.typeStringListCentered(randomScrambleAfterSplit, screenWidth / 15, screenHeight / 4, (int) (screenWidth / scrambleSize), g);
 			}
 			else{
-				images.typeString(randomScramble, screenWidth / 15, screenHeight / 4, (int) (screenWidth / scrambleSize), false, g);
+				Images.typeString(randomScramble, screenWidth / 15, screenHeight / 4, (int) (screenWidth / scrambleSize), false, g);
 			}
 			
-			images.typeStringListOfTimesGoingDown(last20Solves, 0, screenWidth / 56, screenWidth / 56, g);
-			images.typeString(avarageOf5, 0, (int) (screenHeight - (30 + screenWidth / 56)), screenWidth / 56, false, g);
-			images.typeString(currentUserName, (int) (screenWidth / 1.2 - 20.0), screenWidth / 40, screenWidth / 56, false, g);
-			images.typeScrambleType(twistyPuzzleType, (int) (screenWidth / 1.2 - 20), screenWidth / 20, screenWidth / 56, g);
-			images.typeString(Integer.toString(scrambleLenght), (int) (screenWidth / 1.2 - 20), screenWidth / 15, screenWidth / 56, false, g);
+			Images.typeStringListOfTimesGoingDown(last20Solves, 0, screenWidth / 56, screenWidth / 56, g);
+			Images.typeString(avarageOf5, 0, (int) (screenHeight - (30 + screenWidth / 56)), screenWidth / 56, false, g);
+			Images.typeString(currentUserName, (int) (screenWidth / 1.2 - 20.0), screenWidth / 40, screenWidth / 56, false, g);
+			Images.typeScrambleType(twistyPuzzleType, (int) (screenWidth / 1.2 - 20), screenWidth / 20, screenWidth / 56, g);
+			Images.typeString(Integer.toString(scrambleLenght), (int) (screenWidth / 1.2 - 20), screenWidth / 15, screenWidth / 56, false, g);
 		}
 	}
 }

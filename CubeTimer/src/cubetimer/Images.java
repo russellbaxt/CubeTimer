@@ -7,13 +7,11 @@ import java.util.ArrayList;
 
 public class Images{
 	
-	//TODO make all of these methods static
-	
 	public Images(){
 	
 	}
 	
-	public void typeStringListCentered(String[] string, int x, int y, int fontSize, Graphics g){
+	public static void typeStringListCentered(String[] string, int x, int y, int fontSize, Graphics g){
 	
 		Font font = new Font("Arial", Font.PLAIN, fontSize);
 		g.setFont(font);
@@ -25,7 +23,7 @@ public class Images{
 		
 	}
 	
-	public void typeStringListOfTimesGoingDown(ArrayList<Double> arrayList, int x, int y, int fontSize, Graphics g){
+	public static void typeStringListOfTimesGoingDown(ArrayList<Double> arrayList, int x, int y, int fontSize, Graphics g){
 	
 		int timeMinutes;
 		ArrayList<Double> list = (ArrayList<Double>) arrayList.clone();
@@ -46,7 +44,7 @@ public class Images{
 		}
 	}
 	
-	public void typeString(String string, int x, int y, int fontSize, boolean green, Graphics g){
+	public static void typeString(String string, int x, int y, int fontSize, boolean green, Graphics g){
 	
 		Font font = new Font("Arial", Font.PLAIN, fontSize);
 		g.setFont(font);
@@ -61,7 +59,7 @@ public class Images{
 		g.drawString(string, x, y);
 	}
 	
-	public void typeScrambleType(TwistyPuzzleType twistyPuzzleType, int x, int y, int fontSize, Graphics g){
+	public static void typeScrambleType(TwistyPuzzleType twistyPuzzleType, int x, int y, int fontSize, Graphics g){
 	
 		Font font = new Font("Arial", Font.PLAIN, fontSize);
 		g.setFont(font);
@@ -69,7 +67,7 @@ public class Images{
 		g.drawString(twistyPuzzleType.toString(), x, y);
 	}
 	
-	public void drawBackGround(Color color, int screenWidth, int screenHeight, Graphics g){
+	public static void drawBackGround(Color color, int screenWidth, int screenHeight, Graphics g){
 		
 		g.drawRect(30, 30, 100, 100);
 		g.setColor(color);

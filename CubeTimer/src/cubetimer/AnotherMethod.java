@@ -3,8 +3,6 @@ package cubetimer;
 
 public class AnotherMethod{
 	
-	//TODO make it so that when the scramble length is 10 then you always see all of the letters
-	
 	public static void callMeOnce(Scrambler scrambler){
 		scrambler.randomCorrectScrambleInFieldsUsingFields();
 	}
@@ -37,7 +35,7 @@ public class AnotherMethod{
 		}
 		else{
 			
-			fields.setScrambleSize(fields.getRandomScramble().length() / 2);
+			fields.setScrambleSize(fields.getRandomScramble().length() / 2 + 4);
 			fields.setUseStringListForRandomScramble(false);
 		}
 		

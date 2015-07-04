@@ -50,109 +50,161 @@ public class Fields{
 	
 	public void repaint(){
 	
-		paint.repaint(consoleRequiresAtention, greenText, screenWidth, screenHeight, time, useStringListForRandomScramble, randomScrambleAfterSplit, randomScramble, scrambleSize, scrambleLenght, avarageOf5, currentUserName, last20Solves, twistyPuzzleType);
+		paint.repaint(consoleRequiresAtention, greenText, screenWidth, screenHeight, time, useStringListForRandomScramble, randomScrambleAfterSplit,
+				randomScramble, scrambleSize, scrambleLenght, avarageOf5, currentUserName, last20Solves, twistyPuzzleType);
 		
 	}
 	
 	
+	public TwistyPuzzleType getTwistyPuzzleType(){
 	
-	//TODO organize the following methods
+		return twistyPuzzleType;
+	}
+	
+	public void setTwistyPuzzleType(TwistyPuzzleType twistyPuzzleTypeIn){
+	
+		twistyPuzzleType = twistyPuzzleTypeIn;
+	}
+	
+	public void setCurrentUserName(String currentUserNameIn){
+	
+		currentUserName = currentUserNameIn;
+	}
+	
+	public void setAvarageOf5(String avarageOf5In){
+	
+		avarageOf5 = avarageOf5In;
+	}
+	
 	public void setLast20Solves(ArrayList<Double> last20SolvesIn){
 	
 		last20Solves = last20SolvesIn;
 	}
 	
+	public ArrayList<Double> getLast20Solves(){
+	
+		return last20Solves;
+	}
+	
 	public String getRandomScramble(){
+	
 		return randomScramble;
 	}
 	
 	public void setRandomScramble(String randomScrambleIn){
+	
 		randomScramble = randomScrambleIn;
 	}
 	
-	public TwistyPuzzleType getTwistyPuzzleType(){
-		return twistyPuzzleType;
-	}
-	
-	
 	public String getTime(){
+	
 		return time;
 	}
 	
 	public void setTime(String timeIn){
+	
 		time = timeIn;
 	}
-	public boolean getIgnoreNextRelese(){
-		return ignoreNextRelese;
-	}
-	public void setIgnoreNextRelese(boolean ignoreNextReleseIn){
-		ignoreNextRelese = ignoreNextReleseIn;
-	}
-	public void setGreenText(boolean greenTextIn){
-		greenText = greenTextIn;
-	}
+	
 	public boolean getRunning(){
+	
 		return running;
 	}
-	public boolean getCountDownRunning(){
-		return countDownRunning;
-	}
-	public void setCountDownRunning(boolean countDownRunningIn){
-		countDownRunning = countDownRunningIn;
-	}
-	public void setTwistyPuzzleType(TwistyPuzzleType twistyPuzzleTypeIn){
-		twistyPuzzleType = twistyPuzzleTypeIn;
-	}
-	public void setScrambleLenght(int scrambleLenghtIn){
-		scrambleLenght = scrambleLenghtIn;
-	}
-	public int getScrambleLength(){
-		return scrambleLenght;
-	}
-	public boolean getConsoleRequiresAttention(){
-		return consoleRequiresAtention;
-	}
-	public void setConsoleRequiresAttention(boolean consoleRequresAttentionIn){
-		consoleRequiresAtention = consoleRequresAttentionIn;
-	}
-	public void setAddNotChangeUser(boolean addNotChangeUserIn){
-		addNotChangeUser = addNotChangeUserIn;
-	}
-	public boolean getPaintComponentDone(){
-		return paint.getPaintComponentDone();
-	}
-	public boolean getAddNotChangeUser(){
-		return addNotChangeUser;
-	}
-	public void setRandomScrambleAfterSplit(String[] randomScrambleAfterSplitIn){
-		randomScrambleAfterSplit = randomScrambleAfterSplitIn;
-	}
-	public void setScrambleSize(double scrambleSizeIn){
-		scrambleSize = scrambleSizeIn;
-	}
-	public String[] getRandomScrambleAfterSplit(){
-		return randomScrambleAfterSplit;
-	}
-	public void setUseStringListForRandomScramble(boolean useStringListForRandomScrambleIn){
-		useStringListForRandomScramble = useStringListForRandomScrambleIn;
-	}
-	public double getScrambleSize(){
-		return scrambleSize;
-	}
-	public void setCurrentUserName(String currentUserNameIn){
-		currentUserName = currentUserNameIn;
-	}
-	public void setAvarageOf5(String avarageOf5In){
-		avarageOf5 = avarageOf5In;
-	}
+	
 	public void setRunning(boolean runningIn){
+	
 		running = runningIn;
 	}
+	
+	public boolean getCountDownRunning(){
+	
+		return countDownRunning;
+	}
+	
+	public void setCountDownRunning(boolean countDownRunningIn){
+	
+		countDownRunning = countDownRunningIn;
+	}
+	
+	public void setUseStringListForRandomScramble(boolean useStringListForRandomScrambleIn){
+	
+		useStringListForRandomScramble = useStringListForRandomScrambleIn;
+	}
+	
+	public String[] getRandomScrambleAfterSplit(){
+	
+		return randomScrambleAfterSplit;
+	}
+	
+	public void setRandomScrambleAfterSplit(String[] randomScrambleAfterSplitIn){
+	
+		randomScrambleAfterSplit = randomScrambleAfterSplitIn;
+	}
+	
+	public void setScrambleLenght(int scrambleLenghtIn){
+	
+		scrambleLenght = scrambleLenghtIn;
+	}
+	
+	public int getScrambleLength(){
+	
+		return scrambleLenght;
+	}
+	
+	public double getScrambleSize(){
+	
+		return scrambleSize;
+	}
+	
+	public void setScrambleSize(double scrambleSizeIn){
+	
+		scrambleSize = scrambleSizeIn;
+	}
+	
+	public boolean getIgnoreNextRelese(){
+	
+		return ignoreNextRelese;
+	}
+	
+	public void setIgnoreNextRelese(boolean ignoreNextReleseIn){
+	
+		ignoreNextRelese = ignoreNextReleseIn;
+	}
+	
+	public void setGreenText(boolean greenTextIn){
+	
+		greenText = greenTextIn;
+	}
+	
+	public boolean getConsoleRequiresAttention(){
+	
+		return consoleRequiresAtention;
+	}
+	
+	public void setConsoleRequiresAttention(boolean consoleRequresAttentionIn){
+	
+		consoleRequiresAtention = consoleRequresAttentionIn;
+	}
+	
+	public void setAddNotChangeUser(boolean addNotChangeUserIn){
+	
+		addNotChangeUser = addNotChangeUserIn;
+	}
+	
+	public boolean getAddNotChangeUser(){
+	
+		return addNotChangeUser;
+	}
+	
+	public boolean getPaintComponentDone(){
+	
+		return paint.getPaintComponentDone();
+	}
+	
 	public void setScreenSize(int screenWidthIn, int screenHeightIn){
+	
 		screenWidth = screenWidthIn;
 		screenHeight = screenHeightIn;
 	}
-	public ArrayList<Double> getLast20Solves(){
-		return last20Solves;
-	}
+	
 }

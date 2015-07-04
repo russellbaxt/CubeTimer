@@ -57,9 +57,22 @@ public class TwistyPuzzle{
 		return times.size();
 	}
 	
-	public ArrayList<Double> getCloneOfTimes(){
+	public ArrayList<Double> getLast5Times(){
 	
-		return (ArrayList<Double>) times.clone();
+		ArrayList<Double> last5Times = new ArrayList<Double>();
+		int timesSize = times.size();
+		
+		if(timesSize >= 5){
+			
+			last5Times.add(times.get(timesSize - 1));
+			last5Times.add(times.get(timesSize - 2));
+			last5Times.add(times.get(timesSize - 3));
+			last5Times.add(times.get(timesSize - 4));
+			last5Times.add(times.get(timesSize - 5));
+		}
+		
+		return last5Times;
+		
 	}
 	
 	public void removeLastElementInTimes(){

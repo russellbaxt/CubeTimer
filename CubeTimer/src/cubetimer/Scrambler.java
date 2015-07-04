@@ -5,8 +5,6 @@ import java.util.Random;
 
 public class Scrambler{
 	
-	//TODO make the one handed scrambler allow half turns
-	
 	private Fields fields;
 	
 	private String randomScramble;

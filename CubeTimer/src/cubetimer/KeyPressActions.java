@@ -45,38 +45,7 @@ public class KeyPressActions{
 		}
 	}
 	
-	// TODO decide weather or not to keep all these methods
-	
-	// private static void changeToCube2x2x2(Fields fields, Scrambler
-	// scrambler){
-	//
-	// fields.setTwistyPuzzleType(TwistyPuzzleType.cube2x2x2);
-	// scrambler.randomCorrectScrambleInFieldsUsingFields();
-	// }
-	//
-	// private static void changeToCube3x3x3(Fields fields, Scrambler
-	// scrambler){
-	//
-	// fields.setTwistyPuzzleType(TwistyPuzzleType.cube3x3x3);
-	// scrambler.randomCorrectScrambleInFieldsUsingFields();
-	// }
-	//
-	// private static void changeToCube4x4x4(Fields fields, Scrambler
-	// scrambler){
-	//
-	// fields.setTwistyPuzzleType(TwistyPuzzleType.cube4x4x4);
-	// scrambler.randomCorrectScrambleInFieldsUsingFields();
-	// }
-	//
-	// private static void changeToCube5x5x5T(Fields fields, Scrambler
-	// scrambler){
-	//
-	// fields.setTwistyPuzzleType(TwistyPuzzleType.cube5x5x5);
-	// scrambler.randomCorrectScrambleInFieldsUsingFields();
-	//
-	// }
-	//
-	 public static void reduceScrambleLenghtByOne(Fields fields, Scrambler scrambler){
+	public static void reduceScrambleLenghtByOne(Fields fields, Scrambler scrambler){
 	
 	 if(fields.getScrambleLength() > 1){
 	 fields.setScrambleLenght(fields.getScrambleLength() - 1);
@@ -86,10 +55,8 @@ public class KeyPressActions{
 	 
 	
 	 public static void increseScrambleLenghtByOne(Fields fields, Scrambler scrambler){
-		 
-	 if(fields.getScrambleLength() > 1){
+	
 	 fields.setScrambleLenght(fields.getScrambleLength() + 1);
-	 }
 	 scrambler.randomCorrectScrambleInFieldsUsingFields();
 	 }
 	
@@ -102,34 +69,8 @@ public class KeyPressActions{
 	 fields.setScrambleLenght(twistyPuzzleTypeAndScrambleLenght.integer);
 	 scrambler.randomCorrectScrambleInFieldsUsingFields();
 	 }
-	//
-	// private static void changeToMegaminx(Fields fields, Scrambler scrambler){
-	//
-	// fields.setTwistyPuzzleType(TwistyPuzzleType.magaMinx);
-	// scrambler.randomCorrectScrambleInFieldsUsingFields();
-	// }
-	// private static void changeToAnisatropicGearCube(Fields fields, Scrambler
-	// scrambler){
-	//
-	// fields.setTwistyPuzzleType(TwistyPuzzleType.anisatropicGearCube);
-	// scrambler.randomCorrectScrambleInFieldsUsingFields();
-	// }
-	//
-	// public static void changeToOneHandedCube(Fields fields, Scrambler
-	// scrambler){
-	//
-	// fields.setTwistyPuzzleType(TwistyPuzzleType.oneHanded3x3x3);
-	// scrambler.randomCorrectScrambleInFieldsUsingFields();
-	// }
-	//
-	// private static void changeToVoidChalangeCube(Fields fields, Scrambler
-	// scrambler){
-	//
-	// fields.setTwistyPuzzleType(TwistyPuzzleType.voidChalangeCube);
-	// scrambler.randomCorrectScrambleInFieldsUsingFields();
-	// }
-	//
-	public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler, TimesTracker timesTracker){
+
+	 public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler, TimesTracker timesTracker){
 
 		fields.setTwistyPuzzleType(twistyPuzzleType);
 		timesTracker.setLast20SolvesInFieldsUsingFields();

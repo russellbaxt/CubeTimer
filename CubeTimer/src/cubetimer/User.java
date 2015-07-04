@@ -6,7 +6,7 @@ public class User{
 	
 	private String userName;
 	
-	private ArrayList<Double> copyOfAllTimesOfATwistyPuzzle;
+	private ArrayList<Double> last5SolvesForAvarageOf5;
 	
 	private TwistyPuzzle cube2x2x2;
 	private TwistyPuzzle cube3x3x3;
@@ -86,58 +86,53 @@ public class User{
 	
 	public String getAvarageOf5(TwistyPuzzleType twistyPuzzleType){
 		
-		//TODO improve this method
-	
-		copyOfAllTimesOfATwistyPuzzle = getTwistyPuzzle(twistyPuzzleType).getCloneOfTimes();
+		last5SolvesForAvarageOf5 = getTwistyPuzzle(twistyPuzzleType).getLast5Times();
 		
 		double minimum;
 		double maximum;
 		double sumForAvarageOf5 = 0;
 		double avarageOf5Seconds;
 		
-		while(copyOfAllTimesOfATwistyPuzzle.size() > 5){
-			copyOfAllTimesOfATwistyPuzzle.remove(0);
+		if(last5SolvesForAvarageOf5.size() > 0){
+			
+		
+		maximum = last5SolvesForAvarageOf5.get(0);
+		
+		for(int i = 1; i < last5SolvesForAvarageOf5.size(); i ++){
+			if(maximum < last5SolvesForAvarageOf5.get(i)){
+				maximum = last5SolvesForAvarageOf5.get(i);
+			}
+		}
+		last5SolvesForAvarageOf5.remove(maximum);
+		
+		minimum = last5SolvesForAvarageOf5.get(0);
+		
+		for(int i = 1; i < last5SolvesForAvarageOf5.size(); i ++){
+			
+			if(minimum > last5SolvesForAvarageOf5.get(i)){
+				minimum = last5SolvesForAvarageOf5.get(i);
+			}
+		}
+		last5SolvesForAvarageOf5.remove(minimum);
+		
+		for(int i = 0; i < last5SolvesForAvarageOf5.size(); i ++){
+			sumForAvarageOf5 = sumForAvarageOf5 + last5SolvesForAvarageOf5.get(i);
 		}
 		
-		if(copyOfAllTimesOfATwistyPuzzle.size() == 5){
+		avarageOf5Seconds = sumForAvarageOf5 / last5SolvesForAvarageOf5.size();
+		
+		int timeMinutes = 0;
+		
+		while(avarageOf5Seconds > 60){
 			
-			maximum = copyOfAllTimesOfATwistyPuzzle.get(0);
-			
-			for(int i = 1; i < copyOfAllTimesOfATwistyPuzzle.size(); i ++){
-				if(maximum < copyOfAllTimesOfATwistyPuzzle.get(i)){
-					maximum = copyOfAllTimesOfATwistyPuzzle.get(i);
-				}
-			}
-			
-			copyOfAllTimesOfATwistyPuzzle.remove(maximum);
-			
-			minimum = copyOfAllTimesOfATwistyPuzzle.get(0);
-			
-			for(int i = 1; i < copyOfAllTimesOfATwistyPuzzle.size(); i ++){
-				
-				if(minimum > copyOfAllTimesOfATwistyPuzzle.get(i)){
-					minimum = copyOfAllTimesOfATwistyPuzzle.get(i);
-				}
-			}
-			copyOfAllTimesOfATwistyPuzzle.remove(maximum);
-			
-			for(int i = 0; i < copyOfAllTimesOfATwistyPuzzle.size(); i ++){
-				sumForAvarageOf5 = sumForAvarageOf5 + copyOfAllTimesOfATwistyPuzzle.get(i);
-			}
-			
-			avarageOf5Seconds = sumForAvarageOf5 / copyOfAllTimesOfATwistyPuzzle.size();
-			
-			int timeMinutes = 0;
-			
-			while(avarageOf5Seconds > 60){
-				
-				timeMinutes ++;
-				avarageOf5Seconds = avarageOf5Seconds - 60;
-			}
-			return timeMinutes + ":" + String.format("%.3f", avarageOf5Seconds);
+			timeMinutes ++;
+			avarageOf5Seconds = avarageOf5Seconds - 60;
+		}
+		return timeMinutes + ":" + String.format("%.3f", avarageOf5Seconds);
 		}
 		else{
 			return "No Avarage Of 5 Yet";
 		}
 	}
+	
 }

@@ -31,10 +31,7 @@ public class TimesTracker{
 	
 	public void addUser(){
 	
-		// TODO make it not tell the user to remember their user name and not
-		// tell the user that they told them to remember their username when
-		// they try to change it
-		System.out.println("What is your new users name? Make sure to remember it.");
+		System.out.println("What is your new users name?");
 		String userName = userInput.nextLine();
 		allUsers.addUser(new User());
 		currentUserNumber = allUsers.getSize() - 1;
@@ -45,7 +42,7 @@ public class TimesTracker{
 	
 	public void changeToUser(){
 	
-		System.out.println("What is the name of your user? I told you to remember it.");
+		System.out.println("What is the name of your user?");
 		String userName = userInput.nextLine();
 		
 		if(allUsers.getIndexOfUserWithUserName(userName) < 0){

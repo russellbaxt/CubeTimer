@@ -146,8 +146,6 @@ public class KeyPresses{
 	}
 	
 	public void trigerActionsForKeyPresses(){
-		
-		//TODO sort the following if statements
 	
 		if(spacePressed){
 			
@@ -163,11 +161,40 @@ public class KeyPresses{
 			KeyPressActions.spaceReleased(fields, timer);
 		}
 		
-		if(threePressed){
+		if(backSpacePressed){
 			
-			threePressed = false;
+			backSpacePressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube3x3x3, scrambler, timesTracker);
+			timesTracker.deleteLastSolve();
+		}
+		
+		if(rightPressed){
+			
+			rightPressed = false;
+			
+			KeyPressActions.increseScrambleLenghtByOne(fields, scrambler);
+		}
+		
+		if(leftPressed){
+			
+			leftPressed = false;
+			
+			KeyPressActions.reduceScrambleLenghtByOne(fields, scrambler);
+		}
+		
+		if(plusPressed){
+			
+			plusPressed = false;
+			
+			KeyPressActions.addAUser(fields);
+		}
+		
+		if(dashPressed){
+			
+			dashPressed = false;
+			
+			KeyPressActions.changeUser(fields);
+			
 		}
 		
 		if(twoPressed){
@@ -176,6 +203,13 @@ public class KeyPresses{
 			
 			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube2x2x2, scrambler, timesTracker);
 			
+		}
+		
+		if(threePressed){
+			
+			threePressed = false;
+			
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube3x3x3, scrambler, timesTracker);
 		}
 		
 		if(fourPressed){
@@ -190,27 +224,6 @@ public class KeyPresses{
 			fivePressed = false;
 			
 			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube5x5x5, scrambler, timesTracker);
-		}
-		
-		if(leftPressed){
-			
-			leftPressed = false;
-			
-			KeyPressActions.reduceScrambleLenghtByOne(fields, scrambler);
-		}
-		
-		if(rightPressed){
-			
-			rightPressed = false;
-			
-			KeyPressActions.increseScrambleLenghtByOne(fields, scrambler);
-		}
-		
-		if(rPressed){
-			
-			rPressed = false;
-			
-			KeyPressActions.changeToRandomTwistyPuzzleType(fields, scrambler, actions);
 		}
 		
 		if(mPressed){
@@ -248,26 +261,11 @@ public class KeyPresses{
 			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.voidChalangeCube, scrambler, timesTracker);
 		}
 		
-		if(backSpacePressed){
+		if(rPressed){
 			
-			backSpacePressed = false;
+			rPressed = false;
 			
-			timesTracker.deleteLastSolve();
-		}
-		
-		if(plusPressed){
-			
-			plusPressed = false;
-			
-			KeyPressActions.addAUser(fields);
-		}
-		
-		if(dashPressed){
-			
-			dashPressed = false;
-			
-			KeyPressActions.changeUser(fields);
-			
+			KeyPressActions.changeToRandomTwistyPuzzleType(fields, scrambler, actions);
 		}
 		
 	}
