@@ -139,7 +139,7 @@ public class User{
 				timeMinutes ++;
 				avarageOf5Seconds = avarageOf5Seconds - 60;
 			}
-			return timeMinutes + ":" + String.format("%.3f", avarageOf5Seconds);
+			return timeMinutes + ":" + String.format("%.2f", avarageOf5Seconds);
 		}
 		else{
 			return "No Avarage Of 5 Yet";

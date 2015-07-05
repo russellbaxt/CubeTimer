@@ -40,7 +40,7 @@ public class Timer{
 				timeSeconds = - 60;
 			}
 			
-			String seconds = String.format("%.3f", timeSeconds);
+			String seconds = String.format("%.2f", timeSeconds);
 			String minutes = Integer.toString(timeMinutes);
 			
 			fields.setTime(minutes + ":" + seconds);
@@ -65,7 +65,7 @@ public class Timer{
 				timeSeconds = - 60;
 			}
 			
-			String seconds = String.format("%.3f", timeSeconds);
+			String seconds = String.format("%.2f", timeSeconds);
 			String minutes = Integer.toString(timeMinutes);
 			
 			fields.setTime(minutes + ":" + seconds);
@@ -74,8 +74,8 @@ public class Timer{
 	
 	public double getTimeAsDouble(){
 	
-		int theInt = (int) ((timeSeconds + timeMinutes * 60.0) * 1000.0);
-		return theInt / 1000.0;
+		int theInt = (int) ((timeSeconds + timeMinutes * 60.0) * 100.0);
+		return theInt / 100.0;
 	}
 	
 	public void StartCountDown(){

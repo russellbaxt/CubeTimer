@@ -41,7 +41,7 @@ public class Images{
 					list.set(i, list.get(i) - 60.0);
 				}
 				
-				g.drawString(Integer.toString(timeMinutes) + ":" + (String.format("%.3f", (double) list.get(i))), x, y + (i * fontSize));
+				g.drawString(Integer.toString(timeMinutes) + ":" + (String.format("%.2f", (double) list.get(i))), x, y + (i * fontSize));
 			}
 			
 			else{
