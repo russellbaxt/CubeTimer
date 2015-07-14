@@ -2,7 +2,7 @@ package cubetimer;
 
 public class KeyPressActions{
 	
-	public static void spacePressed(Fields fields, Timer timer, TimesTracker timesTracker, Scrambler scrambler){
+	public static void spacePressed(Fields fields, Timer timer, TimesTracker timesTracker, Scrambler scrambler, Paint paint){
 	
 		if(fields.getRunning()){
 			
@@ -18,9 +18,11 @@ public class KeyPressActions{
 				fields.setGreenText(true);
 			}
 		}
+		
+		paint.repaint();
 	}
 	
-	public static void spaceReleased(Fields fields, Timer timer){
+	public static void spaceReleased(Fields fields, Timer timer, Paint paint){
 	
 		fields.setGreenText(false);
 		
@@ -43,34 +45,41 @@ public class KeyPressActions{
 				}
 			}
 		}
+		
+		paint.repaint();
 	}
 	
-	public static void reduceScrambleLenghtByOne(Fields fields, Scrambler scrambler){
+	public static void reduceScrambleLenghtByOne(Fields fields, Scrambler scrambler, Paint paint){
 	
-	 if(fields.getScrambleLength() > 1){
-	 fields.setScrambleLenght(fields.getScrambleLength() - 1);
-	 }
-	 scrambler.randomCorrectScrambleInFieldsUsingFields();
+		if(fields.getScrambleLength() > 1){
+			fields.setScrambleLenght(fields.getScrambleLength() - 1);
+			
+			paint.repaint();
+		}
+		
+		scrambler.randomCorrectScrambleInFieldsUsingFields();
 	 }
 	 
 	
-	 public static void increseScrambleLenghtByOne(Fields fields, Scrambler scrambler){
+	 public static void increseScrambleLenghtByOne(Fields fields, Scrambler scrambler, Paint paint){
 	
-	 fields.setScrambleLenght(fields.getScrambleLength() + 1);
-	 scrambler.randomCorrectScrambleInFieldsUsingFields();
+		 fields.setScrambleLenght(fields.getScrambleLength() + 1);
+		 scrambler.randomCorrectScrambleInFieldsUsingFields();
+		 
+		 paint.repaint();
 	 }
 	
-	 public static void changeToRandomTwistyPuzzleType(Fields fields,
-	 Scrambler scrambler, Actions actions){
+	 public static void changeToRandomTwistyPuzzleType(Fields fields, Scrambler scrambler, Actions actions, Paint paint){
 	
-	 TwistyPuzzleTypeAndInt twistyPuzzleTypeAndScrambleLenght =
-	 actions.randomTwistyPuzzle();
-	 fields.setTwistyPuzzleType(twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType);
-	 fields.setScrambleLenght(twistyPuzzleTypeAndScrambleLenght.integer);
-	 scrambler.randomCorrectScrambleInFieldsUsingFields();
+		 TwistyPuzzleTypeAndInt twistyPuzzleTypeAndScrambleLenght = actions.randomTwistyPuzzle();
+		 fields.setTwistyPuzzleType(twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType);
+		 fields.setScrambleLenght(twistyPuzzleTypeAndScrambleLenght.integer);
+		 scrambler.randomCorrectScrambleInFieldsUsingFields();
+		 
+		 paint.repaint();
 	 }
 
-	 public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler, TimesTracker timesTracker){
+	 public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler, TimesTracker timesTracker, Paint paint){
 
 		fields.setTwistyPuzzleType(twistyPuzzleType);
 		timesTracker.setLast20SolvesInFieldsUsingFields();
@@ -88,20 +97,24 @@ public class KeyPressActions{
 		
 		scrambler.randomCorrectScrambleInFieldsUsingFields();
 		
+		paint.repaint();
+		
 	}
 	
-	public static void addAUser(Fields fields){
+	public static void addAUser(Fields fields, Paint paint){
 	
 		fields.setConsoleRequiresAttention(true);
 		fields.setAddNotChangeUser(true);
-		fields.repaint();
+		fields.setPaintComponentDone(false);
+		paint.repaint();
 	}
 	
-	public static void changeUser(Fields fields){
+	public static void changeUser(Fields fields, Paint paint){
 	
 		fields.setConsoleRequiresAttention(true);
 		fields.setAddNotChangeUser(false);
-		fields.repaint();
+		fields.setPaintComponentDone(false);
+		paint.repaint();
 	}
 	
 }

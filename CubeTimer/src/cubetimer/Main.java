@@ -12,13 +12,13 @@ public class Main{
 	public static int width = 800;
 	public static int height = 830;
 	
-	public static Paint p = new Paint();
-	public static Fields f = new Fields(p);
-	public static TimesTracker tt = new TimesTracker(f);
-	public static Scrambler s = new Scrambler(f);
-	public static Timer t = new Timer(f, s, tt);
+	public static Fields f = new Fields();
+	public static Paint p = new Paint(f);
+	public static TimesTracker tt = new TimesTracker(f, p);
+	public static Scrambler s = new Scrambler(f, p);
+	public static Timer t = new Timer(f, s, tt, p);
 	public static Actions a = new Actions();
-	public static KeyPresses kp = new KeyPresses(t, s, tt, a, f);
+	public static KeyPresses kp = new KeyPresses(t, s, tt, a, f, p);
 	public static Display d = new Display(kp, p);
 	
 	public static void main(String args[]){
@@ -33,9 +33,10 @@ public class Main{
 		while(true){
 			width = d.getWidth();
 			height = d.getHeight();
+			p.repaint();
 			f.setScreenSize(width, height);
 			kp.trigerActionsForKeyPresses();
-			AnotherClass.callMeMany(f, kp, tt, t);
+			AnotherClass.callMeMany(f, kp, tt, t, p);
 		}
 	}
 }

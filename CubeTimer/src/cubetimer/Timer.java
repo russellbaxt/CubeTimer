@@ -5,6 +5,7 @@ public class Timer{
 	private Fields fields;
 	private Scrambler scrambler;
 	private TimesTracker timesTracker;
+	private Paint paint;
 	
 	private long start;
 	private long end;
@@ -15,11 +16,12 @@ public class Timer{
 	private boolean plus2Inspection;
 	private int timePenalty;
 	
-	public Timer(Fields f, Scrambler scramblerIn, TimesTracker timesTrackerIn){
+	public Timer(Fields f, Scrambler scramblerIn, TimesTracker timesTrackerIn, Paint paintIn){
 	
 		fields = f;
 		scrambler = scramblerIn;
 		timesTracker = timesTrackerIn;
+		paint = paintIn;
 		
 		timeSeconds = 0;
 		timeMinutes = 0;
@@ -37,7 +39,7 @@ public class Timer{
 			
 			while(timeSeconds >= 60){
 				timeMinutes ++;
-				timeSeconds = - 60;
+				timeSeconds -= 60;
 			}
 			
 			String seconds = String.format("%.2f", timeSeconds);
@@ -51,6 +53,8 @@ public class Timer{
 			start = System.currentTimeMillis();
 			fields.setTime("0:0.0");
 		}
+		
+		paint.repaint();
 	}
 	
 	public void updateTime(){
@@ -62,7 +66,7 @@ public class Timer{
 			
 			while(timeSeconds >= 60){
 				timeMinutes ++;
-				timeSeconds = - 60;
+				timeSeconds -= 60;
 			}
 			
 			String seconds = String.format("%.2f", timeSeconds);
@@ -70,6 +74,8 @@ public class Timer{
 			
 			fields.setTime(minutes + ":" + seconds);
 		}
+		
+		paint.repaint();
 	}
 	
 	public double getTimeAsDouble(){
@@ -85,6 +91,8 @@ public class Timer{
 		
 		fields.setCountDownRunning(true);
 		countDownStart = (double) System.currentTimeMillis() / 1000.0;
+		
+		paint.repaint();
 	}
 	
 	public void updateCountdownTime(){
@@ -119,6 +127,8 @@ public class Timer{
 			}
 			
 		}
+		
+		paint.repaint();
 		
 	}
 	

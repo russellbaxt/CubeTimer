@@ -2,7 +2,7 @@ package cubetimer;
 
 public class AnotherClass{
 	
-	public static void callMeMany(Fields fields, KeyPresses keyPresses, TimesTracker timesTracker, Timer timer){
+	public static void callMeMany(Fields fields, KeyPresses keyPresses, TimesTracker timesTracker, Timer timer, Paint paint){
 	
 		if(fields.getConsoleRequiresAttention()){
 			
@@ -29,7 +29,7 @@ public class AnotherClass{
 			
 			timer.updateCountdownTime();
 			
-			fields.repaint();
+			paint.repaint();
 		}
 		
 	}
