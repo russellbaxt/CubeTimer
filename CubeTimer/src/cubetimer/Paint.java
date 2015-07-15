@@ -40,13 +40,13 @@ public class Paint extends JPanel{
 			Images.typeString(fields.time, fields.screenWidth / 2 - 100, fields.screenHeight / 2, fields.screenWidth / 14,
 					fields.greenText, g);
 			
-			if(fields.useStringListForRandomScramble){
-				Images.typeStringListCentered(fields.randomScrambleAfterSplit, fields.screenWidth / 15,
-						fields.screenHeight / 4, (int) (fields.screenWidth / fields.scrambleSize), g);
+			if(fields.scrambleDada.useStringListForRandomScramble){
+				Images.typeStringListCentered(fields.scrambleDada.randomScrambleAfterSplit, fields.screenWidth / 15,
+						fields.screenHeight / 4, (int) (fields.screenWidth / fields.scrambleDada.scrambleSize), g);
 			}
 			else{
-				Images.typeString(fields.randomScramble, fields.screenWidth / 15, fields.screenHeight / 4,
-						(int) (fields.screenWidth / fields.scrambleSize), false, g);
+				Images.typeString(fields.scrambleDada.randomScramble, fields.screenWidth / 15, fields.screenHeight / 4,
+						(int) (fields.screenWidth / fields.scrambleDada.scrambleSize), false, g);
 			}
 			
 			Images.typeStringListOfTimesGoingDown(fields.last20Solves, 0, fields.screenWidth / 56,
@@ -57,7 +57,7 @@ public class Paint extends JPanel{
 					fields.screenWidth / 56, false, g);
 			Images.typeScrambleType(fields.twistyPuzzleType, (int) (fields.screenWidth / 1.2 - 20), fields.screenWidth / 20,
 					fields.screenWidth / 56, g);
-			Images.typeString(Integer.toString(fields.scrambleLenght), (int) (fields.screenWidth / 1.2 - 20),
+			Images.typeString(Integer.toString(fields.scrambleDada.scrambleLenght), (int) (fields.screenWidth / 1.2 - 20),
 					fields.screenWidth / 15, fields.screenWidth / 56, false, g);
 		}
 	}

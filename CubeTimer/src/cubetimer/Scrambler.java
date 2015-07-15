@@ -32,7 +32,7 @@ public class Scrambler {
 		paint.repaint();
 	}
 
-	public static String intTo3x3Turn(int face, int symbol) {
+	private static String intTo3x3Turn(int face, int symbol) {
 
 		String faces = "ULFRBD";
 		String symbols = " '2";
@@ -41,7 +41,7 @@ public class Scrambler {
 
 	}
 
-	public static String intTo2x2Turn(int face, int symbol) {
+	private static String intTo2x2Turn(int face, int symbol) {
 
 		String faces = "RUF";
 		String symbols = " '2";
@@ -49,7 +49,7 @@ public class Scrambler {
 		return "" + faces.charAt(face) + symbols.charAt(symbol);
 	}
 
-	public static String intTo4x4Or5x5Turn(int face, int faceDepth, int symbol) {
+	private static String intTo4x4Or5x5Turn(int face, int faceDepth, int symbol) {
 
 		String outerFaces = "ULFRBD";
 		String innerFaces = "ulfrbd";
@@ -65,7 +65,7 @@ public class Scrambler {
 		}
 	}
 
-	public static String intToGearCubeTurn(int face, int symbol) {
+	private static String intToGearCubeTurn(int face, int symbol) {
 
 		String faces = "RUF";
 		String symbols = " '";
@@ -73,7 +73,7 @@ public class Scrambler {
 		return faces.charAt(face) + "2" + symbols.charAt(symbol);
 	}
 
-	public static String intToAnisatopricGearCubeTurn(int face, int symbol) {
+	private static String intToAnisatopricGearCubeTurn(int face, int symbol) {
 
 		String faces = "RF";
 		String symbols = " '";
@@ -85,7 +85,7 @@ public class Scrambler {
 		}
 	}
 
-	public String random3x3Scramble(int scrambleLength) {
+	private String random3x3Scramble(int scrambleLength) {
 
 		for (int i = 0; i < scrambleLength; i++) {
 
@@ -111,7 +111,7 @@ public class Scrambler {
 		return randomScramble;
 	}
 
-	public String random2x2Scramble(int scrambleLength) {
+	private String random2x2Scramble(int scrambleLength) {
 
 		for (int i = 0; i < scrambleLength; i++) {
 
@@ -134,7 +134,7 @@ public class Scrambler {
 		return randomScramble;
 	}
 
-	public String random4x4Or5x5Scramble(int scrambleLenght) {
+	private String random4x4Or5x5Scramble(int scrambleLenght) {
 
 		for (int i = 0; i < scrambleLenght; i++) {
 
@@ -160,12 +160,12 @@ public class Scrambler {
 		return randomScramble;
 	}
 
-	public String curvyCopterScramble() {
+	private String curvyCopterScramble() {
 
 		return "No Curvy Copter Scramble Avaliable";
 	}
 
-	public String randomMegaMinxScramble(int scrambleLength) {
+	private String randomMegaMinxScramble(int scrambleLength) {
 
 		int j = 1;
 		boolean rNext;
@@ -203,7 +203,7 @@ public class Scrambler {
 		return randomScramble;
 	}
 
-	public String randomGearCubeScramble(int scrambleSize) {
+	private String randomGearCubeScramble(int scrambleSize) {
 
 		int faceTurn;
 		int lastFaceTurn = 4;
@@ -228,7 +228,7 @@ public class Scrambler {
 		return randomScramble;
 	}
 
-	public String randomAnisatropicGearCubeScramble(int scrambleSize) {
+	private String randomAnisatropicGearCubeScramble(int scrambleSize) {
 
 		int faceTurn;
 		int lastFaceTurn = 4;
@@ -282,7 +282,7 @@ public class Scrambler {
 	}
 
 	public void randomCorrectScrambleInFieldsUsingFields() {
-		AnotherClass.setScrambleInFields(fields, randomCorrectScramble(fields.twistyPuzzleType, fields.scrambleLenght));
+		AnotherClass.setScrambleInFields(fields, randomCorrectScramble(fields.twistyPuzzleType, fields.scrambleDada.scrambleLenght));
 
 		paint.repaint();
 	}

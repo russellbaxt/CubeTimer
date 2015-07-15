@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Fields{
-
-	public String randomScramble;
+	
+	public ScrambleDada scrambleDada;
 
 	public int screenWidth;
 	public int screenHeight;
@@ -13,10 +13,6 @@ public class Fields{
 	public TwistyPuzzleType twistyPuzzleType;
 
 	public boolean greenText;
-	public int scrambleLenght;
-	public double scrambleSize;
-	public String[] randomScrambleAfterSplit;
-	public boolean useStringListForRandomScramble;
 
 	public String time;
 
@@ -35,10 +31,10 @@ public class Fields{
 	public boolean paintComponentDone;
 
 	public Fields() {
-		randomScramble = "";
+		
+		scrambleDada = new ScrambleDada();
+		
 		time = "0:0.0";
-		scrambleSize = 28.0;
-		scrambleLenght = 20;
 		last20Solves = new ArrayList<Double>();
 		avarageOf5 = "No Avarage Of 5 Yet";
 		currentUserName = "";

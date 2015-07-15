@@ -33,7 +33,7 @@ public class KeyPressActions{
 		else{
 			if(! fields.running){
 				
-				fields.randomScramble = "";
+				fields.scrambleDada.randomScramble = "";
 				
 				if(fields.countDownRunning){
 					
@@ -51,8 +51,8 @@ public class KeyPressActions{
 	
 	public static void reduceScrambleLenghtByOne(Fields fields, Scrambler scrambler, Paint paint){
 	
-		if(fields.scrambleLenght > 1){
-			fields.scrambleLenght --;
+		if(fields.scrambleDada.scrambleLenght > 1){
+			fields.scrambleDada.scrambleLenght --;
 			
 			paint.repaint();
 		}
@@ -63,7 +63,7 @@ public class KeyPressActions{
 	
 	 public static void increseScrambleLenghtByOne(Fields fields, Scrambler scrambler, Paint paint){
 	
-		 fields.scrambleLenght ++;
+		 fields.scrambleDada.scrambleLenght ++;
 		 scrambler.randomCorrectScrambleInFieldsUsingFields();
 		 
 		 paint.repaint();
@@ -73,7 +73,7 @@ public class KeyPressActions{
 	
 		 TwistyPuzzleTypeAndInt twistyPuzzleTypeAndScrambleLenght = actions.randomTwistyPuzzle();
 		 fields.twistyPuzzleType = twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType;
-		 fields.scrambleLenght = twistyPuzzleTypeAndScrambleLenght.integer;
+		 fields.scrambleDada.scrambleLenght = twistyPuzzleTypeAndScrambleLenght.integer;
 		 scrambler.randomCorrectScrambleInFieldsUsingFields();
 		 
 		 paint.repaint();
@@ -85,14 +85,14 @@ public class KeyPressActions{
 		timesTracker.setLast20SolvesInFieldsUsingFields();
 		
 		if(twistyPuzzleType == TwistyPuzzleType.magaMinx){
-			fields.scrambleLenght = 40;
+			fields.scrambleDada.scrambleLenght = 40;
 		}
 		
 		else if(twistyPuzzleType == TwistyPuzzleType.cube2x2x2){
-			fields.scrambleLenght = 10;
+			fields.scrambleDada.scrambleLenght = 10;
 		}
 		else{
-			fields.scrambleLenght = 20;
+			fields.scrambleDada.scrambleLenght = 20;
 		}
 		
 		scrambler.randomCorrectScrambleInFieldsUsingFields();

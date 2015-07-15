@@ -38,20 +38,20 @@ public class AnotherClass{
 		
 		if(randomScramble.contains("/n")){
 			
-			fields.randomScrambleAfterSplit = randomScramble.split("/n");
-			fields.scrambleSize = fields.randomScrambleAfterSplit[0].length() / 2.0 + 4.0;
-			fields.useStringListForRandomScramble = true;
+			fields.scrambleDada.randomScrambleAfterSplit = randomScramble.split("/n");
+			fields.scrambleDada.scrambleSize = fields.scrambleDada.randomScrambleAfterSplit[0].length() / 2.0 + 4.0;
+			fields.scrambleDada.useStringListForRandomScramble = true;
 		}
 		
 		else{
 			
-			fields.randomScramble = randomScramble;
-			fields.scrambleSize = randomScramble.length() / 2.0 + 4.0;
-			fields.useStringListForRandomScramble = false;
+			fields.scrambleDada.randomScramble = randomScramble;
+			fields.scrambleDada.scrambleSize = randomScramble.length() / 2.0 + 4.0;
+			fields.scrambleDada.useStringListForRandomScramble = false;
 		}
 		
-		if(fields.scrambleSize < 4.0){
-			fields.scrambleSize = 4.0;
+		if(fields.scrambleDada.scrambleSize < 4.0){
+			fields.scrambleDada.scrambleSize = 4.0;
 		}
 	}
 }
