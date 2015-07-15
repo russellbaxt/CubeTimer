@@ -33,7 +33,7 @@ public class KeyPressActions{
 		else{
 			if(! fields.running){
 				
-				fields.scrambleDada.randomScramble = "";
+				fields.displayedDada.scrambleDada.randomScramble = "";
 				
 				if(fields.countDownRunning){
 					
@@ -51,8 +51,8 @@ public class KeyPressActions{
 	
 	public static void reduceScrambleLenghtByOne(Fields fields, Scrambler scrambler, Paint paint){
 	
-		if(fields.scrambleDada.scrambleLenght > 1){
-			fields.scrambleDada.scrambleLenght --;
+		if(fields.displayedDada.scrambleDada.scrambleLenght > 1){
+			fields.displayedDada.scrambleDada.scrambleLenght --;
 			
 			paint.repaint();
 		}
@@ -63,7 +63,7 @@ public class KeyPressActions{
 	
 	 public static void increseScrambleLenghtByOne(Fields fields, Scrambler scrambler, Paint paint){
 	
-		 fields.scrambleDada.scrambleLenght ++;
+		 fields.displayedDada.scrambleDada.scrambleLenght ++;
 		 scrambler.randomCorrectScrambleInFieldsUsingFields();
 		 
 		 paint.repaint();
@@ -73,7 +73,7 @@ public class KeyPressActions{
 	
 		 TwistyPuzzleTypeAndInt twistyPuzzleTypeAndScrambleLenght = actions.randomTwistyPuzzle();
 		 fields.twistyPuzzleType = twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType;
-		 fields.scrambleDada.scrambleLenght = twistyPuzzleTypeAndScrambleLenght.integer;
+		 fields.displayedDada.scrambleDada.scrambleLenght = twistyPuzzleTypeAndScrambleLenght.integer;
 		 scrambler.randomCorrectScrambleInFieldsUsingFields();
 		 
 		 paint.repaint();
@@ -86,14 +86,14 @@ public class KeyPressActions{
 		timesTracker.setAvarageOf5InFieldsUsingFields();
 		
 		if(twistyPuzzleType == TwistyPuzzleType.magaMinx){
-			fields.scrambleDada.scrambleLenght = 40;
+			fields.displayedDada.scrambleDada.scrambleLenght = 40;
 		}
 		
 		else if(twistyPuzzleType == TwistyPuzzleType.cube2x2x2){
-			fields.scrambleDada.scrambleLenght = 10;
+			fields.displayedDada.scrambleDada.scrambleLenght = 10;
 		}
 		else{
-			fields.scrambleDada.scrambleLenght = 20;
+			fields.displayedDada.scrambleDada.scrambleLenght = 20;
 		}
 		
 		scrambler.randomCorrectScrambleInFieldsUsingFields();

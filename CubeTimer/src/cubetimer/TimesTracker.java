@@ -27,7 +27,7 @@ public class TimesTracker{
 		String userName = userInput.nextLine();
 		allUsers.getUser(0).setUserName(userName);
 		currentUserNumber = 0;
-		fields.currentUserName = userName;
+		fields.displayedDada.currentUserName = userName;
 		addTime(fields.twistyPuzzleType, 0);
 		deleteLastSolve();
 		
@@ -40,8 +40,9 @@ public class TimesTracker{
 		allUsers.addUser(new User());
 		currentUserNumber = allUsers.getSize() - 1;
 		allUsers.getUser(currentUserNumber).setUserName(userName);
-		fields.currentUserName = userName;
+		fields.displayedDada.currentUserName = userName;
 		setLast20SolvesInFieldsUsingFields();
+		setAvarageOf5InFieldsUsingFields();
 		
 		paint.repaint();
 	}
@@ -56,7 +57,7 @@ public class TimesTracker{
 		}
 		else{
 			currentUserNumber = allUsers.getIndexOfUserWithUserName(userName);
-			fields.currentUserName = userName;
+			fields.displayedDada.currentUserName = userName;
 		}
 		
 		setLast20SolvesInFieldsUsingFields();
@@ -83,7 +84,7 @@ public class TimesTracker{
 	
 	public void setAvarageOf5InFieldsUsingFields(){
 	
-		fields.avarageOf5 = allUsers.getUser(currentUserNumber).getAvarageOf5(fields.twistyPuzzleType);
+		fields.displayedDada.avarageOf5 = allUsers.getUser(currentUserNumber).getAvarageOf5(fields.twistyPuzzleType);
 		
 		paint.repaint();
 	}
@@ -100,7 +101,8 @@ public class TimesTracker{
 	
 	public void setLast20SolvesInFieldsUsingFields(){
 	
-		fields.last20Solves = allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.twistyPuzzleType).getTimes();
+		fields.displayedDada.last20Solves = 
+				allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.twistyPuzzleType).getTimes();
 		
 		paint.repaint();
 	}

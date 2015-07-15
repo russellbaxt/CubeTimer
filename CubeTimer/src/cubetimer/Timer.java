@@ -45,13 +45,13 @@ public class Timer{
 			String seconds = String.format("%.2f", timeSeconds);
 			String minutes = Integer.toString(timeMinutes);
 			
-			fields.time = minutes + ":" + seconds;
+			fields.displayedDada.time = minutes + ":" + seconds;
 		}
 		else{
 			
 			fields.running = true;
 			start = System.currentTimeMillis();
-			fields.time = "0:0.0";
+			fields.displayedDada.time = "0:0.0";
 		}
 		
 		paint.repaint();
@@ -72,7 +72,7 @@ public class Timer{
 			String seconds = String.format("%.2f", timeSeconds);
 			String minutes = Integer.toString(timeMinutes);
 			
-			fields.time = minutes + ":" + seconds;
+			fields.displayedDada.time = minutes + ":" + seconds;
 		}
 		
 		paint.repaint();
@@ -101,7 +101,7 @@ public class Timer{
 		if(countDownEnd - countDownStart < 15){
 			int timeInspected = (int) (countDownEnd - countDownStart);
 			String timeLeftOfInspection = Integer.toString(15 - timeInspected);
-			fields.time = timeLeftOfInspection;
+			fields.displayedDada.time = timeLeftOfInspection;
 			
 		}
 		else{
@@ -111,13 +111,13 @@ public class Timer{
 				plus2Inspection = true;
 			}
 			if(countDownEnd - countDownStart < 17){
-				fields.time = "+2";
+				fields.displayedDada.time = "+2";
 			}
 			else{
 				
 				fields.DNF = true;
 				
-				fields.time = "DNF";
+				fields.displayedDada.time = "DNF";
 				fields.running = false;
 				fields.countDownRunning = false;
 				timePenalty = 0;

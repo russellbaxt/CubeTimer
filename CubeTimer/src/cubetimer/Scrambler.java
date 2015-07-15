@@ -282,7 +282,8 @@ public class Scrambler {
 	}
 
 	public void randomCorrectScrambleInFieldsUsingFields() {
-		AnotherClass.setScrambleInFields(fields, randomCorrectScramble(fields.twistyPuzzleType, fields.scrambleDada.scrambleLenght));
+		AnotherClass.setScrambleInFields(fields, randomCorrectScramble(fields.twistyPuzzleType,
+				fields.displayedDada.scrambleDada.scrambleLenght));
 
 		paint.repaint();
 	}

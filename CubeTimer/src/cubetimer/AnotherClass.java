@@ -38,20 +38,20 @@ public class AnotherClass{
 		
 		if(randomScramble.contains("/n")){
 			
-			fields.scrambleDada.randomScrambleAfterSplit = randomScramble.split("/n");
-			fields.scrambleDada.scrambleSize = fields.scrambleDada.randomScrambleAfterSplit[0].length() / 2.0 + 4.0;
-			fields.scrambleDada.useStringListForRandomScramble = true;
+			fields.displayedDada.scrambleDada.randomScrambleAfterSplit = randomScramble.split("/n");
+			fields.displayedDada.scrambleDada.scrambleSize = fields.displayedDada.scrambleDada.randomScrambleAfterSplit[0].length() / 2.0 + 4.0;
+			fields.displayedDada.scrambleDada.useStringListForRandomScramble = true;
 		}
 		
 		else{
 			
-			fields.scrambleDada.randomScramble = randomScramble;
-			fields.scrambleDada.scrambleSize = randomScramble.length() / 2.0 + 4.0;
-			fields.scrambleDada.useStringListForRandomScramble = false;
+			fields.displayedDada.scrambleDada.randomScramble = randomScramble;
+			fields.displayedDada.scrambleDada.scrambleSize = randomScramble.length() / 2.0 + 4.0;
+			fields.displayedDada.scrambleDada.useStringListForRandomScramble = false;
 		}
 		
-		if(fields.scrambleDada.scrambleSize < 4.0){
-			fields.scrambleDada.scrambleSize = 4.0;
+		if(fields.displayedDada.scrambleDada.scrambleSize < 4.0){
+			fields.displayedDada.scrambleDada.scrambleSize = 4.0;
 		}
 	}
 }

@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Fields{
 	
-	public ScrambleDada scrambleDada;
+	public DisplayedDada displayedDada;
 
 	public int screenWidth;
 	public int screenHeight;
@@ -13,12 +13,6 @@ public class Fields{
 	public TwistyPuzzleType twistyPuzzleType;
 
 	public boolean greenText;
-
-	public String time;
-
-	public ArrayList<Double> last20Solves;
-	public String currentUserName;
-	public String avarageOf5;
 
 	public boolean ignoreNextRelese;
 	public boolean running;
@@ -32,12 +26,8 @@ public class Fields{
 
 	public Fields() {
 		
-		scrambleDada = new ScrambleDada();
+		displayedDada = new DisplayedDada();
 		
-		time = "0:0.0";
-		last20Solves = new ArrayList<Double>();
-		avarageOf5 = "No Avarage Of 5 Yet";
-		currentUserName = "";
 		DNF = false;
 		timePenalty = 0;
 		paintComponentDone = false;
