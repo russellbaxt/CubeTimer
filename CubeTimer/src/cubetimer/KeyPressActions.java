@@ -4,18 +4,18 @@ public class KeyPressActions{
 	
 	public static void spacePressed(Fields fields, Timer timer, TimesTracker timesTracker, Scrambler scrambler, Paint paint){
 	
-		if(fields.getRunning()){
+		if(fields.running){
 			
-			fields.setRandomScramble(scrambler.randomCorrectScramble(fields.getTwistyPuzzleType(), fields.getScrambleLength()));
+			scrambler.randomCorrectScrambleInFieldsUsingFields();
 			timer.startStopTimer();
-			fields.setIgnoreNextRelese(true);
-			timesTracker.addTime(fields.getTwistyPuzzleType(), timer.getTimeAsDouble());
+			fields.ignoreNextRelese = true;
+			timesTracker.addTime(fields.twistyPuzzleType, timer.getTimeAsDouble());
 		}
 		else{
 			
-			if(! fields.getIgnoreNextRelese()){
+			if(! fields.ignoreNextRelese){
 				
-				fields.setGreenText(true);
+				fields.greenText = true;
 			}
 		}
 		
@@ -24,20 +24,20 @@ public class KeyPressActions{
 	
 	public static void spaceReleased(Fields fields, Timer timer, Paint paint){
 	
-		fields.setGreenText(false);
+		fields.greenText = false;
 		
-		if(fields.getIgnoreNextRelese()){
-			fields.setIgnoreNextRelese(false);
+		if(fields.ignoreNextRelese){
+			fields.ignoreNextRelese = false;
 		}
 		
 		else{
-			if(! fields.getRunning()){
+			if(! fields.running){
 				
-				fields.setRandomScramble("");
+				fields.randomScramble = "";
 				
-				if(fields.getCountDownRunning()){
+				if(fields.countDownRunning){
 					
-					fields.setCountDownRunning(false);
+					fields.countDownRunning = false;
 					timer.startStopTimer();
 				}
 				else{
@@ -51,8 +51,8 @@ public class KeyPressActions{
 	
 	public static void reduceScrambleLenghtByOne(Fields fields, Scrambler scrambler, Paint paint){
 	
-		if(fields.getScrambleLength() > 1){
-			fields.setScrambleLenght(fields.getScrambleLength() - 1);
+		if(fields.scrambleLenght > 1){
+			fields.scrambleLenght --;
 			
 			paint.repaint();
 		}
@@ -63,7 +63,7 @@ public class KeyPressActions{
 	
 	 public static void increseScrambleLenghtByOne(Fields fields, Scrambler scrambler, Paint paint){
 	
-		 fields.setScrambleLenght(fields.getScrambleLength() + 1);
+		 fields.scrambleLenght ++;
 		 scrambler.randomCorrectScrambleInFieldsUsingFields();
 		 
 		 paint.repaint();
@@ -72,8 +72,8 @@ public class KeyPressActions{
 	 public static void changeToRandomTwistyPuzzleType(Fields fields, Scrambler scrambler, Actions actions, Paint paint){
 	
 		 TwistyPuzzleTypeAndInt twistyPuzzleTypeAndScrambleLenght = actions.randomTwistyPuzzle();
-		 fields.setTwistyPuzzleType(twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType);
-		 fields.setScrambleLenght(twistyPuzzleTypeAndScrambleLenght.integer);
+		 fields.twistyPuzzleType = twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType;
+		 fields.scrambleLenght = twistyPuzzleTypeAndScrambleLenght.integer;
 		 scrambler.randomCorrectScrambleInFieldsUsingFields();
 		 
 		 paint.repaint();
@@ -81,18 +81,18 @@ public class KeyPressActions{
 
 	 public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler, TimesTracker timesTracker, Paint paint){
 
-		fields.setTwistyPuzzleType(twistyPuzzleType);
+		fields.twistyPuzzleType = twistyPuzzleType;
 		timesTracker.setLast20SolvesInFieldsUsingFields();
 		
 		if(twistyPuzzleType == TwistyPuzzleType.magaMinx){
-			fields.setScrambleLenght(40);
+			fields.scrambleLenght = 40;
 		}
 		
 		else if(twistyPuzzleType == TwistyPuzzleType.cube2x2x2){
-			fields.setScrambleLenght(10);
+			fields.scrambleLenght = 10;
 		}
 		else{
-			fields.setScrambleLenght(20);
+			fields.scrambleLenght = 20;
 		}
 		
 		scrambler.randomCorrectScrambleInFieldsUsingFields();
@@ -103,17 +103,17 @@ public class KeyPressActions{
 	
 	public static void addAUser(Fields fields, Paint paint){
 	
-		fields.setConsoleRequiresAttention(true);
-		fields.setAddNotChangeUser(true);
-		fields.setPaintComponentDone(false);
+		fields.consoleRequiresAtention = true;
+		fields.addNotChangeUser = true;
+		fields.paintComponentDone = false;
 		paint.repaint();
 	}
 	
 	public static void changeUser(Fields fields, Paint paint){
 	
-		fields.setConsoleRequiresAttention(true);
-		fields.setAddNotChangeUser(false);
-		fields.setPaintComponentDone(false);
+		fields.consoleRequiresAtention = true;
+		fields.addNotChangeUser = false;
+		fields.paintComponentDone = false;
 		paint.repaint();
 	}
 	

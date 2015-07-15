@@ -30,9 +30,9 @@ public class Timer{
 	
 	public void startStopTimer(){
 	
-		if(fields.getRunning()){
+		if(fields.running){
 			
-			fields.setRunning(false);
+			fields.running = false;
 			end = System.currentTimeMillis();
 			timeSeconds = (end - start) / 1000.0;
 			timeMinutes = 0;
@@ -45,13 +45,13 @@ public class Timer{
 			String seconds = String.format("%.2f", timeSeconds);
 			String minutes = Integer.toString(timeMinutes);
 			
-			fields.setTime(minutes + ":" + seconds);
+			fields.time = minutes + ":" + seconds;
 		}
 		else{
 			
-			fields.setRunning(true);
+			fields.running = true;
 			start = System.currentTimeMillis();
-			fields.setTime("0:0.0");
+			fields.time = "0:0.0";
 		}
 		
 		paint.repaint();
@@ -59,7 +59,7 @@ public class Timer{
 	
 	public void updateTime(){
 	
-		if(! fields.getCountDownRunning() && fields.getRunning()){
+		if(! fields.countDownRunning && fields.running){
 			end = System.currentTimeMillis();
 			timeSeconds = (end - start) / 1000.0;
 			timeMinutes = 0;
@@ -72,7 +72,7 @@ public class Timer{
 			String seconds = String.format("%.2f", timeSeconds);
 			String minutes = Integer.toString(timeMinutes);
 			
-			fields.setTime(minutes + ":" + seconds);
+			fields.time = minutes + ":" + seconds;
 		}
 		
 		paint.repaint();
@@ -86,10 +86,10 @@ public class Timer{
 	
 	public void StartCountDown(){
 	
-		fields.setTimePenlaty(0);
-		fields.setDNF(false);
+		fields.timePenalty = 0;
+		fields.DNF = false;
 		
-		fields.setCountDownRunning(true);
+		fields.countDownRunning = true;
 		countDownStart = (double) System.currentTimeMillis() / 1000.0;
 		
 		paint.repaint();
@@ -101,28 +101,28 @@ public class Timer{
 		if(countDownEnd - countDownStart < 15){
 			int timeInspected = (int) (countDownEnd - countDownStart);
 			String timeLeftOfInspection = Integer.toString(15 - timeInspected);
-			fields.setTime(timeLeftOfInspection);
+			fields.time = timeLeftOfInspection;
 			
 		}
 		else{
 			
 			if(! plus2Inspection){
-				fields.setTimePenlaty(fields.getTimePenalty() + 2);
+				fields.timePenalty += 2;
 				plus2Inspection = true;
 			}
 			if(countDownEnd - countDownStart < 17){
-				fields.setTime("+2");
+				fields.time = "+2";
 			}
 			else{
 				
-				fields.setDNF(true);
+				fields.DNF = true;
 				
-				fields.setTime("DNF");
-				fields.setRunning(false);
-				fields.setCountDownRunning(false);
+				fields.time = "DNF";
+				fields.running = false;
+				fields.countDownRunning = false;
 				timePenalty = 0;
 				plus2Inspection = false;
-				timesTracker.addTime(fields.getTwistyPuzzleType(), 0);
+				timesTracker.addTime(fields.twistyPuzzleType, 0);
 				scrambler.randomCorrectScrambleInFieldsUsingFields();
 			}
 			

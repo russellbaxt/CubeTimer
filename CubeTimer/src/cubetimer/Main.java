@@ -27,7 +27,7 @@ public class Main{
 		d.setResizable(true);
 		d.setVisible(true);
 		d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		d.setTitle("Rubik's Cube Timer");
+		d.setTitle("Cube Timer");
 		d.setLocationRelativeTo(null);
 		
 		while(true){

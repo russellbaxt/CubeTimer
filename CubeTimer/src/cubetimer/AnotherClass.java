@@ -4,19 +4,19 @@ public class AnotherClass{
 	
 	public static void callMeMany(Fields fields, KeyPresses keyPresses, TimesTracker timesTracker, Timer timer, Paint paint){
 	
-		if(fields.getConsoleRequiresAttention()){
+		if(fields.consoleRequiresAtention){
 			
 			keyPresses.setAllKeyPressesToFalse();
 			
-			if(fields.getPaintComponentDone()){
+			if(fields.paintComponentDone){
 				
-				if(fields.getAddNotChangeUser()){
+				if(fields.addNotChangeUser){
 					timesTracker.addUser();
 				}
 				else{
 					timesTracker.changeToUser();
 				}
-				fields.setConsoleRequiresAttention(false);
+				fields.consoleRequiresAtention = false;
 			}
 		}
 		
@@ -25,12 +25,33 @@ public class AnotherClass{
 			timer.updateTime();
 		}
 		
-		if(fields.getCountDownRunning()){
+		if(fields.countDownRunning){
 			
 			timer.updateCountdownTime();
 			
 			paint.repaint();
 		}
 		
+	}
+	
+	public static void setScrambleInFields(Fields fields, String randomScramble){
+		
+		if(randomScramble.contains("/n")){
+			
+			fields.randomScrambleAfterSplit = randomScramble.split("/n");
+			fields.scrambleSize = fields.randomScrambleAfterSplit[0].length() / 2.0 + 4.0;
+			fields.useStringListForRandomScramble = true;
+		}
+		
+		else{
+			
+			fields.randomScramble = randomScramble;
+			fields.scrambleSize = randomScramble.length() / 2.0 + 4.0;
+			fields.useStringListForRandomScramble = false;
+		}
+		
+		if(fields.scrambleSize < 4.0){
+			fields.scrambleSize = 4.0;
+		}
 	}
 }
