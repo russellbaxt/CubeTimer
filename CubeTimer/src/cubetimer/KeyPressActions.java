@@ -83,6 +83,7 @@ public class KeyPressActions{
 
 		fields.twistyPuzzleType = twistyPuzzleType;
 		timesTracker.setLast20SolvesInFieldsUsingFields();
+		timesTracker.setAvarageOf5InFieldsUsingFields();
 		
 		if(twistyPuzzleType == TwistyPuzzleType.magaMinx){
 			fields.scrambleDada.scrambleLenght = 40;
