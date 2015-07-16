@@ -86,8 +86,8 @@ public class Timer{
 	
 	public void StartCountDown(){
 	
-		fields.timePenalty = 0;
-		fields.DNF = false;
+		fields.penalty.timePenalty = 0;
+		fields.penalty.DNF = false;
 		
 		fields.timerStatus.countDownRunning = true;
 		countDownStart = (double) System.currentTimeMillis() / 1000.0;
@@ -107,7 +107,7 @@ public class Timer{
 		else{
 			
 			if(! plus2Inspection){
-				fields.timePenalty += 2;
+				fields.penalty.timePenalty += 2;
 				plus2Inspection = true;
 			}
 			if(countDownEnd - countDownStart < 17){
@@ -115,14 +115,15 @@ public class Timer{
 			}
 			else{
 				
-				fields.DNF = true;
+				fields.penalty.DNF = true;
 				
 				fields.displayedDada.time = "DNF";
 				fields.timerStatus.running = false;
 				fields.timerStatus.countDownRunning = false;
+				fields.penalty.DNF = true;
 				timePenalty = 0;
 				plus2Inspection = false;
-				timesTracker.addTime(fields.twistyPuzzleType, 0);
+				timesTracker.addTime(0.0);
 				scrambler.randomCorrectScrambleInFieldsUsingFields();
 			}
 			

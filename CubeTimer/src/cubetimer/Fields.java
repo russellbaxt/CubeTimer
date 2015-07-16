@@ -1,22 +1,18 @@
 package cubetimer;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 public class Fields{
 	
 	public DisplayedDada displayedDada;
 	public TimerStatus timerStatus;
 	public WindowSize windowSize;
+	public Penalty penalty;
 
 	public TwistyPuzzleType twistyPuzzleType;
+	public DisplayState displayState;
 
 	public boolean greenText;
 
 	public boolean ignoreNextRelese;
-	
-	public boolean DNF;
-	public int timePenalty;
 
 	public boolean consoleRequiresAtention;
 	public boolean addNotChangeUser;
@@ -27,12 +23,12 @@ public class Fields{
 		displayedDada = new DisplayedDada();
 		timerStatus = new TimerStatus();
 		windowSize = new WindowSize();
+		penalty = new Penalty();
 		
-		DNF = false;
-		timePenalty = 0;
 		paintComponentDone = false;
 
 		twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
+		displayState = DisplayState.addUser;
 	}
 
 	public void setScreenSize(int windowWidth, int windowHeight) {

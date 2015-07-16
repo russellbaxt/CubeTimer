@@ -28,8 +28,8 @@ public class TimesTracker{
 		allUsers.getUser(0).setUserName(userName);
 		currentUserNumber = 0;
 		fields.displayedDada.currentUserName = userName;
-		addTime(fields.twistyPuzzleType, 0);
-		deleteLastSolve();
+//		addTime(0);
+//		deleteLastSolve();
 		
 	}
 	
@@ -66,19 +66,17 @@ public class TimesTracker{
 		paint.repaint();
 	}
 	
-	public void addTime(TwistyPuzzleType twistyPuzzleType, double time){
+	public void addTime(double time){
 	
-		if(fields.DNF){
-			allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).addTime(0);
+		if(fields.penalty.DNF){
+			allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.twistyPuzzleType).addTime(0);
 		}
 		else{
-			allUsers.getUser(currentUserNumber).getTwistyPuzzle(twistyPuzzleType).addTime(time + fields.timePenalty);
+			allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.twistyPuzzleType).addTime(time + fields.penalty.timePenalty);
 			
-			setLast20SolvesInFieldsUsingFields();
-			setAvarageOf5InFieldsUsingFields();
 		}
-		
-		paint.repaint();
+		setLast20SolvesInFieldsUsingFields();
+		setAvarageOf5InFieldsUsingFields();
 		
 	}
 	

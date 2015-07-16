@@ -9,7 +9,7 @@ public class KeyPressActions{
 			scrambler.randomCorrectScrambleInFieldsUsingFields();
 			timer.startStopTimer();
 			fields.ignoreNextRelese = true;
-			timesTracker.addTime(fields.twistyPuzzleType, timer.getTimeAsDouble());
+			timesTracker.addTime(timer.getTimeAsDouble());
 		}
 		else{
 			
