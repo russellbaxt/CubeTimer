@@ -6,6 +6,7 @@ import java.util.Random;
 public class Fields{
 	
 	public DisplayedDada displayedDada;
+	public TimerStatus timerStatus;
 
 	public int screenWidth;
 	public int screenHeight;
@@ -15,8 +16,7 @@ public class Fields{
 	public boolean greenText;
 
 	public boolean ignoreNextRelese;
-	public boolean running;
-	public boolean countDownRunning;
+	
 	public boolean DNF;
 	public int timePenalty;
 
@@ -27,6 +27,7 @@ public class Fields{
 	public Fields() {
 		
 		displayedDada = new DisplayedDada();
+		timerStatus = new TimerStatus();
 		
 		DNF = false;
 		timePenalty = 0;

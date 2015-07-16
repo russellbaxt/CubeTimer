@@ -4,7 +4,7 @@ public class KeyPressActions{
 	
 	public static void spacePressed(Fields fields, Timer timer, TimesTracker timesTracker, Scrambler scrambler, Paint paint){
 	
-		if(fields.running){
+		if(fields.timerStatus.running){
 			
 			scrambler.randomCorrectScrambleInFieldsUsingFields();
 			timer.startStopTimer();
@@ -31,13 +31,13 @@ public class KeyPressActions{
 		}
 		
 		else{
-			if(! fields.running){
+			if(! fields.timerStatus.running){
 				
 				fields.displayedDada.scrambleDada.randomScramble = "";
 				
-				if(fields.countDownRunning){
+				if(fields.timerStatus.countDownRunning){
 					
-					fields.countDownRunning = false;
+					fields.timerStatus.countDownRunning = false;
 					timer.startStopTimer();
 				}
 				else{

@@ -25,7 +25,7 @@ public class AnotherClass{
 			timer.updateTime();
 		}
 		
-		if(fields.countDownRunning){
+		if(fields.timerStatus.countDownRunning){
 			
 			timer.updateCountdownTime();
 			

@@ -30,9 +30,9 @@ public class Timer{
 	
 	public void startStopTimer(){
 	
-		if(fields.running){
+		if(fields.timerStatus.running){
 			
-			fields.running = false;
+			fields.timerStatus.running = false;
 			end = System.currentTimeMillis();
 			timeSeconds = (end - start) / 1000.0;
 			timeMinutes = 0;
@@ -49,7 +49,7 @@ public class Timer{
 		}
 		else{
 			
-			fields.running = true;
+			fields.timerStatus.running = true;
 			start = System.currentTimeMillis();
 			fields.displayedDada.time = "0:0.0";
 		}
@@ -59,7 +59,7 @@ public class Timer{
 	
 	public void updateTime(){
 	
-		if(! fields.countDownRunning && fields.running){
+		if(! fields.timerStatus.countDownRunning && fields.timerStatus.running){
 			end = System.currentTimeMillis();
 			timeSeconds = (end - start) / 1000.0;
 			timeMinutes = 0;
@@ -89,7 +89,7 @@ public class Timer{
 		fields.timePenalty = 0;
 		fields.DNF = false;
 		
-		fields.countDownRunning = true;
+		fields.timerStatus.countDownRunning = true;
 		countDownStart = (double) System.currentTimeMillis() / 1000.0;
 		
 		paint.repaint();
@@ -118,8 +118,8 @@ public class Timer{
 				fields.DNF = true;
 				
 				fields.displayedDada.time = "DNF";
-				fields.running = false;
-				fields.countDownRunning = false;
+				fields.timerStatus.running = false;
+				fields.timerStatus.countDownRunning = false;
 				timePenalty = 0;
 				plus2Inspection = false;
 				timesTracker.addTime(fields.twistyPuzzleType, 0);

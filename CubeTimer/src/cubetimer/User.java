@@ -90,13 +90,13 @@ public class User{
 		
 		double minimum;
 		double maximum;
-		double sumForAvarageOf5 = 0;
+		double sumForAvarageOf5 = 0.0;
 		double avarageOf5Seconds;
 		
 		if(last5SolvesForAvarageOf5.size() > 0){
 			
 			if(last5SolvesForAvarageOf5.contains(0.0)){
-				maximum = 0;
+				maximum = 0.0;
 			}
 			
 			else{
@@ -112,7 +112,7 @@ public class User{
 			
 			last5SolvesForAvarageOf5.remove(maximum);
 			
-			if(last5SolvesForAvarageOf5.contains(0)){
+			if(last5SolvesForAvarageOf5.contains(0.0)){
 				return "DNF";
 			}
 			
