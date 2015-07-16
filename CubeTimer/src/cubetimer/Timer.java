@@ -14,7 +14,6 @@ public class Timer{
 	private double countDownStart;
 	private double countDownEnd;
 	private boolean plus2Inspection;
-	private int timePenalty;
 	
 	public Timer(Fields f, Scrambler scramblerIn, TimesTracker timesTrackerIn, Paint paintIn){
 	
@@ -121,7 +120,7 @@ public class Timer{
 				fields.timerStatus.running = false;
 				fields.timerStatus.countDownRunning = false;
 				fields.penalty.DNF = true;
-				timePenalty = 0;
+				fields.penalty.timePenalty = 0;
 				plus2Inspection = false;
 				timesTracker.addTime(0.0);
 				scrambler.randomCorrectScrambleInFieldsUsingFields();

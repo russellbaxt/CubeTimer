@@ -6,6 +6,7 @@ public class Fields{
 	public TimerStatus timerStatus;
 	public WindowSize windowSize;
 	public Penalty penalty;
+	public MenuItems menuItems;
 
 	public TwistyPuzzleType twistyPuzzleType;
 	public DisplayState displayState;
@@ -24,6 +25,7 @@ public class Fields{
 		timerStatus = new TimerStatus();
 		windowSize = new WindowSize();
 		penalty = new Penalty();
+		menuItems = new MenuItems();
 		
 		paintComponentDone = false;
 
