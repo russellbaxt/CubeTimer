@@ -11,26 +11,24 @@ public class Display extends JFrame{
 	private JPanel gp;
 	private KeyBindings kb;
 	
-	public Display(Timer t){
+	public Display(KeyPresses kp, Paint p){
 	
 		Dimension size = getSize();
 		gp = (JPanel) getGlassPane();
 		gp.setVisible(true);
-		kb = new KeyBindings(t);
+		kb = new KeyBindings(kp);
 		gp.setLayout(new GridLayout(1, 1));
 		this.setLayout(new GridLayout(1, 1));
-		gp.add(t);
+		gp.add(p);
 		this.add(kb);
 	}
 	
-	@Override
 	public int getWidth(){
 	
 		Dimension size = getSize();
 		return size.width;
 	}
 	
-	@Override
 	public int getHeight(){
 	
 		Dimension size = getSize();

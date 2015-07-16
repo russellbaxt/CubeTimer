@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class DashKeyPressedAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public DashKeyPressedAction(Timer t){
+	public DashKeyPressedAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.dashPressed();
+		keyPresses.dashPressed();
 		
 	}
 }

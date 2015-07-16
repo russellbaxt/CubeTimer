@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class FourKeyAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public FourKeyAction(Timer t){
+	public FourKeyAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.fourPressed();
+		keyPresses.fourPressed();
 		
 	}
 }

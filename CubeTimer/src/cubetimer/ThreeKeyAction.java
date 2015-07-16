@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class ThreeKeyAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public ThreeKeyAction(Timer t){
+	public ThreeKeyAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.threePressed();
+		keyPresses.threePressed();
 		
 	}
 	

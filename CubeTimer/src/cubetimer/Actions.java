@@ -1,44 +1,31 @@
 package cubetimer;
 
+import java.util.Random;
+
+
 public class Actions{
 	
-	private long start;
-	private long end;
-	private double timeSeconds;
-	private int timeMinutes;
+	Random random;
 	
 	public Actions(){
-	
-		timeSeconds = 0;
-		timeMinutes = 0;
-	}
-	
-	public String startTimer(){
-	
-		start = System.currentTimeMillis();
-		return "0:0.0";
-	}
-	
-	public String getTime(int penalty){
-	
-		end = System.currentTimeMillis();
-		timeSeconds = (end - start) / 1000.0 + penalty;
-		timeMinutes = 0;
 		
-		while(timeSeconds >= 60){
-			timeMinutes ++;
-			timeSeconds = timeSeconds - 60;
+		random = new Random();
+		
+	}
+	public TwistyPuzzleTypeAndInt randomTwistyPuzzle(){
+		int randomNumber = random.nextInt(TwistyPuzzleType.values().length);
+		TwistyPuzzleType twistyPuzzleType = TwistyPuzzleType.values()[randomNumber];
+		int scrambleLenght;
+		
+		if(twistyPuzzleType == TwistyPuzzleType.magaMinx){
+			scrambleLenght = 40;
+		}
+		else{
+			scrambleLenght = 20;
 		}
 		
-		String seconds = String.format("%.3f", timeSeconds);
-		String minutes = Integer.toString(timeMinutes);
+		TwistyPuzzleTypeAndInt twistyPuzzleTypeAndScrambleLength = new TwistyPuzzleTypeAndInt(twistyPuzzleType, scrambleLenght);
+		return twistyPuzzleTypeAndScrambleLength;
 		
-		return minutes + ":" + seconds;
-	}
-	
-	public double getTimePreviouslyGotenAsDouble(){
-	
-		int theInt = (int) ((timeSeconds + timeMinutes * 60.0) * 1000.0);
-		return theInt / 1000.0;
 	}
 }

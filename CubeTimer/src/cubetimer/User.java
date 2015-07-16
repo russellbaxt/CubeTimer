@@ -6,7 +6,7 @@ public class User{
 	
 	private String userName;
 	
-	private ArrayList<Double> copyOfAllTimesOfATwistyPuzzle;
+	private ArrayList<Double> last5SolvesForAvarageOf5;
 	
 	private TwistyPuzzle cube2x2x2;
 	private TwistyPuzzle cube3x3x3;
@@ -75,7 +75,7 @@ public class User{
 			return cube4x4x4;
 		}
 		else if(twistyPuzzleType == oneHanded3x3x3.getTwistyPuzzleType()){
-			return cube4x4x4;
+			return oneHanded3x3x3;
 		}
 		else{
 			System.out.println("error becouse you did not send in a correct twistyPuzzleType");
@@ -86,44 +86,51 @@ public class User{
 	
 	public String getAvarageOf5(TwistyPuzzleType twistyPuzzleType){
 	
-		copyOfAllTimesOfATwistyPuzzle = getTwistyPuzzle(twistyPuzzleType).getCloneOfTimes();
+		last5SolvesForAvarageOf5 = getTwistyPuzzle(twistyPuzzleType).getLast5Times();
 		
 		double minimum;
 		double maximum;
-		double sumForAvarageOf5 = 0;
+		double sumForAvarageOf5 = 0.0;
 		double avarageOf5Seconds;
 		
-		while(copyOfAllTimesOfATwistyPuzzle.size() > 5){
-			copyOfAllTimesOfATwistyPuzzle.remove(0);
-		}
-		
-		if(copyOfAllTimesOfATwistyPuzzle.size() == 5){
+		if(last5SolvesForAvarageOf5.size() > 0){
 			
-			maximum = copyOfAllTimesOfATwistyPuzzle.get(0);
-			
-			for(int i = 1; i < copyOfAllTimesOfATwistyPuzzle.size(); i ++){
-				if(maximum < copyOfAllTimesOfATwistyPuzzle.get(i)){
-					maximum = copyOfAllTimesOfATwistyPuzzle.get(i);
-				}
+			if(last5SolvesForAvarageOf5.contains(0.0)){
+				maximum = 0.0;
 			}
 			
-			copyOfAllTimesOfATwistyPuzzle.remove(maximum);
-			
-			minimum = copyOfAllTimesOfATwistyPuzzle.get(0);
-			
-			for(int i = 1; i < copyOfAllTimesOfATwistyPuzzle.size(); i ++){
+			else{
 				
-				if(minimum > copyOfAllTimesOfATwistyPuzzle.get(i)){
-					minimum = copyOfAllTimesOfATwistyPuzzle.get(i);
+				maximum = last5SolvesForAvarageOf5.get(0);
+				
+				for(int i = 1; i < last5SolvesForAvarageOf5.size(); i ++){
+					if(maximum < last5SolvesForAvarageOf5.get(i)){
+						maximum = last5SolvesForAvarageOf5.get(i);
+					}
 				}
 			}
-			copyOfAllTimesOfATwistyPuzzle.remove(maximum);
 			
-			for(int i = 0; i < copyOfAllTimesOfATwistyPuzzle.size(); i ++){
-				sumForAvarageOf5 = sumForAvarageOf5 + copyOfAllTimesOfATwistyPuzzle.get(i);
+			last5SolvesForAvarageOf5.remove(maximum);
+			
+			if(last5SolvesForAvarageOf5.contains(0.0)){
+				return "DNF";
 			}
 			
-			avarageOf5Seconds = sumForAvarageOf5 / copyOfAllTimesOfATwistyPuzzle.size();
+			minimum = last5SolvesForAvarageOf5.get(0);
+			
+			for(int i = 1; i < last5SolvesForAvarageOf5.size(); i ++){
+				
+				if(minimum > last5SolvesForAvarageOf5.get(i)){
+					minimum = last5SolvesForAvarageOf5.get(i);
+				}
+			}
+			last5SolvesForAvarageOf5.remove(minimum);
+			
+			for(int i = 0; i < last5SolvesForAvarageOf5.size(); i ++){
+				sumForAvarageOf5 = sumForAvarageOf5 + last5SolvesForAvarageOf5.get(i);
+			}
+			
+			avarageOf5Seconds = sumForAvarageOf5 / 3;
 			
 			int timeMinutes = 0;
 			
@@ -132,10 +139,11 @@ public class User{
 				timeMinutes ++;
 				avarageOf5Seconds = avarageOf5Seconds - 60;
 			}
-			return timeMinutes + ":" + String.format("%.3f", avarageOf5Seconds);
+			return timeMinutes + ":" + String.format("%.2f", avarageOf5Seconds);
 		}
 		else{
 			return "No Avarage Of 5 Yet";
 		}
 	}
+	
 }

@@ -6,16 +6,16 @@ import javax.swing.AbstractAction;
 
 public class SpaceReleasedAction extends AbstractAction{
 	
-	private Timer timer;
+	private KeyPresses keyPresses;
 	
-	public SpaceReleasedAction(Timer t){
+	public SpaceReleasedAction(KeyPresses kp){
 	
-		timer = t;
+		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		timer.spaceReleased();
+		keyPresses.spaceReleased();
 		
 	}
 	
