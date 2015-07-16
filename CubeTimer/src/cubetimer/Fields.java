@@ -7,9 +7,7 @@ public class Fields{
 	
 	public DisplayedDada displayedDada;
 	public TimerStatus timerStatus;
-
-	public int screenWidth;
-	public int screenHeight;
+	public WindowSize windowSize;
 
 	public TwistyPuzzleType twistyPuzzleType;
 
@@ -28,6 +26,7 @@ public class Fields{
 		
 		displayedDada = new DisplayedDada();
 		timerStatus = new TimerStatus();
+		windowSize = new WindowSize();
 		
 		DNF = false;
 		timePenalty = 0;
@@ -36,9 +35,8 @@ public class Fields{
 		twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
 	}
 
-	public void setScreenSize(int screenWidthIn, int screenHeightIn) {
+	public void setScreenSize(int windowWidth, int windowHeight) {
 
-		screenWidth = screenWidthIn;
-		screenHeight = screenHeightIn;
+		windowSize.setSize(windowWidth, windowHeight);
 	}
 }
