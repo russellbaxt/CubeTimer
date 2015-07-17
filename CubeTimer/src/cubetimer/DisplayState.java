@@ -4,9 +4,7 @@ package cubetimer;
 public enum DisplayState{
 	
 	timer,
-	user,
-	addUser,
-	changeUser,
+	userMenu,
 	menu,
 	changeTwistyPuzzle,
 	changeScrambleLenght,

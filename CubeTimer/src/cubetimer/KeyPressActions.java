@@ -58,29 +58,28 @@ public class KeyPressActions{
 		}
 		
 		scrambler.randomCorrectScrambleInFieldsUsingFields();
-	 }
-	 
+	}
 	
-	 public static void increseScrambleLenghtByOne(Fields fields, Scrambler scrambler, Paint paint){
+	public static void increseScrambleLenghtByOne(Fields fields, Scrambler scrambler, Paint paint){
 	
-		 fields.displayedDada.scrambleDada.scrambleLenght ++;
-		 scrambler.randomCorrectScrambleInFieldsUsingFields();
-		 
-		 paint.repaint();
-	 }
+		fields.displayedDada.scrambleDada.scrambleLenght ++;
+		scrambler.randomCorrectScrambleInFieldsUsingFields();
+		
+		paint.repaint();
+	}
 	
-	 public static void changeToRandomTwistyPuzzleType(Fields fields, Scrambler scrambler, Actions actions, Paint paint){
+	public static void changeToRandomTwistyPuzzleType(Fields fields, Scrambler scrambler, Actions actions, Paint paint){
 	
-		 TwistyPuzzleTypeAndInt twistyPuzzleTypeAndScrambleLenght = actions.randomTwistyPuzzle();
-		 fields.twistyPuzzleType = twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType;
-		 fields.displayedDada.scrambleDada.scrambleLenght = twistyPuzzleTypeAndScrambleLenght.integer;
-		 scrambler.randomCorrectScrambleInFieldsUsingFields();
-		 
-		 paint.repaint();
-	 }
-
-	 public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler, TimesTracker timesTracker, Paint paint){
-
+		TwistyPuzzleTypeAndInt twistyPuzzleTypeAndScrambleLenght = actions.randomTwistyPuzzle();
+		fields.twistyPuzzleType = twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType;
+		fields.displayedDada.scrambleDada.scrambleLenght = twistyPuzzleTypeAndScrambleLenght.integer;
+		scrambler.randomCorrectScrambleInFieldsUsingFields();
+		
+		paint.repaint();
+	}
+	
+	public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler, TimesTracker timesTracker, Paint paint){
+	
 		fields.twistyPuzzleType = twistyPuzzleType;
 		timesTracker.setLast20SolvesInFieldsUsingFields();
 		timesTracker.setAvarageOf5InFieldsUsingFields();
@@ -117,8 +116,16 @@ public class KeyPressActions{
 		fields.paintComponentDone = false;
 		paint.repaint();
 	}
+	
 	public static void openMenu(Fields fields, Paint paint){
-		System.out.println("Got to in key press actions where it opens menu");
+	
+		if(fields.displayState == DisplayState.menu){
+			fields.displayState = DisplayState.timer;
+		}
+		else{
+			fields.menuItems.resetChoice();
+			fields.displayState = DisplayState.menu;
+		}
 	}
 	
 }

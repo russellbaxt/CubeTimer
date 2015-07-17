@@ -61,8 +61,12 @@ public class Paint extends JPanel{
 	}
 	
 	public void menu(Graphics g){
-		Images.typeString("Change Twisty Puzzle Type", 0, 0, fields.windowSize.windowWidth / 14,
+		
+		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth, fields.windowSize.windowHeight, g);
+		
+		Images.typeString("Change Twisty Puzzle Type", 0, fields.windowSize.windowHeight / 14 + fields.windowSize.windowWidth / 20 + 3, fields.windowSize.windowWidth / 14,
 				fields.menuItems.changeTwistyPuzzle, g);
+		g.drawLine(0, fields.windowSize.windowHeight / 14, fields.windowSize.windowWidth, fields.windowSize.windowHeight/ 14);
 		
 	}
 		
