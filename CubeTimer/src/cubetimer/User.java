@@ -14,7 +14,6 @@ public class User{
 	private TwistyPuzzle cube5x5x5;
 	private TwistyPuzzle megaMinx;
 	private TwistyPuzzle curvyCopter;
-	private TwistyPuzzle voidChalangeCube;
 	private TwistyPuzzle oneHanded3x3x3;
 	private TwistyPuzzle anisatropicGearCube;
 	private TwistyPuzzle gearCube;
@@ -31,7 +30,6 @@ public class User{
 		curvyCopter = new TwistyPuzzle(TwistyPuzzleType.curvyCopter);
 		anisatropicGearCube = new TwistyPuzzle(TwistyPuzzleType.anisatropicGearCube);
 		gearCube = new TwistyPuzzle(TwistyPuzzleType.gearCube);
-		voidChalangeCube = new TwistyPuzzle(TwistyPuzzleType.voidChalangeCube);
 		oneHanded3x3x3 = new TwistyPuzzle(TwistyPuzzleType.oneHanded3x3x3);
 	}
 	
@@ -70,9 +68,6 @@ public class User{
 		}
 		else if(twistyPuzzleType == gearCube.getTwistyPuzzleType()){
 			return gearCube;
-		}
-		else if(twistyPuzzleType == voidChalangeCube.getTwistyPuzzleType()){
-			return cube4x4x4;
 		}
 		else if(twistyPuzzleType == oneHanded3x3x3.getTwistyPuzzleType()){
 			return oneHanded3x3x3;

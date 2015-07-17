@@ -2,11 +2,15 @@ package cubetimer;
 
 public class MenuItems{
 	
+	public UserActionsMenu userActionsMenu;
+	public TwistyPuzzleMenu twistyPuzzleMenu;
+	
 	public boolean changeTwistyPuzzle;
-	public boolean changeUser;
-	public boolean addUser;
-	public boolean deleteCurrentUser;
-	public boolean changeCurrentUserName;
+	public boolean userMenu;
 	public boolean changeScrambleLenght;
+	
+	
+	public boolean exit;
+
 	
 }

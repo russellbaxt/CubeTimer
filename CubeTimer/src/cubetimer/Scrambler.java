@@ -268,8 +268,6 @@ public class Scrambler {
 			return random3x3Scramble(scrambleSize);
 		} else if (twistyPuzzleType == TwistyPuzzleType.anisatropicGearCube) {
 			return randomAnisatropicGearCubeScramble(scrambleSize);
-		} else if (twistyPuzzleType == TwistyPuzzleType.voidChalangeCube) {
-			return random3x3Scramble(scrambleSize);
 		} else if (twistyPuzzleType == TwistyPuzzleType.oneHanded3x3x3) {
 			return random3x3Scramble(scrambleSize);
 		} else {

@@ -260,13 +260,6 @@ public class KeyPresses{
 			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.oneHanded3x3x3, scrambler, timesTracker, paint);
 		}
 		
-		if(vPressed){
-			
-			vPressed = false;
-			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.voidChalangeCube, scrambler, timesTracker, paint);
-		}
-		
 		if(rPressed){
 			
 			rPressed = false;
