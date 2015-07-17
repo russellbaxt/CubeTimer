@@ -29,6 +29,8 @@ public class KeyBindings extends JComponent{
 	private PlusKeyPressedAction plusAction;
 	private DashKeyPressedAction dashAction;
 	
+	private EscapeKeyPressedAction escapeAction;
+	
 	public KeyBindings(KeyPresses kp){
 	
 		
@@ -53,6 +55,8 @@ public class KeyBindings extends JComponent{
 		
 		plusAction = new PlusKeyPressedAction(kp);
 		dashAction = new DashKeyPressedAction(kp);
+		
+		escapeAction = new EscapeKeyPressedAction(kp);
 		
 		this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "SpacePressed");
 		this.getActionMap().put("SpacePressed", spaceAction);
@@ -91,6 +95,10 @@ public class KeyBindings extends JComponent{
 		this.getActionMap().put("PlusPressed", plusAction);
 		this.getInputMap().put(KeyStroke.getKeyStroke("MINUS"), "DashPressed");
 		this.getActionMap().put("DashPressed", dashAction);
+		
+		this.getInputMap().put(KeyStroke.getKeyStroke("ESCAPE"), "EscapePressed");
+		this.getActionMap().put("EscapePressed", escapeAction);
+		
 		
 	}
 	

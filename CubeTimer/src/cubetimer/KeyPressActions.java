@@ -117,5 +117,8 @@ public class KeyPressActions{
 		fields.paintComponentDone = false;
 		paint.repaint();
 	}
+	public static void openMenu(Fields fields, Paint paint){
+		System.out.println("Got to in key press actions where it opens menu");
+	}
 	
 }

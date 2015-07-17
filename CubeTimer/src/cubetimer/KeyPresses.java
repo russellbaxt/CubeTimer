@@ -30,6 +30,7 @@ public class KeyPresses{
 	private boolean vPressed;
 	private boolean oPressed;
 	private boolean rPressed;
+	private boolean escapePressed;
 	
 	public KeyPresses(Timer timerIn, Scrambler scramblerIn, TimesTracker timesTrackerIn, Actions actionsIn, Fields fieldsIn, Paint paintIn){
 	
@@ -124,6 +125,9 @@ public class KeyPresses{
 	public void dashPressed(){
 	
 		dashPressed = true;
+	}
+	public void escapePressed(){
+		escapePressed = true; 
 	}
 	
 	public void setAllKeyPressesToFalse(){
@@ -268,6 +272,12 @@ public class KeyPresses{
 			rPressed = false;
 			
 			KeyPressActions.changeToRandomTwistyPuzzleType(fields, scrambler, actions, paint);
+		}
+		
+		if(escapePressed){
+			escapePressed = false;
+			
+			KeyPressActions.openMenu(fields, paint);
 		}
 		
 	}
