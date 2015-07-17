@@ -6,6 +6,7 @@ public class Timer{
 	private Scrambler scrambler;
 	private TimesTracker timesTracker;
 	private Paint paint;
+	private FileWriter fileWriter;
 	
 	private long start;
 	private long end;
@@ -15,12 +16,13 @@ public class Timer{
 	private double countDownEnd;
 	private boolean plus2Inspection;
 	
-	public Timer(Fields f, Scrambler scramblerIn, TimesTracker timesTrackerIn, Paint paintIn){
+	public Timer(Fields f, Scrambler scramblerIn, TimesTracker timesTrackerIn, Paint paintIn, FileWriter fileWriterIn){
 	
 		fields = f;
 		scrambler = scramblerIn;
 		timesTracker = timesTrackerIn;
 		paint = paintIn;
+		fileWriter = fileWriterIn;
 		
 		timeSeconds = 0;
 		timeMinutes = 0;
