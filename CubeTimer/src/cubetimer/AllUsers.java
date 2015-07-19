@@ -31,6 +31,11 @@ public class AllUsers{
 		return users.size();
 	}
 	
+	public void remove(int index){
+		
+		users.remove(index);
+	}
+	
 	public int getIndexOfUserWithUserName(String userName){
 	
 		String userNameOfIndexI;

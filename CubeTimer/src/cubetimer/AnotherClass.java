@@ -4,19 +4,27 @@ public class AnotherClass{
 	
 	public static void callMeMany(Fields fields, KeyPresses keyPresses, TimesTracker timesTracker, Timer timer, Paint paint){
 	
-		if(fields.consoleRequiresAtention){
+		if(fields.displayState == DisplayState.consoleRequiresAttention){
 			
 			keyPresses.setAllKeyPressesToFalse();
 			
 			if(fields.paintComponentDone){
 				
-				if(fields.addNotChangeUser){
+				if(fields.userAction == UserAction.add){
 					timesTracker.addUser();
 				}
-				else{
+				
+				else if(fields.userAction == UserAction.change){
 					timesTracker.changeToUser();
 				}
-				fields.consoleRequiresAtention = false;
+				
+				else{
+					timesTracker.changeCurrentUserName();
+				}
+				
+				fields.displayState = DisplayState.timer;
+				
+				paint.repaint();
 			}
 		}
 		

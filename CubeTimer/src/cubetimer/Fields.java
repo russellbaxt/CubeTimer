@@ -8,18 +8,15 @@ public class Fields{
 	public Penalty penalty;
 	
 	public MenuItems menuItems;
-	public UserActionsMenu userActionsMenu;
-	public TwistyPuzzleMenu twistyPuzzleMenu;
 
 	public TwistyPuzzleType twistyPuzzleType;
 	public DisplayState displayState;
+	public UserAction userAction;
 
 	public boolean greenText;
 
 	public boolean ignoreNextRelese;
 
-	public boolean consoleRequiresAtention;
-	public boolean addNotChangeUser;
 	public boolean paintComponentDone;
 
 	public Fields() {

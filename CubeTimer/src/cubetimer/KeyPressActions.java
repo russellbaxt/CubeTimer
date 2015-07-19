@@ -103,18 +103,34 @@ public class KeyPressActions{
 	
 	public static void addAUser(Fields fields, Paint paint){
 	
-		fields.consoleRequiresAtention = true;
-		fields.addNotChangeUser = true;
+		fields.displayState = DisplayState.consoleRequiresAttention;
+		fields.userAction = UserAction.add;
 		fields.paintComponentDone = false;
+		
 		paint.repaint();
 	}
 	
 	public static void changeUser(Fields fields, Paint paint){
 	
-		fields.consoleRequiresAtention = true;
-		fields.addNotChangeUser = false;
+		fields.displayState = DisplayState.consoleRequiresAttention;
+		fields.userAction = UserAction.change;
 		fields.paintComponentDone = false;
+		
 		paint.repaint();
+	}
+	
+	public static void changeUserName(Fields fields, Paint paint){
+		
+		fields.displayState = DisplayState.consoleRequiresAttention;
+		fields.userAction = UserAction.rename;
+		fields.paintComponentDone = false;
+		
+		paint.repaint();
+	}
+	
+	public static void deleteCurrentUser(TimesTracker timesTracker){
+		
+		timesTracker.deleteCurrentUser();
 	}
 	
 	public static void openMenu(Fields fields, Paint paint){
@@ -202,6 +218,33 @@ public class KeyPressActions{
 			fields.displayState = DisplayState.timer;
 		}
 		
+		else if(fields.displayState == DisplayState.userMenu){
+			
+			if(fields.menuItems.userActionsMenu.getAddUser()){
+				
+				addAUser(fields, paint);
+			}
+			
+			else if(fields.menuItems.userActionsMenu.getChangeUser()){
+				
+				changeUser(fields, paint);
+			}
+			
+			else if(fields.menuItems.userActionsMenu.getDeleteCurrentUser()){
+				
+				deleteCurrentUser(timesTracker);
+			}
+			
+			else if(fields.menuItems.userActionsMenu.getChangeCurrentUserName()){
+				
+				changeUserName(fields, paint);
+			}
+			
+			else{
+				fields.displayState = DisplayState.timer;
+			}
+		}
+		
 		else{
 			fields.displayState = DisplayState.timer;
 		}
@@ -214,8 +257,13 @@ public class KeyPressActions{
 		if(fields.displayState == DisplayState.menu){
 			fields.menuItems.upOne();
 		}
+		
 		else if(fields.displayState == DisplayState.changeTwistyPuzzle){
 			fields.menuItems.twistyPuzzleMenu.upOne();
+		}
+		
+		else if(fields.displayState == DisplayState.userMenu){
+			fields.menuItems.userActionsMenu.upOne();
 		}
 		paint.repaint();
 	}
@@ -225,8 +273,13 @@ public class KeyPressActions{
 		if(fields.displayState == DisplayState.menu){
 			fields.menuItems.downOne();
 		}
+		
 		else if(fields.displayState == DisplayState.changeTwistyPuzzle){
 			fields.menuItems.twistyPuzzleMenu.downOne();
+		}
+		
+		else if(fields.displayState == DisplayState.userMenu){
+			fields.menuItems.userActionsMenu.downOne();
 		}
 		paint.repaint();
 	}

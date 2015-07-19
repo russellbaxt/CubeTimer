@@ -56,10 +56,9 @@ public class UserActionsMenu{
 		if(addUser){
 			addUser = false;
 			changeUser = true;
-			;
 		}
 		
-		if(changeUser){
+		else if(changeUser){
 			
 			changeUser = false;
 			deleteCurrentUser = true;
@@ -73,7 +72,7 @@ public class UserActionsMenu{
 		
 		else if(changeCurrentUserName){
 			
-			changeCurrentUserName = true;
+			changeCurrentUserName = false;
 			exit = true;
 		}
 		
