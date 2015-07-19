@@ -155,7 +155,7 @@ public class KeyPressActions{
 			}
 			
 			else if(fields.menuItems.getChangeScrambleLenght()){
-				fields.displayState = DisplayState.timer;
+				fields.displayState = DisplayState.changeScrambleLenght;
 			}
 			
 			else if(fields.menuItems.getNewScramble()){
@@ -216,6 +216,10 @@ public class KeyPressActions{
 			}
 			
 			fields.displayState = DisplayState.timer;
+			
+			if(fields.menuItems.twistyPuzzleMenu.getExit()){
+				fields.displayState = DisplayState.menu;
+			}
 		}
 		
 		else if(fields.displayState == DisplayState.userMenu){
@@ -241,11 +245,13 @@ public class KeyPressActions{
 			}
 			
 			else{
-				fields.displayState = DisplayState.timer;
+				fields.displayState = DisplayState.menu;
 			}
 		}
 		
-		else{
+		else if(fields.displayState == DisplayState.changeScrambleLenght){
+			
+			scrambler.randomCorrectScrambleInFieldsUsingFields();
 			fields.displayState = DisplayState.timer;
 		}
 		
@@ -265,6 +271,12 @@ public class KeyPressActions{
 		else if(fields.displayState == DisplayState.userMenu){
 			fields.menuItems.userActionsMenu.upOne();
 		}
+		
+		else if(fields.displayState == DisplayState.changeScrambleLenght){
+			
+			fields.displayedDada.scrambleDada.scrambleLenght ++;
+		}
+		
 		paint.repaint();
 	}
 	
@@ -280,6 +292,11 @@ public class KeyPressActions{
 		
 		else if(fields.displayState == DisplayState.userMenu){
 			fields.menuItems.userActionsMenu.downOne();
+		}
+		
+		else if(fields.displayState == DisplayState.changeScrambleLenght){
+			
+			fields.displayedDada.scrambleDada.scrambleLenght --;
 		}
 		paint.repaint();
 	}
