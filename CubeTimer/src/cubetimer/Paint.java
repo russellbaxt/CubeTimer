@@ -64,10 +64,23 @@ public class Paint extends JPanel{
 		
 		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth, fields.windowSize.windowHeight, g);
 		
-		Images.typeString("Change Twisty Puzzle Type", 0, fields.windowSize.windowHeight / 14 + fields.windowSize.windowWidth / 20 + 3, fields.windowSize.windowWidth / 14,
-				fields.menuItems.changeTwistyPuzzle, g);
-		g.drawLine(0, fields.windowSize.windowHeight / 14, fields.windowSize.windowWidth, fields.windowSize.windowHeight/ 14);
+		Images.typeString("Change Twisty Puzzle Type", 0,
+				fields.windowSize.windowHeight / 16 + fields.windowSize.windowWidth / 20, 
+				fields.windowSize.windowWidth / 16, fields.menuItems.getChangeTwistyPuzzle(), g);
 		
+		
+		Images.typeString("User Menu", 0,
+				fields.windowSize.windowHeight / 16 + (fields.windowSize.windowWidth / 20) * 2 + fields.windowSize.windowWidth / 50,
+				fields.windowSize.windowWidth / 16, fields.menuItems.getUserMenu(), g);
+		
+		Images.typeString("Change Scramble Lenght", 0,
+				fields.windowSize.windowHeight / 16 + (fields.windowSize.windowWidth / 20) * 3 + (fields.windowSize.windowWidth / 50 ) * 2,
+				fields.windowSize.windowWidth / 16, fields.menuItems.getChangeScrambleLenght(), g);
+		
+		Images.typeString("Exit", 0,
+				fields.windowSize.windowHeight / 16 + (fields.windowSize.windowWidth / 20) * 4 + (fields.windowSize.windowWidth / 50) * 3,
+				fields.windowSize.windowWidth / 16, fields.menuItems.getExit(), g);
+				
 	}
 		
 	public void paintComponent(Graphics g){

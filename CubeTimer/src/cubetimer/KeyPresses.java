@@ -27,10 +27,13 @@ public class KeyPresses{
 	private boolean mPressed;
 	private boolean gPressed;
 	private boolean aPressed;
-	private boolean vPressed;
 	private boolean oPressed;
 	private boolean rPressed;
+	
 	private boolean escapePressed;
+	private boolean enterPressed;
+	private boolean upPressed;
+	private boolean downPressed;
 	
 	public KeyPresses(Timer timerIn, Scrambler scramblerIn, TimesTracker timesTrackerIn, Actions actionsIn, Fields fieldsIn, Paint paintIn){
 	
@@ -107,11 +110,6 @@ public class KeyPresses{
 		oPressed = true;
 	}
 	
-	public void vPressed(){
-	
-		vPressed = true;
-	}
-	
 	public void deletePressed(){
 	
 		backSpacePressed = true;
@@ -126,8 +124,22 @@ public class KeyPresses{
 	
 		dashPressed = true;
 	}
+	
 	public void escapePressed(){
-		escapePressed = true; 
+	
+		escapePressed = true;
+	}
+	
+	public void enterPressed(){
+		enterPressed = true;
+	}
+	
+	public void upPressed(){
+		upPressed = true;
+	}
+	
+	public void downPressed(){
+		downPressed = true;
 	}
 	
 	public void setAllKeyPressesToFalse(){
@@ -144,7 +156,6 @@ public class KeyPresses{
 		mPressed = false;
 		gPressed = false;
 		aPressed = false;
-		vPressed = false;
 		oPressed = false;
 		backSpacePressed = false;
 		plusPressed = false;
@@ -271,6 +282,24 @@ public class KeyPresses{
 			escapePressed = false;
 			
 			KeyPressActions.openMenu(fields, paint);
+		}
+		
+		if(enterPressed){
+			enterPressed = false;
+			
+			KeyPressActions.select(fields, paint);
+		}
+		
+		if(upPressed){
+			upPressed = false;
+			
+			KeyPressActions.upOne(fields, paint);
+		}
+		
+		if(downPressed){
+			downPressed = false;
+			
+			KeyPressActions.downOne(fields, paint);
 		}
 		
 	}

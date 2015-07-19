@@ -18,7 +18,6 @@ public class KeyBindings extends JComponent{
 	private MKeyPressedAction mAction;
 	private GKeyPressedAction gAction;
 	private AKeyPressedAction aAction;
-	private VKeyPressedAction vAction;
 	private OKeyPressedAction oAction;
 	
 	private RKeyPressedAction rAction;
@@ -30,6 +29,9 @@ public class KeyBindings extends JComponent{
 	private DashKeyPressedAction dashAction;
 	
 	private EscapeKeyPressedAction escapeAction;
+	private EnterKeyPressedAction enterAction;
+	private UpArrowPressedAction upAction;
+	private DownArrowPressedAction downAction;
 	
 	public KeyBindings(KeyPresses kp){
 	
@@ -45,7 +47,6 @@ public class KeyBindings extends JComponent{
 		mAction = new MKeyPressedAction(kp);
 		gAction = new GKeyPressedAction(kp);
 		aAction = new AKeyPressedAction(kp);
-		vAction = new VKeyPressedAction(kp);
 		oAction = new OKeyPressedAction(kp);
 		
 		rAction = new RKeyPressedAction(kp);
@@ -57,6 +58,9 @@ public class KeyBindings extends JComponent{
 		dashAction = new DashKeyPressedAction(kp);
 		
 		escapeAction = new EscapeKeyPressedAction(kp);
+		enterAction = new EnterKeyPressedAction(kp);
+		upAction = new UpArrowPressedAction(kp);
+		downAction = new DownArrowPressedAction(kp);
 		
 		this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "SpacePressed");
 		this.getActionMap().put("SpacePressed", spaceAction);
@@ -85,8 +89,6 @@ public class KeyBindings extends JComponent{
 		this.getActionMap().put("APressed", aAction);
 		this.getInputMap().put(KeyStroke.getKeyStroke("O"), "OPressed");
 		this.getActionMap().put("OPressed", oAction);
-		this.getInputMap().put(KeyStroke.getKeyStroke("V"), "VPressed");
-		this.getActionMap().put("VPressed", vAction);
 		
 		this.getInputMap().put(KeyStroke.getKeyStroke("R"), "RPressed");
 		this.getActionMap().put("RPressed", rAction);
@@ -98,6 +100,12 @@ public class KeyBindings extends JComponent{
 		
 		this.getInputMap().put(KeyStroke.getKeyStroke("ESCAPE"), "EscapePressed");
 		this.getActionMap().put("EscapePressed", escapeAction);
+		this.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "EnterPressed");
+		this.getActionMap().put("EnterPressed", enterAction);
+		this.getInputMap().put(KeyStroke.getKeyStroke("UP"), "UpPressed");
+		this.getActionMap().put("UpPressed", upAction);
+		this.getInputMap().put(KeyStroke.getKeyStroke("DOWN"), "DownPressed");
+		this.getActionMap().put("DownPressed", downAction);
 		
 		
 	}

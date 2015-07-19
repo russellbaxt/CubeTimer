@@ -119,13 +119,30 @@ public class KeyPressActions{
 	
 	public static void openMenu(Fields fields, Paint paint){
 	
-		if(fields.displayState == DisplayState.menu){
-			fields.displayState = DisplayState.timer;
-		}
-		else{
-			fields.menuItems.resetChoice();
-			fields.displayState = DisplayState.menu;
-		}
+		fields.displayState = DisplayState.menu;
+		
+		paint.repaint();
+	}
+	
+	public static void select(Fields fields, Paint paint){
+	
+		fields.displayState = DisplayState.timer;
+		
+		paint.repaint();
+	}
+	
+	public static void upOne(Fields fields, Paint paint){
+	
+		fields.menuItems.upOne();
+		
+		paint.repaint();
+	}
+	
+	public static void downOne(Fields fields, Paint paint){
+	
+		fields.menuItems.downOne();
+		
+		paint.repaint();
 	}
 	
 }
