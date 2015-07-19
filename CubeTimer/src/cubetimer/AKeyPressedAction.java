@@ -14,7 +14,7 @@ public class AKeyPressedAction extends AbstractAction{
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
-	
+		
 		keyPresses.aPressed();
 		
 	}

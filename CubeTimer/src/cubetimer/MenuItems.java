@@ -4,10 +4,13 @@ public class MenuItems{
 	
 	public UserActionsMenu userActionsMenu;
 	public TwistyPuzzleMenu twistyPuzzleMenu;
+	public OptionsMenu optionsMenu;
 	
 	private boolean changeTwistyPuzzle;
 	private boolean userMenu;
 	private boolean changeScrambleLenght;
+	private boolean newScramble;
+	
 	
 	private boolean exit;
 	
@@ -15,6 +18,7 @@ public class MenuItems{
 		
 		userActionsMenu = new UserActionsMenu();
 		twistyPuzzleMenu = new TwistyPuzzleMenu();
+		optionsMenu = new OptionsMenu();
 	
 		changeTwistyPuzzle = true;
 		userMenu = false;

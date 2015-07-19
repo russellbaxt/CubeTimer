@@ -214,70 +214,7 @@ public class KeyPresses{
 			
 		}
 		
-		if(twoPressed){
 			
-			twoPressed = false;
-			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube2x2x2, scrambler, timesTracker, paint);
-			
-		}
-		
-		if(threePressed){
-			
-			threePressed = false;
-			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube3x3x3, scrambler, timesTracker, paint);
-		}
-		
-		if(fourPressed){
-			
-			fourPressed = false;
-			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube4x4x4, scrambler, timesTracker, paint);
-		}
-		
-		if(fivePressed){
-			
-			fivePressed = false;
-			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.cube5x5x5, scrambler, timesTracker, paint);
-		}
-		
-		if(mPressed){
-			
-			mPressed = false;
-			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.megaMinx, scrambler, timesTracker, paint);
-		}
-		
-		if(gPressed){
-			
-			gPressed = false;
-			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.gearCube, scrambler, timesTracker, paint);
-		}
-		
-		if(aPressed){
-			
-			aPressed = false;
-			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.anisatropicGearCube, scrambler, timesTracker, paint);
-		}
-		
-		if(oPressed){
-			
-			oPressed = false;
-			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.oneHanded3x3x3, scrambler, timesTracker, paint);
-		}
-		
-		if(rPressed){
-			
-			rPressed = false;
-			
-			KeyPressActions.changeToRandomTwistyPuzzleType(fields, scrambler, actions, paint);
-		}
-		
 		if(escapePressed){
 			escapePressed = false;
 			
