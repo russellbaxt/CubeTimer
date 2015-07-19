@@ -139,7 +139,12 @@ public class KeyPressActions{
 			}
 			
 			else if(fields.menuItems.getChangeScrambleLenght()){
-				fields.displayState = DisplayState.changeScrambleLenght;
+				fields.displayState = DisplayState.timer;
+			}
+			
+			else if(fields.menuItems.getNewScramble()){
+				scrambler.randomCorrectScrambleInFieldsUsingFields();
+				fields.displayState = DisplayState.timer;
 			}
 			
 			else{

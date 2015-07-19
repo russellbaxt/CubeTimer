@@ -10,19 +10,21 @@ public class MenuItems{
 	private boolean userMenu;
 	private boolean changeScrambleLenght;
 	private boolean newScramble;
-	
+	private boolean options;
 	
 	private boolean exit;
 	
 	public MenuItems(){
-		
+	
 		userActionsMenu = new UserActionsMenu();
 		twistyPuzzleMenu = new TwistyPuzzleMenu();
 		optionsMenu = new OptionsMenu();
-	
+		
 		changeTwistyPuzzle = true;
 		userMenu = false;
 		changeScrambleLenght = false;
+		newScramble = false;
+		options = false;
 		exit = false;
 	}
 	
@@ -31,14 +33,8 @@ public class MenuItems{
 		changeTwistyPuzzle = false;
 		userMenu = false;
 		changeScrambleLenght = false;
-		exit = false;
-	}
-	
-	public void resetChoice(){
-	
-		changeTwistyPuzzle = true;
-		userMenu = false;
-		changeScrambleLenght = false;
+		newScramble = false;
+		options = false;
 		exit = false;
 	}
 	
@@ -54,8 +50,19 @@ public class MenuItems{
 		}
 		else if(changeScrambleLenght){
 			allFalse();
+			newScramble = true;
+		}
+		
+		else if(newScramble){
+			allFalse();
+			options = true;
+		}
+		
+		else if(options){
+			allFalse();
 			exit = true;
 		}
+		
 		else{
 			allFalse();
 			changeTwistyPuzzle = true;
@@ -68,17 +75,30 @@ public class MenuItems{
 			allFalse();
 			exit = true;
 		}
+		
 		else if(userMenu){
 			allFalse();
 			changeTwistyPuzzle = true;
 		}
+		
 		else if(changeScrambleLenght){
 			allFalse();
 			userMenu = true;
 		}
-		else{
+		
+		else if(newScramble){
 			allFalse();
 			changeScrambleLenght = true;
+		}
+		
+		else if(options){
+			allFalse();
+			newScramble = true;
+		}
+	
+		else{
+			allFalse();
+			options = true;
 		}
 	}
 	
@@ -95,6 +115,16 @@ public class MenuItems{
 	public boolean getChangeScrambleLenght(){
 	
 		return changeScrambleLenght;
+	}
+	
+	public boolean getNewScramble(){
+	
+		return newScramble;
+	}
+	
+	public boolean getOptions(){
+	
+		return options;
 	}
 	
 	public boolean getExit(){
