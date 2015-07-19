@@ -6,7 +6,7 @@ public enum TwistyPuzzleType{
 	cube3x3x3,
 	cube4x4x4,
 	cube5x5x5,
-	magaMinx,
+	megaMinx,
 	curvyCopter,
 	anisatropicGearCube,
 	gearCube,

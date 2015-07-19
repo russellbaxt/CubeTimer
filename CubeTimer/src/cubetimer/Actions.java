@@ -17,7 +17,7 @@ public class Actions{
 		TwistyPuzzleType twistyPuzzleType = TwistyPuzzleType.values()[randomNumber];
 		int scrambleLenght;
 		
-		if(twistyPuzzleType == TwistyPuzzleType.magaMinx){
+		if(twistyPuzzleType == TwistyPuzzleType.megaMinx){
 			scrambleLenght = 40;
 		}
 		else{

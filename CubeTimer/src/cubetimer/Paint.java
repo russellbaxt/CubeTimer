@@ -16,7 +16,7 @@ public class Paint extends JPanel{
 		fields = f;	
 	}
 	
-	public void consoleRequiresAttention(Graphics g){
+	private void consoleRequiresAttention(Graphics g){
 		
 		Images.drawBackGround(Color.GRAY, fields.windowSize.windowWidth, fields.windowSize.windowHeight, g);
 		Images.typeString("The Console Requires", 0,
@@ -28,7 +28,7 @@ public class Paint extends JPanel{
 		fields.paintComponentDone = true;
 	}
 	
-	public void timer(Graphics g){
+	private void timer(Graphics g){
 		
 		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth, fields.windowSize.windowHeight, g);
 		Images.typeString(fields.displayedDada.time, fields.windowSize.windowWidth / 2 - 100,
@@ -60,7 +60,7 @@ public class Paint extends JPanel{
 				fields.windowSize.windowWidth / 56, false, g);
 	}
 	
-	public void menu(Graphics g){
+	private void menu(Graphics g){
 		
 		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth, fields.windowSize.windowHeight, g);
 		
@@ -82,6 +82,51 @@ public class Paint extends JPanel{
 				fields.windowSize.windowWidth / 16, fields.menuItems.getExit(), g);
 				
 	}
+	
+	private void changeTwistyPuzzle(Graphics g){
+		
+		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth, fields.windowSize.windowHeight, g);
+		
+		Images.typeString("2x2x2", 0, fields.windowSize.windowWidth / 16 + fields.windowSize.windowWidth / 40,
+				fields.windowSize.windowWidth / 32, fields.menuItems.twistyPuzzleMenu.get2x2x2(), g);
+		
+		Images.typeString("3x3x3", 0,
+				fields.windowSize.windowHeight / 16 + (fields.windowSize.windowWidth / 40) * 2 + fields.windowSize.windowWidth / 100,
+				fields.windowSize.windowWidth / 32, fields.menuItems.twistyPuzzleMenu.get3x3x3(), g);
+		
+		Images.typeString("4x4x4", 0,
+				fields.windowSize.windowHeight / 16 + (fields.windowSize.windowWidth / 40) * 3 + (fields.windowSize.windowWidth / 100) * 2,
+				fields.windowSize.windowWidth / 32, fields.menuItems.twistyPuzzleMenu.get4x4x4(), g);
+		
+		Images.typeString("5x5x5", 0,
+				fields.windowSize.windowWidth / 16 + (fields.windowSize.windowWidth / 40) * 4 + (fields.windowSize.windowWidth / 100) * 3,
+				fields.windowSize.windowWidth / 32, fields.menuItems.twistyPuzzleMenu.get5x5x5(), g);
+		
+		Images.typeString("Mega minx", 0,
+				fields.windowSize.windowWidth / 16 + (fields.windowSize.windowWidth / 40) * 5 + (fields.windowSize.windowWidth / 100) * 4,
+				fields.windowSize.windowWidth / 32, fields.menuItems.twistyPuzzleMenu.getMegaMinx(), g);
+	
+		Images.typeString("Gear Cube", 0,
+				fields.windowSize.windowWidth / 16 + (fields.windowSize.windowWidth / 40) * 6 + (fields.windowSize.windowWidth / 100) * 5,
+				fields.windowSize.windowWidth / 32, fields.menuItems.twistyPuzzleMenu.getGearCube(), g);
+		
+		Images.typeString("Anisatropic Gear Cube", 0,
+				fields.windowSize.windowWidth / 16 + (fields.windowSize.windowWidth / 40) * 7 + (fields.windowSize.windowWidth / 100) * 6,
+				fields.windowSize.windowWidth / 32, fields.menuItems.twistyPuzzleMenu.getAnisatropicGearCube(), g);
+		
+		Images.typeString("One Handed 3x3x3", 0,
+				fields.windowSize.windowWidth / 16 + (fields.windowSize.windowWidth / 40) * 8 + (fields.windowSize.windowWidth / 100) * 7,
+				fields.windowSize.windowWidth / 32, fields.menuItems.twistyPuzzleMenu.getOneHanded3x3x3(), g);
+		
+		Images.typeString("Random Twisty Puzzle", 0,
+				fields.windowSize.windowWidth / 16 + (fields.windowSize.windowWidth / 40) * 9 + (fields.windowSize.windowWidth / 100) * 8,
+				fields.windowSize.windowWidth / 32, fields.menuItems.twistyPuzzleMenu.getRandomTwistyPuzzle(), g);
+		
+		Images.typeString("Exit", 0,
+				fields.windowSize.windowWidth / 16 + (fields.windowSize.windowWidth / 40) * 10 + (fields.windowSize.windowWidth / 100) * 9,
+				fields.windowSize.windowWidth / 32, fields.menuItems.twistyPuzzleMenu.getExit(), g);
+		
+	}
 		
 	public void paintComponent(Graphics g){
 		
@@ -94,6 +139,11 @@ public class Paint extends JPanel{
 		else if(fields.displayState == DisplayState.menu){
 			
 			menu(g);
+		}
+		
+		else if(fields.displayState == DisplayState.changeTwistyPuzzle){
+			
+			changeTwistyPuzzle(g);
 		}
 		
 		else{

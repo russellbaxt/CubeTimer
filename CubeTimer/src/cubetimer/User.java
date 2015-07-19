@@ -26,7 +26,7 @@ public class User{
 		cube3x3x3 = new TwistyPuzzle(TwistyPuzzleType.cube3x3x3);
 		cube4x4x4 = new TwistyPuzzle(TwistyPuzzleType.cube4x4x4);
 		cube5x5x5 = new TwistyPuzzle(TwistyPuzzleType.cube5x5x5);
-		megaMinx = new TwistyPuzzle(TwistyPuzzleType.magaMinx);
+		megaMinx = new TwistyPuzzle(TwistyPuzzleType.megaMinx);
 		curvyCopter = new TwistyPuzzle(TwistyPuzzleType.curvyCopter);
 		anisatropicGearCube = new TwistyPuzzle(TwistyPuzzleType.anisatropicGearCube);
 		gearCube = new TwistyPuzzle(TwistyPuzzleType.gearCube);

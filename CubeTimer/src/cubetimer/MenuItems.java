@@ -12,6 +12,10 @@ public class MenuItems{
 	private boolean exit;
 	
 	public MenuItems(){
+		
+		userActionsMenu = new UserActionsMenu();
+		twistyPuzzleMenu = new TwistyPuzzleMenu();
+	
 		changeTwistyPuzzle = true;
 		userMenu = false;
 		changeScrambleLenght = false;
@@ -19,7 +23,7 @@ public class MenuItems{
 	}
 	
 	private void allFalse(){
-		
+	
 		changeTwistyPuzzle = false;
 		userMenu = false;
 		changeScrambleLenght = false;
@@ -27,6 +31,7 @@ public class MenuItems{
 	}
 	
 	public void resetChoice(){
+	
 		changeTwistyPuzzle = true;
 		userMenu = false;
 		changeScrambleLenght = false;
@@ -34,6 +39,7 @@ public class MenuItems{
 	}
 	
 	public void downOne(){
+	
 		if(changeTwistyPuzzle){
 			allFalse();
 			userMenu = true;
@@ -53,7 +59,7 @@ public class MenuItems{
 	}
 	
 	public void upOne(){
-		
+	
 		if(changeTwistyPuzzle){
 			allFalse();
 			exit = true;
@@ -73,20 +79,23 @@ public class MenuItems{
 	}
 	
 	public boolean getChangeTwistyPuzzle(){
+	
 		return changeTwistyPuzzle;
 	}
 	
 	public boolean getUserMenu(){
+	
 		return userMenu;
 	}
 	
 	public boolean getChangeScrambleLenght(){
+	
 		return changeScrambleLenght;
 	}
 	
 	public boolean getExit(){
+	
 		return exit;
 	}
-
 	
 }

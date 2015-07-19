@@ -247,7 +247,7 @@ public class KeyPresses{
 			
 			mPressed = false;
 			
-			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.magaMinx, scrambler, timesTracker, paint);
+			KeyPressActions.changeToTwistyPuzzle(fields, TwistyPuzzleType.megaMinx, scrambler, timesTracker, paint);
 		}
 		
 		if(gPressed){
@@ -287,7 +287,7 @@ public class KeyPresses{
 		if(enterPressed){
 			enterPressed = false;
 			
-			KeyPressActions.select(fields, paint);
+			KeyPressActions.select(fields, paint, scrambler, timesTracker, actions);
 		}
 		
 		if(upPressed){
