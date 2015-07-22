@@ -60,13 +60,14 @@ public class Paint extends JPanel{
 	private void menu(Graphics g){
 	
 		String[] menuItems =
-				new String[] {"Change Twisty Puzzle", "User Menu", "Change Scramble Lenght", "New Scramble", "Options",
-						"Exit"};
+				new String[] {"Change Twisty Puzzle", "User Menu", "Change Scramble Lenght", "Delete Last Solve",
+						"New Scramble", "Options", "Exit", "Quit"};
 		
 		Boolean[] greenText =
 				new Boolean[] {fields.menuItems.getChangeTwistyPuzzle(), fields.menuItems.getUserMenu(),
-						fields.menuItems.getChangeScrambleLenght(), fields.menuItems.getNewScramble(),
-						fields.menuItems.getOptions(), fields.menuItems.getExit()};
+						fields.menuItems.getChangeScrambleLenght(), fields.menuItems.getDeleteLastSolve(),
+						fields.menuItems.getNewScramble(), fields.menuItems.getOptions(), fields.menuItems.getExit(),
+						fields.menuItems.getQuit()};
 		
 		Images.drawMenuList(menuItems, fields.windowSize.windowHeight / 16, greenText, fields.windowSize.windowHeight,
 				fields.windowSize.windowWidth, 1, g);
@@ -110,9 +111,9 @@ public class Paint extends JPanel{
 	}
 	
 	public void changeScrambleLenght(Graphics g){
-		
-		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth, fields.windowSize.windowHeight, g);
 	
+		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth, fields.windowSize.windowHeight, g);
+		
 		Images.typeString(Integer.toString(fields.displayedDada.scrambleDada.scrambleLenght),
 				fields.windowSize.windowWidth / 2 - 100, fields.windowSize.windowHeight / 2,
 				fields.windowSize.windowWidth / 12, true, g);

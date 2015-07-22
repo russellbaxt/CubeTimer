@@ -21,6 +21,7 @@ public class Display extends JFrame{
 		this.setLayout(new GridLayout(1, 1));
 		gp.add(p);
 		this.add(kb);
+
 	}
 	
 	public int getWidth(){
@@ -33,5 +34,9 @@ public class Display extends JFrame{
 	
 		Dimension size = getSize();
 		return size.height;
+	}
+	
+	public void close(){
+		System.exit(0);
 	}
 }

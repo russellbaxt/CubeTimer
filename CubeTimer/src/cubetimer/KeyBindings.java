@@ -15,18 +15,6 @@ public class KeyBindings extends JComponent{
 	private ThreeKeyAction threeAction;
 	private FourKeyAction fourAction;
 	private FiveKeyAction fiveAction;
-	private MKeyPressedAction mAction;
-	private GKeyPressedAction gAction;
-	private AKeyPressedAction aAction;
-	private OKeyPressedAction oAction;
-	
-	private RKeyPressedAction rAction;
-	
-	private RightArrowKeyAction rightAction;
-	private LeftArrowKeyAction leftAction;
-
-	private PlusKeyPressedAction plusAction;
-	private DashKeyPressedAction dashAction;
 	
 	private EscapeKeyPressedAction escapeAction;
 	private EnterKeyPressedAction enterAction;
@@ -44,18 +32,6 @@ public class KeyBindings extends JComponent{
 		threeAction = new ThreeKeyAction(kp);
 		fourAction = new FourKeyAction(kp);
 		fiveAction = new FiveKeyAction(kp);
-		mAction = new MKeyPressedAction(kp);
-		gAction = new GKeyPressedAction(kp);
-		aAction = new AKeyPressedAction(kp);
-		oAction = new OKeyPressedAction(kp);
-		
-		rAction = new RKeyPressedAction(kp);
-		
-		leftAction = new LeftArrowKeyAction(kp);
-		rightAction = new RightArrowKeyAction(kp);
-		
-		plusAction = new PlusKeyPressedAction(kp);
-		dashAction = new DashKeyPressedAction(kp);
 		
 		escapeAction = new EscapeKeyPressedAction(kp);
 		enterAction = new EnterKeyPressedAction(kp);
@@ -74,29 +50,10 @@ public class KeyBindings extends JComponent{
 		this.getInputMap().put(KeyStroke.getKeyStroke("3"), "ThreePressed");
 		this.getActionMap().put("ThreePressed", threeAction);
 		this.getInputMap().put(KeyStroke.getKeyStroke("LEFT"), "LeftPressed");
-		this.getActionMap().put("LeftPressed", leftAction);
-		this.getInputMap().put(KeyStroke.getKeyStroke("RIGHT"), "RightPressed");
-		this.getActionMap().put("RightPressed", rightAction);
 		this.getInputMap().put(KeyStroke.getKeyStroke("4"), "FourPressed");
 		this.getActionMap().put("FourPressed", fourAction);
 		this.getInputMap().put(KeyStroke.getKeyStroke("5"), "FivePressed");
 		this.getActionMap().put("FivePressed", fiveAction);
-		this.getInputMap().put(KeyStroke.getKeyStroke("M"), "MPressed");
-		this.getActionMap().put("MPressed", mAction);
-		this.getInputMap().put(KeyStroke.getKeyStroke("G"), "GPressed");
-		this.getActionMap().put("GPressed", gAction);
-		this.getInputMap().put(KeyStroke.getKeyStroke("A"), "APressed");
-		this.getActionMap().put("APressed", aAction);
-		this.getInputMap().put(KeyStroke.getKeyStroke("O"), "OPressed");
-		this.getActionMap().put("OPressed", oAction);
-		
-		this.getInputMap().put(KeyStroke.getKeyStroke("R"), "RPressed");
-		this.getActionMap().put("RPressed", rAction);
-
-		this.getInputMap().put(KeyStroke.getKeyStroke("EQUALS"), "PlusPressed");
-		this.getActionMap().put("PlusPressed", plusAction);
-		this.getInputMap().put(KeyStroke.getKeyStroke("MINUS"), "DashPressed");
-		this.getActionMap().put("DashPressed", dashAction);
 		
 		this.getInputMap().put(KeyStroke.getKeyStroke("ESCAPE"), "EscapePressed");
 		this.getActionMap().put("EscapePressed", escapeAction);

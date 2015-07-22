@@ -158,9 +158,18 @@ public class KeyPressActions{
 				fields.displayState = DisplayState.changeScrambleLenght;
 			}
 			
+			else if(fields.menuItems.getDeleteLastSolve()){
+				fields.displayState = DisplayState.timer;
+				timesTracker.deleteLastSolve();
+			}
+			
 			else if(fields.menuItems.getNewScramble()){
 				scrambler.randomCorrectScrambleInFieldsUsingFields();
 				fields.displayState = DisplayState.timer;
+			}
+			
+			else if(fields.menuItems.getQuit()){
+				fields.close = true;
 			}
 			
 			else{

@@ -8,11 +8,14 @@ public class MenuItems{
 	
 	private boolean changeTwistyPuzzle;
 	private boolean userMenu;
-	private boolean changeScrambleLenght;
+	private boolean changeScrambleLength;
+	private boolean deleteLastSolve;
 	private boolean newScramble;
 	private boolean options;
 	
 	private boolean exit;
+	
+	private boolean quit;
 	
 	public MenuItems(){
 	
@@ -22,45 +25,60 @@ public class MenuItems{
 		
 		changeTwistyPuzzle = true;
 		userMenu = false;
-		changeScrambleLenght = false;
+		changeScrambleLength = false;
+		deleteLastSolve = false;
 		newScramble = false;
 		options = false;
 		exit = false;
+		quit = false;
 	}
 	
 	private void allFalse(){
 	
 		changeTwistyPuzzle = false;
 		userMenu = false;
-		changeScrambleLenght = false;
+		changeScrambleLength = false;
 		newScramble = false;
 		options = false;
 		exit = false;
+		quit = false;
 	}
 	
 	public void downOne(){
 	
 		if(changeTwistyPuzzle){
-			allFalse();
+			changeTwistyPuzzle = false;
 			userMenu = true;
 		}
+		
 		else if(userMenu){
-			allFalse();
-			changeScrambleLenght = true;
+			userMenu = false;
+			changeScrambleLength = true;
 		}
-		else if(changeScrambleLenght){
-			allFalse();
+		
+		else if(changeScrambleLength){
+			changeScrambleLength = false;
+			deleteLastSolve = true;
+		}
+		
+		else if(deleteLastSolve){
+			deleteLastSolve = false;
 			newScramble = true;
 		}
 		
 		else if(newScramble){
-			allFalse();
+			newScramble = false;
 			options = true;
 		}
 		
 		else if(options){
-			allFalse();
+			options = false;
 			exit = true;
+		}
+		
+		else if(exit){
+			exit = false;
+			quit = true;
 		}
 		
 		else{
@@ -72,33 +90,43 @@ public class MenuItems{
 	public void upOne(){
 	
 		if(changeTwistyPuzzle){
-			allFalse();
-			exit = true;
+			changeTwistyPuzzle = false;
+			quit = true;
 		}
 		
 		else if(userMenu){
-			allFalse();
+			userMenu = false;
 			changeTwistyPuzzle = true;
 		}
 		
-		else if(changeScrambleLenght){
-			allFalse();
+		else if(changeScrambleLength){
+			changeScrambleLength = false;
 			userMenu = true;
 		}
 		
+		else if(deleteLastSolve){
+			deleteLastSolve = false;
+			changeScrambleLength = true;
+		}
+		
 		else if(newScramble){
-			allFalse();
-			changeScrambleLenght = true;
+			newScramble = false;
+			deleteLastSolve = true;
 		}
 		
 		else if(options){
-			allFalse();
+			options = false;
 			newScramble = true;
 		}
 	
+		else if(exit){
+			exit = false;
+			options = true;
+		}
+		
 		else{
 			allFalse();
-			options = true;
+			exit = true;
 		}
 	}
 	
@@ -114,7 +142,12 @@ public class MenuItems{
 	
 	public boolean getChangeScrambleLenght(){
 	
-		return changeScrambleLenght;
+		return changeScrambleLength;
+	}
+	
+	public boolean getDeleteLastSolve(){
+		
+		return deleteLastSolve;
 	}
 	
 	public boolean getNewScramble(){
@@ -130,6 +163,11 @@ public class MenuItems{
 	public boolean getExit(){
 	
 		return exit;
+	}
+	
+	public boolean getQuit(){
+		
+		return quit;
 	}
 	
 }

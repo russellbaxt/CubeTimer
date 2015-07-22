@@ -36,6 +36,9 @@ public class Main{
 			p.repaint();
 			f.setScreenSize(width, height);
 			kp.trigerActionsForKeyPresses();
+			if(f.close){
+				d.close();
+			}
 			AnotherClass.callMeMany(f, kp, tt, t, p);
 		}
 	}

@@ -7,6 +7,8 @@ public class Fields{
 	public WindowSize windowSize;
 	public Penalty penalty;
 	
+	public boolean close;
+	
 	public MenuItems menuItems;
 
 	public TwistyPuzzleType twistyPuzzleType;
