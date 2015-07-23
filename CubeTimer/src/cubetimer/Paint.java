@@ -43,14 +43,14 @@ public class Paint extends JPanel{
 					(int) (fields.windowSize.windowWidth / fields.displayedDada.scrambleDada.scrambleSize), false, g);
 		}
 		
-		Images.typeStringListOfTimesGoingDown(fields.displayedDada.last20Solves, 0, fields.windowSize.windowWidth / 56,
+		Images.typeStringListOfTimesGoingDown(fields.allUsers.getUser().getTwistyPuzzle().getTimes(), 0, fields.windowSize.windowWidth / 56,
 				fields.windowSize.windowWidth / 56, g);
 		Images.typeString(fields.displayedDada.avarageOf5, 0,
 				(int) (fields.windowSize.windowHeight - (30 + fields.windowSize.windowWidth / 56)),
 				fields.windowSize.windowWidth / 56, false, g);
-		Images.typeString(fields.displayedDada.currentUserName, (int) (fields.windowSize.windowWidth / 1.2 - 20.0),
+		Images.typeString(fields.allUsers.getUser().getUserName(), (int) (fields.windowSize.windowWidth / 1.2 - 20.0),
 				fields.windowSize.windowWidth / 40, fields.windowSize.windowWidth / 56, false, g);
-		Images.typeScrambleType(fields.twistyPuzzleType, (int) (fields.windowSize.windowWidth / 1.2 - 20),
+		Images.typeScrambleType(fields.allUsers.getUser().getTwistyPuzzleType(), (int) (fields.windowSize.windowWidth / 1.2 - 20),
 				fields.windowSize.windowWidth / 20, fields.windowSize.windowWidth / 56, g);
 		Images.typeString(Integer.toString(fields.displayedDada.scrambleDada.scrambleLenght),
 				(int) (fields.windowSize.windowWidth / 1.2 - 20), fields.windowSize.windowWidth / 15,

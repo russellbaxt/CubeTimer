@@ -9,9 +9,6 @@ public class TimesTracker{
 	private Fields fields;
 	private Paint paint;
 	
-	private AllUsers allUsers;
-	private int currentUserNumber;
-	
 	Scanner userInput;
 	
 	public TimesTracker(Fields f, Paint p){
@@ -19,17 +16,13 @@ public class TimesTracker{
 		fields = f;
 		paint = p;
 		
-		allUsers = new AllUsers();
-		allUsers.addUser(new User());
+		fields.allUsers.addUser(new User());
 		
 		userInput = new Scanner(System.in);
 		System.out.println("What is your first Users Name?");
 		String userName = userInput.nextLine();
-		allUsers.getUser(0).setUserName(userName);
-		currentUserNumber = 0;
-		fields.displayedDada.currentUserName = userName;
-//		addTime(0);
-//		deleteLastSolve();
+		fields.allUsers.getUser(0).setUserName(userName);
+		fields.allUsers.setCurrentUserIndex(0);
 		
 	}
 	
@@ -37,10 +30,9 @@ public class TimesTracker{
 	
 		System.out.println("What is your new users name?");
 		String userName = userInput.nextLine();
-		allUsers.addUser(new User());
-		currentUserNumber = allUsers.getSize() - 1;
-		allUsers.getUser(currentUserNumber).setUserName(userName);
-		fields.displayedDada.currentUserName = userName;
+		fields.allUsers.addUser(new User());
+		fields.allUsers.setCurrentUserIndex(fields.allUsers.getSize() - 1);
+		fields.allUsers.getUser().setUserName(userName);
 		setLast20SolvesInFieldsUsingFields();
 		setAvarageOf5InFieldsUsingFields();
 		
@@ -52,12 +44,12 @@ public class TimesTracker{
 		System.out.println("What is the name of user you would like to swich to?");
 		String userName = userInput.nextLine();
 		
-		if(allUsers.getIndexOfUserWithUserName(userName) < 0){
+		if(fields.allUsers.getIndexOfUserWithUserName(userName) < 0){
 			System.out.println("That user does not exist. You may have typed it wrong. Good luck if you try again.");
 		}
 		else{
-			currentUserNumber = allUsers.getIndexOfUserWithUserName(userName);
-			fields.displayedDada.currentUserName = userName;
+			fields.allUsers.setCurrentUserIndex(fields.allUsers.getIndexOfUserWithUserName(userName));
+			//TODO made a method in all users that will set the current user index using a user name
 		}
 		
 		setLast20SolvesInFieldsUsingFields();
@@ -67,10 +59,10 @@ public class TimesTracker{
 	}
 	
 	public void deleteCurrentUser(){
-		
-		if(allUsers.getSize() > 1){
+	
+		if(fields.allUsers.getSize() > 1){
 			
-			allUsers.remove(currentUserNumber);
+			fields.allUsers.remove();
 			KeyPressActions.changeUser(fields, paint);
 		}
 		
@@ -82,20 +74,19 @@ public class TimesTracker{
 	}
 	
 	public void changeCurrentUserName(){
-		
+	
 		System.out.println("What is you users new name?");
 		String userName = userInput.nextLine();
-		allUsers.getUser(currentUserNumber).setUserName(userName);
-		fields.displayedDada.currentUserName = allUsers.getUser(currentUserNumber).getUserName();
+		fields.allUsers.getUser().setUserName(userName);
 	}
 	
 	public void addTime(double time){
 	
 		if(fields.penalty.DNF){
-			allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.twistyPuzzleType).addTime(0);
+			fields.allUsers.getUser().getTwistyPuzzle().addTime(0);
 		}
 		else{
-			allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.twistyPuzzleType).addTime(time + fields.penalty.timePenalty);
+			fields.allUsers.getUser().getTwistyPuzzle().addTime(time + fields.penalty.timePenalty);
 			
 		}
 		setLast20SolvesInFieldsUsingFields();
@@ -105,14 +96,14 @@ public class TimesTracker{
 	
 	public void setAvarageOf5InFieldsUsingFields(){
 	
-		fields.displayedDada.avarageOf5 = allUsers.getUser(currentUserNumber).getAvarageOf5(fields.twistyPuzzleType);
+		fields.displayedDada.avarageOf5 = fields.allUsers.getUser().getAvarageOf5();
 		
 		paint.repaint();
 	}
 	
 	public void deleteLastSolve(){
 	
-		allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.twistyPuzzleType).removeLastElementInTimes();
+		fields.allUsers.getUser().getTwistyPuzzle().removeLastElementInTimes();
 		
 		setLast20SolvesInFieldsUsingFields();
 		setAvarageOf5InFieldsUsingFields();
@@ -122,14 +113,11 @@ public class TimesTracker{
 	
 	public void setLast20SolvesInFieldsUsingFields(){
 	
-		fields.displayedDada.last20Solves = 
-				allUsers.getUser(currentUserNumber).getTwistyPuzzle(fields.twistyPuzzleType).getTimes();
-		
 		paint.repaint();
 	}
 	
 	public String getCurrentUserName(){
 	
-		return allUsers.getUser(currentUserNumber).getUserName();
+		return fields.allUsers.getUser().getUserName();
 	}
 }

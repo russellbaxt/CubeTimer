@@ -2,7 +2,8 @@ package cubetimer;
 
 public class KeyPressActions{
 	
-	public static void spacePressed(Fields fields, Timer timer, TimesTracker timesTracker, Scrambler scrambler, Paint paint){
+	public static void spacePressed(Fields fields, Timer timer, TimesTracker timesTracker, Scrambler scrambler,
+			Paint paint){
 	
 		if(fields.timerStatus.running){
 			
@@ -71,16 +72,17 @@ public class KeyPressActions{
 	public static void changeToRandomTwistyPuzzleType(Fields fields, Scrambler scrambler, Actions actions, Paint paint){
 	
 		TwistyPuzzleTypeAndInt twistyPuzzleTypeAndScrambleLenght = actions.randomTwistyPuzzle();
-		fields.twistyPuzzleType = twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType;
+		fields.allUsers.getUser().setTwistyPuzzleType(twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType);
 		fields.displayedDada.scrambleDada.scrambleLenght = twistyPuzzleTypeAndScrambleLenght.integer;
 		scrambler.randomCorrectScrambleInFieldsUsingFields();
 		
 		paint.repaint();
 	}
 	
-	public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler, TimesTracker timesTracker, Paint paint){
+	public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler,
+			TimesTracker timesTracker, Paint paint){
 	
-		fields.twistyPuzzleType = twistyPuzzleType;
+		fields.allUsers.getUser().setTwistyPuzzleType(twistyPuzzleType);
 		timesTracker.setLast20SolvesInFieldsUsingFields();
 		timesTracker.setAvarageOf5InFieldsUsingFields();
 		
@@ -120,7 +122,7 @@ public class KeyPressActions{
 	}
 	
 	public static void changeUserName(Fields fields, Paint paint){
-		
+	
 		fields.displayState = DisplayState.consoleRequiresAttention;
 		fields.userAction = UserAction.rename;
 		fields.paintComponentDone = false;
@@ -129,7 +131,7 @@ public class KeyPressActions{
 	}
 	
 	public static void deleteCurrentUser(TimesTracker timesTracker){
-		
+	
 		timesTracker.deleteCurrentUser();
 	}
 	
@@ -142,7 +144,8 @@ public class KeyPressActions{
 		paint.repaint();
 	}
 	
-	public static void select(Fields fields, Paint paint, Scrambler scrambler, TimesTracker timesTracker, Actions actions){
+	public static void select(Fields fields, Paint paint, Scrambler scrambler, TimesTracker timesTracker,
+			Actions actions){
 	
 		if(fields.displayState == DisplayState.menu){
 			
@@ -290,7 +293,7 @@ public class KeyPressActions{
 	}
 	
 	public static void downOne(Fields fields, Paint paint){
-		
+	
 		if(fields.displayState == DisplayState.menu){
 			fields.menuItems.downOne();
 		}
