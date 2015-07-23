@@ -4,19 +4,17 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-public class MKeyPressedAction extends AbstractAction{
+
+public class DownArrowPressedAction extends AbstractAction{
 	
 	private KeyPresses keyPresses;
 	
-	public MKeyPressedAction(KeyPresses kp){
-	
+	public DownArrowPressedAction(KeyPresses kp){
 		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		keyPresses.mPressed();
-		
+	keyPresses.downPressed();	
 	}
-	
 }

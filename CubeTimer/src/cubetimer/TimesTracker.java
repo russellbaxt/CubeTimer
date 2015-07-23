@@ -49,7 +49,7 @@ public class TimesTracker{
 	
 	public void changeToUser(){
 	
-		System.out.println("What is the name of your user?");
+		System.out.println("What is the name of user you would like to swich to?");
 		String userName = userInput.nextLine();
 		
 		if(allUsers.getIndexOfUserWithUserName(userName) < 0){
@@ -64,6 +64,29 @@ public class TimesTracker{
 		setAvarageOf5InFieldsUsingFields();
 		
 		paint.repaint();
+	}
+	
+	public void deleteCurrentUser(){
+		
+		if(allUsers.getSize() > 1){
+			
+			allUsers.remove(currentUserNumber);
+			KeyPressActions.changeUser(fields, paint);
+		}
+		
+		else{
+			
+			fields.displayState = DisplayState.timer;
+		}
+		
+	}
+	
+	public void changeCurrentUserName(){
+		
+		System.out.println("What is you users new name?");
+		String userName = userInput.nextLine();
+		allUsers.getUser(currentUserNumber).setUserName(userName);
+		fields.displayedDada.currentUserName = allUsers.getUser(currentUserNumber).getUserName();
 	}
 	
 	public void addTime(double time){

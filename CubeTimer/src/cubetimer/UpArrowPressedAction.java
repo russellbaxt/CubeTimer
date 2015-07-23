@@ -4,18 +4,17 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-public class DashKeyPressedAction extends AbstractAction{
+
+public class UpArrowPressedAction extends AbstractAction{
 	
 	private KeyPresses keyPresses;
 	
-	public DashKeyPressedAction(KeyPresses kp){
-	
+	public UpArrowPressedAction(KeyPresses kp){
 		keyPresses = kp;
 	}
-	
+
 	public void actionPerformed(ActionEvent e){
 	
-		keyPresses.dashPressed();
-		
+		keyPresses.upPressed();
 	}
 }

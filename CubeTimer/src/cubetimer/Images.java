@@ -23,7 +23,8 @@ public class Images{
 		
 	}
 	
-	public static void typeStringListOfTimesGoingDown(ArrayList<Double> arrayList, int x, int y, int fontSize, Graphics g){
+	public static void typeStringListOfTimesGoingDown(ArrayList<Double> arrayList, int x, int y, int fontSize,
+			Graphics g){
 	
 		int timeMinutes;
 		ArrayList<Double> list = (ArrayList<Double>) arrayList.clone();
@@ -41,7 +42,8 @@ public class Images{
 					list.set(i, list.get(i) - 60.0);
 				}
 				
-				g.drawString(Integer.toString(timeMinutes) + ":" + (String.format("%.2f", (double) list.get(i))), x, y + (i * fontSize));
+				g.drawString(Integer.toString(timeMinutes) + ":" + (String.format("%.2f", (double) list.get(i))), x, y
+						+ (i * fontSize));
 			}
 			
 			else{
@@ -78,5 +80,17 @@ public class Images{
 		g.drawRect(30, 30, 100, 100);
 		g.setColor(color);
 		g.fillRect(0, 0, screenWidth, screenHeight);
+	}
+	
+	public static void drawMenuList(String[] menuItems, int fontSize, Boolean[] greenText,
+			int windowHeight, int windowWidth, int lineSpacingSize, Graphics g){
+		
+		drawBackGround(Color.WHITE, windowWidth, windowHeight, g);
+		
+		for(int i = 0; i < menuItems.length; i ++){
+			
+			typeString(menuItems[i], 0, windowHeight / 16 + (windowWidth / (20 * (lineSpacingSize))) * (i + 1)
+					+ (windowWidth / (50 * lineSpacingSize)) * i, fontSize, greenText[i], g);
+		}
 	}
 }

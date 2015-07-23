@@ -6,9 +6,7 @@ import javax.swing.JFrame;
 
 public class Main{
 	
-	// TODO maybe fix the warning in all the classes
-	// TODO read through every class
-	
+		
 	public static int width = 800;
 	public static int height = 830;
 	
@@ -37,6 +35,9 @@ public class Main{
 			p.repaint();
 			f.setScreenSize(width, height);
 			kp.trigerActionsForKeyPresses();
+			if(f.close){
+				d.close();
+			}
 			AnotherClass.callMeMany(f, kp, tt, t, p);
 		}
 	}

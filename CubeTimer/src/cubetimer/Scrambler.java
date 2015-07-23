@@ -260,7 +260,7 @@ public class Scrambler {
 			return random4x4Or5x5Scramble(scrambleSize);
 		} else if (twistyPuzzleType == TwistyPuzzleType.curvyCopter) {
 			return curvyCopterScramble();
-		} else if (twistyPuzzleType == TwistyPuzzleType.magaMinx) {
+		} else if (twistyPuzzleType == TwistyPuzzleType.megaMinx) {
 			return randomMegaMinxScramble(scrambleSize);
 		} else if (twistyPuzzleType == TwistyPuzzleType.gearCube) {
 			return randomGearCubeScramble(scrambleSize);
