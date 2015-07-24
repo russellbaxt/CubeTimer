@@ -294,7 +294,7 @@ public class Scrambler{
 	
 	public void randomCorrectScrambleInFieldsUsingFields(){
 	
-		AnotherClass.setScrambleInFields(
+		Actions.setScrambleInFields(
 				fields,
 				randomCorrectScramble(fields.allUsers.getUser().getTwistyPuzzleType(),
 						fields.displayedDada.scrambleDada.scrambleLenght));

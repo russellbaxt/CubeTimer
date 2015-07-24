@@ -2,15 +2,14 @@ package cubetimer;
 
 public class KeyPressActions{
 	
-	public static void spacePressed(Fields fields, Timer timer, TimesTracker timesTracker, Scrambler scrambler,
-			Paint paint){
+	public static void spacePressed(Fields fields, Timer timer, Scrambler scrambler, Paint paint){
 	
 		if(fields.timerStatus.running){
 			
 			scrambler.randomCorrectScrambleInFieldsUsingFields();
 			timer.startStopTimer();
 			fields.ignoreNextRelese = true;
-			timesTracker.addTime(timer.getTimeAsDouble());
+			Actions.addTime(fields, paint, timer.getTimeAsDouble());
 		}
 		else{
 			
@@ -71,20 +70,17 @@ public class KeyPressActions{
 	
 	public static void changeToRandomTwistyPuzzleType(Fields fields, Scrambler scrambler, Actions actions, Paint paint){
 	
-		TwistyPuzzleTypeAndInt twistyPuzzleTypeAndScrambleLenght = actions.randomTwistyPuzzle();
-		fields.allUsers.getUser().setTwistyPuzzleType(twistyPuzzleTypeAndScrambleLenght.twistyPuzzleType);
-		fields.displayedDada.scrambleDada.scrambleLenght = twistyPuzzleTypeAndScrambleLenght.integer;
+		Actions.randomTwistyPuzzle(fields);
 		scrambler.randomCorrectScrambleInFieldsUsingFields();
 		
 		paint.repaint();
 	}
 	
 	public static void changeToTwistyPuzzle(Fields fields, TwistyPuzzleType twistyPuzzleType, Scrambler scrambler,
-			TimesTracker timesTracker, Paint paint){
+			Paint paint){
 	
 		fields.allUsers.getUser().setTwistyPuzzleType(twistyPuzzleType);
-		timesTracker.setLast20SolvesInFieldsUsingFields();
-		timesTracker.setAvarageOf5InFieldsUsingFields();
+		Actions.setAvarageOf5(fields, paint);
 		
 		if(twistyPuzzleType == TwistyPuzzleType.megaMinx){
 			fields.displayedDada.scrambleDada.scrambleLenght = 40;
@@ -130,9 +126,9 @@ public class KeyPressActions{
 		paint.repaint();
 	}
 	
-	public static void deleteCurrentUser(TimesTracker timesTracker){
+	public static void deleteCurrentUser(Fields fields, Paint paint){
 	
-		timesTracker.deleteCurrentUser();
+		Actions.deleteCurrentUser(fields, paint);
 	}
 	
 	public static void openMenu(Fields fields, Paint paint){
@@ -144,8 +140,7 @@ public class KeyPressActions{
 		paint.repaint();
 	}
 	
-	public static void select(Fields fields, Paint paint, Scrambler scrambler, TimesTracker timesTracker,
-			Actions actions){
+	public static void select(Fields fields, Paint paint, Scrambler scrambler, Actions actions){
 	
 		if(fields.displayState == DisplayState.menu){
 			
@@ -163,7 +158,7 @@ public class KeyPressActions{
 			
 			else if(fields.menuItems.getDeleteLastSolve()){
 				fields.displayState = DisplayState.timer;
-				timesTracker.deleteLastSolve();
+				Actions.deleteLastSolve(fields, paint);
 			}
 			
 			else if(fields.menuItems.getNewScramble()){
@@ -184,42 +179,42 @@ public class KeyPressActions{
 			
 			if(fields.menuItems.twistyPuzzleMenu.get2x2x2()){
 				
-				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube2x2x2, scrambler, timesTracker, paint);
+				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube2x2x2, scrambler, paint);
 			}
 			
 			else if(fields.menuItems.twistyPuzzleMenu.get3x3x3()){
 				
-				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube3x3x3, scrambler, timesTracker, paint);
+				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube3x3x3, scrambler, paint);
 			}
 			
 			else if(fields.menuItems.twistyPuzzleMenu.get4x4x4()){
 				
-				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube4x4x4, scrambler, timesTracker, paint);
+				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube4x4x4, scrambler, paint);
 			}
 			
 			else if(fields.menuItems.twistyPuzzleMenu.get5x5x5()){
 				
-				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube5x5x5, scrambler, timesTracker, paint);
+				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube5x5x5, scrambler, paint);
 			}
 			
 			else if(fields.menuItems.twistyPuzzleMenu.getMegaMinx()){
 				
-				changeToTwistyPuzzle(fields, TwistyPuzzleType.megaMinx, scrambler, timesTracker, paint);
+				changeToTwistyPuzzle(fields, TwistyPuzzleType.megaMinx, scrambler, paint);
 			}
 			
 			else if(fields.menuItems.twistyPuzzleMenu.getGearCube()){
 				
-				changeToTwistyPuzzle(fields, TwistyPuzzleType.gearCube, scrambler, timesTracker, paint);
+				changeToTwistyPuzzle(fields, TwistyPuzzleType.gearCube, scrambler, paint);
 			}
 			
 			else if(fields.menuItems.twistyPuzzleMenu.getAnisatropicGearCube()){
 				
-				changeToTwistyPuzzle(fields, TwistyPuzzleType.anisatropicGearCube, scrambler, timesTracker, paint);
+				changeToTwistyPuzzle(fields, TwistyPuzzleType.anisatropicGearCube, scrambler, paint);
 			}
 			
 			else if(fields.menuItems.twistyPuzzleMenu.getOneHanded3x3x3()){
 				
-				changeToTwistyPuzzle(fields, TwistyPuzzleType.oneHanded3x3x3, scrambler, timesTracker, paint);
+				changeToTwistyPuzzle(fields, TwistyPuzzleType.oneHanded3x3x3, scrambler, paint);
 			}
 			
 			else if(fields.menuItems.twistyPuzzleMenu.getRandomTwistyPuzzle()){
@@ -248,7 +243,7 @@ public class KeyPressActions{
 			
 			else if(fields.menuItems.userActionsMenu.getDeleteCurrentUser()){
 				
-				deleteCurrentUser(timesTracker);
+				deleteCurrentUser(fields, paint);
 			}
 			
 			else if(fields.menuItems.userActionsMenu.getChangeCurrentUserName()){

@@ -4,7 +4,6 @@ public class Timer{
 	
 	private Fields fields;
 	private Scrambler scrambler;
-	private TimesTracker timesTracker;
 	private Paint paint;
 	private FileWriter fileWriter;
 	
@@ -16,11 +15,10 @@ public class Timer{
 	private double countDownEnd;
 	private boolean plus2Inspection;
 	
-	public Timer(Fields f, Scrambler scramblerIn, TimesTracker timesTrackerIn, Paint paintIn, FileWriter fileWriterIn){
+	public Timer(Fields f, Scrambler scramblerIn, Paint paintIn, FileWriter fileWriterIn){
 	
 		fields = f;
 		scrambler = scramblerIn;
-		timesTracker = timesTrackerIn;
 		paint = paintIn;
 		fileWriter = fileWriterIn;
 		
@@ -124,7 +122,7 @@ public class Timer{
 				fields.penalty.DNF = true;
 				fields.penalty.timePenalty = 0;
 				plus2Inspection = false;
-				timesTracker.addTime(0.0);
+				Actions.addTime(fields, paint, 0.0);
 				scrambler.randomCorrectScrambleInFieldsUsingFields();
 			}
 			

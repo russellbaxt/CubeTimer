@@ -10,17 +10,27 @@ public class Main{
 	public static int width = 800;
 	public static int height = 830;
 	
-	public static Fields f = new Fields();
-	public static FileWriter fw = new FileWriter();
-	public static Paint p = new Paint(f);
-	public static TimesTracker tt = new TimesTracker(f, p);
-	public static Scrambler s = new Scrambler(f, p);
-	public static Timer t = new Timer(f, s, tt, p, fw);
-	public static Actions a = new Actions();
-	public static KeyPresses kp = new KeyPresses(t, s, tt, a, f, p);
-	public static Display d = new Display(kp, p);
+	public static Fields f;
+	public static FileWriter fw;
+	public static Paint p;
+	public static Scrambler s;
+	public static Timer t;
+	public static Actions a;
+	public static KeyPresses kp;
+	public static Display d;
 	
 	public static void main(String args[]){
+		
+		f = new Fields();
+		Actions.callUponOpen(f);
+		fw = new FileWriter();
+		p = new Paint(f);
+		s = new Scrambler(f, p);
+		t = new Timer(f, s, p, fw);
+		a = new Actions();
+		kp = new KeyPresses(t, s, a, f, p);
+		d = new Display(kp, p);
+		
 	
 		d.setSize(width, height);
 		d.setResizable(true);
@@ -38,7 +48,7 @@ public class Main{
 			if(f.close){
 				d.close();
 			}
-			AnotherClass.callMeMany(f, kp, tt, t, p);
+			AnotherClass.callMeMany(f, kp, t, p);
 		}
 	}
 }
