@@ -8,6 +8,8 @@ public class User{
 	
 	private ArrayList<Double> last5SolvesForAvarageOf5;
 	
+	private TwistyPuzzleType currentTwistyPuzzleType;
+	
 	private TwistyPuzzle cube2x2x2;
 	private TwistyPuzzle cube3x3x3;
 	private TwistyPuzzle cube4x4x4;
@@ -21,6 +23,8 @@ public class User{
 	public User(){
 	
 		userName = "";
+		
+		currentTwistyPuzzleType = TwistyPuzzleType.cube3x3x3;
 		
 		cube2x2x2 = new TwistyPuzzle(TwistyPuzzleType.cube2x2x2);
 		cube3x3x3 = new TwistyPuzzle(TwistyPuzzleType.cube3x3x3);
@@ -41,6 +45,15 @@ public class User{
 	public String getUserName(){
 	
 		return userName;
+	}
+	
+	public void setTwistyPuzzleType(TwistyPuzzleType twistyPuzzleType){
+		currentTwistyPuzzleType = twistyPuzzleType;
+	}
+	
+	public TwistyPuzzleType getTwistyPuzzleType(){
+	
+		return currentTwistyPuzzleType;
 	}
 	
 	public TwistyPuzzle getTwistyPuzzle(TwistyPuzzleType twistyPuzzleType){
@@ -79,9 +92,14 @@ public class User{
 		
 	}
 	
-	public String getAvarageOf5(TwistyPuzzleType twistyPuzzleType){
+	public TwistyPuzzle getTwistyPuzzle(){
 	
-		last5SolvesForAvarageOf5 = getTwistyPuzzle(twistyPuzzleType).getLast5Times();
+		return getTwistyPuzzle(currentTwistyPuzzleType);
+	}
+	
+	public String getAvarageOf5(){
+	
+		last5SolvesForAvarageOf5 = getTwistyPuzzle().getLast5Times();
 		
 		double minimum;
 		double maximum;

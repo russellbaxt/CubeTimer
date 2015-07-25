@@ -1,6 +1,6 @@
 package cubetimer;
 
-public class MenuItems{
+public class Menu{
 	
 	public UserActionsMenu userActionsMenu;
 	public TwistyPuzzleMenu twistyPuzzleMenu;
@@ -17,7 +17,7 @@ public class MenuItems{
 	
 	private boolean quit;
 	
-	public MenuItems(){
+	public Menu(){
 	
 		userActionsMenu = new UserActionsMenu();
 		twistyPuzzleMenu = new TwistyPuzzleMenu();

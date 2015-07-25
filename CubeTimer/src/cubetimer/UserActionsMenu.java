@@ -5,17 +5,20 @@ public class UserActionsMenu{
 	private boolean changeUser;
 	private boolean addUser;
 	private boolean deleteCurrentUser;
-	private boolean changeCurrentUserName;
-	
+	private boolean renameCurrentUser;
 	private boolean exit;
+	
+	private int selectedUserIndex;
 	
 	public UserActionsMenu(){
 	
 		addUser = true;
 		changeUser = false;
 		deleteCurrentUser = false;
-		changeCurrentUserName = false;
+		renameCurrentUser = false;
 		exit = false;
+		
+		selectedUserIndex = 0;
 	}
 	
 	public void upOne(){
@@ -38,16 +41,16 @@ public class UserActionsMenu{
 			changeUser = true;
 		}
 		
-		else if(changeCurrentUserName){
+		else if(renameCurrentUser){
 			
-			changeCurrentUserName = false;
+			renameCurrentUser = false;
 			deleteCurrentUser = true;
 		}
 		
 		else{
 			
 			exit = false;
-			changeCurrentUserName = true;
+			renameCurrentUser = true;
 		}
 	}
 	
@@ -67,12 +70,12 @@ public class UserActionsMenu{
 		else if(deleteCurrentUser){
 			
 			deleteCurrentUser = false;
-			changeCurrentUserName = true;
+			renameCurrentUser = true;
 		}
 		
-		else if(changeCurrentUserName){
+		else if(renameCurrentUser){
 			
-			changeCurrentUserName = false;
+			renameCurrentUser = false;
 			exit = true;
 		}
 		
@@ -99,13 +102,43 @@ public class UserActionsMenu{
 		return deleteCurrentUser;
 	}
 	
-	public boolean getChangeCurrentUserName(){
+	public boolean getRenameCurrentUser(){
 	
-		return changeCurrentUserName;
+		return renameCurrentUser;
 	}
 	
 	public boolean getExit(){
 	
 		return exit;
+	}
+	
+	public int getSelectedUserIndex(){
+		
+		return selectedUserIndex;
+	}
+	
+	public void userMenuUpOne(int amountOfUsers){
+		
+		if(selectedUserIndex > 0){
+			
+			selectedUserIndex --;
+		}
+		
+		else{
+			selectedUserIndex = amountOfUsers - 1;
+		}
+	}
+	
+	public void userMenuDownOne(int amountOfUsers){
+		
+		if(selectedUserIndex < amountOfUsers - 1){
+			
+			selectedUserIndex ++;
+		}
+		
+		else{
+			
+			selectedUserIndex = 0;
+		}
 	}
 }
