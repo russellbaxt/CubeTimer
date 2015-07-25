@@ -13,11 +13,6 @@ public class AnotherClass{
 				if(fields.userAction == UserAction.add){
 					Actions.addUser(fields, paint);
 				}
-				
-				else if(fields.userAction == UserAction.change){
-					Actions.changeUser(fields, paint);
-				}
-				
 				else{
 					Actions.renameCurrentUser(fields);
 				}

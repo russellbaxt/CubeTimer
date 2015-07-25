@@ -110,9 +110,7 @@ public class KeyPressActions{
 	
 	public static void changeUser(Fields fields, Paint paint){
 	
-		fields.displayState = DisplayState.consoleRequiresAttention;
-		fields.userAction = UserAction.change;
-		fields.paintComponentDone = false;
+		fields.displayState = DisplayState.changeUser;
 		
 		paint.repaint();
 	}
@@ -144,29 +142,29 @@ public class KeyPressActions{
 	
 		if(fields.displayState == DisplayState.menu){
 			
-			if(fields.menuItems.getChangeTwistyPuzzle()){
+			if(fields.menu.getChangeTwistyPuzzle()){
 				fields.displayState = DisplayState.changeTwistyPuzzle;
 			}
 			
-			else if(fields.menuItems.getUserMenu()){
+			else if(fields.menu.getUserMenu()){
 				fields.displayState = DisplayState.userMenu;
 			}
 			
-			else if(fields.menuItems.getChangeScrambleLenght()){
+			else if(fields.menu.getChangeScrambleLenght()){
 				fields.displayState = DisplayState.changeScrambleLenght;
 			}
 			
-			else if(fields.menuItems.getDeleteLastSolve()){
+			else if(fields.menu.getDeleteLastSolve()){
 				fields.displayState = DisplayState.timer;
 				Actions.deleteLastSolve(fields, paint);
 			}
 			
-			else if(fields.menuItems.getNewScramble()){
+			else if(fields.menu.getNewScramble()){
 				scrambler.randomCorrectScrambleInFieldsUsingFields();
 				fields.displayState = DisplayState.timer;
 			}
 			
-			else if(fields.menuItems.getQuit()){
+			else if(fields.menu.getQuit()){
 				fields.close = true;
 			}
 			
@@ -177,76 +175,76 @@ public class KeyPressActions{
 		
 		else if(fields.displayState == DisplayState.changeTwistyPuzzle){
 			
-			if(fields.menuItems.twistyPuzzleMenu.get2x2x2()){
+			if(fields.menu.twistyPuzzleMenu.get2x2x2()){
 				
 				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube2x2x2, scrambler, paint);
 			}
 			
-			else if(fields.menuItems.twistyPuzzleMenu.get3x3x3()){
+			else if(fields.menu.twistyPuzzleMenu.get3x3x3()){
 				
 				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube3x3x3, scrambler, paint);
 			}
 			
-			else if(fields.menuItems.twistyPuzzleMenu.get4x4x4()){
+			else if(fields.menu.twistyPuzzleMenu.get4x4x4()){
 				
 				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube4x4x4, scrambler, paint);
 			}
 			
-			else if(fields.menuItems.twistyPuzzleMenu.get5x5x5()){
+			else if(fields.menu.twistyPuzzleMenu.get5x5x5()){
 				
 				changeToTwistyPuzzle(fields, TwistyPuzzleType.cube5x5x5, scrambler, paint);
 			}
 			
-			else if(fields.menuItems.twistyPuzzleMenu.getMegaMinx()){
+			else if(fields.menu.twistyPuzzleMenu.getMegaMinx()){
 				
 				changeToTwistyPuzzle(fields, TwistyPuzzleType.megaMinx, scrambler, paint);
 			}
 			
-			else if(fields.menuItems.twistyPuzzleMenu.getGearCube()){
+			else if(fields.menu.twistyPuzzleMenu.getGearCube()){
 				
 				changeToTwistyPuzzle(fields, TwistyPuzzleType.gearCube, scrambler, paint);
 			}
 			
-			else if(fields.menuItems.twistyPuzzleMenu.getAnisatropicGearCube()){
+			else if(fields.menu.twistyPuzzleMenu.getAnisatropicGearCube()){
 				
 				changeToTwistyPuzzle(fields, TwistyPuzzleType.anisatropicGearCube, scrambler, paint);
 			}
 			
-			else if(fields.menuItems.twistyPuzzleMenu.getOneHanded3x3x3()){
+			else if(fields.menu.twistyPuzzleMenu.getOneHanded3x3x3()){
 				
 				changeToTwistyPuzzle(fields, TwistyPuzzleType.oneHanded3x3x3, scrambler, paint);
 			}
 			
-			else if(fields.menuItems.twistyPuzzleMenu.getRandomTwistyPuzzle()){
+			else if(fields.menu.twistyPuzzleMenu.getRandomTwistyPuzzle()){
 				
 				changeToRandomTwistyPuzzleType(fields, scrambler, actions, paint);
 			}
 			
 			fields.displayState = DisplayState.timer;
 			
-			if(fields.menuItems.twistyPuzzleMenu.getExit()){
+			if(fields.menu.twistyPuzzleMenu.getExit()){
 				fields.displayState = DisplayState.menu;
 			}
 		}
 		
 		else if(fields.displayState == DisplayState.userMenu){
 			
-			if(fields.menuItems.userActionsMenu.getAddUser()){
+			if(fields.menu.userActionsMenu.getAddUser()){
 				
 				addAUser(fields, paint);
 			}
 			
-			else if(fields.menuItems.userActionsMenu.getChangeUser()){
+			else if(fields.menu.userActionsMenu.getChangeUser()){
 				
 				changeUser(fields, paint);
 			}
 			
-			else if(fields.menuItems.userActionsMenu.getDeleteCurrentUser()){
+			else if(fields.menu.userActionsMenu.getDeleteCurrentUser()){
 				
 				deleteCurrentUser(fields, paint);
 			}
 			
-			else if(fields.menuItems.userActionsMenu.getChangeCurrentUserName()){
+			else if(fields.menu.userActionsMenu.getRenameCurrentUser()){
 				
 				changeUserName(fields, paint);
 			}
@@ -262,26 +260,37 @@ public class KeyPressActions{
 			fields.displayState = DisplayState.timer;
 		}
 		
+		else if(fields.displayState == DisplayState.changeUser){
+			
+			fields.allUsers.setCurrentUserIndex(fields.menu.userActionsMenu.getSelectedUserIndex());
+			fields.displayState = DisplayState.timer;
+		}
+		
 		paint.repaint();
 	}
 	
 	public static void upOne(Fields fields, Paint paint){
 	
 		if(fields.displayState == DisplayState.menu){
-			fields.menuItems.upOne();
+			fields.menu.upOne();
 		}
 		
 		else if(fields.displayState == DisplayState.changeTwistyPuzzle){
-			fields.menuItems.twistyPuzzleMenu.upOne();
+			fields.menu.twistyPuzzleMenu.upOne();
 		}
 		
 		else if(fields.displayState == DisplayState.userMenu){
-			fields.menuItems.userActionsMenu.upOne();
+			fields.menu.userActionsMenu.upOne();
 		}
 		
 		else if(fields.displayState == DisplayState.changeScrambleLenght){
 			
 			fields.displayedDada.scrambleDada.scrambleLenght ++;
+		}
+		
+		else if(fields.displayState == DisplayState.changeUser){
+			
+			fields.menu.userActionsMenu.userMenuUpOne(fields.allUsers.getSize());
 		}
 		
 		paint.repaint();
@@ -290,20 +299,25 @@ public class KeyPressActions{
 	public static void downOne(Fields fields, Paint paint){
 	
 		if(fields.displayState == DisplayState.menu){
-			fields.menuItems.downOne();
+			fields.menu.downOne();
 		}
 		
 		else if(fields.displayState == DisplayState.changeTwistyPuzzle){
-			fields.menuItems.twistyPuzzleMenu.downOne();
+			fields.menu.twistyPuzzleMenu.downOne();
 		}
 		
 		else if(fields.displayState == DisplayState.userMenu){
-			fields.menuItems.userActionsMenu.downOne();
+			fields.menu.userActionsMenu.downOne();
 		}
 		
 		else if(fields.displayState == DisplayState.changeScrambleLenght){
 			
 			fields.displayedDada.scrambleDada.scrambleLenght --;
+		}
+		
+		else if(fields.displayState == DisplayState.changeUser){
+			
+			fields.menu.userActionsMenu.userMenuDownOne(fields.allUsers.getSize());
 		}
 		paint.repaint();
 	}

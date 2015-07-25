@@ -9,7 +9,7 @@ public class Fields{
 	
 	public boolean close;
 	
-	public MenuItems menuItems;
+	public Menu menu;
 
 	public DisplayState displayState;
 	public UserAction userAction;
@@ -30,7 +30,7 @@ public class Fields{
 		penalty = new Penalty();
 		allUsers = new AllUsers();
 		
-		menuItems = new MenuItems();
+		menu = new Menu();
 		
 		paintComponentDone = false;
 

@@ -35,7 +35,7 @@ public class Main{
 		d.setSize(width, height);
 		d.setResizable(true);
 		d.setVisible(true);
-		d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		d.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		d.setTitle("Cube Timer");
 		d.setLocationRelativeTo(null);
 		
