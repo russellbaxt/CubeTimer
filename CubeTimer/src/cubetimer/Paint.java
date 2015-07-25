@@ -43,14 +43,14 @@ public class Paint extends JPanel{
 					(int) (fields.windowSize.windowWidth / fields.displayedDada.scrambleDada.scrambleSize), false, g);
 		}
 		
-		Images.typeStringListOfTimesGoingDown(fields.displayedDada.last20Solves, 0, fields.windowSize.windowWidth / 56,
+		Images.typeStringListOfTimesGoingDown(fields.allUsers.getUser().getTwistyPuzzle().getTimes(), 0, fields.windowSize.windowWidth / 56,
 				fields.windowSize.windowWidth / 56, g);
 		Images.typeString(fields.displayedDada.avarageOf5, 0,
 				(int) (fields.windowSize.windowHeight - (30 + fields.windowSize.windowWidth / 56)),
 				fields.windowSize.windowWidth / 56, false, g);
-		Images.typeString(fields.displayedDada.currentUserName, (int) (fields.windowSize.windowWidth / 1.2 - 20.0),
+		Images.typeString(fields.allUsers.getUser().getUserName(), (int) (fields.windowSize.windowWidth / 1.2 - 20.0),
 				fields.windowSize.windowWidth / 40, fields.windowSize.windowWidth / 56, false, g);
-		Images.typeScrambleType(fields.twistyPuzzleType, (int) (fields.windowSize.windowWidth / 1.2 - 20),
+		Images.typeScrambleType(fields.allUsers.getUser().getTwistyPuzzleType(), (int) (fields.windowSize.windowWidth / 1.2 - 20),
 				fields.windowSize.windowWidth / 20, fields.windowSize.windowWidth / 56, g);
 		Images.typeString(Integer.toString(fields.displayedDada.scrambleDada.scrambleLenght),
 				(int) (fields.windowSize.windowWidth / 1.2 - 20), fields.windowSize.windowWidth / 15,
@@ -64,10 +64,10 @@ public class Paint extends JPanel{
 						"New Scramble", "Options", "Exit", "Quit"};
 		
 		Boolean[] greenText =
-				new Boolean[] {fields.menuItems.getChangeTwistyPuzzle(), fields.menuItems.getUserMenu(),
-						fields.menuItems.getChangeScrambleLenght(), fields.menuItems.getDeleteLastSolve(),
-						fields.menuItems.getNewScramble(), fields.menuItems.getOptions(), fields.menuItems.getExit(),
-						fields.menuItems.getQuit()};
+				new Boolean[] {fields.menu.getChangeTwistyPuzzle(), fields.menu.getUserMenu(),
+						fields.menu.getChangeScrambleLenght(), fields.menu.getDeleteLastSolve(),
+						fields.menu.getNewScramble(), fields.menu.getOptions(), fields.menu.getExit(),
+						fields.menu.getQuit()};
 		
 		Images.drawMenuList(menuItems, fields.windowSize.windowHeight / 16, greenText, fields.windowSize.windowHeight,
 				fields.windowSize.windowWidth, 1, g);
@@ -81,14 +81,14 @@ public class Paint extends JPanel{
 						"One Handed 3x3x3", "Random Twisty Puzzle", "Exit"};
 		
 		Boolean[] greenText =
-				new Boolean[] {fields.menuItems.twistyPuzzleMenu.get2x2x2(),
-						fields.menuItems.twistyPuzzleMenu.get3x3x3(), fields.menuItems.twistyPuzzleMenu.get4x4x4(),
-						fields.menuItems.twistyPuzzleMenu.get5x5x5(), fields.menuItems.twistyPuzzleMenu.getMegaMinx(),
-						fields.menuItems.twistyPuzzleMenu.getGearCube(),
-						fields.menuItems.twistyPuzzleMenu.getAnisatropicGearCube(),
-						fields.menuItems.twistyPuzzleMenu.getOneHanded3x3x3(),
-						fields.menuItems.twistyPuzzleMenu.getRandomTwistyPuzzle(),
-						fields.menuItems.twistyPuzzleMenu.getExit()};
+				new Boolean[] {fields.menu.twistyPuzzleMenu.get2x2x2(),
+						fields.menu.twistyPuzzleMenu.get3x3x3(), fields.menu.twistyPuzzleMenu.get4x4x4(),
+						fields.menu.twistyPuzzleMenu.get5x5x5(), fields.menu.twistyPuzzleMenu.getMegaMinx(),
+						fields.menu.twistyPuzzleMenu.getGearCube(),
+						fields.menu.twistyPuzzleMenu.getAnisatropicGearCube(),
+						fields.menu.twistyPuzzleMenu.getOneHanded3x3x3(),
+						fields.menu.twistyPuzzleMenu.getRandomTwistyPuzzle(),
+						fields.menu.twistyPuzzleMenu.getExit()};
 		
 		Images.drawMenuList(menuItems, fields.windowSize.windowWidth / 32, greenText, fields.windowSize.windowHeight,
 				fields.windowSize.windowWidth, 2, g);
@@ -97,14 +97,14 @@ public class Paint extends JPanel{
 	public void userMenu(Graphics g){
 	
 		String[] menuItems =
-				new String[] {"Add User", "Change User", "Delete Current User", "Change Current User Name", "Exit"};
+				new String[] {"Add User", "Change User", "Delete Current User", "Rename Current User", "Exit"};
 		
 		Boolean[] greenText =
-				new Boolean[] {fields.menuItems.userActionsMenu.getAddUser(),
-						fields.menuItems.userActionsMenu.getChangeUser(),
-						fields.menuItems.userActionsMenu.getDeleteCurrentUser(),
-						fields.menuItems.userActionsMenu.getChangeCurrentUserName(),
-						fields.menuItems.userActionsMenu.getExit()};
+				new Boolean[] {fields.menu.userActionsMenu.getAddUser(),
+						fields.menu.userActionsMenu.getChangeUser(),
+						fields.menu.userActionsMenu.getDeleteCurrentUser(),
+						fields.menu.userActionsMenu.getRenameCurrentUser(),
+						fields.menu.userActionsMenu.getExit()};
 		
 		Images.drawMenuList(menuItems, fields.windowSize.windowWidth / 32, greenText, fields.windowSize.windowHeight,
 				fields.windowSize.windowWidth, 2, g);
@@ -117,6 +117,31 @@ public class Paint extends JPanel{
 		Images.typeString(Integer.toString(fields.displayedDada.scrambleDada.scrambleLenght),
 				fields.windowSize.windowWidth / 2 - 100, fields.windowSize.windowHeight / 2,
 				fields.windowSize.windowWidth / 12, true, g);
+	}
+	
+	public void changeUser(Graphics g){
+		
+		ArrayList<String> arrayListMenuItems = new ArrayList<String>();
+		
+		for(int i = 0; i < fields.allUsers.getSize(); i++){
+			
+			arrayListMenuItems.add(fields.allUsers.getUser(i).getUserName());
+		}
+		
+		String[] menuItems = new String[arrayListMenuItems.size()];
+		menuItems = (String[]) arrayListMenuItems.toArray(menuItems);
+		
+		ArrayList<Boolean> arrayListGreenTexts = new ArrayList<Boolean>();
+		
+		for(int i = 0; i < fields.allUsers.getSize(); i++){
+			
+			arrayListGreenTexts.add(fields.menu.userActionsMenu.getSelectedUserIndex() == i);
+		}
+		
+		Boolean[] greenTexts = new Boolean[arrayListGreenTexts.size()];
+		greenTexts = (Boolean[]) arrayListGreenTexts.toArray(greenTexts);
+		
+		Images.drawMenuList(menuItems, 32, greenTexts, fields.windowSize.windowHeight, fields.windowSize.windowWidth, 2, g);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -144,6 +169,10 @@ public class Paint extends JPanel{
 		
 		else if(fields.displayState == DisplayState.changeScrambleLenght){
 			changeScrambleLenght(g);
+		}
+		
+		else if(fields.displayState == DisplayState.changeUser){
+			changeUser(g);
 		}
 		
 		else{

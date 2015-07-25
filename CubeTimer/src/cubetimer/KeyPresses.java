@@ -4,7 +4,6 @@ public class KeyPresses{
 	
 	private Timer timer;
 	private Scrambler scrambler;
-	private TimesTracker timesTracker;
 	private Actions actions;
 	private Fields fields;
 	private Paint paint;
@@ -35,11 +34,10 @@ public class KeyPresses{
 	private boolean upPressed;
 	private boolean downPressed;
 	
-	public KeyPresses(Timer timerIn, Scrambler scramblerIn, TimesTracker timesTrackerIn, Actions actionsIn, Fields fieldsIn, Paint paintIn){
+	public KeyPresses(Timer timerIn, Scrambler scramblerIn, Actions actionsIn, Fields fieldsIn, Paint paintIn){
 	
 		timer = timerIn;
 		scrambler = scramblerIn;
-		timesTracker = timesTrackerIn;
 		actions = actionsIn;
 		fields = fieldsIn;
 		paint = paintIn;
@@ -168,7 +166,7 @@ public class KeyPresses{
 			
 			spacePressed = false;
 			
-			KeyPressActions.spacePressed(fields, timer, timesTracker, scrambler, paint);
+			KeyPressActions.spacePressed(fields, timer, scrambler, paint);
 		}
 		
 		if(spaceReleased){
@@ -182,7 +180,7 @@ public class KeyPresses{
 			
 			backSpacePressed = false;
 			
-			timesTracker.deleteLastSolve();
+			Actions.deleteLastSolve(fields, paint);
 		}
 		
 		if(rightPressed){
@@ -224,7 +222,7 @@ public class KeyPresses{
 		if(enterPressed){
 			enterPressed = false;
 			
-			KeyPressActions.select(fields, paint, scrambler, timesTracker, actions);
+			KeyPressActions.select(fields, paint, scrambler, actions);
 		}
 		
 		if(upPressed){

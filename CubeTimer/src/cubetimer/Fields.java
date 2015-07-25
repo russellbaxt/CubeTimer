@@ -9,9 +9,8 @@ public class Fields{
 	
 	public boolean close;
 	
-	public MenuItems menuItems;
+	public Menu menu;
 
-	public TwistyPuzzleType twistyPuzzleType;
 	public DisplayState displayState;
 	public UserAction userAction;
 
@@ -20,6 +19,8 @@ public class Fields{
 	public boolean ignoreNextRelese;
 
 	public boolean paintComponentDone;
+	
+	public AllUsers allUsers;
 
 	public Fields() {
 		
@@ -27,12 +28,12 @@ public class Fields{
 		timerStatus = new TimerStatus();
 		windowSize = new WindowSize();
 		penalty = new Penalty();
+		allUsers = new AllUsers();
 		
-		menuItems = new MenuItems();
+		menu = new Menu();
 		
 		paintComponentDone = false;
 
-		twistyPuzzleType = TwistyPuzzleType.cube3x3x3;
 		displayState = DisplayState.timer;
 	}
 

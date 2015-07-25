@@ -6,9 +6,16 @@ public class AllUsers{
 	
 	private ArrayList<User> users;
 	
+	private int currentUserIndex;
+	
 	public AllUsers(){
 	
 		users = new ArrayList<User>();
+	}
+	
+	public void setCurrentUserIndex(int currentUserIndexIn){
+	
+		currentUserIndex = currentUserIndexIn;
 	}
 	
 	public void addUser(User user){
@@ -19,6 +26,11 @@ public class AllUsers{
 	public void setUser(int index, User user){
 	
 		users.set(index, user);
+	}
+	
+	public User getUser(){
+	
+		return users.get(currentUserIndex);
 	}
 	
 	public User getUser(int index){
@@ -32,8 +44,28 @@ public class AllUsers{
 	}
 	
 	public void remove(int index){
-		
+	
 		users.remove(index);
+	}
+	
+	public void remove(){
+	
+		users.remove(currentUserIndex);
+	}
+	
+	public boolean setCurrentUserUsingUserName(String userName){
+		
+		String userNameOfIndexI;
+		
+		for(int i = 0; i < users.size(); i ++){
+			
+			userNameOfIndexI = users.get(i).getUserName();
+			if(userNameOfIndexI.contentEquals(userName)){
+				currentUserIndex = i;
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public int getIndexOfUserWithUserName(String userName){
