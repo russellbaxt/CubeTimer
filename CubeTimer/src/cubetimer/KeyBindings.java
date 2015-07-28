@@ -9,7 +9,6 @@ public class KeyBindings extends JComponent{
 	
 	private SpaceKeyAction spaceAction;
 	private SpaceReleasedAction spaceReleasedAction;
-	private BackSpaceKeyPressedAction backSpaceAction;
 	
 	private TwoKeyAction twoAction;
 	private ThreeKeyAction threeAction;
@@ -26,7 +25,6 @@ public class KeyBindings extends JComponent{
 		
 		spaceAction = new SpaceKeyAction(kp);
 		spaceReleasedAction = new SpaceReleasedAction(kp);
-		backSpaceAction = new BackSpaceKeyPressedAction(kp);
 		
 		twoAction = new TwoKeyAction(kp);
 		threeAction = new ThreeKeyAction(kp);
@@ -42,8 +40,6 @@ public class KeyBindings extends JComponent{
 		this.getActionMap().put("SpacePressed", spaceAction);
 		this.getInputMap().put(KeyStroke.getKeyStroke("released SPACE"), "SpaceReleased");
 		this.getActionMap().put("SpaceReleased", spaceReleasedAction);
-		this.getInputMap().put(KeyStroke.getKeyStroke("BACK_SPACE"), "BackspacePressed");
-		this.getActionMap().put("BackspacePressed", backSpaceAction);
 		
 		this.getInputMap().put(KeyStroke.getKeyStroke("2"), "TwoPressed");
 		this.getActionMap().put("TwoPressed", twoAction);
