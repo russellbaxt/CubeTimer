@@ -1,8 +1,11 @@
 package cubetimer;
 
 import java.awt.Frame;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 public class Main{
 	
@@ -17,6 +20,7 @@ public class Main{
 	public static Timer t;
 	public static Actions a;
 	public static KeyPresses kp;
+	public static JONAHS co;
 	public static Display d;
 	
 	public static void main(String args[]){
@@ -29,15 +33,17 @@ public class Main{
 		t = new Timer(f, s, p, fw);
 		a = new Actions();
 		kp = new KeyPresses(t, s, a, f, p);
-		d = new Display(kp, p);
+		co = new JONAHS(f);
+		d = new Display(co, kp, p);
 		
 	
 		d.setSize(width, height);
 		d.setResizable(true);
 		d.setVisible(true);
-		d.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		d.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		d.setTitle("Cube Timer");
 		d.setLocationRelativeTo(null);
+		d.addWindowListener(d);
 		
 		while(true){
 			width = d.getWidth();
@@ -51,4 +57,5 @@ public class Main{
 			AnotherClass.callMeMany(f, kp, t, p);
 		}
 	}
+
 }

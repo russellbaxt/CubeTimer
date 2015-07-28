@@ -2,18 +2,21 @@ package cubetimer;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Display extends JFrame{
+public class Display extends JFrame implements WindowListener{
 	
 	private JPanel gp;
 	private KeyBindings kb;
+	private JONAHS co;
 	
-	public Display(KeyPresses kp, Paint p){
+	public Display(JONAHS coIn, KeyPresses kp, Paint p){
 	
-		Dimension size = getSize();
+		co = coIn;
 		gp = (JPanel) getGlassPane();
 		gp.setVisible(true);
 		kb = new KeyBindings(kp);
@@ -38,5 +41,47 @@ public class Display extends JFrame{
 	
 	public void close(){
 		System.exit(0);
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		co.closeOperation();
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
