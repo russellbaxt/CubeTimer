@@ -1,10 +1,10 @@
 package cubetimer;
 
-public class JONAHS{
+public class CloseOperation{
 	
 	Fields fields;
 
-	public JONAHS(Fields fieldsIn){
+	public CloseOperation(Fields fieldsIn){
 		
 		fields = fieldsIn;
 	}

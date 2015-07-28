@@ -12,9 +12,9 @@ public class Display extends JFrame implements WindowListener{
 	
 	private JPanel gp;
 	private KeyBindings kb;
-	private JONAHS co;
+	private CloseOperation co;
 	
-	public Display(JONAHS coIn, KeyPresses kp, Paint p){
+	public Display(CloseOperation coIn, KeyPresses kp, Paint p){
 	
 		co = coIn;
 		gp = (JPanel) getGlassPane();

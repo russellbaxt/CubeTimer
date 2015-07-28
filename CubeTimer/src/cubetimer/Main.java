@@ -20,7 +20,7 @@ public class Main{
 	public static Timer t;
 	public static Actions a;
 	public static KeyPresses kp;
-	public static JONAHS co;
+	public static CloseOperation co;
 	public static Display d;
 	
 	public static void main(String args[]){
@@ -33,7 +33,7 @@ public class Main{
 		t = new Timer(f, s, p, fw);
 		a = new Actions();
 		kp = new KeyPresses(t, s, a, f, p);
-		co = new JONAHS(f);
+		co = new CloseOperation(f);
 		d = new Display(co, kp, p);
 		
 	
