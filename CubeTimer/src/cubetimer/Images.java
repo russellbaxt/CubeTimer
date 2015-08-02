@@ -89,8 +89,8 @@ public class Images{
 		
 		for(int i = 0; i < menuItems.length; i ++){
 			
-			typeString(menuItems[i], 0, windowHeight / 16 + (windowWidth / (20 * (lineSpacingSize))) * (i + 1)
-					+ (windowWidth / (50 * lineSpacingSize)) * i, fontSize, greenText[i], g);
+			typeString(menuItems[i], 0, (windowWidth / (20 * (lineSpacingSize))) * (i + 2)
+					+ (windowWidth / (50 * lineSpacingSize)) * (i + 1), fontSize, greenText[i], g);
 		}
 	}
 }

@@ -9,5 +9,6 @@ public enum DisplayState{
 	changeTwistyPuzzle,
 	changeScrambleLenght,
 	consoleRequiresAttention,
-	changeUser
+	changeUser,
+	options
 }

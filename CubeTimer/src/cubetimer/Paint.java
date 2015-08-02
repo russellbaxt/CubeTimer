@@ -69,7 +69,7 @@ public class Paint extends JPanel{
 						fields.menu.getNewScramble(), fields.menu.getOptions(), fields.menu.getExit(),
 						fields.menu.getQuit()};
 		
-		Images.drawMenuList(menuItems, fields.windowSize.windowHeight / 16, greenText, fields.windowSize.windowHeight,
+		Images.drawMenuList(menuItems, fields.windowSize.windowWidth / 16, greenText, fields.windowSize.windowHeight,
 				fields.windowSize.windowWidth, 1, g);
 		
 	}
@@ -144,6 +144,11 @@ public class Paint extends JPanel{
 		Images.drawMenuList(menuItems, 32, greenTexts, fields.windowSize.windowHeight, fields.windowSize.windowWidth, 2, g);
 	}
 	
+	public void options(Graphics g){
+		
+		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth, fields.windowSize.windowHeight, g);
+	}
+	
 	public void paintComponent(Graphics g){
 	
 		super.paintComponent(g);
@@ -173,6 +178,10 @@ public class Paint extends JPanel{
 		
 		else if(fields.displayState == DisplayState.changeUser){
 			changeUser(g);
+		}
+		
+		else if(fields.displayState == DisplayState.options){
+			
 		}
 		
 		else{
