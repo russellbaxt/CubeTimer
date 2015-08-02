@@ -1,5 +1,9 @@
 package cubetimer;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -137,6 +141,17 @@ public class Actions{
 		if(fields.displayedDada.scrambleDada.scrambleSize < 4.0){
 			fields.displayedDada.scrambleDada.scrambleSize = 4.0;
 		}
+	}
+	
+	public static ArrayList <Integer> getDefaultWindowSize(){
+		
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int width = (int) ((screenSize.getWidth() * 2) / 3);
+		int height = (int) ((screenSize.getHeight() * 2) / 3);
+		
+		ArrayList <Integer> windowSize = new ArrayList <Integer>();
+		windowSize.addAll(Arrays.asList(new Integer[] {width, height}));
+		return windowSize;
 	}
 	
 }

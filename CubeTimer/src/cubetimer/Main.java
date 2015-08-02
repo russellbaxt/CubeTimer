@@ -3,15 +3,16 @@ package cubetimer;
 import java.awt.Frame;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 public class Main{
 	
-		
-	public static int width = 800;
-	public static int height = 830;
+	public static ArrayList <Integer> screenSize = Actions.getDefaultWindowSize();
+	public static int width = screenSize.get(0);
+	public static int height = screenSize.get(0);
 	
 	public static Fields f;
 	public static FileWriter fw;
