@@ -1,22 +1,23 @@
-package cubetimer;
+package keyBindings;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-public class ThreeKeyAction extends AbstractAction{
+import cubetimer.KeyPresses;
+
+
+public class EscapeKeyPressedAction extends AbstractAction{
 	
 	private KeyPresses keyPresses;
 	
-	public ThreeKeyAction(KeyPresses kp){
-	
+	public EscapeKeyPressedAction(KeyPresses kp){
 		keyPresses = kp;
 	}
-	
+
 	public void actionPerformed(ActionEvent e){
 	
-		keyPresses.threePressed();
+		keyPresses.escapePressed();
 		
 	}
-	
 }

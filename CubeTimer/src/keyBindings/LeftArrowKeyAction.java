@@ -1,21 +1,24 @@
-package cubetimer;
+package keyBindings;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-public class TwoKeyAction extends AbstractAction{
+import cubetimer.KeyPresses;
+
+public class LeftArrowKeyAction extends AbstractAction{
 	
 	private KeyPresses keyPresses;
 	
-	public TwoKeyAction(KeyPresses kp){
+	public LeftArrowKeyAction(KeyPresses kp){
 	
 		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		keyPresses.twoPressed();
+		keyPresses.leftPressed();
 		
 	}
+	
 }

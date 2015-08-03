@@ -1,21 +1,26 @@
-package cubetimer;
+package keyBindings;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
+import cubetimer.KeyPresses;
 
-public class EscapeKeyPressedAction extends AbstractAction{
+
+public class EnterKeyPressedAction extends AbstractAction{
 	
 	private KeyPresses keyPresses;
 	
-	public EscapeKeyPressedAction(KeyPresses kp){
+	public EnterKeyPressedAction(KeyPresses kp){
 		keyPresses = kp;
 	}
-
+	
 	public void actionPerformed(ActionEvent e){
 	
-		keyPresses.escapePressed();
+		keyPresses.enterPressed();
 		
 	}
+	
+	
+	
 }

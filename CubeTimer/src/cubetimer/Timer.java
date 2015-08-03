@@ -1,5 +1,7 @@
 package cubetimer;
 
+import fields.Fields;
+
 public class Timer{
 	
 	private Fields fields;

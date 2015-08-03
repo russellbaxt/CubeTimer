@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+import fields.Fields;
+
 public class Main{
 	
 	public static ArrayList <Integer> screenSize = Actions.getDefaultWindowSize();

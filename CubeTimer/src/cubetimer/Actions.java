@@ -7,6 +7,11 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+import fields.DisplayState;
+import fields.Fields;
+import fields.TwistyPuzzleType;
+import savedDada.User;
+
 public class Actions{
 	
 	public static void callUponOpen(Fields fields){

@@ -8,6 +8,8 @@ import java.awt.event.WindowListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import keyBindings.KeyBindings;
+
 public class Display extends JFrame implements WindowListener{
 	
 	private JPanel gp;

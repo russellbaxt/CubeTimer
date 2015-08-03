@@ -1,21 +1,23 @@
-package cubetimer;
+package keyBindings;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-public class FiveKeyAction extends AbstractAction{
+import cubetimer.KeyPresses;
+
+public class SpaceReleasedAction extends AbstractAction{
 	
 	private KeyPresses keyPresses;
 	
-	public FiveKeyAction(KeyPresses kp){
+	public SpaceReleasedAction(KeyPresses kp){
 	
 		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		keyPresses.fivePressed();
+		keyPresses.spaceReleased();
 		
 	}
 	

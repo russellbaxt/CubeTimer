@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import fields.DisplayState;
+import fields.Fields;
+
 public class Paint extends JPanel{
 	
 	Fields fields;

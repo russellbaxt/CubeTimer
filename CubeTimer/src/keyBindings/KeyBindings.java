@@ -1,7 +1,10 @@
-package cubetimer;
+package keyBindings;
 
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
+
+import cubetimer.KeyPresses;
+import fields.Fields;
 
 public class KeyBindings extends JComponent{
 	
@@ -9,11 +12,6 @@ public class KeyBindings extends JComponent{
 	
 	private SpaceKeyAction spaceAction;
 	private SpaceReleasedAction spaceReleasedAction;
-	
-	private TwoKeyAction twoAction;
-	private ThreeKeyAction threeAction;
-	private FourKeyAction fourAction;
-	private FiveKeyAction fiveAction;
 	
 	private EscapeKeyPressedAction escapeAction;
 	private EnterKeyPressedAction enterAction;
@@ -26,11 +24,6 @@ public class KeyBindings extends JComponent{
 		spaceAction = new SpaceKeyAction(kp);
 		spaceReleasedAction = new SpaceReleasedAction(kp);
 		
-		twoAction = new TwoKeyAction(kp);
-		threeAction = new ThreeKeyAction(kp);
-		fourAction = new FourKeyAction(kp);
-		fiveAction = new FiveKeyAction(kp);
-		
 		escapeAction = new EscapeKeyPressedAction(kp);
 		enterAction = new EnterKeyPressedAction(kp);
 		upAction = new UpArrowPressedAction(kp);
@@ -41,15 +34,7 @@ public class KeyBindings extends JComponent{
 		this.getInputMap().put(KeyStroke.getKeyStroke("released SPACE"), "SpaceReleased");
 		this.getActionMap().put("SpaceReleased", spaceReleasedAction);
 		
-		this.getInputMap().put(KeyStroke.getKeyStroke("2"), "TwoPressed");
-		this.getActionMap().put("TwoPressed", twoAction);
-		this.getInputMap().put(KeyStroke.getKeyStroke("3"), "ThreePressed");
-		this.getActionMap().put("ThreePressed", threeAction);
 		this.getInputMap().put(KeyStroke.getKeyStroke("LEFT"), "LeftPressed");
-		this.getInputMap().put(KeyStroke.getKeyStroke("4"), "FourPressed");
-		this.getActionMap().put("FourPressed", fourAction);
-		this.getInputMap().put(KeyStroke.getKeyStroke("5"), "FivePressed");
-		this.getActionMap().put("FivePressed", fiveAction);
 		
 		this.getInputMap().put(KeyStroke.getKeyStroke("ESCAPE"), "EscapePressed");
 		this.getActionMap().put("EscapePressed", escapeAction);

@@ -1,4 +1,4 @@
-package cubetimer;
+package fields;
 
 
 public enum DisplayState{

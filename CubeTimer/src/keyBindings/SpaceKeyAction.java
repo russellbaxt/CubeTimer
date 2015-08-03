@@ -1,7 +1,10 @@
-package cubetimer;
+package keyBindings;
 
 import java.awt.event.ActionEvent;
+
 import javax.swing.AbstractAction;
+
+import cubetimer.KeyPresses;
 
 public class SpaceKeyAction extends AbstractAction{
 	

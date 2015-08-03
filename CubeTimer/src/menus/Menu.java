@@ -1,4 +1,5 @@
-package cubetimer;
+package menus;
+
 
 public class Menu{
 	

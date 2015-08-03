@@ -1,24 +1,22 @@
-package cubetimer;
+package keyBindings;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
+import cubetimer.KeyPresses;
 
-public class EnterKeyPressedAction extends AbstractAction{
+
+public class DownArrowPressedAction extends AbstractAction{
 	
 	private KeyPresses keyPresses;
 	
-	public EnterKeyPressedAction(KeyPresses kp){
+	public DownArrowPressedAction(KeyPresses kp){
 		keyPresses = kp;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		keyPresses.enterPressed();
-		
+	keyPresses.downPressed();	
 	}
-	
-	
-	
 }

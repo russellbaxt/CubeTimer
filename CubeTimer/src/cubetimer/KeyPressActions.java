@@ -1,5 +1,10 @@
 package cubetimer;
 
+import fields.DisplayState;
+import fields.Fields;
+import fields.TwistyPuzzleType;
+import fields.UserAction;
+
 public class KeyPressActions{
 	
 	public static void spacePressed(Fields fields, Timer timer, Scrambler scrambler, Paint paint){

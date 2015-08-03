@@ -3,6 +3,9 @@ package cubetimer;
 import java.util.ArrayList;
 import java.util.Random;
 
+import fields.Fields;
+import fields.TwistyPuzzleType;
+
 public class Scrambler{
 	
 	private Fields fields;

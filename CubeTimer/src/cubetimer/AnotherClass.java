@@ -1,5 +1,9 @@
 package cubetimer;
 
+import fields.DisplayState;
+import fields.Fields;
+import fields.UserAction;
+
 public class AnotherClass{
 	
 	public static void callMeMany(Fields fields, KeyPresses keyPresses, Timer timer, Paint paint){

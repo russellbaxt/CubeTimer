@@ -1,4 +1,4 @@
-package cubetimer;
+package menus;
 
 public class UserActionsMenu{
 	

@@ -2,6 +2,8 @@ package cubetimer;
 
 import javax.swing.*;
 
+import fields.TwistyPuzzleType;
+
 import java.awt.*;
 import java.util.ArrayList;
 
