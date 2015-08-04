@@ -1,5 +1,4 @@
 package cubetimer;
-//hi
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -7,10 +6,13 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.Timer;
+
 import fields.DisplayState;
 import fields.Fields;
 import fields.TwistyPuzzleType;
 import savedDada.User;
+import swingTimerActions.ChangeUser;
 
 public class Actions{
 	
@@ -63,12 +65,19 @@ public class Actions{
 		if(fields.allUsers.getSize() > 1){
 			
 			fields.allUsers.remove();
-			KeyPressActions.changeUser(fields, paint);
+			
+			paint.repaint();
+			
+			Timer changeUser = new Timer(0, new ChangeUser(fields));
+			changeUser.setRepeats(false);
+			
+			fields.displayState = DisplayState.changeUser;
 		}
 		
 		else{
 			
 			fields.displayState = DisplayState.timer;
+			paint.repaint();
 		}
 		
 	}

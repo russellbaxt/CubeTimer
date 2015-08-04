@@ -6,11 +6,11 @@ import fields.UserAction;
 
 public class AnotherClass{
 	
-	public static void callMeMany(Fields fields, KeyPresses keyPresses, Timer timer, Paint paint){
+	public static void callMeMany(Fields fields, KeyPresses keyPresses, Stackmat stackmat, Paint paint){
 	
 		if(fields.displayState == DisplayState.consoleRequiresAttention){
 			
-			keyPresses.setAllKeyPressesToFalse();
+//			keyPresses.setAllKeyPressesToFalse();
 			
 			if(fields.paintComponentDone){
 				
@@ -29,14 +29,14 @@ public class AnotherClass{
 		
 		else{
 			
-			timer.updateTime();
+		//	stackmat.updateTime();
 		}
 		
 		if(fields.timerStatus.countDownRunning){
 			
-			timer.updateCountdownTime();
+		//	stackmat.updateCountdownTime();
 			
-			paint.repaint();
+		//	paint.repaint();
 		}
 		
 	}

@@ -8,6 +8,7 @@ import java.awt.event.WindowListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import fields.Fields;
 import keyBindings.KeyBindings;
 
 public class Display extends JFrame implements WindowListener{
@@ -16,12 +17,12 @@ public class Display extends JFrame implements WindowListener{
 	private KeyBindings kb;
 	private CloseOperation co;
 	
-	public Display(CloseOperation coIn, KeyPresses kp, Paint p){
+	public Display(CloseOperation coIn, KeyPresses kp, Paint p, Fields f, Stackmat sm, Scrambler s, Actions a){
 	
 		co = coIn;
 		gp = (JPanel) getGlassPane();
 		gp.setVisible(true);
-		kb = new KeyBindings(kp);
+		kb = new KeyBindings(kp, f, p, s, a, sm);
 		gp.setLayout(new GridLayout(1, 1));
 		this.setLayout(new GridLayout(1, 1));
 		gp.add(p);
@@ -45,45 +46,32 @@ public class Display extends JFrame implements WindowListener{
 		System.exit(0);
 	}
 
-	@Override
 	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void windowClosed(WindowEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void windowClosing(WindowEvent e) {
 		co.closeOperation();
 		
 	}
 
-	@Override
 	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 }
