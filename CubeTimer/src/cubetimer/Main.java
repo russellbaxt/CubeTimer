@@ -26,7 +26,7 @@ public class Main{
 	public static CloseOperation co;
 	public static Display d;
 	
-	public static void main(String args[]){
+	public static void main(String[] args){
 		
 		f = new Fields();
 		Actions.callUponOpen(f);
