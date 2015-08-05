@@ -10,14 +10,13 @@ import fields.DisplayState;
 import fields.Fields;
 
 
+@SuppressWarnings("serial")
 public class EscapeKeyPressedAction extends AbstractAction{
 	
-	private KeyPresses keyPresses;
 	private Fields fields;
 	private Paint paint;
 	
 	public EscapeKeyPressedAction(KeyPresses kp, Fields f, Paint p){
-		keyPresses = kp;
 		fields = f;
 		paint = p;
 	}

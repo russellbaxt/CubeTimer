@@ -11,20 +11,14 @@ public class Stackmat{
 	private Fields fields;
 	private Scrambler scrambler;
 	private Paint paint;
+	@SuppressWarnings("unused")
 	private FileWriter fileWriter;
 	private Timer countDownTimer;
 	private Timer stackmatTimer;
 	private KeepCountDown keepCountDown;
 	private KeepTime keepTime;
 	
-	private long start;
-	private long end;
 	private double timeSeconds;
-	private int timeMinutes;
-	private double countDownStart;
-	private double countDownEnd;
-	private boolean plus2Inspection;
-	
 	public Stackmat(Fields f, Scrambler scramblerIn, Paint paintIn, FileWriter fileWriterIn){
 	
 		fields = f;
@@ -33,7 +27,6 @@ public class Stackmat{
 		fileWriter = fileWriterIn;
 		
 		timeSeconds = 0;
-		timeMinutes = 0;
 		
 	}
 	

@@ -1,12 +1,7 @@
 package cubetimer;
 
-import java.awt.Frame;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
-import javax.swing.Timer;
 import javax.swing.WindowConstants;
 
 import fields.Fields;

@@ -3,8 +3,6 @@ package swingTimerActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Timer;
-
 import cubetimer.Paint;
 import fields.Fields;
 

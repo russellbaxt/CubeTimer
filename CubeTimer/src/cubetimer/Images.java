@@ -1,7 +1,5 @@
 package cubetimer;
 
-import javax.swing.*;
-
 import fields.TwistyPuzzleType;
 
 import java.awt.*;
@@ -29,6 +27,7 @@ public class Images{
 			Graphics g){
 	
 		int timeMinutes;
+		@SuppressWarnings("unchecked")
 		ArrayList<Double> list = (ArrayList<Double>) arrayList.clone();
 		
 		Font font = new Font("Arial", Font.PLAIN, fontSize);

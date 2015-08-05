@@ -23,6 +23,7 @@ public class TwistyPuzzleMenu{
 		cube4x4x4 = false;
 		cube5x5x5 = false;
 		megaMinx = false;
+		curvyCopter = false;
 		gearCube = false;
 		anisatropicGearCube = false;
 		oneHanded3x3x3 = false;
@@ -39,6 +40,7 @@ public class TwistyPuzzleMenu{
 		cube5x5x5 = false;
 		megaMinx = false;
 		gearCube = false;
+		curvyCopter = false;
 		anisatropicGearCube = false;
 		oneHanded3x3x3 = false;
 		randomTwistyPuzzle = false;
@@ -82,11 +84,18 @@ public class TwistyPuzzleMenu{
 			cube5x5x5 = true;
 		}
 		
-		else if(gearCube){
+		else if(curvyCopter){
 			
 			allFalse();
 			
 			megaMinx = true;
+		}
+		
+		else if(gearCube){
+			
+			allFalse();
+			
+			curvyCopter = true;
 		}
 		
 		else if(anisatropicGearCube){

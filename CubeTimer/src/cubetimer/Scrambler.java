@@ -1,6 +1,5 @@
 package cubetimer;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import fields.Fields;
@@ -15,7 +14,6 @@ public class Scrambler{
 	private String randomMove;
 	
 	private int lastFaceMovedInInt;
-	private boolean faceMoving;
 	private int faceMovedInInt;
 	private int moveDirectionInInt;
 	private int faceDepthInInt;

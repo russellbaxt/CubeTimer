@@ -11,15 +11,14 @@ import fields.DisplayState;
 import fields.Fields;
 
 
+@SuppressWarnings("serial")
 public class UpArrowPressedAction extends AbstractAction{
 	
-	private KeyPresses keyPresses;
 	private Fields fields;
 	private Paint paint;
 	private Scrambler scrambler;
 	
 	public UpArrowPressedAction(KeyPresses kp, Fields f, Paint p, Scrambler s){
-		keyPresses = kp;
 		fields = f;
 		paint = p;
 		scrambler = s;

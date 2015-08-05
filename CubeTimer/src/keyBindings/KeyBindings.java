@@ -4,13 +4,13 @@ import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
 import cubetimer.Actions;
-import cubetimer.CloseOperation;
 import cubetimer.KeyPresses;
 import cubetimer.Paint;
 import cubetimer.Scrambler;
 import cubetimer.Stackmat;
 import fields.Fields;
 
+@SuppressWarnings("serial")
 public class KeyBindings extends JComponent{
 	
 	private Fields fields;
@@ -36,7 +36,7 @@ public class KeyBindings extends JComponent{
 		actions = actionsIn;
 		stackmat = stackmatIn;
 	
-		spaceAction = new SpaceKeyAction(kp, fields, paint, stackmat, scrambler);
+		spaceAction = new SpaceKeyAction(fields, paint, stackmat);
 		spaceReleasedAction = new SpaceReleasedAction(kp, fields, stackmat);
 		
 		escapeAction = new EscapeKeyPressedAction(kp, fields, paint);

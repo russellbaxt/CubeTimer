@@ -8,15 +8,14 @@ import cubetimer.KeyPresses;
 import cubetimer.Stackmat;
 import fields.Fields;
 
+@SuppressWarnings("serial")
 public class SpaceReleasedAction extends AbstractAction{
 	
-	private KeyPresses keyPresses;
 	private Fields fields;
 	private Stackmat stackmat;
 	
 	public SpaceReleasedAction(KeyPresses kp, Fields f, Stackmat sm){
 	
-		keyPresses = kp;
 		fields = f;
 		stackmat = sm;
 	}

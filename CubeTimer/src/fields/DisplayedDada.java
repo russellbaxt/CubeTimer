@@ -1,7 +1,5 @@
 package fields;
 
-import java.util.ArrayList;
-
 
 public class DisplayedDada{
 	

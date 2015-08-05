@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import fields.Fields;
 import keyBindings.KeyBindings;
 
+@SuppressWarnings("serial")
 public class Display extends JFrame implements WindowListener{
 	
 	private JPanel gp;

@@ -20,6 +20,7 @@ public class Actions{
 		
 		fields.allUsers.addUser(new User());
 		
+		@SuppressWarnings("resource")
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("What is your first Users Name?");
 		String userName = userInput.nextLine();
@@ -29,6 +30,7 @@ public class Actions{
 	
 	public static void addUser(Fields fields, Paint paint){
 		
+		@SuppressWarnings("resource")
 		Scanner userInput = new Scanner(System.in);
 		
 		System.out.println("What is your new users name?");
@@ -44,6 +46,7 @@ public class Actions{
 	
 	public static void changeUser(Fields fields, Paint paint){
 		
+		@SuppressWarnings("resource")
 		Scanner userInput = new Scanner(System.in);
 		
 		System.out.println("What is the name of user you would like to swich to?");
@@ -85,6 +88,7 @@ public class Actions{
 	
 	public static void renameCurrentUser(Fields fields, Paint paint){
 		
+		@SuppressWarnings("resource")
 		Scanner userInput = new Scanner(System.in);
 		
 		System.out.println("What is you users new name?");

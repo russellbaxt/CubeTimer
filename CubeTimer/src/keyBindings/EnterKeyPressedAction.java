@@ -14,16 +14,15 @@ import fields.Fields;
 import fields.TwistyPuzzleType;
 
 
+@SuppressWarnings("serial")
 public class EnterKeyPressedAction extends AbstractAction{
 	
-	private KeyPresses keyPresses;
 	private Fields fields;
 	private Paint paint;
 	private Scrambler scrambler;
 	private Actions actions;
 	
 	public EnterKeyPressedAction(KeyPresses kp, Fields f, Paint p, Scrambler s, Actions a){
-		keyPresses = kp;
 		fields = f;
 		paint = p;
 		scrambler = s;

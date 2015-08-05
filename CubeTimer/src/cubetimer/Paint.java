@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import fields.DisplayState;
 import fields.Fields;
 
+@SuppressWarnings("serial")
 public class Paint extends JPanel{
 	
 	Fields fields;

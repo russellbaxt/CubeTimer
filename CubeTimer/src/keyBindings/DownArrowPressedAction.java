@@ -10,16 +10,15 @@ import cubetimer.Scrambler;
 import fields.DisplayState;
 import fields.Fields;
 
+@SuppressWarnings("serial")
 public class DownArrowPressedAction extends AbstractAction{
 	
-	private KeyPresses keyPresses;
 	private Fields fields;
 	private Paint paint;
 	private Scrambler scrambler;
 	
 	public DownArrowPressedAction(KeyPresses kp, Fields f, Paint p, Scrambler s){
 	
-		keyPresses = kp;
 		fields = f;
 		paint = p;
 		scrambler = s;
