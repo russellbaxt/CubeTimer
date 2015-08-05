@@ -58,7 +58,6 @@ public class Main{
 			
 			
 			
-			AnotherClass.callMeMany(f, kp, t, p);
 		}
 	}
 

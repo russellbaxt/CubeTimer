@@ -36,6 +36,7 @@ public class Actions{
 		fields.allUsers.addUser(new User());
 		fields.allUsers.setCurrentUserIndex(fields.allUsers.getSize() - 1);
 		fields.allUsers.getUser().setUserName(userName);
+		fields.displayState = DisplayState.timer;
 		setAvarageOf5(fields, paint);
 		
 		paint.repaint();
@@ -82,13 +83,16 @@ public class Actions{
 		
 	}
 	
-	public static void renameCurrentUser(Fields fields){
+	public static void renameCurrentUser(Fields fields, Paint paint){
 		
 		Scanner userInput = new Scanner(System.in);
 		
 		System.out.println("What is you users new name?");
 		String userName = userInput.nextLine();
 		fields.allUsers.getUser().setUserName(userName);
+		fields.displayState = DisplayState.timer;
+		
+		paint.repaint();
 	}
 	
 	public static void addTime(Fields fields, Paint paint, double time){

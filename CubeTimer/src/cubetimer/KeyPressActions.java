@@ -1,5 +1,9 @@
 package cubetimer;
 
+import javax.swing.Timer;
+
+import swingTimerActions.AddUser;
+import swingTimerActions.RenameUser;
 import fields.DisplayState;
 import fields.Fields;
 import fields.TwistyPuzzleType;
@@ -46,7 +50,9 @@ public class KeyPressActions{
 		
 		paint.repaint();
 		
-		//TODO I think you will have to do more here since we are getting rid of that another class that get called while true
+		Timer timer = new Timer(0, new AddUser(fields, paint));
+		timer.setRepeats(false);
+		timer.start();
 	}
 	
 	public static void changeUserName(Fields fields, Paint paint){
@@ -57,6 +63,8 @@ public class KeyPressActions{
 		
 		paint.repaint();
 		
-		//TODO I think you will have to do more here since we are getting rid of that another class that gets called while true
+		Timer timer = new Timer(0, new RenameUser(fields, paint));
+		timer.setRepeats(false);
+		timer.start();
 	}
 }
