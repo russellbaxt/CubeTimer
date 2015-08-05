@@ -18,7 +18,6 @@ public class Main{
 	public static Scrambler s;
 	public static Stackmat t;
 	public static Actions a;
-	public static KeyPresses kp;
 	public static CloseOperation co;
 	public static Display d;
 	public static SwingTimer st;
@@ -35,7 +34,7 @@ public class Main{
 		t = new Stackmat(f, s, p, fw);
 		a = new Actions();
 		co = new CloseOperation(f);
-		d = new Display(co, kp, p, f, t, s, a);
+		d = new Display(co, p, f, t, s, a);
 		
 	
 		d.setSize(width, height);

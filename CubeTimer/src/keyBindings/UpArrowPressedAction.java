@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import cubetimer.KeyPresses;
 import cubetimer.Paint;
 import cubetimer.Scrambler;
 import fields.DisplayState;
@@ -18,7 +17,7 @@ public class UpArrowPressedAction extends AbstractAction{
 	private Paint paint;
 	private Scrambler scrambler;
 	
-	public UpArrowPressedAction(KeyPresses kp, Fields f, Paint p, Scrambler s){
+	public UpArrowPressedAction(Fields f, Paint p, Scrambler s){
 		fields = f;
 		paint = p;
 		scrambler = s;

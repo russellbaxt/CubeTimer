@@ -4,7 +4,6 @@ import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
 import cubetimer.Actions;
-import cubetimer.KeyPresses;
 import cubetimer.Paint;
 import cubetimer.Scrambler;
 import cubetimer.Stackmat;
@@ -27,7 +26,7 @@ public class KeyBindings extends JComponent{
 	private UpArrowPressedAction upAction;
 	private DownArrowPressedAction downAction;
 	
-	public KeyBindings(KeyPresses kp, Fields fieldsIn, Paint paintIn, Scrambler scramblerIn, Actions actionsIn,
+	public KeyBindings(Fields fieldsIn, Paint paintIn, Scrambler scramblerIn, Actions actionsIn,
 			Stackmat stackmatIn){
 		
 		fields = fieldsIn;
@@ -37,12 +36,12 @@ public class KeyBindings extends JComponent{
 		stackmat = stackmatIn;
 	
 		spaceAction = new SpaceKeyAction(fields, paint, stackmat);
-		spaceReleasedAction = new SpaceReleasedAction(kp, fields, stackmat);
+		spaceReleasedAction = new SpaceReleasedAction(fields, stackmat);
 		
-		escapeAction = new EscapeKeyPressedAction(kp, fields, paint);
-		enterAction = new EnterKeyPressedAction(kp, fields, paint, scrambler, actions);
-		upAction = new UpArrowPressedAction(kp, fields, paint, scrambler);
-		downAction = new DownArrowPressedAction(kp, fields, paint, scrambler);
+		escapeAction = new EscapeKeyPressedAction(fields, paint);
+		enterAction = new EnterKeyPressedAction(fields, paint, scrambler, actions);
+		upAction = new UpArrowPressedAction(fields, paint, scrambler);
+		downAction = new DownArrowPressedAction(fields, paint, scrambler);
 		
 		this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "SpacePressed");
 		this.getActionMap().put("SpacePressed", spaceAction);

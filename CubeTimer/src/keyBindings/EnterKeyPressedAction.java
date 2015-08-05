@@ -6,7 +6,6 @@ import javax.swing.AbstractAction;
 
 import cubetimer.Actions;
 import cubetimer.KeyPressActions;
-import cubetimer.KeyPresses;
 import cubetimer.Paint;
 import cubetimer.Scrambler;
 import fields.DisplayState;
@@ -22,7 +21,7 @@ public class EnterKeyPressedAction extends AbstractAction{
 	private Scrambler scrambler;
 	private Actions actions;
 	
-	public EnterKeyPressedAction(KeyPresses kp, Fields f, Paint p, Scrambler s, Actions a){
+	public EnterKeyPressedAction(Fields f, Paint p, Scrambler s, Actions a){
 		fields = f;
 		paint = p;
 		scrambler = s;

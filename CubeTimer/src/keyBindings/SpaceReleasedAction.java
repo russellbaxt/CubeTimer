@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import cubetimer.KeyPresses;
 import cubetimer.Stackmat;
 import fields.Fields;
 
@@ -14,7 +13,7 @@ public class SpaceReleasedAction extends AbstractAction{
 	private Fields fields;
 	private Stackmat stackmat;
 	
-	public SpaceReleasedAction(KeyPresses kp, Fields f, Stackmat sm){
+	public SpaceReleasedAction(Fields f, Stackmat sm){
 	
 		fields = f;
 		stackmat = sm;

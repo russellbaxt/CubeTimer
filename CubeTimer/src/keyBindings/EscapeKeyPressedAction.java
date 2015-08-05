@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import cubetimer.KeyPresses;
 import cubetimer.Paint;
 import fields.DisplayState;
 import fields.Fields;
@@ -16,7 +15,7 @@ public class EscapeKeyPressedAction extends AbstractAction{
 	private Fields fields;
 	private Paint paint;
 	
-	public EscapeKeyPressedAction(KeyPresses kp, Fields f, Paint p){
+	public EscapeKeyPressedAction(Fields f, Paint p){
 		fields = f;
 		paint = p;
 	}

@@ -22,14 +22,14 @@ public class Display extends JFrame implements WindowListener{
 	private Fields f;
 	private Paint p;
 	
-	public Display(CloseOperation coIn, KeyPresses kp, Paint pIn, Fields fIn, Stackmat sm, Scrambler s, Actions a){
+	public Display(CloseOperation coIn, Paint pIn, Fields fIn, Stackmat sm, Scrambler s, Actions a){
 	
 		co = coIn;
 		f = fIn;
 		p = pIn;
 		gp = (JPanel) getGlassPane();
 		gp.setVisible(true);
-		kb = new KeyBindings(kp, f, p, s, a, sm);
+		kb = new KeyBindings(f, p, s, a, sm);
 		gp.setLayout(new GridLayout(1, 1));
 		this.setLayout(new GridLayout(1, 1));
 		gp.add(p);

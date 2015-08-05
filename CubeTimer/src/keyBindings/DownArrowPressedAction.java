@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import cubetimer.KeyPresses;
 import cubetimer.Paint;
 import cubetimer.Scrambler;
 import fields.DisplayState;
@@ -17,7 +16,7 @@ public class DownArrowPressedAction extends AbstractAction{
 	private Paint paint;
 	private Scrambler scrambler;
 	
-	public DownArrowPressedAction(KeyPresses kp, Fields f, Paint p, Scrambler s){
+	public DownArrowPressedAction(Fields f, Paint p, Scrambler s){
 	
 		fields = f;
 		paint = p;
