@@ -2,6 +2,8 @@ package cubetimer;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -16,10 +18,14 @@ public class Display extends JFrame implements WindowListener{
 	private JPanel gp;
 	private KeyBindings kb;
 	private CloseOperation co;
+	private Fields f;
+	private Paint p;
 	
-	public Display(CloseOperation coIn, KeyPresses kp, Paint p, Fields f, Stackmat sm, Scrambler s, Actions a){
+	public Display(CloseOperation coIn, KeyPresses kp, Paint pIn, Fields fIn, Stackmat sm, Scrambler s, Actions a){
 	
 		co = coIn;
+		f = fIn;
+		p = pIn;
 		gp = (JPanel) getGlassPane();
 		gp.setVisible(true);
 		kb = new KeyBindings(kp, f, p, s, a, sm);
@@ -27,19 +33,28 @@ public class Display extends JFrame implements WindowListener{
 		this.setLayout(new GridLayout(1, 1));
 		gp.add(p);
 		this.add(kb);
+		
+		this.addComponentListener(new ComponentListener() {
 
-	}
-	
-	public int getWidth(){
-	
-		Dimension size = getSize();
-		return size.width;
-	}
-	
-	public int getHeight(){
-	
-		Dimension size = getSize();
-		return size.height;
+			public void componentHidden(ComponentEvent e){
+				
+			}
+
+			public void componentMoved(ComponentEvent e){
+				
+			}
+
+			public void componentResized(ComponentEvent e){
+				
+				Dimension size = getSize();
+				f.setScreenSize(size.width, size.height);
+			}
+
+			public void componentShown(ComponentEvent e){
+				
+			}
+		});
+
 	}
 	
 	public void close(){

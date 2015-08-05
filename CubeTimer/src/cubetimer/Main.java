@@ -51,11 +51,6 @@ public class Main{
 		d.setLocationRelativeTo(null);
 		d.addWindowListener(d);
 		
-		while(true){
-			width = d.getWidth();
-			height = d.getHeight();
-			f.setScreenSize(width, height);
-		}
 	}
 
 }
