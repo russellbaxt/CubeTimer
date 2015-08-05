@@ -39,7 +39,6 @@ public class Main{
 		s = new Scrambler(f, p);
 		t = new Stackmat(f, s, p, fw);
 		a = new Actions();
-//		kp = new KeyPresses(t, s, a, f, p);
 		co = new CloseOperation(f);
 		d = new Display(co, kp, p, f, t, s, a);
 		
@@ -59,7 +58,7 @@ public class Main{
 			
 			
 			
-//			AnotherClass.callMeMany(f, kp, t, p);
+			AnotherClass.callMeMany(f, kp, t, p);
 		}
 	}
 

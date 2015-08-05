@@ -13,6 +13,6 @@ public class CloseOperation{
 	
 	public void closeOperation(){
 		
-		fields.close = true;
+		System.exit(0);
 	}
 }

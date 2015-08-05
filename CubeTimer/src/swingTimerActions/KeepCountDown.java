@@ -18,7 +18,7 @@ public class KeepCountDown implements ActionListener{
 	public double countDownStart;
 	public Timer myTimer;
 	
-	public KeepCountDown(Fields fieldsIn, Paint paintIn, Timer myTimerIn){
+	public KeepCountDown(Fields fieldsIn, Paint paintIn){
 	
 		countDownStart = (double) System.currentTimeMillis() / 1000.0;
 		timeLeft = 15;
@@ -26,20 +26,24 @@ public class KeepCountDown implements ActionListener{
 		fields = fieldsIn;
 		paint = paintIn;
 		fields.displayedDada.time = Integer.toString(timeLeft);
-		myTimer = myTimerIn;
 		
 		paint.repaint();
 	}
 	
 	public void actionPerformed(ActionEvent e){
-	
-		System.out.println("Hi");
 		
 		timeLeft --;
 		
 		if(timeLeft > 0){
 			
-			fields.displayedDada.time = Integer.toString(timeLeft);
+			if(plusTwo){
+				fields.displayedDada.time = "+2";
+			}
+			
+			else{
+				fields.displayedDada.time = Integer.toString(timeLeft);
+			}
+			
 		}
 		
 		else{
@@ -49,9 +53,6 @@ public class KeepCountDown implements ActionListener{
 				fields.displayedDada.time = "DNF";
 				fields.penalty.DNF = true;
 				fields.penalty.timePenalty = 0;
-				Actions.addTime(fields, paint, 0.0);
-				fields.timerStatus.countDownRunning = false;
-				myTimer.stop();
 			}
 			
 			else{
