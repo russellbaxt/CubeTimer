@@ -55,9 +55,6 @@ public class Main{
 			width = d.getWidth();
 			height = d.getHeight();
 			f.setScreenSize(width, height);
-			
-			
-			
 		}
 	}
 
