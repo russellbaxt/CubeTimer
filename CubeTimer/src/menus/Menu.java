@@ -12,10 +12,9 @@ public class Menu{
 	private boolean changeScrambleLength;
 	private boolean deleteLastSolve;
 	private boolean newScramble;
+	private boolean timeMenu;
 	private boolean options;
-	
 	private boolean exit;
-	
 	private boolean quit;
 	
 	public Menu(){
@@ -29,6 +28,7 @@ public class Menu{
 		changeScrambleLength = false;
 		deleteLastSolve = false;
 		newScramble = false;
+		timeMenu = false;
 		options = false;
 		exit = false;
 		quit = false;
@@ -40,6 +40,7 @@ public class Menu{
 		userMenu = false;
 		changeScrambleLength = false;
 		newScramble = false;
+		timeMenu = false;
 		options = false;
 		exit = false;
 		quit = false;
@@ -69,6 +70,11 @@ public class Menu{
 		
 		else if(newScramble){
 			newScramble = false;
+			timeMenu = true;
+		}
+		
+		else if(timeMenu){
+			timeMenu = false;
 			options = true;
 		}
 		
@@ -115,9 +121,14 @@ public class Menu{
 			deleteLastSolve = true;
 		}
 		
+		else if(timeMenu){
+			timeMenu = false;
+			newScramble = true;
+		}
+		
 		else if(options){
 			options = false;
-			newScramble = true;
+			timeMenu = true;
 		}
 	
 		else if(exit){
@@ -154,6 +165,11 @@ public class Menu{
 	public boolean getNewScramble(){
 	
 		return newScramble;
+	}
+	
+	public boolean getTimeMenu(){
+		
+		return timeMenu;
 	}
 	
 	public boolean getOptions(){

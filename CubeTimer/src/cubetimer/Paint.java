@@ -89,14 +89,15 @@ public class Paint extends JPanel {
 		String[] menuItems =
 				new String[] { "Change Twisty Puzzle", "User Menu",
 						"Change Scramble Lenght", "Delete Last Solve",
-						"New Scramble", "Options", "Exit", "Quit" };
+						"New Scramble", "TimeMenu", "Options", "Exit", "Quit" };
 
 		Boolean[] greenText =
 				new Boolean[] { fields.menu.getChangeTwistyPuzzle(),
 						fields.menu.getUserMenu(),
 						fields.menu.getChangeScrambleLenght(),
 						fields.menu.getDeleteLastSolve(),
-						fields.menu.getNewScramble(), fields.menu.getOptions(),
+						fields.menu.getNewScramble(),
+						fields.menu.getTimeMenu(), fields.menu.getOptions(),
 						fields.menu.getExit(), fields.menu.getQuit() };
 
 		Images.drawMenuList(menuItems, fields.windowSize.windowWidth / 16,
