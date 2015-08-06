@@ -3,8 +3,6 @@ package swingTimerActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Timer;
-
 import cubetimer.Paint;
 import fields.Fields;
 
@@ -14,7 +12,6 @@ public class KeepCountDown implements ActionListener{
 	private int timeLeft;
 	private Fields fields;
 	private Paint paint;
-	private Timer myTimer;
 	private boolean DNF;
 	
 	public KeepCountDown(Fields fieldsIn, Paint paintIn){

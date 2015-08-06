@@ -19,8 +19,6 @@ public class Stackmat {
 	private KeepCountDown keepCountDown;
 	private KeepTime keepTime;
 
-	private double timeSeconds;
-
 	public Stackmat(Fields f, Scrambler scramblerIn, Paint paintIn,
 			FileWriter fileWriterIn) {
 
@@ -28,8 +26,6 @@ public class Stackmat {
 		scrambler = scramblerIn;
 		paint = paintIn;
 		fileWriter = fileWriterIn;
-
-		timeSeconds = 0;
 
 	}
 

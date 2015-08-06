@@ -1,14 +1,10 @@
 package savedDada;
 
-import java.util.ArrayList;
-
 import fields.TwistyPuzzleType;
 
 public class User{
 	
 	private String userName;
-	
-	private ArrayList<Double> last5SolvesForAvarageOf5;
 	
 	private TwistyPuzzleType currentTwistyPuzzleType;
 	

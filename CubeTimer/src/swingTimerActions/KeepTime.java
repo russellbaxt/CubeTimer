@@ -3,7 +3,6 @@ package swingTimerActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import savedDada.Time;
 import cubetimer.Paint;
 import fields.Fields;
 
