@@ -14,16 +14,17 @@ import fields.Fields;
 import keyBindings.KeyBindings;
 
 @SuppressWarnings("serial")
-public class Display extends JFrame implements WindowListener{
-	
+public class Display extends JFrame implements WindowListener {
+
 	private JPanel gp;
 	private KeyBindings kb;
 	private CloseOperation co;
 	private Fields f;
 	private Paint p;
-	
-	public Display(CloseOperation coIn, Paint pIn, Fields fIn, Stackmat sm, Scrambler s, Actions a){
-	
+
+	public Display(CloseOperation coIn, Paint pIn, Fields fIn, Stackmat sm,
+			Scrambler s, Actions a) {
+
 		co = coIn;
 		f = fIn;
 		p = pIn;
@@ -34,60 +35,60 @@ public class Display extends JFrame implements WindowListener{
 		this.setLayout(new GridLayout(1, 1));
 		gp.add(p);
 		this.add(kb);
-		
+
 		this.addComponentListener(new ComponentListener() {
 
-			public void componentHidden(ComponentEvent e){
-				
+			public void componentHidden(ComponentEvent e) {
+
 			}
 
-			public void componentMoved(ComponentEvent e){
-				
+			public void componentMoved(ComponentEvent e) {
+
 			}
 
-			public void componentResized(ComponentEvent e){
-				
+			public void componentResized(ComponentEvent e) {
+
 				Dimension size = getSize();
 				f.setScreenSize(size.width, size.height);
 			}
 
-			public void componentShown(ComponentEvent e){
-				
+			public void componentShown(ComponentEvent e) {
+
 			}
 		});
 
 	}
-	
-	public void close(){
+
+	public void close() {
 		System.exit(0);
 	}
 
 	public void windowActivated(WindowEvent e) {
-		
+
 	}
 
 	public void windowClosed(WindowEvent e) {
-		
+
 	}
 
 	public void windowClosing(WindowEvent e) {
 		co.closeOperation();
-		
+
 	}
 
 	public void windowDeactivated(WindowEvent e) {
-		
+
 	}
 
 	public void windowDeiconified(WindowEvent e) {
-		
+
 	}
 
 	public void windowIconified(WindowEvent e) {
-		
+
 	}
 
 	public void windowOpened(WindowEvent e) {
-		
+
 	}
 }

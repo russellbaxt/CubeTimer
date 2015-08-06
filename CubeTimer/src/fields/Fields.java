@@ -8,7 +8,6 @@ public class Fields{
 	public DisplayedDada displayedDada;
 	public TimerStatus timerStatus;
 	public WindowSize windowSize;
-	public Penalty penalty;
 	
 	public boolean close;
 	
@@ -30,7 +29,6 @@ public class Fields{
 		displayedDada = new DisplayedDada();
 		timerStatus = new TimerStatus();
 		windowSize = new WindowSize();
-		penalty = new Penalty();
 		allUsers = new AllUsers();
 		
 		menu = new Menu();

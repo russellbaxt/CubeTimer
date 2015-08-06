@@ -20,11 +20,8 @@ public class Main{
 	public static Actions a;
 	public static CloseOperation co;
 	public static Display d;
-	public static SwingTimer st;
 	
 	public static void main(String[] args){
-		
-		st = new SwingTimer();
 		
 		f = new Fields();
 		Actions.callUponOpen(f);

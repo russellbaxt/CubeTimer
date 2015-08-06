@@ -23,7 +23,6 @@ public class KeyPressActions{
 			Paint paint){
 	
 		fields.allUsers.getUser().setTwistyPuzzleType(twistyPuzzleType);
-		Actions.setAvarageOf5(fields, paint);
 		
 		if(twistyPuzzleType == TwistyPuzzleType.megaMinx){
 			fields.displayedDada.scrambleDada.scrambleLenght = 40;

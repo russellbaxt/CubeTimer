@@ -23,33 +23,17 @@ public class Images{
 		
 	}
 	
-	public static void typeStringListOfTimesGoingDown(ArrayList<Double> arrayList, int x, int y, int fontSize,
+	public static void typeTimes(ArrayList<String> arrayList, int x, int y, int fontSize,
 			Graphics g){
-	
-		int timeMinutes;
-		@SuppressWarnings("unchecked")
-		ArrayList<Double> list = (ArrayList<Double>) arrayList.clone();
 		
 		Font font = new Font("Arial", Font.PLAIN, fontSize);
 		g.setFont(font);
 		g.setColor(Color.BLACK);
 		
-		for(int i = 0; i < list.size(); i ++){
+		for(int i = 0; i < arrayList.size(); i ++){
 			
-			if(list.get(i) > 0){
-				timeMinutes = 0;
-				while(list.get(i) > 60){
-					timeMinutes = timeMinutes + 1;
-					list.set(i, list.get(i) - 60.0);
-				}
-				
-				g.drawString(Integer.toString(timeMinutes) + ":" + (String.format("%.2f", (double) list.get(i))), x, y
-						+ (i * fontSize));
-			}
-			
-			else{
-				g.drawString("DNF", x, y + (i * fontSize));
-			}
+			g.drawString(arrayList.get(i), x, y
+					+ (i * fontSize));
 		}
 	}
 	

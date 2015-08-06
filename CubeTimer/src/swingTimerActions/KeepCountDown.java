@@ -10,18 +10,17 @@ import fields.Fields;
 
 public class KeepCountDown implements ActionListener{
 	
-	public boolean plusTwo;
-	public int timeLeft;
-	public Fields fields;
-	public Paint paint;
-	public double countDownStart;
-	public Timer myTimer;
+	private boolean plus2;
+	private int timeLeft;
+	private Fields fields;
+	private Paint paint;
+	private Timer myTimer;
+	private boolean DNF;
 	
 	public KeepCountDown(Fields fieldsIn, Paint paintIn){
 	
-		countDownStart = (double) System.currentTimeMillis() / 1000.0;
 		timeLeft = 15;
-		plusTwo = false;
+		plus2 = false;
 		fields = fieldsIn;
 		paint = paintIn;
 		fields.displayedDada.time = Integer.toString(timeLeft);
@@ -35,7 +34,7 @@ public class KeepCountDown implements ActionListener{
 		
 		if(timeLeft > 0){
 			
-			if(plusTwo){
+			if(plus2){
 				fields.displayedDada.time = "+2";
 			}
 			
@@ -47,22 +46,38 @@ public class KeepCountDown implements ActionListener{
 		
 		else{
 			
-			if(plusTwo){
+			if(plus2){
 				
 				fields.displayedDada.time = "DNF";
-				fields.penalty.DNF = true;
-				fields.penalty.timePenalty = 0;
+				DNF = true;
 			}
 			
 			else{
 				
 				fields.displayedDada.time = "+2";
 				timeLeft = 2;
-				fields.penalty.timePenalty = 2;
-				plusTwo = true;
+				plus2 = true;
 			}
 		}
 		
 		paint.repaint();
+	}
+	
+	public int getPenalty(){
+		
+		if(plus2){
+			
+			return 2;
+		}
+		
+		else{
+			
+			return 0;
+		}
+	}
+	
+	public boolean getDNF(){
+		
+		return DNF;
 	}
 }

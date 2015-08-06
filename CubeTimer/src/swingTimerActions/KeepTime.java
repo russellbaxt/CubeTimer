@@ -3,33 +3,39 @@ package swingTimerActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import savedDada.Time;
 import cubetimer.Paint;
 import fields.Fields;
 
-public class KeepTime implements ActionListener{
-	
+public class KeepTime implements ActionListener {
+
 	public Fields fields;
 	public Paint paint;
-	
+
 	public double startTime;
 	public double currentTime;
-	
+
 	public double timeSeconds;
 	public int timeMinutes;
-	
-	public KeepTime(Fields fieldsIn, Paint paintIn){
-	
+
+	public KeepCountDown keepCountDown;
+
+	public KeepTime(Fields fieldsIn, Paint paintIn,
+			KeepCountDown keepCountDownIn) {
+
 		fields = fieldsIn;
 		paint = paintIn;
-		
+
 		startTime = (double) System.currentTimeMillis() / 1000.0;
-		
+
 		fields.displayedDada.time = "0.00";
 		
+		keepCountDown = keepCountDownIn;
+
 		paint.repaint();
 	}
-	
-	public double getEndResultForSaving(){
+
+	public double getEndTimeResult(){
 		
 		currentTime = (double) System.currentTimeMillis() / 1000.0;
 		
@@ -38,7 +44,7 @@ public class KeepTime implements ActionListener{
 		
 		double timeInSecondsToBeReturned = timeSeconds;
 		
-		timeSeconds = timeSeconds + fields.penalty.timePenalty;
+		timeSeconds = timeSeconds + keepCountDown.getPenalty() ;
 		
 		if(timeSeconds >= 60){
 			
@@ -60,30 +66,32 @@ public class KeepTime implements ActionListener{
 		
 		return timeInSecondsToBeReturned;
 	}
-	
-	public void actionPerformed(ActionEvent e){
-	
+
+	public void actionPerformed(ActionEvent e) {
+
 		currentTime = (double) System.currentTimeMillis() / 1000.0;
-		
+
 		timeSeconds = currentTime - startTime;
 		timeMinutes = 0;
-		
-		if(timeSeconds >= 60){
-			
+
+		if (timeSeconds >= 60) {
+
 			timeSeconds -= 60;
-			timeMinutes ++;
+			timeMinutes++;
 		}
-		
-		if(timeMinutes > 0){
-			
-			fields.displayedDada.time = String.format("%.2f", timeSeconds) + ":" + Integer.toString(timeMinutes);
+
+		if (timeMinutes > 0) {
+
+			fields.displayedDada.time =
+					String.format("%.2f", timeSeconds) + ":"
+							+ Integer.toString(timeMinutes);
 		}
-		
-		else{
+
+		else {
 			fields.displayedDada.time = String.format("%.2f", timeSeconds);
 		}
-		
+
 		paint.repaint();
 	}
-	
+
 }
