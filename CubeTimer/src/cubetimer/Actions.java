@@ -12,21 +12,21 @@ import javax.swing.Timer;
 import fields.DisplayState;
 import fields.Fields;
 import fields.TwistyPuzzleType;
-import savedDada.User;
+import savedData.User;
 import swingTimerActions.ChangeUser;
 
 public class Actions {
 
 	public static void callUponOpen(Fields fields) {
 
-		fields.allUsers.addUser(new User());
+		fields.getAllUsers().addUser(new User());
 
 		@SuppressWarnings("resource")
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("What is your first Users Name?");
 		String userName = userInput.nextLine();
-		fields.allUsers.getUser(0).setUserName(userName);
-		fields.allUsers.setCurrentUserIndex(0);
+		fields.getAllUsers().getUser(0).setUserName(userName);
+		fields.getAllUsers().setCurrentUserIndex(0);
 	}
 
 	public static void addUser(Fields fields, Paint paint) {
@@ -36,11 +36,11 @@ public class Actions {
 
 		System.out.println("What is your new users name?");
 		String userName = userInput.nextLine();
-		fields.allUsers.addUser(new User());
-		fields.allUsers.setCurrentUserIndex(fields.allUsers.getSize() - 1);
-		fields.allUsers.getUser().setUserName(userName);
-		fields.displayState = DisplayState.timer;
-		fields.allUsers.getUser().getTwistyPuzzle().setLastAvarageOf5();
+		fields.getAllUsers().addUser(new User());
+		fields.getAllUsers().setCurrentUserIndex(fields.getAllUsers().getSize() - 1);
+		fields.getAllUsers().getUser().setUserName(userName);
+		fields.setDisplayState(DisplayState.timer);
+		fields.getAllUsers().getUser().getTwistyPuzzle().setLastAvarageOf5();
 
 		paint.repaint();
 	}
@@ -54,35 +54,35 @@ public class Actions {
 				.println("What is the name of user you would like to swich to?");
 		String userName = userInput.nextLine();
 
-		if (fields.allUsers.getIndexOfUserWithUserName(userName) < 0) {
+		if (fields.getAllUsers().getIndexOfUserWithUserName(userName) < 0) {
 			System.out
 					.println("That user does not exist. You may have typed it wrong. Good luck if you try again.");
 		} else {
-			fields.allUsers.setCurrentUserUsingUserName(userName);
+			fields.getAllUsers().setCurrentUserUsingUserName(userName);
 		}
 
-		fields.allUsers.getUser().getTwistyPuzzle().setLastAvarageOf5();
+		fields.getAllUsers().getUser().getTwistyPuzzle().setLastAvarageOf5();
 
 		paint.repaint();
 	}
 
 	public static void deleteCurrentUser(Fields fields, Paint paint) {
 
-		if (fields.allUsers.getSize() > 1) {
+		if (fields.getAllUsers().getSize() > 1) {
 
-			fields.allUsers.remove();
+			fields.getAllUsers().remove();
 
 			paint.repaint();
 
 			Timer changeUser = new Timer(0, new ChangeUser(fields));
 			changeUser.setRepeats(false);
 
-			fields.displayState = DisplayState.changeUser;
+			fields.setDisplayState(DisplayState.changeUser);
 		}
 
 		else {
 
-			fields.displayState = DisplayState.timer;
+			fields.setDisplayState(DisplayState.timer);
 			paint.repaint();
 		}
 
@@ -95,8 +95,8 @@ public class Actions {
 
 		System.out.println("What is you users new name?");
 		String userName = userInput.nextLine();
-		fields.allUsers.getUser().setUserName(userName);
-		fields.displayState = DisplayState.timer;
+		fields.getAllUsers().getUser().setUserName(userName);
+		fields.setDisplayState(DisplayState.timer);
 
 		paint.repaint();
 	}
@@ -106,13 +106,13 @@ public class Actions {
 		Random random = new Random();
 
 		int randomNumber = random.nextInt(TwistyPuzzleType.values().length);
-		fields.allUsers.getUser().setTwistyPuzzleType(
+		fields.getAllUsers().getUser().setTwistyPuzzleType(
 				TwistyPuzzleType.values()[randomNumber]);
 
-		if (fields.allUsers.getUser().getTwistyPuzzleType() == TwistyPuzzleType.megaMinx) {
-			fields.displayedDada.scrambleDada.scrambleLenght = 40;
+		if (fields.getAllUsers().getUser().getTwistyPuzzleType() == TwistyPuzzleType.megaMinx) {
+			fields.getDisplayedData().getScrambleData().setScrambleLenght(40);
 		} else {
-			fields.displayedDada.scrambleDada.scrambleLenght = 20;
+			fields.getDisplayedData().getScrambleData().setScrambleLenght(20);
 		}
 
 	}
@@ -122,26 +122,21 @@ public class Actions {
 
 		if (randomScramble.contains("/n")) {
 
-			fields.displayedDada.scrambleDada.randomScrambleAfterSplit =
-					randomScramble.split("/n");
-			fields.displayedDada.scrambleDada.scrambleSize =
-					fields.displayedDada.scrambleDada.randomScrambleAfterSplit[0]
-							.length() / 2.0 + 4.0;
-			fields.displayedDada.scrambleDada.useStringListForRandomScramble =
-					true;
+			fields.getDisplayedData().getScrambleData().setRandomScrambleAfterSplit(randomScramble.split("/n"));
+			fields.getDisplayedData().getScrambleData().setScrambleSize(fields.getDisplayedData().getScrambleData().getRandomScrambleAfterSplit()[0]
+					.length() / 2.0 + 4.0);
+			fields.getDisplayedData().getScrambleData().setUseStringListForRandomScramble(true);
 		}
 
 		else {
 
-			fields.displayedDada.scrambleDada.randomScramble = randomScramble;
-			fields.displayedDada.scrambleDada.scrambleSize =
-					randomScramble.length() / 2.0 + 4.0;
-			fields.displayedDada.scrambleDada.useStringListForRandomScramble =
-					false;
+			fields.getDisplayedData().getScrambleData().setRandomScramble(randomScramble);
+			fields.getDisplayedData().getScrambleData().setScrambleSize(randomScramble.length() / 2.0 + 4.0);
+			fields.getDisplayedData().getScrambleData().setUseStringListForRandomScramble(false);
 		}
 
-		if (fields.displayedDada.scrambleDada.scrambleSize < 4.0) {
-			fields.displayedDada.scrambleDada.scrambleSize = 4.0;
+		if (fields.getDisplayedData().getScrambleData().getScrambleSize() < 4.0) {
+			fields.getDisplayedData().getScrambleData().setScrambleSize(4.0);
 		}
 	}
 

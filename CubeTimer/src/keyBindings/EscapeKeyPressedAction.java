@@ -22,8 +22,8 @@ public class EscapeKeyPressedAction extends AbstractAction{
 
 	public void actionPerformed(ActionEvent e){
 	
-		if(fields.displayState == DisplayState.timer){
-			fields.displayState = DisplayState.menu;
+		if(fields.getDisplayState() == DisplayState.timer){
+			fields.setDisplayState(DisplayState.menu);
 		}
 		
 		paint.repaint();

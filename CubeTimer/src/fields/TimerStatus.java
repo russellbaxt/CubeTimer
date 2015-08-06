@@ -3,12 +3,28 @@ package fields;
 
 public class TimerStatus{
 	
-	public boolean running;
-	public boolean countDownRunning;
+	private boolean running;
+	private boolean countDownRunning;
 	
 	public TimerStatus(){
-		running = false;
-		countDownRunning = false;
+		setRunning(false);
+		setCountDownRunning(false);
+	}
+
+	public boolean getCountDownRunning() {
+		return countDownRunning;
+	}
+
+	public void setCountDownRunning(boolean countDownRunningIn) {
+		countDownRunning = countDownRunningIn;
+	}
+
+	public boolean getRunning() {
+		return running;
+	}
+
+	public void setRunning(boolean runningIn) {
+		running = runningIn;
 	}
 	
 }

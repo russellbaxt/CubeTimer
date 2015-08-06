@@ -26,30 +26,30 @@ public class DownArrowPressedAction extends AbstractAction{
 	
 	public void actionPerformed(ActionEvent e){
 	
-		if(fields.displayState == DisplayState.menu){
-			fields.menu.downOne();
+		if(fields.getDisplayState() == DisplayState.menu){
+			fields.getMenu().downOne();
 		}
 		
-		else if(fields.displayState == DisplayState.changeTwistyPuzzle){
-			fields.menu.twistyPuzzleMenu.downOne();
+		else if(fields.getDisplayState() == DisplayState.changeTwistyPuzzle){
+			fields.getMenu().getTwistyPuzzleMenu().downOne();
 		}
 		
-		else if(fields.displayState == DisplayState.userMenu){
-			fields.menu.userActionsMenu.downOne();
+		else if(fields.getDisplayState() == DisplayState.userMenu){
+			fields.getMenu().getUserActionsMenu().downOne();
 		}
 		
-		else if(fields.displayState == DisplayState.changeScrambleLenght){
+		else if(fields.getDisplayState() == DisplayState.changeScrambleLenght){
 			
-			if(fields.displayedDada.scrambleDada.scrambleLenght > 1){
-				fields.displayedDada.scrambleDada.scrambleLenght --;
+			if(fields.getDisplayedData().getScrambleData().getScrambleLenght() > 1){
+				fields.getDisplayedData().getScrambleData().setScrambleLenght(fields.getDisplayedData().getScrambleData().getScrambleLenght() - 1);
 			}
 			
 			scrambler.randomCorrectScrambleInFieldsUsingFields();
 		}
 		
-		else if(fields.displayState == DisplayState.changeUser){
+		else if(fields.getDisplayState() == DisplayState.changeUser){
 			
-			fields.menu.userActionsMenu.userMenuDownOne(fields.allUsers.getSize());
+			fields.getMenu().getUserActionsMenu().userMenuDownOne(fields.getAllUsers().getSize());
 		}
 		paint.repaint();
 	}

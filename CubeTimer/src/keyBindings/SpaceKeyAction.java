@@ -23,17 +23,17 @@ public class SpaceKeyAction extends AbstractAction{
 	
 	public void actionPerformed(ActionEvent e){
 	
-		if(fields.timerStatus.running){
+		if(fields.getTimerStatus().getRunning()){
 			
-			fields.ignoreNextRelese = true;
+			fields.setIgnoreNextRelese(true);
 			stackmat.stopTimer();
 
 		}
 		else{
 			
-			if(! fields.ignoreNextRelese){
+			if(! fields.getIgnoreNextRelese()){
 				
-				fields.greenText = true;
+				fields.setGreenText(true);
 			}
 		}
 		

@@ -6,75 +6,75 @@ import java.awt.event.ActionListener;
 import cubetimer.Paint;
 import fields.Fields;
 
-public class KeepCountDown implements ActionListener{
-	
+public class KeepCountDown implements ActionListener {
+
 	private boolean plus2;
 	private int timeLeft;
 	private Fields fields;
 	private Paint paint;
 	private boolean DNF;
-	
-	public KeepCountDown(Fields fieldsIn, Paint paintIn){
-	
+
+	public KeepCountDown(Fields fieldsIn, Paint paintIn) {
+
 		timeLeft = 15;
 		plus2 = false;
 		fields = fieldsIn;
 		paint = paintIn;
-		fields.displayedDada.time = Integer.toString(timeLeft);
-		
+		fields.getDisplayedData().setTime(Integer.toString(timeLeft));
+
 		paint.repaint();
 	}
-	
-	public void actionPerformed(ActionEvent e){
-		
-		timeLeft --;
-		
-		if(timeLeft > 0){
-			
-			if(plus2){
-				fields.displayedDada.time = "+2";
+
+	public void actionPerformed(ActionEvent e) {
+
+		timeLeft--;
+
+		if (timeLeft > 0) {
+
+			if (plus2) {
+				fields.getDisplayedData().setTime("+2");
 			}
-			
-			else{
-				fields.displayedDada.time = Integer.toString(timeLeft);
+
+			else {
+				fields.getDisplayedData().setTime("+2");
 			}
-			
+
 		}
-		
-		else{
-			
-			if(plus2){
-				
-				fields.displayedDada.time = "DNF";
+
+		else {
+
+			if (plus2) {
+
+				fields.getDisplayedData().setTime("DNF");
 				DNF = true;
 			}
-			
-			else{
-				
-				fields.displayedDada.time = "+2";
+
+			else {
+
+				fields.getDisplayedData().setTime("+2");
 				timeLeft = 2;
 				plus2 = true;
 			}
 		}
-		
+
 		paint.repaint();
 	}
-	
-	public int getPenalty(){
-		
-		if(plus2){
-			
+
+	public int getPenalty() {
+
+		if (plus2) {
+
 			return 2;
 		}
-		
-		else{
-			
+
+		else {
+
 			return 0;
 		}
 	}
-	
-	public boolean getDNF(){
-		
+
+	public boolean getDNF() {
+
 		return DNF;
 	}
 }

@@ -27,42 +27,43 @@ public class KeepTime implements ActionListener {
 
 		startTime = (double) System.currentTimeMillis() / 1000.0;
 
-		fields.displayedDada.time = "0.00";
-		
+		fields.getDisplayedData().setTime("0.00");
+
 		keepCountDown = keepCountDownIn;
 
 		paint.repaint();
 	}
 
-	public double getEndTimeResult(){
-		
+	public double getEndTimeResult() {
+
 		currentTime = (double) System.currentTimeMillis() / 1000.0;
-		
+
 		timeSeconds = currentTime - startTime;
 		timeMinutes = 0;
-		
+
 		double timeInSecondsToBeReturned = timeSeconds;
-		
-		timeSeconds = timeSeconds + keepCountDown.getPenalty() ;
-		
-		if(timeSeconds >= 60){
-			
+
+		timeSeconds = timeSeconds + keepCountDown.getPenalty();
+
+		if (timeSeconds >= 60) {
+
 			timeSeconds -= 60;
-			timeMinutes ++;
+			timeMinutes++;
 		}
-		
-		if(timeMinutes > 0){
-			
-			fields.displayedDada.time = String.format("%.2f", timeSeconds + ":" + Integer.toString(timeMinutes));
+
+		if (timeMinutes > 0) {
+
+			fields.getDisplayedData().setTime(String.format("%.2f", timeSeconds
+					+ ":" + Integer.toString(timeMinutes)));
 		}
-		
-		else{
-			
-			fields.displayedDada.time = String.format("%.2f", timeSeconds);
+
+		else {
+
+			fields.getDisplayedData().setTime(String.format("%.2f", timeSeconds));
 		}
-		
+
 		paint.repaint();
-		
+
 		return timeInSecondsToBeReturned;
 	}
 
@@ -81,13 +82,12 @@ public class KeepTime implements ActionListener {
 
 		if (timeMinutes > 0) {
 
-			fields.displayedDada.time =
-					String.format("%.2f", timeSeconds) + ":"
-							+ Integer.toString(timeMinutes);
+			fields.getDisplayedData().setTime(String.format("%.2f", timeSeconds)
+					+ ":" + Integer.toString(timeMinutes));
 		}
 
 		else {
-			fields.displayedDada.time = String.format("%.2f", timeSeconds);
+			fields.getDisplayedData().setTime(String.format("%.2f", timeSeconds));
 		}
 
 		paint.repaint();

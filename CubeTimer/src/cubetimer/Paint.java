@@ -12,7 +12,7 @@ import fields.Fields;
 @SuppressWarnings("serial")
 public class Paint extends JPanel {
 
-	Fields fields;
+	private Fields fields;
 
 	public Paint(Fields f) {
 
@@ -21,67 +21,67 @@ public class Paint extends JPanel {
 
 	private void consoleRequiresAttention(Graphics g) {
 
-		Images.drawBackGround(Color.GRAY, fields.windowSize.windowWidth,
-				fields.windowSize.windowHeight, g);
+		Images.drawBackGround(Color.GRAY, fields.getWindowSize().getWindowWidth(),
+				fields.getWindowSize().getWindowHeight(), g);
 		Images.typeString("The Console Requires", 0,
-				fields.windowSize.windowHeight / 2
-						- fields.windowSize.windowWidth / 28,
-				fields.windowSize.windowWidth / 14, false, g);
-		Images.typeString("Your Attention", 0, fields.windowSize.windowHeight
-				/ 2 + fields.windowSize.windowWidth / 28,
-				fields.windowSize.windowWidth / 14, false, g);
+				fields.getWindowSize().getWindowHeight() / 2
+						- fields.getWindowSize().getWindowWidth() / 28,
+				fields.getWindowSize().getWindowWidth() / 14, false, g);
+		Images.typeString("Your Attention", 0, fields.getWindowSize().getWindowHeight()
+				/ 2 + fields.getWindowSize().getWindowWidth() / 28,
+				fields.getWindowSize().getWindowWidth() / 14, false, g);
 
-		fields.paintComponentDone = true;
+		fields.setPaintComponentDone(true);
 	}
 
 	private void timer(Graphics g) {
 
-		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth,
-				fields.windowSize.windowHeight, g);
+		Images.drawBackGround(Color.WHITE, fields.getWindowSize().getWindowWidth(),
+				fields.getWindowSize().getWindowHeight(), g);
 
-		Images.typeString(fields.displayedDada.time,
-				fields.windowSize.windowWidth / 2 - 100,
-				fields.windowSize.windowHeight / 2,
-				fields.windowSize.windowWidth / 14, fields.greenText, g);
+		Images.typeString(fields.getDisplayedData().getTime(),
+				fields.getWindowSize().getWindowWidth() / 2 - 100,
+				fields.getWindowSize().getWindowHeight() / 2,
+				fields.getWindowSize().getWindowWidth() / 14, fields.getGreenText(), g);
 
-		if (fields.displayedDada.scrambleDada.useStringListForRandomScramble) {
+		if (fields.getDisplayedData().getScrambleData().getUseStringListForRandomScramble()) {
 			Images.typeStringListCentered(
-					fields.displayedDada.scrambleDada.randomScrambleAfterSplit,
-					fields.windowSize.windowWidth / 15,
-					fields.windowSize.windowHeight / 4,
-					(int) (fields.windowSize.windowWidth / fields.displayedDada.scrambleDada.scrambleSize),
+					fields.getDisplayedData().getScrambleData().getRandomScrambleAfterSplit(),
+					fields.getWindowSize().getWindowWidth() / 15,
+					fields.getWindowSize().getWindowHeight() / 4,
+					(int) (fields.getWindowSize().getWindowWidth() / fields.getDisplayedData().getScrambleData().getScrambleSize()),
 					g);
 		} else {
 			Images.typeString(
-					fields.displayedDada.scrambleDada.randomScramble,
-					fields.windowSize.windowWidth / 15,
-					fields.windowSize.windowHeight / 4,
-					(int) (fields.windowSize.windowWidth / fields.displayedDada.scrambleDada.scrambleSize),
+					fields.getDisplayedData().getScrambleData().getRandomScramble(),
+					fields.getWindowSize().getWindowWidth() / 15,
+					fields.getWindowSize().getWindowHeight() / 4,
+					(int) (fields.getWindowSize().getWindowWidth() / fields.getDisplayedData().getScrambleData().getScrambleSize()),
 					false, g);
 		}
 
-		Images.typeTimes(fields.allUsers.getUser().getTwistyPuzzle()
-				.getAllSolves(), 0, fields.windowSize.windowWidth / 56,
-				fields.windowSize.windowWidth / 56, g);
+		Images.typeTimes(fields.getAllUsers().getUser().getTwistyPuzzle()
+				.getAllSolves(), 0, fields.getWindowSize().getWindowWidth() / 56,
+				fields.getWindowSize().getWindowWidth() / 56, g);
 		Images.typeString(
-				fields.allUsers.getUser().getTwistyPuzzle().getAvarageOf5(),
+				fields.getAllUsers().getUser().getTwistyPuzzle().getAvarageOf5(),
 				0,
-				(int) (fields.windowSize.windowHeight - (30 + fields.windowSize.windowWidth / 56)),
-				fields.windowSize.windowWidth / 56, false, g);
-		Images.typeString(fields.allUsers.getUser().getUserName(),
-				(int) (fields.windowSize.windowWidth / 1.2 - 20.0),
-				fields.windowSize.windowWidth / 40,
-				fields.windowSize.windowWidth / 56, false, g);
+				(int) (fields.getWindowSize().getWindowHeight() - (30 + fields.getWindowSize().getWindowWidth() / 56)),
+				fields.getWindowSize().getWindowWidth() / 56, false, g);
+		Images.typeString(fields.getAllUsers().getUser().getUserName(),
+				(int) (fields.getWindowSize().getWindowWidth() / 1.2 - 20.0),
+				fields.getWindowSize().getWindowWidth() / 40,
+				fields.getWindowSize().getWindowWidth() / 56, false, g);
 		Images.typeScrambleType(
-				fields.allUsers.getUser().getTwistyPuzzleType(),
-				(int) (fields.windowSize.windowWidth / 1.2 - 20),
-				fields.windowSize.windowWidth / 20,
-				fields.windowSize.windowWidth / 56, g);
+				fields.getAllUsers().getUser().getTwistyPuzzleType(),
+				(int) (fields.getWindowSize().getWindowWidth() / 1.2 - 20),
+				fields.getWindowSize().getWindowWidth() / 20,
+				fields.getWindowSize().getWindowWidth() / 56, g);
 		Images.typeString(Integer
-				.toString(fields.displayedDada.scrambleDada.scrambleLenght),
-				(int) (fields.windowSize.windowWidth / 1.2 - 20),
-				fields.windowSize.windowWidth / 15,
-				fields.windowSize.windowWidth / 56, false, g);
+				.toString(fields.getDisplayedData().getScrambleData().getScrambleLenght()),
+				(int) (fields.getWindowSize().getWindowWidth() / 1.2 - 20),
+				fields.getWindowSize().getWindowWidth() / 15,
+				fields.getWindowSize().getWindowWidth() / 56, false, g);
 	}
 
 	private void menu(Graphics g) {
@@ -92,17 +92,17 @@ public class Paint extends JPanel {
 						"New Scramble", "TimeMenu", "Options", "Exit", "Quit" };
 
 		Boolean[] greenText =
-				new Boolean[] { fields.menu.getChangeTwistyPuzzle(),
-						fields.menu.getUserMenu(),
-						fields.menu.getChangeScrambleLenght(),
-						fields.menu.getDeleteLastSolve(),
-						fields.menu.getNewScramble(),
-						fields.menu.getTimeMenu(), fields.menu.getOptions(),
-						fields.menu.getExit(), fields.menu.getQuit() };
+				new Boolean[] { fields.getMenu().getChangeTwistyPuzzle(),
+						fields.getMenu().getUserMenu(),
+						fields.getMenu().getChangeScrambleLenght(),
+						fields.getMenu().getDeleteLastSolve(),
+						fields.getMenu().getNewScramble(),
+						fields.getMenu().getTimeMenu(), fields.getMenu().getOptions(),
+						fields.getMenu().getExit(), fields.getMenu().getQuit() };
 
-		Images.drawMenuList(menuItems, fields.windowSize.windowWidth / 16,
-				greenText, fields.windowSize.windowHeight,
-				fields.windowSize.windowWidth, 1, g);
+		Images.drawMenuList(menuItems, fields.getWindowSize().getWindowWidth() / 16,
+				greenText, fields.getWindowSize().getWindowHeight(),
+				fields.getWindowSize().getWindowWidth(), 1, g);
 
 	}
 
@@ -114,20 +114,20 @@ public class Paint extends JPanel {
 						"One Handed 3x3x3", "Random Twisty Puzzle", "Exit" };
 
 		Boolean[] greenText =
-				new Boolean[] { fields.menu.twistyPuzzleMenu.get2x2x2(),
-						fields.menu.twistyPuzzleMenu.get3x3x3(),
-						fields.menu.twistyPuzzleMenu.get4x4x4(),
-						fields.menu.twistyPuzzleMenu.get5x5x5(),
-						fields.menu.twistyPuzzleMenu.getMegaMinx(),
-						fields.menu.twistyPuzzleMenu.getGearCube(),
-						fields.menu.twistyPuzzleMenu.getAnisatropicGearCube(),
-						fields.menu.twistyPuzzleMenu.getOneHanded3x3x3(),
-						fields.menu.twistyPuzzleMenu.getRandomTwistyPuzzle(),
-						fields.menu.twistyPuzzleMenu.getExit() };
+				new Boolean[] { fields.getMenu().getTwistyPuzzleMenu().get2x2x2(),
+						fields.getMenu().getTwistyPuzzleMenu().get3x3x3(),
+						fields.getMenu().getTwistyPuzzleMenu().get4x4x4(),
+						fields.getMenu().getTwistyPuzzleMenu().get5x5x5(),
+						fields.getMenu().getTwistyPuzzleMenu().getMegaMinx(),
+						fields.getMenu().getTwistyPuzzleMenu().getGearCube(),
+						fields.getMenu().getTwistyPuzzleMenu().getAnisatropicGearCube(),
+						fields.getMenu().getTwistyPuzzleMenu().getOneHanded3x3x3(),
+						fields.getMenu().getTwistyPuzzleMenu().getRandomTwistyPuzzle(),
+						fields.getMenu().getTwistyPuzzleMenu().getExit() };
 
-		Images.drawMenuList(menuItems, fields.windowSize.windowWidth / 32,
-				greenText, fields.windowSize.windowHeight,
-				fields.windowSize.windowWidth, 2, g);
+		Images.drawMenuList(menuItems, fields.getWindowSize().getWindowWidth() / 32,
+				greenText, fields.getWindowSize().getWindowHeight(),
+				fields.getWindowSize().getWindowWidth(), 2, g);
 	}
 
 	public void userMenu(Graphics g) {
@@ -137,36 +137,36 @@ public class Paint extends JPanel {
 						"Delete Current User", "Rename Current User", "Exit" };
 
 		Boolean[] greenText =
-				new Boolean[] { fields.menu.userActionsMenu.getAddUser(),
-						fields.menu.userActionsMenu.getChangeUser(),
-						fields.menu.userActionsMenu.getDeleteCurrentUser(),
-						fields.menu.userActionsMenu.getRenameCurrentUser(),
-						fields.menu.userActionsMenu.getExit() };
+				new Boolean[] { fields.getMenu().getUserActionsMenu().getAddUser(),
+						fields.getMenu().getUserActionsMenu().getChangeUser(),
+						fields.getMenu().getUserActionsMenu().getDeleteCurrentUser(),
+						fields.getMenu().getUserActionsMenu().getRenameCurrentUser(),
+						fields.getMenu().getUserActionsMenu().getExit() };
 
-		Images.drawMenuList(menuItems, fields.windowSize.windowWidth / 32,
-				greenText, fields.windowSize.windowHeight,
-				fields.windowSize.windowWidth, 2, g);
+		Images.drawMenuList(menuItems, fields.getWindowSize().getWindowWidth() / 32,
+				greenText, fields.getWindowSize().getWindowHeight(),
+				fields.getWindowSize().getWindowWidth(), 2, g);
 	}
 
 	public void changeScrambleLenght(Graphics g) {
 
-		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth,
-				fields.windowSize.windowHeight, g);
+		Images.drawBackGround(Color.WHITE, fields.getWindowSize().getWindowWidth(),
+				fields.getWindowSize().getWindowHeight(), g);
 
 		Images.typeString(Integer
-				.toString(fields.displayedDada.scrambleDada.scrambleLenght),
-				fields.windowSize.windowWidth / 2 - 100,
-				fields.windowSize.windowHeight / 2,
-				fields.windowSize.windowWidth / 12, true, g);
+				.toString(fields.getDisplayedData().getScrambleData().getScrambleLenght()),
+				fields.getWindowSize().getWindowWidth() / 2 - 100,
+				fields.getWindowSize().getWindowHeight() / 2,
+				fields.getWindowSize().getWindowWidth() / 12, true, g);
 	}
 
 	public void changeUser(Graphics g) {
 
 		ArrayList<String> arrayListMenuItems = new ArrayList<String>();
 
-		for (int i = 0; i < fields.allUsers.getSize(); i++) {
+		for (int i = 0; i < fields.getAllUsers().getSize(); i++) {
 
-			arrayListMenuItems.add(fields.allUsers.getUser(i).getUserName());
+			arrayListMenuItems.add(fields.getAllUsers().getUser(i).getUserName());
 		}
 
 		String[] menuItems = new String[arrayListMenuItems.size()];
@@ -174,9 +174,9 @@ public class Paint extends JPanel {
 
 		ArrayList<Boolean> arrayListGreenTexts = new ArrayList<Boolean>();
 
-		for (int i = 0; i < fields.allUsers.getSize(); i++) {
+		for (int i = 0; i < fields.getAllUsers().getSize(); i++) {
 
-			arrayListGreenTexts.add(fields.menu.userActionsMenu
+			arrayListGreenTexts.add(fields.getMenu().getUserActionsMenu()
 					.getSelectedUserIndex() == i);
 		}
 
@@ -184,48 +184,48 @@ public class Paint extends JPanel {
 		greenTexts = (Boolean[]) arrayListGreenTexts.toArray(greenTexts);
 
 		Images.drawMenuList(menuItems, 32, greenTexts,
-				fields.windowSize.windowHeight, fields.windowSize.windowWidth,
+				fields.getWindowSize().getWindowHeight(), fields.getWindowSize().getWindowWidth(),
 				2, g);
 	}
 
 	public void options(Graphics g) {
 
-		Images.drawBackGround(Color.WHITE, fields.windowSize.windowWidth,
-				fields.windowSize.windowHeight, g);
+		Images.drawBackGround(Color.WHITE, fields.getWindowSize().getWindowWidth(),
+				fields.getWindowSize().getWindowHeight(), g);
 	}
 
 	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
 
-		if (fields.displayState == DisplayState.consoleRequiresAttention) {
+		if (fields.getDisplayState() == DisplayState.consoleRequiresAttention) {
 			consoleRequiresAttention(g);
 		}
 
-		else if (fields.displayState == DisplayState.menu) {
+		else if (fields.getDisplayState() == DisplayState.menu) {
 
 			menu(g);
 		}
 
-		else if (fields.displayState == DisplayState.changeTwistyPuzzle) {
+		else if (fields.getDisplayState() == DisplayState.changeTwistyPuzzle) {
 
 			changeTwistyPuzzle(g);
 		}
 
-		else if (fields.displayState == DisplayState.userMenu) {
+		else if (fields.getDisplayState() == DisplayState.userMenu) {
 
 			userMenu(g);
 		}
 
-		else if (fields.displayState == DisplayState.changeScrambleLenght) {
+		else if (fields.getDisplayState() == DisplayState.changeScrambleLenght) {
 			changeScrambleLenght(g);
 		}
 
-		else if (fields.displayState == DisplayState.changeUser) {
+		else if (fields.getDisplayState() == DisplayState.changeUser) {
 			changeUser(g);
 		}
 
-		else if (fields.displayState == DisplayState.options) {
+		else if (fields.getDisplayState() == DisplayState.options) {
 
 		}
 

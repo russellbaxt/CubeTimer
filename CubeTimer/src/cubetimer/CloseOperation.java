@@ -4,7 +4,7 @@ import fields.Fields;
 
 public class CloseOperation{
 	
-	Fields fields;
+	private Fields fields;
 
 	public CloseOperation(Fields fieldsIn){
 		

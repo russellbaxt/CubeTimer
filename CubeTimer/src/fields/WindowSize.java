@@ -2,17 +2,33 @@ package fields;
 
 public class WindowSize{
 	
-	public int windowWidth;
-	public int windowHeight;
+	private int windowWidth;
+	private int windowHeight;
 	
 	public WindowSize(){
 	
-		windowWidth = 0;
-		windowHeight = 0;
+		setWindowWidth(0);
+		setWindowHeight(0);
 	}
 	
 	public void setSize(int windowWidthIn, int windowHeightIn){
-		windowWidth = windowWidthIn;
+		setWindowWidth(windowWidthIn);
+		setWindowHeight(windowHeightIn);
+	}
+
+	public int getWindowHeight() {
+		return windowHeight;
+	}
+
+	public void setWindowHeight(int windowHeightIn) {
 		windowHeight = windowHeightIn;
+	}
+
+	public int getWindowWidth() {
+		return windowWidth;
+	}
+
+	public void setWindowWidth(int windowWidthIn) {
+		windowWidth = windowWidthIn;
 	}
 }

@@ -8,18 +8,18 @@ import fields.Fields;
 
 public class Main{
 	
-	public static ArrayList <Integer> screenSize = Actions.getDefaultWindowSize();
-	public static int width = screenSize.get(0);
-	public static int height = screenSize.get(0);
+	private static ArrayList <Integer> screenSize = Actions.getDefaultWindowSize();
+	private static int width = screenSize.get(0);
+	private static int height = screenSize.get(0);
 	
-	public static Fields f;
-	public static FileWriter fw;
-	public static Paint p;
-	public static Scrambler s;
-	public static Stackmat t;
-	public static Actions a;
-	public static CloseOperation co;
-	public static Display d;
+	private static Fields f;
+	private static FileWriter fw;
+	private static Paint p;
+	private static Scrambler s;
+	private static Stackmat t;
+	private static Actions a;
+	private static CloseOperation co;
+	private static Display d;
 	
 	public static void main(String[] args){
 		

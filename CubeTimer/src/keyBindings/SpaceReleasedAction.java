@@ -21,18 +21,18 @@ public class SpaceReleasedAction extends AbstractAction{
 	
 	public void actionPerformed(ActionEvent e){
 	
-		fields.greenText = false;
+		fields.setGreenText(false);
 		
-		if(fields.ignoreNextRelese){
-			fields.ignoreNextRelese = false;
+		if(fields.getIgnoreNextRelese()){
+			fields.setIgnoreNextRelese(false);
 		}
 		
 		else{
-			if(! fields.timerStatus.running){
+			if(! fields.getTimerStatus().getRunning()){
 				
-				fields.displayedDada.scrambleDada.randomScramble = "";
+				fields.getDisplayedData().getScrambleData().setRandomScramble("");
 				
-				if(fields.timerStatus.countDownRunning){
+				if(fields.getTimerStatus().getCountDownRunning()){
 					
 					stackmat.stopCountDown();
 					stackmat.startTimer();

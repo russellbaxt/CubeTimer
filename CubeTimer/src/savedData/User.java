@@ -1,4 +1,4 @@
-package savedDada;
+package savedData;
 
 import fields.TwistyPuzzleType;
 

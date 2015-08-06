@@ -3,9 +3,9 @@ package menus;
 
 public class Menu{
 	
-	public UserActionsMenu userActionsMenu;
-	public TwistyPuzzleMenu twistyPuzzleMenu;
-	public OptionsMenu optionsMenu;
+	private UserActionsMenu userActionsMenu;
+	private TwistyPuzzleMenu twistyPuzzleMenu;
+	private OptionsMenu optionsMenu;
 	
 	private boolean changeTwistyPuzzle;
 	private boolean userMenu;
@@ -19,9 +19,9 @@ public class Menu{
 	
 	public Menu(){
 	
-		userActionsMenu = new UserActionsMenu();
-		twistyPuzzleMenu = new TwistyPuzzleMenu();
-		optionsMenu = new OptionsMenu();
+		setUserActionsMenu(new UserActionsMenu());
+		setTwistyPuzzleMenu(new TwistyPuzzleMenu());
+		setOptionsMenu(new OptionsMenu());
 		
 		changeTwistyPuzzle = true;
 		userMenu = false;
@@ -185,6 +185,30 @@ public class Menu{
 	public boolean getQuit(){
 		
 		return quit;
+	}
+
+	public OptionsMenu getOptionsMenu() {
+		return optionsMenu;
+	}
+
+	public void setOptionsMenu(OptionsMenu optionsMenuIn) {
+		optionsMenu = optionsMenuIn;
+	}
+
+	public TwistyPuzzleMenu getTwistyPuzzleMenu() {
+		return twistyPuzzleMenu;
+	}
+
+	public void setTwistyPuzzleMenu(TwistyPuzzleMenu twistyPuzzleMenuIn) {
+		twistyPuzzleMenu = twistyPuzzleMenuIn;
+	}
+
+	public UserActionsMenu getUserActionsMenu() {
+		return userActionsMenu;
+	}
+
+	public void setUserActionsMenu(UserActionsMenu userActionsMenuIn) {
+		userActionsMenu = userActionsMenuIn;
 	}
 	
 }

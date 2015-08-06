@@ -9,17 +9,25 @@ import fields.Fields;
 
 public class ChangeUser implements ActionListener{
 
-	Fields fields;
+	private Fields fields;
 	
 	public ChangeUser(Fields f){
 		
-		fields = f;
+		setFields(f);
 	}
 	
 	public void actionPerformed(ActionEvent e){
 	
-		fields.displayState = DisplayState.changeUser;
+		getFields().setDisplayState(DisplayState.changeUser);
 		
+	}
+
+	Fields getFields() {
+		return fields;
+	}
+
+	void setFields(Fields fieldsIn) {
+		fields = fieldsIn;
 	}
 	
 }
