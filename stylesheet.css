@@ -1,0 +1,15 @@
+h1 {
+    font-family: "Helvetica Neue, Helvetica, Arial", sans-serif;
+    text-align: center;
+    font-size: 5em;
+    font-weight: 400;
+    margin-top: 0.75em;
+}
+
+p {
+    font-family: "Helvetica Neue, Helvetica, Arial", sans-serif;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 200;
+    margin-top: 0.25em;
+}
