@@ -196,6 +196,8 @@ public class Paint extends JPanel {
 
 	public void paintComponent(Graphics g) {
 
+		System.out.print("repaint");
+		
 		super.paintComponent(g);
 
 		if (fields.getDisplayState() == DisplayState.consoleRequiresAttention) {
