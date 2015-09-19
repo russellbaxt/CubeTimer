@@ -199,7 +199,6 @@ public class Paint extends JPanel {
 		if(fields.getChangeSinceLastRepaint()){
 	
 			fields.repainted();
-			System.out.print("repaint");
 			
 			super.paintComponent(g);
 	
