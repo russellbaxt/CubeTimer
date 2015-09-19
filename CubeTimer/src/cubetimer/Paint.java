@@ -195,45 +195,50 @@ public class Paint extends JPanel {
 	}
 
 	public void paintComponent(Graphics g) {
-
-		System.out.print("repaint");
 		
-		super.paintComponent(g);
+		if(fields.getChangeSinceLastRepaint()){
+	
+			fields.repainted();
+			System.out.print("repaint");
+			
+			super.paintComponent(g);
+	
+			if (fields.getDisplayState() == DisplayState.consoleRequiresAttention) {
+				consoleRequiresAttention(g);
+			}
+	
+			else if (fields.getDisplayState() == DisplayState.menu) {
+	
+				menu(g);
+			}
+	
+			else if (fields.getDisplayState() == DisplayState.changeTwistyPuzzle) {
+	
+				changeTwistyPuzzle(g);
+			}
+	
+			else if (fields.getDisplayState() == DisplayState.userMenu) {
+	
+				userMenu(g);
+			}
+	
+			else if (fields.getDisplayState() == DisplayState.changeScrambleLenght) {
+				changeScrambleLenght(g);
+			}
+	
+			else if (fields.getDisplayState() == DisplayState.changeUser) {
+				changeUser(g);
+			}
 
-		if (fields.getDisplayState() == DisplayState.consoleRequiresAttention) {
-			consoleRequiresAttention(g);
+			else if (fields.getDisplayState() == DisplayState.options) {
+			
+			}
+		
+			else {
+			
+				timer(g);
+			}
 		}
-
-		else if (fields.getDisplayState() == DisplayState.menu) {
-
-			menu(g);
-		}
-
-		else if (fields.getDisplayState() == DisplayState.changeTwistyPuzzle) {
-
-			changeTwistyPuzzle(g);
-		}
-
-		else if (fields.getDisplayState() == DisplayState.userMenu) {
-
-			userMenu(g);
-		}
-
-		else if (fields.getDisplayState() == DisplayState.changeScrambleLenght) {
-			changeScrambleLenght(g);
-		}
-
-		else if (fields.getDisplayState() == DisplayState.changeUser) {
-			changeUser(g);
-		}
-
-		else if (fields.getDisplayState() == DisplayState.options) {
-
-		}
-
-		else {
-
-			timer(g);
-		}
+		
 	}
 }

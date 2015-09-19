@@ -56,7 +56,8 @@ public class KeepCountDown implements ActionListener {
 				plus2 = true;
 			}
 		}
-
+		
+		fields.changeSinceLastRepaint();
 		paint.repaint();
 	}
 
