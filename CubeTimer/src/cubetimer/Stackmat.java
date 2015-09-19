@@ -35,13 +35,11 @@ public class Stackmat {
 
 		scrambler.randomCorrectScrambleInFieldsUsingFields();
 		fields.getTimerStatus().setRunning(false);
-		fields.getAllUsers()
-				.getUser()
-				.getTwistyPuzzle()
-				.addTime(
-						new Time(keepTime.getEndTimeResult(), keepCountDown
-								.getPenalty(), keepCountDown.getDNF()));
-		fields.getAllUsers().getUser().getTwistyPuzzle().setLastAvarageOf5();
+		fields.getAllUsers().getUser().getTwistyPuzzle().addTime(
+			new Time(keepTime.getEndTimeResult(), 
+			keepCountDown.getPenalty(), keepCountDown.getDNF()));
+		fields.getAllUsers().getUser().getTwistyPuzzle()
+			.setLastAvarageOf5();
 
 		fields.changeSinceLastRepaint();
 	}

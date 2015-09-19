@@ -1,8 +1,11 @@
 package savedData;
 
+import fields.ScreenChange;
 import fields.TwistyPuzzleType;
 
 public class User{
+	
+	private ScreenChange screenChange;
 	
 	private String userName;
 	
@@ -18,8 +21,10 @@ public class User{
 	private TwistyPuzzle anisatropicGearCube;
 	private TwistyPuzzle gearCube;
 	
-	public User(){
+	public User(ScreenChange screenChangeIn){
 	
+		screenChange = screenChangeIn;
+		
 		userName = "";
 		
 		currentTwistyPuzzleType = TwistyPuzzleType.cube3x3x3;
@@ -37,6 +42,9 @@ public class User{
 	
 	public void setUserName(String userIn){
 	
+		if(userName != userIn){
+			screenChange.screenChange();
+		}
 		userName = userIn;
 	}
 	
@@ -46,6 +54,12 @@ public class User{
 	}
 	
 	public void setTwistyPuzzleType(TwistyPuzzleType twistyPuzzleType){
+		
+		if(currentTwistyPuzzleType != twistyPuzzleType){
+			
+			screenChange.screenChange();
+		}
+		
 		currentTwistyPuzzleType = twistyPuzzleType;
 	}
 	

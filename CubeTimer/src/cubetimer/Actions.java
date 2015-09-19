@@ -17,9 +17,10 @@ import swingTimerActions.ChangeUser;
 
 public class Actions {
 
-	public static void callUponOpen(Fields fields) {
+	public static void callUponOpen(Fields fields,
+		 ScreenChange screenChange) {
 
-		fields.getAllUsers().addUser(new User());
+		fields.getAllUsers().addUser(new User(screenChange));
 
 		@SuppressWarnings("resource")
 		Scanner userInput = new Scanner(System.in);

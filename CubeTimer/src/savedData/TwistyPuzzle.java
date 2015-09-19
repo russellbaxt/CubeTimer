@@ -1,6 +1,7 @@
 package savedData;
 
 import java.util.ArrayList;
+import fields.ScreenChange;
 
 import fields.TwistyPuzzleType;
 
@@ -11,8 +12,11 @@ public class TwistyPuzzle {
 	private ArrayList<Double> last5SolvesForAvarageOf5;
 	private String avarageOf5;
 
-	public TwistyPuzzle(TwistyPuzzleType twistyPuzzleTypeIn) {
+	private ScreenChange screenChange;
+	
+	public TwistyPuzzle(TwistyPuzzleType twistyPuzzleTypeIn, ScreenChange screenChangeIn) {
 
+		screenChange = screenChangeIn;
 		twistyPuzzleType = twistyPuzzleTypeIn;
 		times = new ArrayList<Time>();
 		avarageOf5 = "No Avarage Of 5 Yet";
